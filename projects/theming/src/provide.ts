@@ -2,13 +2,18 @@ import {
   APP_INITIALIZER,
   EnvironmentProviders,
   inject,
+  InjectionToken,
   makeEnvironmentProviders,
   Provider,
   Type,
 } from '@angular/core';
 
-import { THEME_BUILDERS, ThemeBuilder } from './builder';
+import { ThemeBuilder } from './builder';
 import { ThemeManager } from './manager';
+
+export const THEME_BUILDERS = new InjectionToken<ThemeBuilder<unknown>[]>(
+  'THEME_BUILDERS',
+);
 
 export type ThemeBuilderTypes = Type<ThemeBuilder<unknown>>[];
 export type InferThemeConfig<Builders extends ThemeBuilderTypes> = {
