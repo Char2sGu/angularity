@@ -1,5 +1,5 @@
 {
-  "name": "angularly",
+  "name": "angularity",
   "version": "0.0.0",
   "scripts": {
     "prepare": "husky install",

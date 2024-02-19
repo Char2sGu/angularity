@@ -7,7 +7,7 @@ import {
   Provider,
   Type,
 } from '@angular/core';
-import { provideMulti } from '@angularly/core';
+import { provideMulti } from '@angularity/core';
 
 import { ThemeBuilder } from './builder';
 import { ThemeManager } from './manager';

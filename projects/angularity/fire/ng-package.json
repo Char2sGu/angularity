@@ -1,6 +1,6 @@
 {
   "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../../dist/angularly/theming-material",
+  "dest": "../../../dist/angularity/fire",
   "lib": {
     "entryFile": "src/public-api.ts"
   }

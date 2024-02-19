@@ -1,4 +1,4 @@
-import { ThemeBuilder, ThemeTokens } from '@angularly/theming';
+import { ThemeBuilder, ThemeTokens } from '@angularity/theming';
 
 export interface TypescaleBuilderConfig {
   typescales: TypescaleConfig[];

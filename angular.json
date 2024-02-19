@@ -3,23 +3,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "@angularly/theming": {
+    "@angularity/theming": {
       "projectType": "library",
-      "root": "projects/angularly/theming",
-      "sourceRoot": "projects/angularly/theming/src",
+      "root": "projects/angularity/theming",
+      "sourceRoot": "projects/angularity/theming/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/angularly/theming/ng-package.json"
+            "project": "projects/angularity/theming/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/angularly/theming/tsconfig.lib.prod.json"
+              "tsConfig": "projects/angularity/theming/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/angularly/theming/tsconfig.lib.json"
+              "tsConfig": "projects/angularity/theming/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,29 +27,29 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/angularly/theming/tsconfig.spec.json",
+            "tsConfig": "projects/angularity/theming/tsconfig.spec.json",
             "polyfills": ["zone.js", "zone.js/testing"]
           }
         }
       }
     },
-    "@angularly/theming-material": {
+    "@angularity/theming-material": {
       "projectType": "library",
-      "root": "projects/angularly/theming-material",
-      "sourceRoot": "projects/angularly/theming-material/src",
+      "root": "projects/angularity/theming-material",
+      "sourceRoot": "projects/angularity/theming-material/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/angularly/theming-material/ng-package.json"
+            "project": "projects/angularity/theming-material/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/angularly/theming-material/tsconfig.lib.prod.json"
+              "tsConfig": "projects/angularity/theming-material/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/angularly/theming-material/tsconfig.lib.json"
+              "tsConfig": "projects/angularity/theming-material/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -57,29 +57,29 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/angularly/theming-material/tsconfig.spec.json",
+            "tsConfig": "projects/angularity/theming-material/tsconfig.spec.json",
             "polyfills": ["zone.js", "zone.js/testing"]
           }
         }
       }
     },
-    "@angularly/fire": {
+    "@angularity/fire": {
       "projectType": "library",
-      "root": "projects/angularly/fire",
-      "sourceRoot": "projects/angularly/fire/src",
+      "root": "projects/angularity/fire",
+      "sourceRoot": "projects/angularity/fire/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/angularly/fire/ng-package.json"
+            "project": "projects/angularity/fire/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/angularly/fire/tsconfig.lib.prod.json"
+              "tsConfig": "projects/angularity/fire/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/angularly/fire/tsconfig.lib.json"
+              "tsConfig": "projects/angularity/fire/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -87,29 +87,29 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/angularly/fire/tsconfig.spec.json",
+            "tsConfig": "projects/angularity/fire/tsconfig.spec.json",
             "polyfills": ["zone.js", "zone.js/testing"]
           }
         }
       }
     },
-    "@angularly/core": {
+    "@angularity/core": {
       "projectType": "library",
-      "root": "projects/angularly/core",
-      "sourceRoot": "projects/angularly/core/src",
+      "root": "projects/angularity/core",
+      "sourceRoot": "projects/angularity/core/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/angularly/core/ng-package.json"
+            "project": "projects/angularity/core/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/angularly/core/tsconfig.lib.prod.json"
+              "tsConfig": "projects/angularity/core/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/angularly/core/tsconfig.lib.json"
+              "tsConfig": "projects/angularity/core/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -117,7 +117,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/angularly/core/tsconfig.spec.json",
+            "tsConfig": "projects/angularity/core/tsconfig.spec.json",
             "polyfills": ["zone.js", "zone.js/testing"]
           }
         }

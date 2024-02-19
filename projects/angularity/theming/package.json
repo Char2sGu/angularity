@@ -1,5 +1,5 @@
 {
-  "name": "@angularly/core",
+  "name": "@angularity/theming",
   "version": "0.0.0",
   "peerDependencies": {
     "@angular/common": "^17.2.0",
