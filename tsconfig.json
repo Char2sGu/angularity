@@ -20,6 +20,7 @@
     "forceConsistentCasingInFileNames": true,
     "paths": {
       "@angularly/theming": ["./dist/angularly/theming"],
+      "@angularly/theming-material": ["./dist/angularly/theming-material"],
     },
     "useDefineForClassFields": false,
     "typeRoots": ["node_modules/@angular/core"],
