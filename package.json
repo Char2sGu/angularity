@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.2.0",
+    "@angular/cdk": "^17.2.0",
     "@angular/cli": "^17.2.0",
     "@angular/compiler-cli": "^17.2.1",
     "@angular/fire": "^17.0.1",

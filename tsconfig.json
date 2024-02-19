@@ -19,6 +19,7 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
+      "@angularity/cdk": ["./dist/angularity/cdk"],
       "@angularity/core": ["./dist/angularity/core"],
       "@angularity/fire": ["./dist/angularity/fire"],
       "@angularity/theming": ["./dist/angularity/theming"],
