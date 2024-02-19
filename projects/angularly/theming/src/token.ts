@@ -28,18 +28,21 @@ export class RootElementStylePropertiesThemeTokenRegistry
 {
   protected document = inject(DOCUMENT);
   protected element = this.document.documentElement;
+  protected styles?: CSSStyleDeclaration;
 
   /**
    * @throws {ThemeTokenNotFoundError}
    */
   get(name: string): string {
     name = this.normalizeName(name);
-    const value = window.getComputedStyle(this.element).getPropertyValue(name);
+    this.styles ??= window.getComputedStyle(this.element);
+    const value = this.styles.getPropertyValue(name);
     if (!value) throw new ThemeTokenNotFoundError(name);
     return value.trim();
   }
 
   set(name: string, value: string | null): void {
+    this.styles &&= undefined;
     name = this.normalizeName(name);
     this.element.style.setProperty(name, value);
   }
