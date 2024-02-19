@@ -19,7 +19,7 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@angularly/theming": ["./dist/theming"],
+      "@angularly/theming": ["./dist/angularly/theming"],
     },
     "useDefineForClassFields": false,
     "typeRoots": ["node_modules/@angular/core"],
