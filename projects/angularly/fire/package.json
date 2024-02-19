@@ -1,0 +1,13 @@
+{
+  "name": "@angularly/fire",
+  "version": "0.0.0",
+  "peerDependencies": {
+    "@angular/common": "^17.2.0",
+    "@angular/core": "^17.2.0",
+    "@angular/fire": "^17.0.1"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
