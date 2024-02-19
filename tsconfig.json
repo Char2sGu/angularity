@@ -18,6 +18,9 @@
     "noPropertyAccessFromIndexSignature": true,
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "theming": ["./dist/theming"],
+    },
     "useDefineForClassFields": false,
     "typeRoots": ["node_modules/@angular/core"],
   },
