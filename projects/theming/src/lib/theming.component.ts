@@ -4,13 +4,7 @@ import { Component } from '@angular/core';
   selector: 'lib-theming',
   standalone: true,
   imports: [],
-  template: `
-    <p>
-      theming works!
-    </p>
-  `,
-  styles: ``
+  template: ` <p>theming works!</p> `,
+  styles: ``,
 })
-export class ThemingComponent {
-
-}
+export class ThemingComponent {}
