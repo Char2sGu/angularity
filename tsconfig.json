@@ -21,6 +21,7 @@
     "paths": {
       "@angularity/cdk": ["./dist/angularity/cdk"],
       "@angularity/core": ["./dist/angularity/core"],
+      "@angularity/endpoints": ["./dist/angularity/endpoints"],
       "@angularity/fire": ["./dist/angularity/fire"],
       "@angularity/theming": ["./dist/angularity/theming"],
       "@angularity/theming-material": ["./dist/angularity/theming-material"],
