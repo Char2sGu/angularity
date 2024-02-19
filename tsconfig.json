@@ -19,6 +19,7 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
+      "@angularly/core": ["./dist/angularly/core"],
       "@angularly/fire": ["./dist/angularly/fire"],
       "@angularly/theming": ["./dist/angularly/theming"],
       "@angularly/theming-material": ["./dist/angularly/theming-material"],

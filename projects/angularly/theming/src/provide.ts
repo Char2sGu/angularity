@@ -7,6 +7,7 @@ import {
   Provider,
   Type,
 } from '@angular/core';
+import { provideMulti } from '@angularly/core';
 
 import { ThemeBuilder } from './builder';
 import { ThemeManager } from './manager';
@@ -27,21 +28,17 @@ export function provideTheme<Builders extends ThemeBuilderTypes>(
   config: InferThemeConfig<Builders>,
 ): EnvironmentProviders {
   const builderProviders = builders.map(
-    (builder): Provider => ({
-      provide: THEME_BUILDERS,
-      multi: true,
-      useClass: builder,
-    }),
+    (builder): Provider =>
+      provideMulti({ token: THEME_BUILDERS, useClass: builder }),
   );
   return makeEnvironmentProviders([
     builderProviders,
-    {
-      provide: APP_INITIALIZER,
-      multi: true,
+    provideMulti({
+      token: APP_INITIALIZER,
       useFactory:
         (themeManager = inject<ThemeManager<typeof config>>(ThemeManager)) =>
         () =>
           themeManager.apply(config),
-    },
+    }),
   ]);
 }
