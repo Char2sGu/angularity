@@ -10,7 +10,7 @@ export interface ThemeTokens {
   useExisting: forwardRef(() => RootElementStylePropertiesThemeTokenRegistry),
 })
 export abstract class ThemeTokenRegistry {
-  abstract get(name: string): string;
+  abstract get(name: string): string | null;
   abstract set(name: string, value: string | null): void;
 }
 
@@ -30,15 +30,18 @@ export class RootElementStylePropertiesThemeTokenRegistry
   protected element = this.document.documentElement;
   protected styles?: CSSStyleDeclaration;
 
-  /**
-   * @throws {ThemeTokenNotFoundError}
-   */
-  get(name: string): string {
+  get(name: string): string | null {
     name = this.normalizeName(name);
     this.styles ??= window.getComputedStyle(this.element);
     const value = this.styles.getPropertyValue(name);
-    if (!value) throw new ThemeTokenNotFoundError(name);
+    if (!value) return null;
     return value.trim();
+  }
+
+  getOrThrow(name: string): string {
+    const value = this.get(name);
+    if (value === null) throw new ThemeTokenNotFoundError(name);
+    return value;
   }
 
   set(name: string, value: string | null): void {
