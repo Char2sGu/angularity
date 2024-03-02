@@ -11,26 +11,19 @@
     "format": "prettier --write \"{*,projects/**/*}.{html,css,less,scss,sass,ts,js,json,md}\" && eslint \"projects/**/*.ts\" --cache --fix"
   },
   "private": true,
-  "dependencies": {
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.2.0",
     "@angular/animations": "^17.2.1",
+    "@angular/cdk": "^17.2.0",
+    "@angular/cli": "^17.2.0",
     "@angular/common": "^17.2.1",
     "@angular/compiler": "^17.2.1",
+    "@angular/compiler-cli": "^17.2.1",
     "@angular/core": "^17.2.1",
     "@angular/forms": "^17.2.1",
     "@angular/platform-browser": "^17.2.1",
     "@angular/platform-browser-dynamic": "^17.2.1",
     "@angular/router": "^17.2.1",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.14.3"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^17.2.0",
-    "@angular/cdk": "^17.2.0",
-    "@angular/cli": "^17.2.0",
-    "@angular/compiler-cli": "^17.2.1",
-    "@angular/fire": "^17.0.1",
-    "@material/material-color-utilities": "^0.2.7",
     "@types/jasmine": "~5.1.0",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
@@ -50,6 +43,12 @@
     "lint-staged": "^15.2.0",
     "ng-packagr": "^17.2.0",
     "prettier": "^3.2.4",
-    "typescript": "~5.3.2"
-  }
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "typescript": "~5.3.2",
+    "zone.js": "~0.14.3"
+  },
+  "workspaces": [
+    "projects/angularity/*"
+  ]
 }

@@ -2,12 +2,14 @@
   "name": "@angularity/fire",
   "version": "0.0.0",
   "peerDependencies": {
-    "@angular/common": "^17.2.0",
-    "@angular/core": "^17.2.0",
-    "@angular/fire": "^17.0.1"
+    "@angular/core": "17.x.x",
+    "rxjs": "~7.8.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "devDependencies": {
+    "@angular/fire": "^17.0.1"
+  }
 }

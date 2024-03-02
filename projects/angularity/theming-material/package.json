@@ -1,13 +1,15 @@
 {
   "name": "@angularity/theming-material",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "peerDependencies": {
-    "@angular/common": "^17.2.0",
-    "@angular/core": "^17.2.0",
+    "@angularity/theming": "*",
     "@material/material-color-utilities": "^0.2.7"
   },
   "dependencies": {
     "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@material/material-color-utilities": "^0.2.7"
   },
   "sideEffects": false
 }

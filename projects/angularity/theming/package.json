@@ -2,8 +2,9 @@
   "name": "@angularity/theming",
   "version": "0.0.0",
   "peerDependencies": {
-    "@angular/common": "^17.2.0",
-    "@angular/core": "^17.2.0"
+    "@angularity/core": "*",
+    "@angular/common": "17.x.x",
+    "@angular/core": "17.x.x"
   },
   "dependencies": {
     "tslib": "^2.3.0"
