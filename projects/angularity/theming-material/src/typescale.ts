@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import {
   ThemeBuilder,
   ThemeBuilderContext,
@@ -15,6 +16,7 @@ export interface TypescaleConfig {
 
 export interface TypescaleBuilderConfig extends Array<TypescaleConfig> {}
 
+@Injectable({ providedIn: 'root' })
 export class TypescaleBuilder implements ThemeBuilder<TypescaleBuilderConfig> {
   build(context: ThemeBuilderContext<TypescaleBuilderConfig>): ThemeTokens {
     const tokens: ThemeTokens = {};

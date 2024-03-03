@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import {
   ThemeBuilder,
   ThemeBuilderContext,
@@ -42,6 +43,7 @@ export interface SchemeBuilderConfig {
   mode: SchemeMode;
 }
 
+@Injectable({ providedIn: 'root' })
 export class SchemeBuilder implements ThemeBuilder<SchemeBuilderConfig> {
   build(context: ThemeBuilderContext<SchemeBuilderConfig>): ThemeTokens {
     const scheme = this.getScheme(context.config);
