@@ -1,2 +1,2 @@
-export * from './palette';
+export * from './scheme';
 export * from './typescale';

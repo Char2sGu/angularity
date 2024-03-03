@@ -1,4 +1,8 @@
-import { ThemeBuilder, ThemeTokens } from '@angularity/theming';
+import {
+  ThemeBuilder,
+  ThemeBuilderContext,
+  ThemeTokens,
+} from '@angularity/theming';
 import {
   argbFromHex,
   CorePalette,
@@ -31,22 +35,21 @@ export enum SchemeMode {
 }
 
 export interface SchemeBuilderConfig {
-  palette: {
-    primary: string;
-    secondary?: string;
-    tertiary?: string;
-    variant: SchemeVariant;
-    mode: SchemeMode;
-  };
+  primary: string;
+  secondary?: string;
+  tertiary?: string;
+  variant: SchemeVariant;
+  mode: SchemeMode;
 }
 
 export class SchemeBuilder implements ThemeBuilder<SchemeBuilderConfig> {
-  build(config: SchemeBuilderConfig): ThemeTokens {
-    const scheme = this.getScheme(config);
+  build(context: ThemeBuilderContext<SchemeBuilderConfig>): ThemeTokens {
+    const scheme = this.getScheme(context.config);
     const tokens: ThemeTokens = {};
     for (const [k, v] of Object.entries(MaterialDynamicColors)) {
       if (!(v instanceof DynamicColor)) continue;
-      const token = k.replace(/([a-z])([A-Z])/gu, '$1-$2').toLowerCase();
+      const name = k.replace(/([a-z])([A-Z])/gu, '$1-$2').toLowerCase();
+      const token = `${context.name}-${name}`;
       tokens[token] = hexFromArgb(v.getArgb(scheme));
     }
     return tokens;
@@ -55,9 +58,9 @@ export class SchemeBuilder implements ThemeBuilder<SchemeBuilderConfig> {
   getScheme(config: SchemeBuilderConfig): DynamicScheme {
     const palette = this.getCorePalette(config);
     const scheme = new DynamicScheme({
-      sourceColorArgb: argbFromHex(config.palette.primary),
-      variant: config.palette.variant as any,
-      isDark: config.palette.mode === SchemeMode.Dark,
+      sourceColorArgb: argbFromHex(config.primary),
+      variant: config.variant as any,
+      isDark: config.mode === SchemeMode.Dark,
       contrastLevel: 0.0,
       primaryPalette: palette.a1,
       secondaryPalette: palette.a2,
@@ -72,9 +75,9 @@ export class SchemeBuilder implements ThemeBuilder<SchemeBuilderConfig> {
     const read = (v: string) => argbFromHex(v);
     const readOpt = (v: string | undefined) => (v ? read(v) : undefined);
     return CorePalette.fromColors({
-      primary: read(config.palette.primary),
-      secondary: readOpt(config.palette.secondary),
-      tertiary: readOpt(config.palette.tertiary),
+      primary: read(config.primary),
+      secondary: readOpt(config.secondary),
+      tertiary: readOpt(config.tertiary),
     });
   }
 }
