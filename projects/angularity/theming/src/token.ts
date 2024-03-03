@@ -7,7 +7,7 @@ export interface ThemeTokens {
 
 @Injectable({
   providedIn: 'root',
-  useExisting: forwardRef(() => RootElementStylePropertiesThemeTokenRegistry),
+  useClass: forwardRef(() => RootElementStylePropertiesThemeTokenRegistry),
 })
 export abstract class ThemeTokenRegistry {
   abstract get(name: string): string | null;
@@ -20,9 +20,7 @@ export class ThemeTokenNotFoundError extends Error {
   }
 }
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class RootElementStylePropertiesThemeTokenRegistry
   implements ThemeTokenRegistry
 {
@@ -52,5 +50,16 @@ export class RootElementStylePropertiesThemeTokenRegistry
 
   protected normalizeName(name: string): string {
     return name.startsWith('--') ? name : `--${name}`;
+  }
+}
+
+@Injectable()
+export class TestingThemeTokenRegistry implements ThemeTokenRegistry {
+  tokens: Record<string, string | null> = {};
+  get(name: string): string | null {
+    return this.tokens[name] ?? null;
+  }
+  set(name: string, value: string | null): void {
+    this.tokens[name] = value;
   }
 }
