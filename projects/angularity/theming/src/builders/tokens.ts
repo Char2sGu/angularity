@@ -1,12 +1,10 @@
 import { ThemeBuilder, ThemeBuilderContext } from '../builder';
 import { ThemeTokens } from '../token';
 
-export interface TokensThemeBuilderConfig extends ThemeTokens {}
+export interface TokensBuilderConfig extends ThemeTokens {}
 
-export class TokensThemeBuilder
-  implements ThemeBuilder<TokensThemeBuilderConfig>
-{
-  build(context: ThemeBuilderContext<TokensThemeBuilderConfig>): ThemeTokens {
+export class TokensBuilder implements ThemeBuilder<TokensBuilderConfig> {
+  build(context: ThemeBuilderContext<TokensBuilderConfig>): ThemeTokens {
     return context.config;
   }
 }
