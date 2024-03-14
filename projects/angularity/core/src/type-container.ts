@@ -4,5 +4,5 @@ export interface TypeContainer<Type> {
   type?: Type;
 }
 
-export type ContainedType<Container extends TypeContainer<unknown>> =
+export type ContainedTypeOf<Container extends TypeContainer<unknown>> =
   Container extends TypeContainer<infer Type> ? Type : never;
