@@ -1,0 +1,32 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "@angularity/endpoints",
+  "projectType": "library",
+  "sourceRoot": "projects/angularity/endpoints/src",
+  "prefix": "lib",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "projects/angularity/endpoints/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "projects/angularity/endpoints/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "projects/angularity/endpoints/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": ["{workspaceRoot}/dist/angularity/endpoints"]
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "projects/angularity/endpoints/tsconfig.spec.json",
+        "polyfills": ["zone.js", "zone.js/testing"]
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "@angularity/config-files",
+  "projectType": "library",
+  "sourceRoot": "projects/angularity/config-files/src",
+  "prefix": "lib",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "projects/angularity/config-files/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "projects/angularity/config-files/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "projects/angularity/config-files/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": ["{workspaceRoot}/dist/angularity/config-files"]
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "projects/angularity/config-files/tsconfig.spec.json",
+        "polyfills": ["zone.js", "zone.js/testing"]
+      }
+    }
+  }
+}

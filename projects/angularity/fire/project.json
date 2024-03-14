@@ -1,0 +1,32 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "@angularity/fire",
+  "projectType": "library",
+  "sourceRoot": "projects/angularity/fire/src",
+  "prefix": "lib",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "projects/angularity/fire/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "projects/angularity/fire/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "projects/angularity/fire/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": ["{workspaceRoot}/dist/angularity/fire"]
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "projects/angularity/fire/tsconfig.spec.json",
+        "polyfills": ["zone.js", "zone.js/testing"]
+      }
+    }
+  }
+}
