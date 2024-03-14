@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { forwardRef, inject, Injectable } from '@angular/core';
+import { Exception } from '@angularity/core';
 
 export interface ThemeTokens {
   [name: string]: string;
@@ -14,7 +15,7 @@ export abstract class ThemeTokenRegistry {
   abstract set(name: string, value: string | null): void;
 }
 
-export class ThemeTokenNotFoundError extends Error {
+export class ThemeTokenNotFoundException extends Exception {
   constructor(name: string) {
     super(`Theme token ${name} is not defined`);
   }
@@ -38,7 +39,7 @@ export class RootElementStylePropertiesThemeTokenRegistry
 
   getOrThrow(name: string): string {
     const value = this.get(name);
-    if (value === null) throw new ThemeTokenNotFoundError(name);
+    if (value === null) throw new ThemeTokenNotFoundException(name);
     return value;
   }
 

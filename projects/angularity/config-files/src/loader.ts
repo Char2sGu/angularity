@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { forwardRef, inject, Injectable } from '@angular/core';
+import { Exception } from '@angularity/core';
 import { catchError, map, Observable } from 'rxjs';
 
 import { ConfigFileMetadata } from './metadata';
@@ -12,7 +13,7 @@ export abstract class ConfigFileLoader {
   abstract load<T, Schema>(meta: ConfigFileMetadata<T, Schema>): Observable<T>;
 }
 
-export class ConfigFileNotFoundError extends Error {
+export class ConfigFileNotFoundException extends Exception {
   override name = this.constructor.name;
 }
 
@@ -28,7 +29,7 @@ export class HttpClientConfigFileLoader {
 
     return this.fetch(meta.path).pipe(
       map((res) => {
-        if (!res) throw new ConfigFileNotFoundError(meta.path);
+        if (!res) throw new ConfigFileNotFoundException(meta.path);
         return res;
       }),
       map((raw) => {
