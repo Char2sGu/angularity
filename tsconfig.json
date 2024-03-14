@@ -20,6 +20,7 @@
     "forceConsistentCasingInFileNames": true,
     "paths": {
       "@angularity/cdk": ["./dist/angularity/cdk"],
+      "@angularity/config-files": ["./dist/angularity/config-files"],
       "@angularity/core": ["./dist/angularity/core"],
       "@angularity/endpoints": ["./dist/angularity/endpoints"],
       "@angularity/fire": ["./dist/angularity/fire"],
