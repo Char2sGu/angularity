@@ -1,6 +1,6 @@
 {
   "name": "@angularity/config-files",
-  "version": "0.0.0",
+  "version": "0.1.0-2",
   "peerDependencies": {
     "@angular/common": "^17.2.0",
     "@angular/core": "^17.2.0",
