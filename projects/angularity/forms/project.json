@@ -1,21 +1,21 @@
 {
-  "name": "@angularity/cva",
+  "name": "@angularity/forms",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "projects/angularity/cva/src",
+  "sourceRoot": "projects/angularity/forms/src",
   "prefix": "lib",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:ng-packagr",
       "options": {
-        "project": "projects/angularity/cva/ng-package.json"
+        "project": "projects/angularity/forms/ng-package.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "projects/angularity/cva/tsconfig.lib.prod.json"
+          "tsConfig": "projects/angularity/forms/tsconfig.lib.prod.json"
         },
         "development": {
-          "tsConfig": "projects/angularity/cva/tsconfig.lib.json"
+          "tsConfig": "projects/angularity/forms/tsconfig.lib.json"
         }
       },
       "defaultConfiguration": "production"
@@ -23,7 +23,7 @@
     "test": {
       "executor": "@angular-devkit/build-angular:karma",
       "options": {
-        "tsConfig": "projects/angularity/cva/tsconfig.spec.json",
+        "tsConfig": "projects/angularity/forms/tsconfig.spec.json",
         "polyfills": ["zone.js", "zone.js/testing"]
       }
     }
