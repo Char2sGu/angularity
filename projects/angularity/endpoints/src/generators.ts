@@ -1,4 +1,4 @@
-import { ContainedType } from '@angularity/core';
+import { ContainedTypeOf } from '@angularity/core';
 import { Observable } from 'rxjs';
 
 import {
@@ -14,20 +14,20 @@ export type ResolveEndpointParamsSchema<Schema extends EndpointParamsSchema> = {
     ? never
     : K extends `?${infer N}`
       ? N
-      : K]: ContainedType<Schema[K]>;
+      : K]: ContainedTypeOf<Schema[K]>;
 } & {
   [K in keyof Schema as K extends `${infer P}?`
     ? P extends `?${infer N}`
       ? N
       : P
-    : never]?: ContainedType<Schema[K]>;
+    : never]?: ContainedTypeOf<Schema[K]>;
 };
 
 export type GenerateEndpoint<Schema extends EndpointSchema> = (
   params: Schema['params'] extends EndpointParamsSchema
     ? ResolveEndpointParamsSchema<Schema['params']>
     : void,
-) => Observable<ContainedType<Schema['response']>>;
+) => Observable<ContainedTypeOf<Schema['response']>>;
 
 export function generateEndpoint<Schema extends EndpointSchema>(
   invoker: EndpointInvoker,
