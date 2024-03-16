@@ -1,0 +1,32 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "@angularity/theming-material",
+  "projectType": "library",
+  "sourceRoot": "packages/theming-material/src",
+  "prefix": "lib",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "packages/theming-material/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/theming-material/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/theming-material/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": ["{workspaceRoot}/dist/theming-material"]
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "packages/theming-material/tsconfig.spec.json",
+        "polyfills": ["zone.js", "zone.js/testing"]
+      }
+    }
+  }
+}

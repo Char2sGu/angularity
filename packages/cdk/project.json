@@ -1,0 +1,32 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "@angularity/cdk",
+  "projectType": "library",
+  "sourceRoot": "packages/cdk/src",
+  "prefix": "lib",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "packages/cdk/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/cdk/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/cdk/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": ["{workspaceRoot}/dist/cdk"]
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "packages/cdk/tsconfig.spec.json",
+        "polyfills": ["zone.js", "zone.js/testing"]
+      }
+    }
+  }
+}

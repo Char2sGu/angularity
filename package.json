@@ -8,7 +8,7 @@
     "build": "nx build",
     "watch": "nx build --watch --configuration development",
     "test": "nx test",
-    "format": "prettier --write \"{*,projects/**/*}.{html,css,less,scss,sass,ts,js,json,md}\" && eslint \"projects/**/*.ts\" --cache --fix"
+    "format": "prettier --write \"{*,packages/**/*}.{html,css,less,scss,sass,ts,js,json,md}\" && eslint \"packages/**/*.ts\" --cache --fix"
   },
   "private": true,
   "devDependencies": {
@@ -55,6 +55,6 @@
     "zone.js": "~0.14.3"
   },
   "workspaces": [
-    "projects/angularity/*"
+    "packages/*"
   ]
 }

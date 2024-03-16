@@ -1,0 +1,31 @@
+{
+  "name": "@angularity/forms",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/forms/src",
+  "prefix": "lib",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "packages/forms/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/forms/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/forms/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "packages/forms/tsconfig.spec.json",
+        "polyfills": ["zone.js", "zone.js/testing"]
+      }
+    }
+  }
+}

@@ -24,7 +24,7 @@
     ]
   },
   "release": {
-    "projects": ["projects/angularity/*"],
+    "projects": ["packages/*"],
     "git": {
       "commitMessage": "build: release {version}"
     }
