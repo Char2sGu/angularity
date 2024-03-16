@@ -12,7 +12,7 @@
     }
   },
   "affected": {
-    "defaultBase": "main"
+    "defaultBase": "develop"
   },
   "namedInputs": {
     "sharedGlobals": [],
@@ -22,5 +22,11 @@
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/**/*.spec.[jt]s"
     ]
+  },
+  "release": {
+    "projects": ["projects/angularity/*"],
+    "git": {
+      "commitMessage": "build: release {version}"
+    }
   }
 }
