@@ -5,7 +5,7 @@ import { ComponentValueAccessorHost } from './host';
 
 @Injectable()
 export class ComponentValueAccessor implements ControlValueAccessor {
-  private host = inject(ComponentValueAccessorHost, { self: true });
+  protected host = inject(ComponentValueAccessorHost, { self: true });
   writeValue(value: unknown): void {
     this.host.valueInput$.next(value);
   }

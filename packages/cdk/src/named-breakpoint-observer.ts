@@ -4,7 +4,7 @@ import { map, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class NamedBreakpointObserver {
-  private observer = inject(BreakpointObserver);
+  protected observer = inject(BreakpointObserver);
 
   observe<BreakpointName extends string>(
     config: BreakpointConfig<BreakpointName>,
@@ -14,7 +14,7 @@ export class NamedBreakpointObserver {
       .pipe(map((state) => this.parseState(config, state)));
   }
 
-  private parseState<BreakpointName extends string>(
+  protected parseState<BreakpointName extends string>(
     config: BreakpointConfig<BreakpointName>,
     state: BreakpointState,
   ): BreakpointMap<BreakpointName> {

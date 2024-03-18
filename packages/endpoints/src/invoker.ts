@@ -24,7 +24,7 @@ export interface EndpointInvokeConfig {
   providedIn: 'root',
 })
 export class HttpClientEndpointInvoker implements EndpointInvoker {
-  private httpClient = inject(HttpClient);
+  protected httpClient = inject(HttpClient);
   invoke<T>(config: EndpointInvokeConfig): Observable<T> {
     return this.httpClient.request<T>(config.method, config.path, {
       body: config.payload,
