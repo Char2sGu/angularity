@@ -11,6 +11,9 @@
     "format": "prettier --write \"{*,packages/**/*}.{html,css,less,scss,sass,ts,js,json,md}\" && eslint \"packages/**/*.ts\" --cache --fix"
   },
   "private": true,
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.2.0",
     "@angular-devkit/core": "^17.2.0",
