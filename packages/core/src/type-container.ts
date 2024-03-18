@@ -1,4 +1,4 @@
-export const type = <Type>(): TypeContainer<Type> => ({});
+export const $type = <Type>(): TypeContainer<Type> => ({});
 
 export interface TypeContainer<Type> {
   type?: Type;
