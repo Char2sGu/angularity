@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
-  useExisting: forwardRef(() => SimpleHttpClientEndpointInvoker),
+  useExisting: forwardRef(() => HttpClientEndpointInvoker),
 })
 export abstract class EndpointInvoker {
   abstract invoke<T>(config: EndpointInvokeConfig): Observable<T>;
@@ -23,7 +23,7 @@ export interface EndpointInvokeConfig {
 @Injectable({
   providedIn: 'root',
 })
-export class SimpleHttpClientEndpointInvoker implements EndpointInvoker {
+export class HttpClientEndpointInvoker implements EndpointInvoker {
   private httpClient = inject(HttpClient);
   invoke<T>(config: EndpointInvokeConfig): Observable<T> {
     return this.httpClient.request<T>(config.method, config.path, {
