@@ -1,6 +1,6 @@
 import { Provider, ProviderToken, Type } from '@angular/core';
 
-export function provide<T>(config: ProvideConfig<T>): Provider {
+export function provide<T, U extends T>(config: ProvideConfig<T, U>): Provider {
   if ('useValue' in config)
     return { provide: config.token, useValue: config.useValue };
   if ('useFactory' in config)
@@ -12,7 +12,8 @@ export function provide<T>(config: ProvideConfig<T>): Provider {
   throw new Error('Invalid config');
 }
 
-export type ProvideConfig<T> = ProvideConfigToken<T> & ProvideConfigUse<T>;
+export type ProvideConfig<T, U extends T = T> = ProvideConfigToken<T> &
+  ProvideConfigUse<U>;
 
 export function provideMulti<T>(config: ProvideMultiConfig<T>): Provider {
   return {
