@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { forwardRef, inject, Injectable } from '@angular/core';
+import { forwardRef, inject, Injectable, Injector } from '@angular/core';
 import { Exception } from '@angularity/core';
 import { catchError, map, Observable } from 'rxjs';
 
@@ -22,10 +22,11 @@ export class ConfigFileNotFoundException extends Exception {
 })
 export class HttpClientConfigFileLoader {
   protected httpClient = inject(HttpClient);
+  protected injector = inject(Injector);
 
   load<T, Schema>(meta: ConfigFileMetadata<T, Schema>): Observable<T> {
-    const parser = inject(meta.parser);
-    const validator = inject(meta.validator);
+    const parser = this.injector.get(meta.parser);
+    const validator = this.injector.get(meta.validator);
 
     return this.fetch(meta.path).pipe(
       map((res) => {
