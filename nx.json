@@ -4,7 +4,8 @@
     "build": {
       "cache": true,
       "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "inputs": ["production", "^production"],
+      "outputs": ["{workspaceRoot}/dist/{projectName}"]
     },
     "test": {
       "cache": true,

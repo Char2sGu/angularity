@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "@angularity/endpoints",
+  "name": "endpoints",
   "projectType": "library",
   "sourceRoot": "packages/endpoints/src",
   "prefix": "lib",
@@ -18,8 +18,7 @@
           "tsConfig": "packages/endpoints/tsconfig.lib.json"
         }
       },
-      "defaultConfiguration": "production",
-      "outputs": ["{workspaceRoot}/dist/endpoints"]
+      "defaultConfiguration": "production"
     },
     "test": {
       "executor": "@angular-devkit/build-angular:karma",

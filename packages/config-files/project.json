@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "@angularity/config-files",
+  "name": "config-files",
   "projectType": "library",
   "sourceRoot": "packages/config-files/src",
   "prefix": "lib",
@@ -18,8 +18,7 @@
           "tsConfig": "packages/config-files/tsconfig.lib.json"
         }
       },
-      "defaultConfiguration": "production",
-      "outputs": ["{workspaceRoot}/dist/config-files"]
+      "defaultConfiguration": "production"
     },
     "test": {
       "executor": "@angular-devkit/build-angular:karma",

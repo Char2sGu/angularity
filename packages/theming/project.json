@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "@angularity/theming",
+  "name": "theming",
   "projectType": "library",
   "sourceRoot": "packages/theming/src",
   "prefix": "lib",
@@ -18,8 +18,7 @@
           "tsConfig": "packages/theming/tsconfig.lib.json"
         }
       },
-      "defaultConfiguration": "production",
-      "outputs": ["{workspaceRoot}/dist/theming"]
+      "defaultConfiguration": "production"
     },
     "test": {
       "executor": "@angular-devkit/build-angular:karma",

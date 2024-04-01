@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "@angularity/fire",
+  "name": "fire",
   "projectType": "library",
   "sourceRoot": "packages/fire/src",
   "prefix": "lib",
@@ -18,8 +18,7 @@
           "tsConfig": "packages/fire/tsconfig.lib.json"
         }
       },
-      "defaultConfiguration": "production",
-      "outputs": ["{workspaceRoot}/dist/fire"]
+      "defaultConfiguration": "production"
     },
     "test": {
       "executor": "@angular-devkit/build-angular:karma",
