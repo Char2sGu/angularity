@@ -10,6 +10,11 @@
     "test": {
       "cache": true,
       "inputs": ["default", "^production"]
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "{workspaceRoot}/dist/{projectName}"
+      }
     }
   },
   "affected": {
@@ -27,7 +32,7 @@
   "release": {
     "projects": ["packages/*"],
     "git": {
-      "commitMessage": "build: release {version}"
+      "commitMessage": "build: release v{version}"
     }
   }
 }
