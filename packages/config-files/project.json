@@ -3,7 +3,7 @@
   "name": "config-files",
   "projectType": "library",
   "sourceRoot": "packages/config-files/src",
-  "prefix": "lib",
+  "prefix": "agl",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:ng-packagr",

@@ -3,7 +3,7 @@
   "name": "cdk",
   "projectType": "library",
   "sourceRoot": "packages/cdk/src",
-  "prefix": "lib",
+  "prefix": "agl",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:ng-packagr",

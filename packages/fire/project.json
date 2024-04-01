@@ -3,7 +3,7 @@
   "name": "fire",
   "projectType": "library",
   "sourceRoot": "packages/fire/src",
-  "prefix": "lib",
+  "prefix": "agl",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:ng-packagr",

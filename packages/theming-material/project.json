@@ -3,7 +3,7 @@
   "name": "theming-material",
   "projectType": "library",
   "sourceRoot": "packages/theming-material/src",
-  "prefix": "lib",
+  "prefix": "agl",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:ng-packagr",
