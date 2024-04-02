@@ -38,5 +38,5 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
   },
-  "include": ["packages"],
+  "include": ["packages", "docs"],
 }
