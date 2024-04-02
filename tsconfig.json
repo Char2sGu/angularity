@@ -19,8 +19,6 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@ng-doc/generated": ["./ng-doc/docs/index.ts"],
-      "@ng-doc/generated/*": ["./ng-doc/docs/*"],
       "@angularity/cdk": ["./dist/cdk"],
       "@angularity/config-files": ["./dist/config-files"],
       "@angularity/core": ["./dist/core"],

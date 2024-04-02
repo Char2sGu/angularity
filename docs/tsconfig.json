@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@ng-doc/generated": ["./ng-doc/docs/index.ts"],
+      "@ng-doc/generated/*": ["./ng-doc/docs/*"],
+    },
+  },
+}
