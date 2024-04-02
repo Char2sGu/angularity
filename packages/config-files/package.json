@@ -5,10 +5,10 @@
     "@angular/common": "17.x.x",
     "@angular/core": "17.x.x",
     "@angularity/core": "*",
-    "rxjs": "~7.8.0"
+    "rxjs": "7.x.x"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "2.x.x"
   },
   "sideEffects": false
 }
