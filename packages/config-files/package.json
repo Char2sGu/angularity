@@ -2,8 +2,8 @@
   "name": "@angularity/config-files",
   "version": "0.1.1",
   "peerDependencies": {
-    "@angular/common": "^17.2.0",
-    "@angular/core": "^17.2.0",
+    "@angular/common": "17.x.x",
+    "@angular/core": "17.x.x",
     "@angularity/core": "*",
     "rxjs": "~7.8.0"
   },

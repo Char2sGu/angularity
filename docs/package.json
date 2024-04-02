@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@angular/animations": "^17.2.1",
-    "@angular/cdk": "^17.2.0",
-    "@angular/common": "^17.2.1",
-    "@angular/core": "^17.2.1",
-    "@angular/forms": "^17.2.1",
-    "@angular/platform-browser": "^17.2.1",
-    "@angular/router": "^17.2.1",
+    "@angular/animations": "17.x.x",
+    "@angular/cdk": "17.x.x",
+    "@angular/common": "17.x.x",
+    "@angular/core": "17.x.x",
+    "@angular/forms": "17.x.x",
+    "@angular/platform-browser": "17.x.x",
+    "@angular/router": "17.x.x",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   }
