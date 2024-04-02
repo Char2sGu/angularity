@@ -3,11 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "prepare": "husky install",
-    "ng": "ng",
-    "start": "nx serve",
-    "build": "nx build",
-    "watch": "nx build --watch --configuration development",
-    "test": "nx test",
+    "build": "nx run-many -t build",
+    "release": "nx release",
     "format": "prettier --write \"{*,packages/**/*}.{html,css,less,scss,sass,ts,js,json,md}\" && eslint \"packages/**/*.ts\" --cache --fix"
   },
   "private": true,
