@@ -11,7 +11,7 @@
   "prefix": "adoc",
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:application",
+      "executor": "@ng-doc/builder:application",
       "options": {
         "outputPath": "dist/docs",
         "index": "docs/src/index.html",
@@ -19,9 +19,31 @@
         "polyfills": ["zone.js"],
         "tsConfig": "docs/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["docs/src/favicon.ico", "docs/src/assets"],
-        "styles": ["docs/src/styles.scss"],
-        "scripts": []
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "node_modules/@ng-doc/app/assets",
+            "output": "assets/ng-doc/app"
+          },
+          {
+            "glob": "**/*",
+            "input": "node_modules/@ng-doc/ui-kit/assets",
+            "output": "assets/ng-doc/ui-kit"
+          },
+          {
+            "glob": "**/*",
+            "input": "ng-doc/docs/assets",
+            "output": "assets/ng-doc"
+          },
+          "docs/src/favicon.ico",
+          "docs/src/assets"
+        ],
+        "styles": [
+          "node_modules/@ng-doc/app/styles/global.css",
+          "docs/src/styles.scss"
+        ],
+        "scripts": [],
+        "allowedCommonJsDependencies": ["@ng-doc/core"]
       },
       "configurations": {
         "production": {
@@ -48,7 +70,7 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@ng-doc/builder:dev-server",
       "configurations": {
         "production": {
           "buildTarget": "docs:build:production"

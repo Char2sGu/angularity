@@ -1,13 +1,13 @@
 /node_modules
 /dist
 /.angular/cache
+/.nx/cache
 /.eslintcache
+
+/ng-doc
 
 /.vscode/*
 !/.vscode/settings.json
 !/.vscode/tasks.json
 !/.vscode/launch.json
 !/.vscode/extensions.json
-
-
-.nx/cache
