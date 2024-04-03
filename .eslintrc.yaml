@@ -36,7 +36,7 @@ rules:
       objectLiteralTypeAssertions: never
   '@typescript-eslint/no-unused-vars':
     - error
-    - argsIgnorePattern: args
+    - args: none
       destructuredArrayIgnorePattern: '^_'
       ignoreRestSiblings: true
   '@typescript-eslint/naming-convention':
@@ -47,7 +47,7 @@ rules:
     - selector: typeLike
       format:
         - PascalCase
-    - selector: variable
+    - selector: [import, variable]
       format:
         - strictCamelCase
         - UPPER_CASE
@@ -65,9 +65,14 @@ rules:
     - selector: enumMember
       format:
         - PascalCase
+    - selector: objectLiteralProperty
+      modifiers:
+        - requiresQuotes
+      format: null
   import/no-cycle: error
   import/no-self-import: error
   import/no-useless-path-segments: error
+  import/no-extraneous-dependencies: error
   import/no-default-export: error
   import/no-duplicates: error
   import/newline-after-import: error
@@ -127,6 +132,6 @@ overrides:
       max-lines: off
       max-lines-per-function: off
   - files:
-      - '**/*.{service,component,directive,resolver}.ts'
+      - 'ng-doc.*.ts'
     rules:
-      max-params: off
+      import/no-default-export: off
