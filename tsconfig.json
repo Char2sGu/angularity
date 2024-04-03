@@ -4,6 +4,7 @@
     "module": "ES2022",
     "moduleResolution": "node",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "baseUrl": "./", // ng-doc currently uses import paths relative to {workspaceRoot}
     "strict": true,
     "sourceMap": true,
     "declaration": true,
