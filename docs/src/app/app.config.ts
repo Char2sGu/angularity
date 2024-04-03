@@ -6,7 +6,12 @@ import {
 import { ApplicationConfig } from '@angular/core';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideRouter, withInMemoryScrolling } from '@angular/router';
+import {
+  provideRouter,
+  TitleStrategy,
+  withInMemoryScrolling,
+} from '@angular/router';
+import { provide } from '@angularity/core';
 import {
   NG_DOC_DEFAULT_PAGE_PROCESSORS,
   NG_DOC_DEFAULT_PAGE_SKELETON,
@@ -19,6 +24,8 @@ import {
 } from '@ng-doc/app';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { NG_DOC_ROUTING, provideNgDocContext } from '@ng-doc/generated';
+
+import { AppTitleStrategy } from './app.title-strategy';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -37,5 +44,6 @@ export const appConfig: ApplicationConfig = {
     provideSearchEngine(NgDocDefaultSearchEngine),
     providePageSkeleton(NG_DOC_DEFAULT_PAGE_SKELETON),
     provideMainPageProcessor(NG_DOC_DEFAULT_PAGE_PROCESSORS),
+    provide({ token: TitleStrategy, useClass: AppTitleStrategy }),
   ],
 };
