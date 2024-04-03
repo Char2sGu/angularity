@@ -23,7 +23,7 @@ import {
   provideSearchEngine,
 } from '@ng-doc/app';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { NG_DOC_ROUTING, provideNgDocContext } from '@ng-doc/generated';
+import { NG_DOC_ROUTING, provideNgDocContext } from '@ng-doc/generated/docs';
 
 import { AppTitleStrategy } from './app.title-strategy';
 
