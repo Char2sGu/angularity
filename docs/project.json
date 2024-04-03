@@ -19,7 +19,6 @@
         "polyfills": ["zone.js"],
         "tsConfig": "docs/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "ngDoc": { "config": "docs/ng-doc.config.js" },
         "assets": [
           {
             "glob": "**/*",

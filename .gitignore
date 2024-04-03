@@ -4,6 +4,8 @@
 /.nx/cache
 /.eslintcache
 
+/ng-doc
+
 /.vscode/*
 !/.vscode/settings.json
 !/.vscode/tasks.json
