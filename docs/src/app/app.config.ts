@@ -9,6 +9,7 @@ import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import {
   NG_DOC_DEFAULT_PAGE_PROCESSORS,
   NG_DOC_DEFAULT_PAGE_SKELETON,
+  NG_DOC_NIGHT_THEME,
   NgDocDefaultSearchEngine,
   provideMainPageProcessor,
   provideNgDocApp,
@@ -29,7 +30,7 @@ export const appConfig: ApplicationConfig = {
     ),
     provideHttpClient(withInterceptorsFromDi(), withFetch()),
     provideNgDocContext(),
-    provideNgDocApp(),
+    provideNgDocApp({ defaultThemeId: NG_DOC_NIGHT_THEME.id }),
     provideSearchEngine(NgDocDefaultSearchEngine),
     providePageSkeleton(NG_DOC_DEFAULT_PAGE_SKELETON),
     provideMainPageProcessor(NG_DOC_DEFAULT_PAGE_PROCESSORS),
