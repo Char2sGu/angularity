@@ -17,6 +17,7 @@
         "index": "docs/src/index.html",
         "browser": "docs/src/main.ts",
         "server": "docs/src/main.server.ts",
+        "prerender": true,
         "polyfills": ["zone.js"],
         "tsConfig": "docs/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
