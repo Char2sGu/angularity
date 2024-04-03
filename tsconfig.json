@@ -4,7 +4,7 @@
     "module": "ES2022",
     "moduleResolution": "node",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "baseUrl": "./", // ng-doc currently uses import paths relative to {workspaceRoot}
+    "baseUrl": "./",
     "strict": true,
     "sourceMap": true,
     "declaration": true,
@@ -20,8 +20,6 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@ng-doc/generated": ["./ng-doc/docs/index.ts"],
-      "@ng-doc/generated/*": ["./ng-doc/docs/*"],
       "@angularity/cdk": ["./dist/cdk"],
       "@angularity/config-files": ["./dist/config-files"],
       "@angularity/core": ["./dist/core"],
@@ -31,9 +29,11 @@
       "@angularity/router": ["./dist/angularity/router"],
       "@angularity/theming": ["./dist/theming"],
       "@angularity/theming-material": ["./dist/theming-material"],
+      "@ng-doc/generated": ["./ng-doc/docs/index.ts"],
+      "@ng-doc/generated/*": ["./ng-doc/docs/*"],
     },
     "useDefineForClassFields": false,
-    "typeRoots": ["node_modules/@angular/core"],
+    "typeRoots": ["node_modules/@types", "node_modules/@angular/core"],
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
