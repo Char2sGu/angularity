@@ -10,11 +10,11 @@ import { ThemeTokenRegistry, ThemeTokens } from './token';
 export abstract class ThemeManager {
   abstract apply<Builders extends ThemeBuilderMap>(
     builders: Builders,
-    configs: InferThemeBuilderConfigMap<Builders>,
+    configs: ThemeBuilderConfigMapOf<Builders>,
   ): void;
   abstract build<Builders extends ThemeBuilderMap>(
     builders: Builders,
-    configs: InferThemeBuilderConfigMap<Builders>,
+    configs: ThemeBuilderConfigMapOf<Builders>,
   ): ThemeTokens;
 }
 
@@ -22,7 +22,7 @@ export interface ThemeBuilderMap {
   [name: string]: Type<ThemeBuilder<unknown>>;
 }
 
-export type InferThemeBuilderConfigMap<Builders extends ThemeBuilderMap> = {
+export type ThemeBuilderConfigMapOf<Builders extends ThemeBuilderMap> = {
   [Name in keyof Builders]: Builders[Name] extends Type<
     ThemeBuilder<infer Config>
   >
@@ -37,7 +37,7 @@ export class SimpleThemeManager implements ThemeManager {
 
   apply<Builders extends ThemeBuilderMap>(
     builders: Builders,
-    configs: InferThemeBuilderConfigMap<Builders>,
+    configs: ThemeBuilderConfigMapOf<Builders>,
   ): void {
     const tokens = this.build(builders, configs);
     for (const name in tokens) this.tokens.set(name, tokens[name]);
@@ -45,7 +45,7 @@ export class SimpleThemeManager implements ThemeManager {
 
   build<Builders extends ThemeBuilderMap>(
     builders: Builders,
-    configs: InferThemeBuilderConfigMap<Builders>,
+    configs: ThemeBuilderConfigMapOf<Builders>,
   ): ThemeTokens {
     return Object.entries(builders).reduce(
       (tokens, [name, builder]) => ({

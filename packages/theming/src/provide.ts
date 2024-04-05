@@ -7,14 +7,14 @@ import {
 import { provideMulti } from '@angularity/core';
 
 import {
-  InferThemeBuilderConfigMap,
+  ThemeBuilderConfigMapOf,
   ThemeBuilderMap,
   ThemeManager,
 } from './manager';
 
 export function provideTheme<Builders extends ThemeBuilderMap>(
   builders: Builders,
-  configs: InferThemeBuilderConfigMap<Builders>,
+  configs: ThemeBuilderConfigMapOf<Builders>,
 ): EnvironmentProviders {
   return makeEnvironmentProviders([
     Object.values(builders),
