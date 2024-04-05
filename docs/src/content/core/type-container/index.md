@@ -21,7 +21,7 @@ type Payload = ContainedTypeOf<typeof $payload>;
 // `Payload` is `{ id: string }`.
 ```
 
-A typical use case of type containers is to infer generics from a mix of tangible values and type information:
+A typical use case of type containers is to infer generics from a mix of tangible values and type containers:
 
 ```ts
 declare function createActionFactory<N extends string, P extends object>(
