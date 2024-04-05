@@ -1,4 +1,10 @@
-import { forwardRef, inject, Injectable, Injector, Type } from '@angular/core';
+import {
+  forwardRef,
+  inject,
+  Injectable,
+  Injector,
+  ProviderToken,
+} from '@angular/core';
 
 import { ThemeBuilder } from './builder';
 import { ThemeTokenRegistry, ThemeTokens } from './token';
@@ -19,11 +25,11 @@ export abstract class ThemeManager {
 }
 
 export interface ThemeBuilderMap {
-  [name: string]: Type<ThemeBuilder<unknown>>;
+  [name: string]: ProviderToken<ThemeBuilder<unknown>>;
 }
 
 export type ThemeBuilderConfigMapOf<Builders extends ThemeBuilderMap> = {
-  [Name in keyof Builders]: Builders[Name] extends Type<
+  [Name in keyof Builders]: Builders[Name] extends ProviderToken<
     ThemeBuilder<infer Config>
   >
     ? Config
