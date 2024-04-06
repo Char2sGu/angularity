@@ -5,10 +5,14 @@
     "@angular/common": "17.x.x",
     "@angular/core": "17.x.x",
     "@angularity/core": "*",
-    "rxjs": "7.x.x"
+    "@angularity/command-flow": "*",
+    "rxjs": "7.x.x",
+    "ts-pattern": "5.x.x"
+  },
+  "devDependencies": {
+    "ts-pattern": "5.x.x"
   },
   "dependencies": {
-    "ts-pattern": "^5.1.1",
     "tslib": "^2.3.0"
   },
   "sideEffects": false

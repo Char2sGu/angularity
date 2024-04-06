@@ -30,6 +30,7 @@
       "@angularity/theming": ["./dist/theming"],
       "@angularity/theming-material": ["./dist/theming-material"],
       "@angularity/command-flow": ["./dist/command-flow"],
+      "@angularity/command-flow/*": ["./dist/command-flow/*"],
       "@ng-doc/generated/*": ["./ng-doc/*"],
     },
     "useDefineForClassFields": false,
