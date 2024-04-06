@@ -1,3 +1,13 @@
+## 0.2.1 (2024-04-06)
+
+### 🩹 Fixes
+
+- **command-flow:** fix missing `/process-flow/utilities` package ([b2eb784](https://github.com/TheNightmareX/angularly/commit/b2eb784))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.2.0 (2024-04-06)
 
 ### 🚀 Features
