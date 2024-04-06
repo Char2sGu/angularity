@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "prepare": "husky install",
-    "build": "nx run-many -t build",
+    "build": "nx run-many -t build --projects=* --exclude docs",
     "release": "nx release",
     "format": "prettier --write \"{*,packages/**/*}.{html,css,less,scss,sass,ts,js,json,md}\" && eslint \"packages/**/*.ts\" --cache --fix"
   },
