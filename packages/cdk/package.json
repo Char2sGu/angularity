@@ -4,6 +4,7 @@
   "peerDependencies": {
     "@angular/core": "17.x.x",
     "@angular/cdk": "17.x.x",
+    "@angularity/core": "*",
     "rxjs": "7.x.x"
   },
   "dependencies": {
