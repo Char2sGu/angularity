@@ -1,0 +1,31 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "command-flow",
+  "projectType": "library",
+  "sourceRoot": "packages/command-flow/src",
+  "prefix": "agl",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "packages/command-flow/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/command-flow/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/command-flow/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "packages/command-flow/tsconfig.spec.json",
+        "polyfills": ["zone.js", "zone.js/testing"]
+      }
+    }
+  }
+}

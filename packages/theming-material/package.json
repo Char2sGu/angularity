@@ -2,6 +2,7 @@
   "name": "@angularity/theming-material",
   "version": "0.1.0",
   "peerDependencies": {
+    "@angular/core": "17.x.x",
     "@angularity/theming": "*",
     "@material/material-color-utilities": "^0.2.7"
   },

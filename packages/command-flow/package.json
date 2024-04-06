@@ -1,0 +1,15 @@
+{
+  "name": "@angularity/command-flow",
+  "version": "0.1.0",
+  "peerDependencies": {
+    "@angular/common": "17.x.x",
+    "@angular/core": "17.x.x",
+    "@angularity/core": "*",
+    "rxjs": "7.x.x"
+  },
+  "dependencies": {
+    "ts-pattern": "^5.1.1",
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
