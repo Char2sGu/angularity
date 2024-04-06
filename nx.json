@@ -44,7 +44,6 @@
       "inputs": ["default", "^production"]
     },
     "nx-release-publish": {
-      "dependsOn": ["build"],
       "options": {
         "packageRoot": "{workspaceRoot}/dist/{projectName}"
       }
