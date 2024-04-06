@@ -21,6 +21,8 @@
     "forceConsistentCasingInFileNames": true,
     "paths": {
       "@angularity/cdk": ["./dist/cdk"],
+      "@angularity/command-flow": ["./dist/command-flow"],
+      "@angularity/command-flow/*": ["./dist/command-flow/*"],
       "@angularity/config-files": ["./dist/config-files"],
       "@angularity/core": ["./dist/core"],
       "@angularity/endpoints": ["./dist/endpoints"],
@@ -29,8 +31,6 @@
       "@angularity/router": ["./dist/angularity/router"],
       "@angularity/theming": ["./dist/theming"],
       "@angularity/theming-material": ["./dist/theming-material"],
-      "@angularity/command-flow": ["./dist/command-flow"],
-      "@angularity/command-flow/*": ["./dist/command-flow/*"],
       "@ng-doc/generated/*": ["./ng-doc/*"],
     },
     "useDefineForClassFields": false,
