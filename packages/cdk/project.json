@@ -2,7 +2,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "cdk",
   "projectType": "library",
-  "sourceRoot": "packages/cdk/src",
+  "sourceRoot": "packages/cdk",
   "prefix": "agl",
   "targets": {
     "build": {

@@ -2,7 +2,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "fire",
   "projectType": "library",
-  "sourceRoot": "packages/fire/src",
+  "sourceRoot": "packages/fire",
   "prefix": "agl",
   "targets": {
     "build": {
