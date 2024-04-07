@@ -21,6 +21,7 @@
     "forceConsistentCasingInFileNames": true,
     "paths": {
       "@angularity/cdk": ["./dist/cdk"],
+      "@angularity/cdk/*": ["./dist/cdk/*"],
       "@angularity/command-flow": ["./dist/command-flow"],
       "@angularity/command-flow/*": ["./dist/command-flow/*"],
       "@angularity/config-files": ["./dist/config-files"],
