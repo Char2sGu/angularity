@@ -23,7 +23,7 @@ export function provideTheme<Builders extends ThemeBuilderMap>(
       useFactory:
         (themeManager = inject(ThemeManager)) =>
         () =>
-          themeManager.apply(builders, configs),
+          themeManager.buildAndApply(builders, configs),
     }),
   ]);
 }

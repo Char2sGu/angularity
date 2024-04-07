@@ -14,7 +14,7 @@ import { ThemeTokenRegistry, ThemeTokens } from './token';
   useExisting: forwardRef(() => SimpleThemeManager),
 })
 export abstract class ThemeManager {
-  abstract apply<Builders extends ThemeBuilderMap>(
+  abstract buildAndApply<Builders extends ThemeBuilderMap>(
     builders: Builders,
     configs: ThemeBuilderConfigMapOf<Builders>,
   ): void;
@@ -22,6 +22,7 @@ export abstract class ThemeManager {
     builders: Builders,
     configs: ThemeBuilderConfigMapOf<Builders>,
   ): ThemeTokens;
+  abstract apply(tokens: ThemeTokens): void;
 }
 
 export interface ThemeBuilderMap {
@@ -41,12 +42,12 @@ export class SimpleThemeManager implements ThemeManager {
   protected injector = inject(Injector);
   protected tokens = inject(ThemeTokenRegistry);
 
-  apply<Builders extends ThemeBuilderMap>(
+  buildAndApply<Builders extends ThemeBuilderMap>(
     builders: Builders,
     configs: ThemeBuilderConfigMapOf<Builders>,
   ): void {
     const tokens = this.build(builders, configs);
-    for (const name in tokens) this.tokens.set(name, tokens[name]);
+    this.apply(tokens);
   }
 
   build<Builders extends ThemeBuilderMap>(
@@ -60,5 +61,9 @@ export class SimpleThemeManager implements ThemeManager {
       }),
       {},
     );
+  }
+
+  apply(tokens: ThemeTokens): void {
+    for (const name in tokens) this.tokens.set(name, tokens[name]);
   }
 }
