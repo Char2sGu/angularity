@@ -10,6 +10,7 @@ export default {
     'router',
     'theming',
     'theming-material',
+    'command-flow',
     'endpoints',
     'config-files',
     'fire',
