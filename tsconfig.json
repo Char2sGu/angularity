@@ -27,6 +27,7 @@
       "@angularity/config-files": ["./dist/config-files"],
       "@angularity/core": ["./dist/core"],
       "@angularity/core/*": ["./dist/core/*"],
+      "@angularity/elements": ["./dist/elements"],
       "@angularity/endpoints": ["./dist/endpoints"],
       "@angularity/fire": ["./dist/fire"],
       "@angularity/forms": ["./dist/forms"],

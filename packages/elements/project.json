@@ -1,0 +1,31 @@
+{
+  "name": "elements",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/elements/src",
+  "prefix": "agl",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "packages/elements/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/elements/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/elements/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "packages/elements/tsconfig.spec.json",
+        "polyfills": ["zone.js", "zone.js/testing"]
+      }
+    }
+  }
+}
