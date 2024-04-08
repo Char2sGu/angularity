@@ -1,0 +1,1 @@
+import"./chunk-P2VZOJAX.js";var a=[{path:"",redirectTo:"variables/pickType",pathMatch:"full"},{path:"",title:"core / rxjs",children:[{path:"variables/pickType",loadChildren:()=>import("./chunk-SBCIYEKZ.js")},{path:"variables/mapToVoid",loadChildren:()=>import("./chunk-PC4XC5AU.js")}]}],e=a;export{e as default};

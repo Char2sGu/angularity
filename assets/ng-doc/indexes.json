@@ -1,0 +1,2075 @@
+[
+  {
+    "breadcrumbs": [
+      "CDK",
+      "Breakpoints"
+    ],
+    "pageType": "guide",
+    "title": "Breakpoints",
+    "section": "Breakpoints",
+    "route": "/cdk/breakpoints",
+    "fragment": "breakpoints",
+    "content": "In Angular CDK, the BreakpointObserver is especially useful for observing changes in the layout. However, it uses the media query string as the key to index the result of multiple queries, which makes it inconvenient for the developer to tell which breakpoints are activated. Angularity offers NamedBreakpointObserver as a wrapper of BreakpointObserver, which allows you to assign a name for each media query:"
+  },
+  {
+    "breadcrumbs": [
+      "CDK",
+      "Overview"
+    ],
+    "pageType": "guide",
+    "title": "Overview",
+    "section": "Overview",
+    "route": "/cdk/overview",
+    "fragment": "overview",
+    "content": "TODO"
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Exceptions"
+    ],
+    "pageType": "guide",
+    "title": "Exceptions",
+    "section": "Exceptions",
+    "route": "/core/exception",
+    "fragment": "exceptions",
+    "content": "In Angularity, JavaScript runtime errors are divided into two categories: Errors and Exceptions. Exceptions are instances of the Exception class. They are expected to be caught and appropriately handled.Errors are all the errors that are not instances of Exception. They are regarded as critical errors that should never happen and typically breaks the application, such as TypeError. The occurrence of such an error implies something is wrong within the application that awaits fixes. To create a type of exception, declare a class that extends from the Exception class. Additional customizations can apply to add contextual properties or generate uniformed error messages: It is worthy to note that both Exceptions and Errors are instances of Error. The way to distinguish them is instanceof Exception, not instanceof Error. A recommended way to compose the catch block is to exhaust all the exceptions that are expected to be caught and re-throw the error if none of the exceptions are matched: All Angularity libraries follow this convention for error handling, and it is recommended to also follow such convention in applications that uses Angularity."
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Overview"
+    ],
+    "pageType": "guide",
+    "title": "Overview",
+    "section": "Overview",
+    "route": "/core/overview",
+    "fragment": "overview",
+    "content": "TODO"
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Reference Injection"
+    ],
+    "pageType": "guide",
+    "title": "Reference Injection",
+    "section": "Reference Injection",
+    "route": "/core/reference-injection",
+    "fragment": "reference-injection",
+    "content": "TODO"
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type Container"
+    ],
+    "pageType": "guide",
+    "title": "Type Container",
+    "section": "Type Container",
+    "route": "/core/type-container",
+    "fragment": "type-container",
+    "content": "Type Containers are widely used in Angularity for advanced type gymnastics. A Type Container is an empty object but carries specific TypeScript type information, enabling infinite possibilities of advanced type inferences and manipulations. The $type function produces a type container:"
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type Container"
+    ],
+    "pageType": "guide",
+    "title": "Type Container",
+    "section": "Type Container",
+    "route": "/core/type-container",
+    "fragment": "type-container",
+    "content": "Conventionally, type container variables are prefixed with a $ symbol."
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type Container"
+    ],
+    "pageType": "guide",
+    "title": "Type Container",
+    "section": "Type Container",
+    "route": "/core/type-container",
+    "fragment": "type-container",
+    "content": "To extract the type information from a type container, use the ContainedTypeOf type: A typical use case of type containers is to infer generics from a mix of tangible values and type containers: In comparison, without type containers, it is not possible to leverage the power of TypeScript generic inference, so all the generics have to be manually supplied: Note that the string literal 'FetchBook' is repeated twice because of the lack of generic inference. When the generics are complicated, it could be impossible to manually supply all the generic, and that's when Type Containers come handy."
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type-safe Providing"
+    ],
+    "pageType": "guide",
+    "title": "Type-safe Providing",
+    "section": "Type-safe Providing",
+    "route": "/core/type-safe-providing",
+    "fragment": "type-safe-providing",
+    "content": "In Angular, object literals are used to declare injectables of an injection context: However, although the ProviderToken already carries type information, the object literals cannot perform type checks to ensure type-safety, requiring the developer to manually make sure that the provided value is valid. In the snippet above, the developer:"
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type-safe Providing"
+    ],
+    "pageType": "guide",
+    "title": "Type-safe Providing",
+    "section": "Type-safe Providing",
+    "route": "/core/type-safe-providing",
+    "fragment": "type-safe-providing",
+    "content": "Must make sure "
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type-safe Providing"
+    ],
+    "pageType": "guide",
+    "title": "Type-safe Providing",
+    "section": "Type-safe Providing",
+    "route": "/core/type-safe-providing",
+    "fragment": "type-safe-providing",
+    "content": "SuffixedTitleStrategy"
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type-safe Providing"
+    ],
+    "pageType": "guide",
+    "title": "Type-safe Providing",
+    "section": "Type-safe Providing",
+    "route": "/core/type-safe-providing",
+    "fragment": "type-safe-providing",
+    "content": " correctly implements "
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type-safe Providing"
+    ],
+    "pageType": "guide",
+    "title": "Type-safe Providing",
+    "section": "Type-safe Providing",
+    "route": "/core/type-safe-providing",
+    "fragment": "type-safe-providing",
+    "content": "TitleStrategy"
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type-safe Providing"
+    ],
+    "pageType": "guide",
+    "title": "Type-safe Providing",
+    "section": "Type-safe Providing",
+    "route": "/core/type-safe-providing",
+    "fragment": "type-safe-providing",
+    "content": ". Must use the "
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type-safe Providing"
+    ],
+    "pageType": "guide",
+    "title": "Type-safe Providing",
+    "section": "Type-safe Providing",
+    "route": "/core/type-safe-providing",
+    "fragment": "type-safe-providing",
+    "content": "satisfies"
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type-safe Providing"
+    ],
+    "pageType": "guide",
+    "title": "Type-safe Providing",
+    "section": "Type-safe Providing",
+    "route": "/core/type-safe-providing",
+    "fragment": "type-safe-providing",
+    "content": " keyword to manually restrict the type of the provider of "
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type-safe Providing"
+    ],
+    "pageType": "guide",
+    "title": "Type-safe Providing",
+    "section": "Type-safe Providing",
+    "route": "/core/type-safe-providing",
+    "fragment": "type-safe-providing",
+    "content": "DIALOG_GLOBAL_CONFIG"
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type-safe Providing"
+    ],
+    "pageType": "guide",
+    "title": "Type-safe Providing",
+    "section": "Type-safe Providing",
+    "route": "/core/type-safe-providing",
+    "fragment": "type-safe-providing",
+    "content": ". Cannot appropriately type the "
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type-safe Providing"
+    ],
+    "pageType": "guide",
+    "title": "Type-safe Providing",
+    "section": "Type-safe Providing",
+    "route": "/core/type-safe-providing",
+    "fragment": "type-safe-providing",
+    "content": "APP_INITIALIZER"
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type-safe Providing"
+    ],
+    "pageType": "guide",
+    "title": "Type-safe Providing",
+    "section": "Type-safe Providing",
+    "route": "/core/type-safe-providing",
+    "fragment": "type-safe-providing",
+    "content": " since there is no such "
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type-safe Providing"
+    ],
+    "pageType": "guide",
+    "title": "Type-safe Providing",
+    "section": "Type-safe Providing",
+    "route": "/core/type-safe-providing",
+    "fragment": "type-safe-providing",
+    "content": "AppInitializer"
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type-safe Providing"
+    ],
+    "pageType": "guide",
+    "title": "Type-safe Providing",
+    "section": "Type-safe Providing",
+    "route": "/core/type-safe-providing",
+    "fragment": "type-safe-providing",
+    "content": " type exported."
+  },
+  {
+    "breadcrumbs": [
+      "Core",
+      "Type-safe Providing"
+    ],
+    "pageType": "guide",
+    "title": "Type-safe Providing",
+    "section": "Type-safe Providing",
+    "route": "/core/type-safe-providing",
+    "fragment": "type-safe-providing",
+    "content": "As a solution, Angularity offers provide and provideMulti as helper functions for type-safe provider declarations: In the example above, all the providers' types are automatically inferred and restricted from the token. By elevating the multi option to the function name, it also helps prevent the developer from forgetting the multi option."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "Exception"
+    ],
+    "pageType": "api",
+    "title": "Exception",
+    "section": "Exception",
+    "route": "/references/core/classes/Exception",
+    "fragment": "exception",
+    "content": "An {@link Exception} is a casual runtime error that is expected to happen, while an {@link Error} is a critical runtime error that should not happen."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "injectRef"
+    ],
+    "pageType": "api",
+    "title": "injectRef",
+    "section": "injectRef",
+    "route": "/references/core/functions/injectRef",
+    "fragment": "injectref",
+    "content": "Defer the injection of the provider until a property is accessed to allow for circular dependencies."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "provide"
+    ],
+    "pageType": "api",
+    "title": "provide",
+    "section": "provide",
+    "route": "/references/core/functions/provide",
+    "fragment": "provide"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "provideMulti"
+    ],
+    "pageType": "api",
+    "title": "provideMulti",
+    "section": "provideMulti",
+    "route": "/references/core/functions/provideMulti",
+    "fragment": "providemulti"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "ProvideConfig"
+    ],
+    "pageType": "api",
+    "title": "ProvideConfig",
+    "section": "ProvideConfig",
+    "route": "/references/core/type-aliases/ProvideConfig",
+    "fragment": "provideconfig"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "ProvideMultiConfig"
+    ],
+    "pageType": "api",
+    "title": "ProvideMultiConfig",
+    "section": "ProvideMultiConfig",
+    "route": "/references/core/type-aliases/ProvideMultiConfig",
+    "fragment": "providemulticonfig"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "ProvideConfigToken"
+    ],
+    "pageType": "api",
+    "title": "ProvideConfigToken",
+    "section": "ProvideConfigToken",
+    "route": "/references/core/interfaces/ProvideConfigToken",
+    "fragment": "provideconfigtoken"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "ProvideConfigUse"
+    ],
+    "pageType": "api",
+    "title": "ProvideConfigUse",
+    "section": "ProvideConfigUse",
+    "route": "/references/core/type-aliases/ProvideConfigUse",
+    "fragment": "provideconfiguse"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "ProvideConfigUseValue"
+    ],
+    "pageType": "api",
+    "title": "ProvideConfigUseValue",
+    "section": "ProvideConfigUseValue",
+    "route": "/references/core/interfaces/ProvideConfigUseValue",
+    "fragment": "provideconfigusevalue"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "ProvideConfigUseFactory"
+    ],
+    "pageType": "api",
+    "title": "ProvideConfigUseFactory",
+    "section": "ProvideConfigUseFactory",
+    "route": "/references/core/interfaces/ProvideConfigUseFactory",
+    "fragment": "provideconfigusefactory"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "ProvideConfigUseClass"
+    ],
+    "pageType": "api",
+    "title": "ProvideConfigUseClass",
+    "section": "ProvideConfigUseClass",
+    "route": "/references/core/interfaces/ProvideConfigUseClass",
+    "fragment": "provideconfiguseclass"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "ProvideConfigUseExisting"
+    ],
+    "pageType": "api",
+    "title": "ProvideConfigUseExisting",
+    "section": "ProvideConfigUseExisting",
+    "route": "/references/core/interfaces/ProvideConfigUseExisting",
+    "fragment": "provideconfiguseexisting"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "$type"
+    ],
+    "pageType": "api",
+    "title": "$type",
+    "section": "$type",
+    "route": "/references/core/variables/$type",
+    "fragment": "type"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "TypeContainer"
+    ],
+    "pageType": "api",
+    "title": "TypeContainer",
+    "section": "TypeContainer",
+    "route": "/references/core/interfaces/TypeContainer",
+    "fragment": "typecontainer"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "ContainedTypeOf"
+    ],
+    "pageType": "api",
+    "title": "ContainedTypeOf",
+    "section": "ContainedTypeOf",
+    "route": "/references/core/type-aliases/ContainedTypeOf",
+    "fragment": "containedtypeof"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core / rxjs",
+      "pickType"
+    ],
+    "pageType": "api",
+    "title": "pickType",
+    "section": "pickType",
+    "route": "/references/core-rxjs/variables/pickType",
+    "fragment": "picktype"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core / rxjs",
+      "mapToVoid"
+    ],
+    "pageType": "api",
+    "title": "mapToVoid",
+    "section": "mapToVoid",
+    "route": "/references/core-rxjs/variables/mapToVoid",
+    "fragment": "maptovoid"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / layout",
+      "NamedBreakpointObserver"
+    ],
+    "pageType": "api",
+    "title": "NamedBreakpointObserver",
+    "section": "NamedBreakpointObserver",
+    "route": "/references/cdk-layout/classes/NamedBreakpointObserver",
+    "fragment": "namedbreakpointobserver"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / layout",
+      "BreakpointConfig"
+    ],
+    "pageType": "api",
+    "title": "BreakpointConfig",
+    "section": "BreakpointConfig",
+    "route": "/references/cdk-layout/type-aliases/BreakpointConfig",
+    "fragment": "breakpointconfig"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / layout",
+      "BreakpointMap"
+    ],
+    "pageType": "api",
+    "title": "BreakpointMap",
+    "section": "BreakpointMap",
+    "route": "/references/cdk-layout/type-aliases/BreakpointMap",
+    "fragment": "breakpointmap"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "createDialogConfig"
+    ],
+    "pageType": "api",
+    "title": "createDialogConfig",
+    "section": "createDialogConfig",
+    "route": "/references/cdk-dialog/functions/createDialogConfig",
+    "fragment": "createdialogconfig"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "DialogIoTypes"
+    ],
+    "pageType": "api",
+    "title": "DialogIoTypes",
+    "section": "DialogIoTypes",
+    "route": "/references/cdk-dialog/classes/DialogIoTypes",
+    "fragment": "dialogiotypes"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "DialogInputOf"
+    ],
+    "pageType": "api",
+    "title": "DialogInputOf",
+    "section": "DialogInputOf",
+    "route": "/references/cdk-dialog/type-aliases/DialogInputOf",
+    "fragment": "dialoginputof"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "DialogOutputOf"
+    ],
+    "pageType": "api",
+    "title": "DialogOutputOf",
+    "section": "DialogOutputOf",
+    "route": "/references/cdk-dialog/type-aliases/DialogOutputOf",
+    "fragment": "dialogoutputof"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "DialogRefOf"
+    ],
+    "pageType": "api",
+    "title": "DialogRefOf",
+    "section": "DialogRefOf",
+    "route": "/references/cdk-dialog/type-aliases/DialogRefOf",
+    "fragment": "dialogrefof"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "DialogConfigOf"
+    ],
+    "pageType": "api",
+    "title": "DialogConfigOf",
+    "section": "DialogConfigOf",
+    "route": "/references/cdk-dialog/type-aliases/DialogConfigOf",
+    "fragment": "dialogconfigof"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "forms",
+      "ComponentValueAccessor"
+    ],
+    "pageType": "api",
+    "title": "ComponentValueAccessor",
+    "section": "ComponentValueAccessor",
+    "route": "/references/forms/classes/ComponentValueAccessor",
+    "fragment": "componentvalueaccessor"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "forms",
+      "ComponentValueAccessorHost"
+    ],
+    "pageType": "api",
+    "title": "ComponentValueAccessorHost",
+    "section": "ComponentValueAccessorHost",
+    "route": "/references/forms/classes/ComponentValueAccessorHost",
+    "fragment": "componentvalueaccessorhost"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "forms",
+      "provideComponentValueAccessor"
+    ],
+    "pageType": "api",
+    "title": "provideComponentValueAccessor",
+    "section": "provideComponentValueAccessor",
+    "route": "/references/forms/functions/provideComponentValueAccessor",
+    "fragment": "providecomponentvalueaccessor"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "router",
+      "defineRouteData"
+    ],
+    "pageType": "api",
+    "title": "defineRouteData",
+    "section": "defineRouteData",
+    "route": "/references/router/functions/defineRouteData",
+    "fragment": "defineroutedata"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "router",
+      "compileRouteData"
+    ],
+    "pageType": "api",
+    "title": "compileRouteData",
+    "section": "compileRouteData",
+    "route": "/references/router/functions/compileRouteData",
+    "fragment": "compileroutedata"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "router",
+      "RouteDataDefinition"
+    ],
+    "pageType": "api",
+    "title": "RouteDataDefinition",
+    "section": "RouteDataDefinition",
+    "route": "/references/router/interfaces/RouteDataDefinition",
+    "fragment": "routedatadefinition"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "router",
+      "RouteDataToken"
+    ],
+    "pageType": "api",
+    "title": "RouteDataToken",
+    "section": "RouteDataToken",
+    "route": "/references/router/classes/RouteDataToken",
+    "fragment": "routedatatoken"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "router",
+      "useRouteData"
+    ],
+    "pageType": "api",
+    "title": "useRouteData",
+    "section": "useRouteData",
+    "route": "/references/router/functions/useRouteData",
+    "fragment": "useroutedata"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "elements",
+      "Elements"
+    ],
+    "pageType": "api",
+    "title": "Elements",
+    "section": "Elements",
+    "route": "/references/elements/interfaces/Elements",
+    "fragment": "elements"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "elements",
+      "ELEMENT_REGISTRY"
+    ],
+    "pageType": "api",
+    "title": "ELEMENT_REGISTRY",
+    "section": "ELEMENT_REGISTRY",
+    "route": "/references/elements/variables/ELEMENT_REGISTRY",
+    "fragment": "element_registry"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "elements",
+      "ELEMENTS_READY"
+    ],
+    "pageType": "api",
+    "title": "ELEMENTS_READY",
+    "section": "ELEMENTS_READY",
+    "route": "/references/elements/variables/ELEMENTS_READY",
+    "fragment": "elements_ready"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "elements",
+      "provideElements"
+    ],
+    "pageType": "api",
+    "title": "provideElements",
+    "section": "provideElements",
+    "route": "/references/elements/functions/provideElements",
+    "fragment": "provideelements"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "elements",
+      "ProvideElementsConfig"
+    ],
+    "pageType": "api",
+    "title": "ProvideElementsConfig",
+    "section": "ProvideElementsConfig",
+    "route": "/references/elements/interfaces/ProvideElementsConfig",
+    "fragment": "provideelementsconfig"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
+      "ThemeBuilder"
+    ],
+    "pageType": "api",
+    "title": "ThemeBuilder",
+    "section": "ThemeBuilder",
+    "route": "/references/theming/interfaces/ThemeBuilder",
+    "fragment": "themebuilder"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
+      "ThemeBuilderContext"
+    ],
+    "pageType": "api",
+    "title": "ThemeBuilderContext",
+    "section": "ThemeBuilderContext",
+    "route": "/references/theming/interfaces/ThemeBuilderContext",
+    "fragment": "themebuildercontext"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
+      "ThemeManager"
+    ],
+    "pageType": "api",
+    "title": "ThemeManager",
+    "section": "ThemeManager",
+    "route": "/references/theming/classes/ThemeManager",
+    "fragment": "thememanager"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
+      "ThemeBuilderMap"
+    ],
+    "pageType": "api",
+    "title": "ThemeBuilderMap",
+    "section": "ThemeBuilderMap",
+    "route": "/references/theming/interfaces/ThemeBuilderMap",
+    "fragment": "themebuildermap"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
+      "ThemeBuilderConfigMapOf"
+    ],
+    "pageType": "api",
+    "title": "ThemeBuilderConfigMapOf",
+    "section": "ThemeBuilderConfigMapOf",
+    "route": "/references/theming/type-aliases/ThemeBuilderConfigMapOf",
+    "fragment": "themebuilderconfigmapof"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
+      "SimpleThemeManager"
+    ],
+    "pageType": "api",
+    "title": "SimpleThemeManager",
+    "section": "SimpleThemeManager",
+    "route": "/references/theming/classes/SimpleThemeManager",
+    "fragment": "simplethememanager"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
+      "provideTheme"
+    ],
+    "pageType": "api",
+    "title": "provideTheme",
+    "section": "provideTheme",
+    "route": "/references/theming/functions/provideTheme",
+    "fragment": "providetheme"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
+      "TokensBuilderConfig"
+    ],
+    "pageType": "api",
+    "title": "TokensBuilderConfig",
+    "section": "TokensBuilderConfig",
+    "route": "/references/theming/interfaces/TokensBuilderConfig",
+    "fragment": "tokensbuilderconfig"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
+      "TokensBuilder"
+    ],
+    "pageType": "api",
+    "title": "TokensBuilder",
+    "section": "TokensBuilder",
+    "route": "/references/theming/classes/TokensBuilder",
+    "fragment": "tokensbuilder"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
+      "ThemeTokens"
+    ],
+    "pageType": "api",
+    "title": "ThemeTokens",
+    "section": "ThemeTokens",
+    "route": "/references/theming/interfaces/ThemeTokens",
+    "fragment": "themetokens"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
+      "ThemeTokenRegistry"
+    ],
+    "pageType": "api",
+    "title": "ThemeTokenRegistry",
+    "section": "ThemeTokenRegistry",
+    "route": "/references/theming/classes/ThemeTokenRegistry",
+    "fragment": "themetokenregistry"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
+      "ThemeTokenNotFoundException"
+    ],
+    "pageType": "api",
+    "title": "ThemeTokenNotFoundException",
+    "section": "ThemeTokenNotFoundException",
+    "route": "/references/theming/classes/ThemeTokenNotFoundException",
+    "fragment": "themetokennotfoundexception"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
+      "RootElementStylePropertiesThemeTokenRegistry"
+    ],
+    "pageType": "api",
+    "title": "RootElementStylePropertiesThemeTokenRegistry",
+    "section": "RootElementStylePropertiesThemeTokenRegistry",
+    "route": "/references/theming/classes/RootElementStylePropertiesThemeTokenRegistry",
+    "fragment": "rootelementstylepropertiesthemetokenregistry"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
+      "TestingThemeTokenRegistry"
+    ],
+    "pageType": "api",
+    "title": "TestingThemeTokenRegistry",
+    "section": "TestingThemeTokenRegistry",
+    "route": "/references/theming/classes/TestingThemeTokenRegistry",
+    "fragment": "testingthemetokenregistry"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming-material",
+      "SchemeVariant"
+    ],
+    "pageType": "api",
+    "title": "SchemeVariant",
+    "section": "SchemeVariant",
+    "route": "/references/theming-material/enums/SchemeVariant",
+    "fragment": "schemevariant",
+    "content": "Copy of the internal enum Variant from @material/material-color-utilities."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming-material",
+      "SchemeMode"
+    ],
+    "pageType": "api",
+    "title": "SchemeMode",
+    "section": "SchemeMode",
+    "route": "/references/theming-material/enums/SchemeMode",
+    "fragment": "schememode"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming-material",
+      "SchemeBuilderConfig"
+    ],
+    "pageType": "api",
+    "title": "SchemeBuilderConfig",
+    "section": "SchemeBuilderConfig",
+    "route": "/references/theming-material/interfaces/SchemeBuilderConfig",
+    "fragment": "schemebuilderconfig"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming-material",
+      "SchemeBuilder"
+    ],
+    "pageType": "api",
+    "title": "SchemeBuilder",
+    "section": "SchemeBuilder",
+    "route": "/references/theming-material/classes/SchemeBuilder",
+    "fragment": "schemebuilder"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming-material",
+      "TypescaleConfig"
+    ],
+    "pageType": "api",
+    "title": "TypescaleConfig",
+    "section": "TypescaleConfig",
+    "route": "/references/theming-material/interfaces/TypescaleConfig",
+    "fragment": "typescaleconfig"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming-material",
+      "TypescaleBuilderConfig"
+    ],
+    "pageType": "api",
+    "title": "TypescaleBuilderConfig",
+    "section": "TypescaleBuilderConfig",
+    "route": "/references/theming-material/interfaces/TypescaleBuilderConfig",
+    "fragment": "typescalebuilderconfig"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming-material",
+      "TypescaleBuilder"
+    ],
+    "pageType": "api",
+    "title": "TypescaleBuilder",
+    "section": "TypescaleBuilder",
+    "route": "/references/theming-material/classes/TypescaleBuilder",
+    "fragment": "typescalebuilder"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandBus"
+    ],
+    "pageType": "api",
+    "title": "CommandBus",
+    "section": "CommandBus",
+    "route": "/references/command-flow/classes/CommandBus",
+    "fragment": "commandbus"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandBus"
+    ],
+    "pageType": "api",
+    "title": "CommandBus",
+    "section": "Static Properties",
+    "route": "/references/command-flow/classes/CommandBus",
+    "fragment": "static-properties",
+    "content": "Creates a new Observable by calling the Observable constructor Observable create"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandBus"
+    ],
+    "pageType": "api",
+    "title": "CommandBus",
+    "section": "Methods",
+    "route": "/references/command-flow/classes/CommandBus",
+    "fragment": "methods",
+    "content": "Used as a NON-CANCELLABLE means of subscribing to an observable, for use with APIs that expect promises, like async/await. You cannot unsubscribe from this. WARNING: Only use this with observables you know will complete. If the source observable does not complete, you will end up with a promise that is hung up, and potentially all of the state of an async function hanging out in memory. To avoid this situation, look into adding something like {@link timeout}, {@link take}, {@link takeWhile}, or {@link takeUntil} amongst others."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandBus"
+    ],
+    "pageType": "api",
+    "title": "CommandBus",
+    "section": "Example",
+    "route": "/references/command-flow/classes/CommandBus",
+    "fragment": "example",
+    "content": "a handler for each value emitted by the observable a promise that either resolves on observable completion or rejects with the handled error"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandBus"
+    ],
+    "pageType": "api",
+    "title": "CommandBus",
+    "section": "Example",
+    "route": "/references/command-flow/classes/CommandBus",
+    "fragment": "example",
+    "content": "Creates a new Observable, with this Observable instance as the source, and the passed operator defined as the new observable's operator. lift"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandBus"
+    ],
+    "pageType": "api",
+    "title": "CommandBus",
+    "section": "Example",
+    "route": "/references/command-flow/classes/CommandBus",
+    "fragment": "example",
+    "content": "the operator defining the operation to take on the observable a new observable with the Operator applied"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandEventBus"
+    ],
+    "pageType": "api",
+    "title": "CommandEventBus",
+    "section": "CommandEventBus",
+    "route": "/references/command-flow/classes/CommandEventBus",
+    "fragment": "commandeventbus"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandEventBus"
+    ],
+    "pageType": "api",
+    "title": "CommandEventBus",
+    "section": "Static Properties",
+    "route": "/references/command-flow/classes/CommandEventBus",
+    "fragment": "static-properties",
+    "content": "Creates a new Observable by calling the Observable constructor Observable create"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandEventBus"
+    ],
+    "pageType": "api",
+    "title": "CommandEventBus",
+    "section": "Methods",
+    "route": "/references/command-flow/classes/CommandEventBus",
+    "fragment": "methods",
+    "content": "Used as a NON-CANCELLABLE means of subscribing to an observable, for use with APIs that expect promises, like async/await. You cannot unsubscribe from this. WARNING: Only use this with observables you know will complete. If the source observable does not complete, you will end up with a promise that is hung up, and potentially all of the state of an async function hanging out in memory. To avoid this situation, look into adding something like {@link timeout}, {@link take}, {@link takeWhile}, or {@link takeUntil} amongst others."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandEventBus"
+    ],
+    "pageType": "api",
+    "title": "CommandEventBus",
+    "section": "Example",
+    "route": "/references/command-flow/classes/CommandEventBus",
+    "fragment": "example",
+    "content": "a handler for each value emitted by the observable a promise that either resolves on observable completion or rejects with the handled error"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandEventBus"
+    ],
+    "pageType": "api",
+    "title": "CommandEventBus",
+    "section": "Example",
+    "route": "/references/command-flow/classes/CommandEventBus",
+    "fragment": "example",
+    "content": "Creates a new Observable, with this Observable instance as the source, and the passed operator defined as the new observable's operator. lift"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandEventBus"
+    ],
+    "pageType": "api",
+    "title": "CommandEventBus",
+    "section": "Example",
+    "route": "/references/command-flow/classes/CommandEventBus",
+    "fragment": "example",
+    "content": "the operator defining the operation to take on the observable a new observable with the Operator applied"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "SubjectBasedCommandBus"
+    ],
+    "pageType": "api",
+    "title": "SubjectBasedCommandBus",
+    "section": "SubjectBasedCommandBus",
+    "route": "/references/command-flow/classes/SubjectBasedCommandBus",
+    "fragment": "subjectbasedcommandbus"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "SubjectBasedCommandBus"
+    ],
+    "pageType": "api",
+    "title": "SubjectBasedCommandBus",
+    "section": "Static Properties",
+    "route": "/references/command-flow/classes/SubjectBasedCommandBus",
+    "fragment": "static-properties",
+    "content": "Creates a \"subject\" by basically gluing an observer to an observable."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "SubjectBasedCommandBus"
+    ],
+    "pageType": "api",
+    "title": "SubjectBasedCommandBus",
+    "section": "Methods",
+    "route": "/references/command-flow/classes/SubjectBasedCommandBus",
+    "fragment": "methods",
+    "content": "Creates a new Observable with this Subject as the source. You can do this to create custom Observer-side logic of the Subject and conceal it from code that uses the Observable. {Observable} Observable that the Subject casts to"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "SubjectBasedCommandBus"
+    ],
+    "pageType": "api",
+    "title": "SubjectBasedCommandBus",
+    "section": "Methods",
+    "route": "/references/command-flow/classes/SubjectBasedCommandBus",
+    "fragment": "methods",
+    "content": "Used as a NON-CANCELLABLE means of subscribing to an observable, for use with APIs that expect promises, like async/await. You cannot unsubscribe from this. WARNING: Only use this with observables you know will complete. If the source observable does not complete, you will end up with a promise that is hung up, and potentially all of the state of an async function hanging out in memory. To avoid this situation, look into adding something like {@link timeout}, {@link take}, {@link takeWhile}, or {@link takeUntil} amongst others."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "SubjectBasedCommandBus"
+    ],
+    "pageType": "api",
+    "title": "SubjectBasedCommandBus",
+    "section": "Example",
+    "route": "/references/command-flow/classes/SubjectBasedCommandBus",
+    "fragment": "example",
+    "content": "a handler for each value emitted by the observable a promise that either resolves on observable completion or rejects with the handled error"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "SubjectBasedCommandEventBus"
+    ],
+    "pageType": "api",
+    "title": "SubjectBasedCommandEventBus",
+    "section": "SubjectBasedCommandEventBus",
+    "route": "/references/command-flow/classes/SubjectBasedCommandEventBus",
+    "fragment": "subjectbasedcommandeventbus"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "SubjectBasedCommandEventBus"
+    ],
+    "pageType": "api",
+    "title": "SubjectBasedCommandEventBus",
+    "section": "Static Properties",
+    "route": "/references/command-flow/classes/SubjectBasedCommandEventBus",
+    "fragment": "static-properties",
+    "content": "Creates a \"subject\" by basically gluing an observer to an observable."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "SubjectBasedCommandEventBus"
+    ],
+    "pageType": "api",
+    "title": "SubjectBasedCommandEventBus",
+    "section": "Methods",
+    "route": "/references/command-flow/classes/SubjectBasedCommandEventBus",
+    "fragment": "methods",
+    "content": "Creates a new Observable with this Subject as the source. You can do this to create custom Observer-side logic of the Subject and conceal it from code that uses the Observable. {Observable} Observable that the Subject casts to"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "SubjectBasedCommandEventBus"
+    ],
+    "pageType": "api",
+    "title": "SubjectBasedCommandEventBus",
+    "section": "Methods",
+    "route": "/references/command-flow/classes/SubjectBasedCommandEventBus",
+    "fragment": "methods",
+    "content": "Used as a NON-CANCELLABLE means of subscribing to an observable, for use with APIs that expect promises, like async/await. You cannot unsubscribe from this. WARNING: Only use this with observables you know will complete. If the source observable does not complete, you will end up with a promise that is hung up, and potentially all of the state of an async function hanging out in memory. To avoid this situation, look into adding something like {@link timeout}, {@link take}, {@link takeWhile}, or {@link takeUntil} amongst others."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "SubjectBasedCommandEventBus"
+    ],
+    "pageType": "api",
+    "title": "SubjectBasedCommandEventBus",
+    "section": "Example",
+    "route": "/references/command-flow/classes/SubjectBasedCommandEventBus",
+    "fragment": "example",
+    "content": "a handler for each value emitted by the observable a promise that either resolves on observable completion or rejects with the handled error"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "COMMAND_META"
+    ],
+    "pageType": "api",
+    "title": "COMMAND_META",
+    "section": "COMMAND_META",
+    "route": "/references/command-flow/variables/COMMAND_META",
+    "fragment": "command_meta"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandMetadata"
+    ],
+    "pageType": "api",
+    "title": "CommandMetadata",
+    "section": "CommandMetadata",
+    "route": "/references/command-flow/interfaces/CommandMetadata",
+    "fragment": "commandmetadata"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "Command"
+    ],
+    "pageType": "api",
+    "title": "Command",
+    "section": "Command",
+    "route": "/references/command-flow/classes/Command",
+    "fragment": "command"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "COMMAND_EVENT_META"
+    ],
+    "pageType": "api",
+    "title": "COMMAND_EVENT_META",
+    "section": "COMMAND_EVENT_META",
+    "route": "/references/command-flow/variables/COMMAND_EVENT_META",
+    "fragment": "command_event_meta"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandEventMetadata"
+    ],
+    "pageType": "api",
+    "title": "CommandEventMetadata",
+    "section": "CommandEventMetadata",
+    "route": "/references/command-flow/interfaces/CommandEventMetadata",
+    "fragment": "commandeventmetadata"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandEvent"
+    ],
+    "pageType": "api",
+    "title": "CommandEvent",
+    "section": "CommandEvent",
+    "route": "/references/command-flow/classes/CommandEvent",
+    "fragment": "commandevent"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "useCommand"
+    ],
+    "pageType": "api",
+    "title": "useCommand",
+    "section": "useCommand",
+    "route": "/references/command-flow/variables/useCommand",
+    "fragment": "usecommand"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "registerCommandHandler"
+    ],
+    "pageType": "api",
+    "title": "registerCommandHandler",
+    "section": "registerCommandHandler",
+    "route": "/references/command-flow/functions/registerCommandHandler",
+    "fragment": "registercommandhandler"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "registerCommandEventHandler"
+    ],
+    "pageType": "api",
+    "title": "registerCommandEventHandler",
+    "section": "registerCommandEventHandler",
+    "route": "/references/command-flow/functions/registerCommandEventHandler",
+    "fragment": "registercommandeventhandler"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandHandler"
+    ],
+    "pageType": "api",
+    "title": "CommandHandler",
+    "section": "CommandHandler",
+    "route": "/references/command-flow/interfaces/CommandHandler",
+    "fragment": "commandhandler"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandEventHandler"
+    ],
+    "pageType": "api",
+    "title": "CommandEventHandler",
+    "section": "CommandEventHandler",
+    "route": "/references/command-flow/interfaces/CommandEventHandler",
+    "fragment": "commandeventhandler"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "CommandFlowScheduler"
+    ],
+    "pageType": "api",
+    "title": "CommandFlowScheduler",
+    "section": "CommandFlowScheduler",
+    "route": "/references/command-flow/classes/CommandFlowScheduler",
+    "fragment": "commandflowscheduler"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow",
+      "AnimationFrameBasedCommandFlowScheduler"
+    ],
+    "pageType": "api",
+    "title": "AnimationFrameBasedCommandFlowScheduler",
+    "section": "AnimationFrameBasedCommandFlowScheduler",
+    "route": "/references/command-flow/classes/AnimationFrameBasedCommandFlowScheduler",
+    "fragment": "animationframebasedcommandflowscheduler"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / process-flow",
+      "ProcessMetadata"
+    ],
+    "pageType": "api",
+    "title": "ProcessMetadata",
+    "section": "ProcessMetadata",
+    "route": "/references/command-flow-process-flow/interfaces/ProcessMetadata",
+    "fragment": "processmetadata"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / process-flow",
+      "Process"
+    ],
+    "pageType": "api",
+    "title": "Process",
+    "section": "Process",
+    "route": "/references/command-flow-process-flow/classes/Process",
+    "fragment": "process"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / process-flow",
+      "ProcessEvent"
+    ],
+    "pageType": "api",
+    "title": "ProcessEvent",
+    "section": "ProcessEvent",
+    "route": "/references/command-flow-process-flow/classes/ProcessEvent",
+    "fragment": "processevent"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / process-flow",
+      "ProcessStarted"
+    ],
+    "pageType": "api",
+    "title": "ProcessStarted",
+    "section": "ProcessStarted",
+    "route": "/references/command-flow-process-flow/classes/ProcessStarted",
+    "fragment": "processstarted"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / process-flow",
+      "ProcessCompleted"
+    ],
+    "pageType": "api",
+    "title": "ProcessCompleted",
+    "section": "ProcessCompleted",
+    "route": "/references/command-flow-process-flow/classes/ProcessCompleted",
+    "fragment": "processcompleted"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / process-flow",
+      "ProcessFailed"
+    ],
+    "pageType": "api",
+    "title": "ProcessFailed",
+    "section": "ProcessFailed",
+    "route": "/references/command-flow-process-flow/classes/ProcessFailed",
+    "fragment": "processfailed"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / process-flow",
+      "useProcess"
+    ],
+    "pageType": "api",
+    "title": "useProcess",
+    "section": "useProcess",
+    "route": "/references/command-flow-process-flow/variables/useProcess",
+    "fragment": "useprocess"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / process-flow",
+      "useProcessPending"
+    ],
+    "pageType": "api",
+    "title": "useProcessPending",
+    "section": "useProcessPending",
+    "route": "/references/command-flow-process-flow/variables/useProcessPending",
+    "fragment": "useprocesspending"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / process-flow",
+      "useProcessError"
+    ],
+    "pageType": "api",
+    "title": "useProcessError",
+    "section": "useProcessError",
+    "route": "/references/command-flow-process-flow/variables/useProcessError",
+    "fragment": "useprocesserror"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / process-flow",
+      "registerProcessHandler"
+    ],
+    "pageType": "api",
+    "title": "registerProcessHandler",
+    "section": "registerProcessHandler",
+    "route": "/references/command-flow-process-flow/functions/registerProcessHandler",
+    "fragment": "registerprocesshandler"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / process-flow",
+      "ProcessHandler"
+    ],
+    "pageType": "api",
+    "title": "ProcessHandler",
+    "section": "ProcessHandler",
+    "route": "/references/command-flow-process-flow/interfaces/ProcessHandler",
+    "fragment": "processhandler"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / process-flow",
+      "ProcessSchedulingStrategy"
+    ],
+    "pageType": "api",
+    "title": "ProcessSchedulingStrategy",
+    "section": "ProcessSchedulingStrategy",
+    "route": "/references/command-flow-process-flow/enums/ProcessSchedulingStrategy",
+    "fragment": "processschedulingstrategy"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / process-flow",
+      "ProcessResultOf"
+    ],
+    "pageType": "api",
+    "title": "ProcessResultOf",
+    "section": "ProcessResultOf",
+    "route": "/references/command-flow-process-flow/type-aliases/ProcessResultOf",
+    "fragment": "processresultof"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / query-flow",
+      "DisposeQuery"
+    ],
+    "pageType": "api",
+    "title": "DisposeQuery",
+    "section": "DisposeQuery",
+    "route": "/references/command-flow-query-flow/classes/DisposeQuery",
+    "fragment": "disposequery"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / query-flow",
+      "QueryMetadata"
+    ],
+    "pageType": "api",
+    "title": "QueryMetadata",
+    "section": "QueryMetadata",
+    "route": "/references/command-flow-query-flow/interfaces/QueryMetadata",
+    "fragment": "querymetadata"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / query-flow",
+      "Query"
+    ],
+    "pageType": "api",
+    "title": "Query",
+    "section": "Query",
+    "route": "/references/command-flow-query-flow/classes/Query",
+    "fragment": "query"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / query-flow",
+      "QueryEvent"
+    ],
+    "pageType": "api",
+    "title": "QueryEvent",
+    "section": "QueryEvent",
+    "route": "/references/command-flow-query-flow/classes/QueryEvent",
+    "fragment": "queryevent"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / query-flow",
+      "QueryActivated"
+    ],
+    "pageType": "api",
+    "title": "QueryActivated",
+    "section": "QueryActivated",
+    "route": "/references/command-flow-query-flow/classes/QueryActivated",
+    "fragment": "queryactivated"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / query-flow",
+      "QueryResolved"
+    ],
+    "pageType": "api",
+    "title": "QueryResolved",
+    "section": "QueryResolved",
+    "route": "/references/command-flow-query-flow/classes/QueryResolved",
+    "fragment": "queryresolved"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / query-flow",
+      "QueryErrored"
+    ],
+    "pageType": "api",
+    "title": "QueryErrored",
+    "section": "QueryErrored",
+    "route": "/references/command-flow-query-flow/classes/QueryErrored",
+    "fragment": "queryerrored"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / query-flow",
+      "QueryInactivated"
+    ],
+    "pageType": "api",
+    "title": "QueryInactivated",
+    "section": "QueryInactivated",
+    "route": "/references/command-flow-query-flow/classes/QueryInactivated",
+    "fragment": "queryinactivated"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / query-flow",
+      "useQuery"
+    ],
+    "pageType": "api",
+    "title": "useQuery",
+    "section": "useQuery",
+    "route": "/references/command-flow-query-flow/variables/useQuery",
+    "fragment": "usequery"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / query-flow",
+      "registerQueryHandler"
+    ],
+    "pageType": "api",
+    "title": "registerQueryHandler",
+    "section": "registerQueryHandler",
+    "route": "/references/command-flow-query-flow/functions/registerQueryHandler",
+    "fragment": "registerqueryhandler"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / query-flow",
+      "QueryHandler"
+    ],
+    "pageType": "api",
+    "title": "QueryHandler",
+    "section": "QueryHandler",
+    "route": "/references/command-flow-query-flow/interfaces/QueryHandler",
+    "fragment": "queryhandler"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / query-flow",
+      "QueryResultOf"
+    ],
+    "pageType": "api",
+    "title": "QueryResultOf",
+    "section": "QueryResultOf",
+    "route": "/references/command-flow-query-flow/type-aliases/QueryResultOf",
+    "fragment": "queryresultof"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / effects",
+      "provideEffects"
+    ],
+    "pageType": "api",
+    "title": "provideEffects",
+    "section": "provideEffects",
+    "route": "/references/command-flow-effects/functions/provideEffects",
+    "fragment": "provideeffects"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / effects",
+      "Effects"
+    ],
+    "pageType": "api",
+    "title": "Effects",
+    "section": "Effects",
+    "route": "/references/command-flow-effects/interfaces/Effects",
+    "fragment": "effects"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / debugger",
+      "provideCommandFlowDebugger"
+    ],
+    "pageType": "api",
+    "title": "provideCommandFlowDebugger",
+    "section": "provideCommandFlowDebugger",
+    "route": "/references/command-flow-debugger/functions/provideCommandFlowDebugger",
+    "fragment": "providecommandflowdebugger"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / debugger",
+      "CommandIdWeakMap"
+    ],
+    "pageType": "api",
+    "title": "CommandIdWeakMap",
+    "section": "CommandIdWeakMap",
+    "route": "/references/command-flow-debugger/classes/CommandIdWeakMap",
+    "fragment": "commandidweakmap"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / debugger",
+      "COMMAND_ID_GENERATOR"
+    ],
+    "pageType": "api",
+    "title": "COMMAND_ID_GENERATOR",
+    "section": "COMMAND_ID_GENERATOR",
+    "route": "/references/command-flow-debugger/variables/COMMAND_ID_GENERATOR",
+    "fragment": "command_id_generator"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "command-flow / debugger",
+      "COMMAND_FLOW_DEBUGGER_FILTER"
+    ],
+    "pageType": "api",
+    "title": "COMMAND_FLOW_DEBUGGER_FILTER",
+    "section": "COMMAND_FLOW_DEBUGGER_FILTER",
+    "route": "/references/command-flow-debugger/variables/COMMAND_FLOW_DEBUGGER_FILTER",
+    "fragment": "command_flow_debugger_filter"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "endpoints",
+      "Endpoint"
+    ],
+    "pageType": "api",
+    "title": "Endpoint",
+    "section": "Endpoint",
+    "route": "/references/endpoints/interfaces/Endpoint",
+    "fragment": "endpoint"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "endpoints",
+      "EndpointSchema"
+    ],
+    "pageType": "api",
+    "title": "EndpointSchema",
+    "section": "EndpointSchema",
+    "route": "/references/endpoints/interfaces/EndpointSchema",
+    "fragment": "endpointschema"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "endpoints",
+      "EndpointParamsSchema"
+    ],
+    "pageType": "api",
+    "title": "EndpointParamsSchema",
+    "section": "EndpointParamsSchema",
+    "route": "/references/endpoints/interfaces/EndpointParamsSchema",
+    "fragment": "endpointparamsschema"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "endpoints",
+      "EndpointSchemas"
+    ],
+    "pageType": "api",
+    "title": "EndpointSchemas",
+    "section": "EndpointSchemas",
+    "route": "/references/endpoints/interfaces/EndpointSchemas",
+    "fragment": "endpointschemas"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "endpoints",
+      "generateEndpoint"
+    ],
+    "pageType": "api",
+    "title": "generateEndpoint",
+    "section": "generateEndpoint",
+    "route": "/references/endpoints/functions/generateEndpoint",
+    "fragment": "generateendpoint"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "endpoints",
+      "generateEndpoints"
+    ],
+    "pageType": "api",
+    "title": "generateEndpoints",
+    "section": "generateEndpoints",
+    "route": "/references/endpoints/functions/generateEndpoints",
+    "fragment": "generateendpoints"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "endpoints",
+      "ResolveEndpointParamsSchema"
+    ],
+    "pageType": "api",
+    "title": "ResolveEndpointParamsSchema",
+    "section": "ResolveEndpointParamsSchema",
+    "route": "/references/endpoints/type-aliases/ResolveEndpointParamsSchema",
+    "fragment": "resolveendpointparamsschema"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "endpoints",
+      "GenerateEndpoint"
+    ],
+    "pageType": "api",
+    "title": "GenerateEndpoint",
+    "section": "GenerateEndpoint",
+    "route": "/references/endpoints/type-aliases/GenerateEndpoint",
+    "fragment": "generateendpoint"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "endpoints",
+      "GenerateEndpoints"
+    ],
+    "pageType": "api",
+    "title": "GenerateEndpoints",
+    "section": "GenerateEndpoints",
+    "route": "/references/endpoints/type-aliases/GenerateEndpoints",
+    "fragment": "generateendpoints"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "endpoints",
+      "createEndpointsInjectionToken"
+    ],
+    "pageType": "api",
+    "title": "createEndpointsInjectionToken",
+    "section": "createEndpointsInjectionToken",
+    "route": "/references/endpoints/functions/createEndpointsInjectionToken",
+    "fragment": "createendpointsinjectiontoken"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "endpoints",
+      "EndpointInvoker"
+    ],
+    "pageType": "api",
+    "title": "EndpointInvoker",
+    "section": "EndpointInvoker",
+    "route": "/references/endpoints/classes/EndpointInvoker",
+    "fragment": "endpointinvoker"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "endpoints",
+      "EndpointInvokeConfig"
+    ],
+    "pageType": "api",
+    "title": "EndpointInvokeConfig",
+    "section": "EndpointInvokeConfig",
+    "route": "/references/endpoints/interfaces/EndpointInvokeConfig",
+    "fragment": "endpointinvokeconfig"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "endpoints",
+      "HttpClientEndpointInvoker"
+    ],
+    "pageType": "api",
+    "title": "HttpClientEndpointInvoker",
+    "section": "HttpClientEndpointInvoker",
+    "route": "/references/endpoints/classes/HttpClientEndpointInvoker",
+    "fragment": "httpclientendpointinvoker"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "config-files",
+      "ConfigFileLoader"
+    ],
+    "pageType": "api",
+    "title": "ConfigFileLoader",
+    "section": "ConfigFileLoader",
+    "route": "/references/config-files/classes/ConfigFileLoader",
+    "fragment": "configfileloader"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "config-files",
+      "ConfigFileNotFoundException"
+    ],
+    "pageType": "api",
+    "title": "ConfigFileNotFoundException",
+    "section": "ConfigFileNotFoundException",
+    "route": "/references/config-files/classes/ConfigFileNotFoundException",
+    "fragment": "configfilenotfoundexception"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "config-files",
+      "HttpClientConfigFileLoader"
+    ],
+    "pageType": "api",
+    "title": "HttpClientConfigFileLoader",
+    "section": "HttpClientConfigFileLoader",
+    "route": "/references/config-files/classes/HttpClientConfigFileLoader",
+    "fragment": "httpclientconfigfileloader"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "config-files",
+      "defineConfigFileMetadata"
+    ],
+    "pageType": "api",
+    "title": "defineConfigFileMetadata",
+    "section": "defineConfigFileMetadata",
+    "route": "/references/config-files/variables/defineConfigFileMetadata",
+    "fragment": "defineconfigfilemetadata"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "config-files",
+      "ConfigFileMetadata"
+    ],
+    "pageType": "api",
+    "title": "ConfigFileMetadata",
+    "section": "ConfigFileMetadata",
+    "route": "/references/config-files/interfaces/ConfigFileMetadata",
+    "fragment": "configfilemetadata"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "config-files",
+      "ConfigFileParser"
+    ],
+    "pageType": "api",
+    "title": "ConfigFileParser",
+    "section": "ConfigFileParser",
+    "route": "/references/config-files/interfaces/ConfigFileParser",
+    "fragment": "configfileparser"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "config-files",
+      "ConfigFileParsingException"
+    ],
+    "pageType": "api",
+    "title": "ConfigFileParsingException",
+    "section": "ConfigFileParsingException",
+    "route": "/references/config-files/classes/ConfigFileParsingException",
+    "fragment": "configfileparsingexception"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "config-files",
+      "ConfigFileValidator"
+    ],
+    "pageType": "api",
+    "title": "ConfigFileValidator",
+    "section": "ConfigFileValidator",
+    "route": "/references/config-files/interfaces/ConfigFileValidator",
+    "fragment": "configfilevalidator"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "config-files",
+      "ConfigFileValidationException"
+    ],
+    "pageType": "api",
+    "title": "ConfigFileValidationException",
+    "section": "ConfigFileValidationException",
+    "route": "/references/config-files/classes/ConfigFileValidationException",
+    "fragment": "configfilevalidationexception"
+  }
+]

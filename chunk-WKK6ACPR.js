@@ -1,0 +1,1 @@
+import"./chunk-P2VZOJAX.js";var t=[{path:"",redirectTo:"breakpoints",pathMatch:"full"},{path:"",title:"CDK",children:[{path:"breakpoints",loadChildren:()=>import("./chunk-GANZ6LQA.js")},{path:"overview",loadChildren:()=>import("./chunk-5DSETGBD.js")}]}],e=t;export{e as default};
