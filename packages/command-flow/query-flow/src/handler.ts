@@ -1,9 +1,6 @@
 import { inject, Type } from '@angular/core';
-import {
-  CommandBus,
-  pickType,
-  registerCommandHandler,
-} from '@angularity/command-flow';
+import { CommandBus, registerCommandHandler } from '@angularity/command-flow';
+import { pickType } from '@angularity/core/rxjs';
 import { filter, mergeMap, Observable, takeUntil } from 'rxjs';
 
 import { DisposeQuery } from './commands';

@@ -1,10 +1,10 @@
 import { inject, Type } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { pickType } from '@angularity/core/rxjs';
 import { Observable, tap } from 'rxjs';
 
 import { CommandBus, CommandEventBus } from './buses';
 import { Command, CommandEvent } from './core';
-import { pickType } from './operators';
 import { CommandFlowScheduler } from './scheduler';
 
 export interface CommandHandler<C extends Command> {

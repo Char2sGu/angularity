@@ -5,8 +5,8 @@ import {
   CommandBus,
   CommandEventBus,
   CommandFlowScheduler,
-  pickType,
 } from '@angularity/command-flow';
+import { pickType } from '@angularity/core/rxjs';
 import {
   filter,
   firstValueFrom,
