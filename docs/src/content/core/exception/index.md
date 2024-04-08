@@ -2,8 +2,8 @@
 
 In Angularity, JavaScript runtime errors are divided into two categories: Errors and Exceptions.
 
-- Exceptions are instances of the `Exception` class, and are intentionally produced and are expected to be caught and appropriately handled.
-- Errors are all the errors that are not instances of `Exception`, and are considered as critical errors that should never happen and typically breaks the application, such as `TypeError`. The occurrence of such an error implies something is wrong within the application that awaits fixes.
+- Exceptions are instances of the `Exception` class. They are expected to be caught and appropriately handled.
+- Errors are all the errors that are not instances of `Exception`. They are regarded as critical errors that should never happen and typically breaks the application, such as `TypeError`. The occurrence of such an error implies something is wrong within the application that awaits fixes.
 
 To create a type of exception, declare a class that extends from the `Exception` class.
 
@@ -24,7 +24,7 @@ class EntityNotFoundException extends Exception {
 }
 ```
 
-It is worthy to note that both Exceptions and Errors are instances of `Error`. The way to distinguish them is `instanceof Exception` instead of `instanceof Error`.
+It is worthy to note that both Exceptions and Errors are instances of `Error`. The way to distinguish them is `instanceof Exception`, not `instanceof Error`.
 
 ```ts
 catch (e) {
@@ -47,4 +47,4 @@ catch (e) {
 }
 ```
 
-All Angularity libraries follow this convention for producing errors, and it is recommended to also follow such convention in applications that uses Angularity.
+All Angularity libraries follow this convention for error handling, and it is recommended to also follow such convention in applications that uses Angularity.

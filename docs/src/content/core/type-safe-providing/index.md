@@ -1,6 +1,6 @@
 # {{ NgDocPage.title }}
 
-In Angular, object literals are used to declare injectables of the injection context:
+In Angular, object literals are used to declare injectables of an injection context:
 
 ```ts
 providers: [
@@ -20,9 +20,13 @@ providers: [
 ];
 ```
 
-However, although the `ProviderToken` already carries type information, the object literal does not perform type checks to ensure type-safety, requiring the developer to manually perform type restrictions.
+However, although the `ProviderToken` already carries type information, the object literals cannot perform type checks to ensure type-safety, requiring the developer to manually make sure that the provided value is valid.
 
-In the snippet above, the developer must make sure that `SuffixedTitleStrategy` correctly implements `TitleStrategy`, and use a `satisfies` statement to manually restrict the type of the dialog global config.
+In the snippet above, the developer:
+
+1. Must make sure `SuffixedTitleStrategy` correctly implements `TitleStrategy`.
+1. Must use the `satisfies` keyword to manually restrict the type of the provider of `DIALOG_GLOBAL_CONFIG`.
+1. Cannot appropriately type the `APP_INITIALIZER` since there is no such `AppInitializer` type exported.
 
 As a solution, Angularity offers `provide` and `provideMulti` as helper functions for type-safe provider declarations:
 
@@ -43,4 +47,4 @@ providers: [
 ];
 ```
 
-By elevating the `multi` option to the function name, it also helps prevent the developer from forgetting the `multi` option.
+In the example above, all the providers' types are automatically inferred and restricted from the token. By elevating the `multi` option to the function name, it also helps prevent the developer from forgetting the `multi` option.

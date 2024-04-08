@@ -2,7 +2,7 @@
 
 Type Containers are widely used in Angularity for advanced type gymnastics.
 
-A Type Container is simply an empty object that carries type information, but enables infinite possibilities of advanced type inferences and manipulations.
+A Type Container is an empty object but carries specific TypeScript type information, enabling infinite possibilities of advanced type inferences and manipulations.
 
 The `$type` function produces a type container:
 
@@ -36,7 +36,7 @@ createActionFactory('FetchBook', $type<{ id: string }>());
 // generic P is inferred as { id: string }
 ```
 
-In comparison, without type containers, it is not possible to infer generic types from arguments, and some code have to be repeated in order to supply both the type and the value:
+In comparison, without type containers, it is not possible to leverage the power of TypeScript generic inference, so all the generics have to be manually supplied:
 
 ```ts
 declare function createActionFactory<N extends string, P extends object>(
@@ -48,4 +48,4 @@ declare function createActionFactory<N extends string, P extends object>(
 createActionFactory<'FetchBook', { id: string }>('FetchBook');
 ```
 
-Note that the string literal `'FetchBook'` is repeated twice because of the lack of type inference. The lack of type inference would cause more severe problems in complex type gymnastics.
+Note that the string literal `'FetchBook'` is repeated twice because of the lack of generic inference. When the generics are complicated, it could be impossible to manually supply all the generic, and that's when Type Containers come handy.
