@@ -10,6 +10,6 @@
   },
   "sideEffects": false,
   "devDependencies": {
-    "@angular/fire": "17.x.x"
+    "@angular/fire": "17.0.1"
   }
 }
