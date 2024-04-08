@@ -99,6 +99,13 @@
         "styles": ["docs/src/styles.scss"],
         "scripts": []
       }
+    },
+    "deploy": {
+      "executor": "angular-cli-ghpages:deploy",
+      "options": {
+        "buildTarget": "docs:build:production",
+        "baseHref": "/angularity/"
+      }
     }
   }
 }
