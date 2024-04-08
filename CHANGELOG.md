@@ -1,3 +1,19 @@
+## 0.3.0 (2024-04-08)
+
+### 🚀 Features
+
+- **cdk:** extract sub packages ([69cd3c1](https://github.com/TheNightmareX/angularly/commit/69cd3c1))
+- **command-flow:** move rxjs operators to core/rxjs ([193ae99](https://github.com/TheNightmareX/angularly/commit/193ae99))
+- **core:** add `injectRef` ([2aef58b](https://github.com/TheNightmareX/angularly/commit/2aef58b))
+- **elements:** add initial implementation ([fd50f82](https://github.com/TheNightmareX/angularly/commit/fd50f82))
+- **fire:** update implementation ([bc0635d](https://github.com/TheNightmareX/angularly/commit/bc0635d))
+- **fire:** extract sub packages ([bed7cd3](https://github.com/TheNightmareX/angularly/commit/bed7cd3))
+- **theming:** extract `apply()` as an individual method ([0d2b348](https://github.com/TheNightmareX/angularly/commit/0d2b348))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.2.1 (2024-04-06)
 
 ### 🩹 Fixes
