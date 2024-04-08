@@ -26,6 +26,9 @@
         "tsConfig": "packages/elements/tsconfig.spec.json",
         "polyfills": ["zone.js", "zone.js/testing"]
       }
+    },
+    "nx-release-publish": {
+      "dependsOn": ["build", "^nx-release-publish"]
     }
   }
 }
