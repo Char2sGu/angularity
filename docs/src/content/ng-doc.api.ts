@@ -11,6 +11,7 @@ export default {
     'cdk/dialog',
     'forms',
     'router',
+    'elements',
     'theming',
     'theming-material',
     'command-flow',
