@@ -31,7 +31,7 @@
       "@angularity/endpoints": ["./dist/endpoints"],
       "@angularity/fire": ["./dist/fire"],
       "@angularity/forms": ["./dist/forms"],
-      "@angularity/router": ["./dist/angularity/router"],
+      "@angularity/router": ["./dist/router"],
       "@angularity/theming": ["./dist/theming"],
       "@angularity/theming-material": ["./dist/theming-material"],
       "@ng-doc/generated/*": ["./ng-doc/*"],
