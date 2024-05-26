@@ -2,7 +2,7 @@
   "name": "@angularity/theming-material",
   "version": "0.3.0",
   "peerDependencies": {
-    "@angular/core": "17.x.x",
+    "@angular/core": ">=17",
     "@angularity/theming": "*",
     "@material/material-color-utilities": "^0.2.7"
   },

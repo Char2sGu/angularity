@@ -2,11 +2,11 @@
   "name": "@angularity/forms",
   "version": "0.3.0",
   "peerDependencies": {
-    "@angular/common": "17.x.x",
-    "@angular/core": "17.x.x",
-    "@angular/forms": "17.x.x",
+    "@angular/common": ">=17",
+    "@angular/core": ">=17",
+    "@angular/forms": ">=17",
     "@angularity/core": "*",
-    "rxjs": "7.x.x"
+    "rxjs": ">=7"
   },
   "dependencies": {
     "tslib": "2.x.x"

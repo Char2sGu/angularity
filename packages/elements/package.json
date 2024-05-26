@@ -2,9 +2,9 @@
   "name": "@angularity/elements",
   "version": "0.3.0",
   "peerDependencies": {
-    "@angular/common": "17.x.x",
-    "@angular/core": "17.x.x",
-    "@angular/elements": "17.x.x",
+    "@angular/common": ">=17",
+    "@angular/core": ">=17",
+    "@angular/elements": ">=17",
     "@angularity/core": "*"
   },
   "dependencies": {

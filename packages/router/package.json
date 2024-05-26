@@ -2,10 +2,10 @@
   "name": "@angularity/router",
   "version": "0.3.0",
   "peerDependencies": {
-    "@angular/common": "17.x.x",
-    "@angular/core": "17.x.x",
-    "@angular/router": "17.x.x",
-    "rxjs": "7.x.x"
+    "@angular/common": ">=17",
+    "@angular/core": ">=17",
+    "@angular/router": ">=17",
+    "rxjs": ">=7"
   },
   "dependencies": {
     "tslib": "2.x.x"
