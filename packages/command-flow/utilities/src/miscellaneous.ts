@@ -7,15 +7,15 @@ export function createPseudoType<T>(
   return { [Symbol.hasInstance]: predicate } as any;
 }
 
-export function assignTypeDerivedProperties<
+export function extendType<
   T extends Type<any>,
-  Extras extends Record<string, unknown>,
+  Extension extends Record<string, unknown>,
 >(
   type: T,
-  derivation: (context: {
+  extension: (context: {
     type: T;
     $instance: TypeContainer<InstanceType<T>>;
-  }) => Extras,
-): T & Extras {
-  return Object.assign(type, derivation({ type, $instance: $type() }));
+  }) => Extension,
+): T & Extension {
+  return Object.assign(type, extension({ type, $instance: $type() }));
 }
