@@ -37,11 +37,12 @@ export function createQueryEventType<
   Source extends Query<any>,
   Payload extends object | void,
 >(
+  name: string,
   $source: TypeContainer<Source>,
   $payload: TypeContainer<Payload>,
 ): DualUseQueryEventType<Source, Payload> {
   return createDualUseFactory(
-    'QueryEventType',
+    name,
     (source: Source, payload: Payload): QueryEvent<Source> => ({
       ...payload,
       [COMMAND_EVENT_META]: { source },

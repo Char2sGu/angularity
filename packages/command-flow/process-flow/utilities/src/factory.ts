@@ -37,11 +37,12 @@ export function createProcessEventType<
   Source extends Process<any>,
   Payload extends object | void,
 >(
+  name: string,
   $source: TypeContainer<Source>,
   $payload: TypeContainer<Payload>,
 ): DualUseProcessEventType<Source, Payload> {
   return createDualUseFactory(
-    'ProcessEventType',
+    name,
     (source: Source, payload: Payload): ProcessEvent<Source> => ({
       ...payload,
       [COMMAND_EVENT_META]: { source },
