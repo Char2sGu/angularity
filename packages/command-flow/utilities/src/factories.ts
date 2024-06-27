@@ -13,6 +13,7 @@ export type Extend<T extends object, E extends object | void> = E extends void
 export interface DualUseFactory<F extends (...args: any[]) => object> {
   (...args: Parameters<F>): ReturnType<F>;
   new (...args: Parameters<F>): ReturnType<F>;
+  prototype: ReturnType<F>;
 }
 
 export function createDualUseFactory<F extends (...args: any[]) => object>(
