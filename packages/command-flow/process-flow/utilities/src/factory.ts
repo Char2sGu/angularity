@@ -1,5 +1,5 @@
-import { COMMAND_META } from '@angularity/command-flow';
-import { Process } from '@angularity/command-flow/process-flow';
+import { COMMAND_EVENT_META, COMMAND_META } from '@angularity/command-flow';
+import { Process, ProcessEvent } from '@angularity/command-flow/process-flow';
 import {
   createDualUseFactory,
   DualUseFactory,
@@ -22,6 +22,29 @@ export function createProcessType<Payload extends object | void, Result>(
     (payload: Payload): Process<never> => ({
       ...payload,
       [COMMAND_META]: { process: {} },
+    }),
+  ) as any;
+}
+
+export interface DualUseProcessEventType<
+  Source extends Process<any>,
+  Payload extends object | void,
+> extends DualUseFactory<
+    (source: Source, payload: Payload) => Extend<ProcessEvent<Source>, Payload>
+  > {}
+
+export function createProcessEventType<
+  Source extends Process<any>,
+  Payload extends object | void,
+>(
+  $source: TypeContainer<Source>,
+  $payload: TypeContainer<Payload>,
+): DualUseProcessEventType<Source, Payload> {
+  return createDualUseFactory(
+    'ProcessEventType',
+    (source: Source, payload: Payload): ProcessEvent<Source> => ({
+      ...payload,
+      [COMMAND_EVENT_META]: { source },
     }),
   ) as any;
 }

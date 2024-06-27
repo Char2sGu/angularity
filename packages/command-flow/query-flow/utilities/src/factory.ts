@@ -1,5 +1,5 @@
-import { COMMAND_META } from '@angularity/command-flow';
-import { Query } from '@angularity/command-flow/query-flow';
+import { COMMAND_EVENT_META, COMMAND_META } from '@angularity/command-flow';
+import { Query, QueryEvent } from '@angularity/command-flow/query-flow';
 import {
   createDualUseFactory,
   DualUseFactory,
@@ -22,6 +22,29 @@ export function createQueryType<Payload extends object | void, Result>(
     (payload: Payload): Query<never> => ({
       ...payload,
       [COMMAND_META]: { query: {} },
+    }),
+  ) as any;
+}
+
+export interface DualUseQueryEventType<
+  Source extends Query<any>,
+  Payload extends object | void,
+> extends DualUseFactory<
+    (source: Source, payload: Payload) => Extend<QueryEvent<Source>, Payload>
+  > {}
+
+export function createQueryEventType<
+  Source extends Query<any>,
+  Payload extends object | void,
+>(
+  $source: TypeContainer<Source>,
+  $payload: TypeContainer<Payload>,
+): DualUseQueryEventType<Source, Payload> {
+  return createDualUseFactory(
+    'QueryEventType',
+    (source: Source, payload: Payload): QueryEvent<Source> => ({
+      ...payload,
+      [COMMAND_EVENT_META]: { source },
     }),
   ) as any;
 }
