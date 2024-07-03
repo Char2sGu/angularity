@@ -1,3 +1,16 @@
+## 0.4.0 (2024-07-03)
+
+### 🚀 Features
+
+- **cdk:** replace `createDialogConfig` with `useDialog` ([f647e4c](https://github.com/TheNightmareX/angularly/commit/f647e4c))
+- **command-flow:** `assignTypeDerivedProperties` -> `extendType` ([fbb7939](https://github.com/TheNightmareX/angularly/commit/fbb7939))
+- **command-flow:** add `createXxxEventType` utilities ([10d9b1b](https://github.com/TheNightmareX/angularly/commit/10d9b1b))
+- **command-flow:** add prototype type info to `DualUseFactory` ([2c8efdd](https://github.com/TheNightmareX/angularly/commit/2c8efdd))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.3.0 (2024-04-08)
 
 ### 🚀 Features
