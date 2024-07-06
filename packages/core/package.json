@@ -1,12 +1,16 @@
 {
   "name": "@angularity/core",
   "version": "0.4.0",
+  "sideEffects": false,
   "peerDependencies": {
     "@angular/core": ">=17",
+    "type-container": "^1.0.1",
     "rxjs": ">=7"
   },
   "dependencies": {
     "tslib": "2.x.x"
   },
-  "sideEffects": false
+  "devDependencies": {
+    "type-container": "^1.0.1"
+  }
 }
