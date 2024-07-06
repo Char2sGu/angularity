@@ -1,29 +1,38 @@
 import {
-  APP_INITIALIZER,
+  ENVIRONMENT_INITIALIZER,
   EnvironmentProviders,
   inject,
   makeEnvironmentProviders,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { provideMulti } from '@angularity/core';
+import { from, ObservableInput, of } from 'rxjs';
 
-import {
-  ThemeBuilderConfigMapOf,
-  ThemeBuilderMap,
-  ThemeManager,
-} from './manager';
+import { ThemeBuildConfig, ThemeManager } from './manager';
 
-export function provideTheme<Builders extends ThemeBuilderMap>(
-  builders: Builders,
-  configs: ThemeBuilderConfigMapOf<Builders>,
+/**
+ * Invoked within an injection context.
+ */
+export interface ThemeBuildConfigFactory {
+  (): ObservableInput<ThemeBuildConfig>;
+}
+
+export function provideTheme(
+  configInput: ThemeBuildConfig | ThemeBuildConfigFactory,
 ): EnvironmentProviders {
   return makeEnvironmentProviders([
-    Object.values(builders),
     provideMulti({
-      token: APP_INITIALIZER,
-      useFactory:
-        (themeManager = inject(ThemeManager)) =>
-        () =>
-          themeManager.buildAndApply(builders, configs),
+      token: ENVIRONMENT_INITIALIZER,
+      useFactory: (themeManager = inject(ThemeManager)) => {
+        const configSource =
+          typeof configInput === 'function' ? configInput() : of(configInput);
+        return () =>
+          from(configSource)
+            .pipe(takeUntilDestroyed())
+            .subscribe((config) => {
+              themeManager.buildAndApply(config);
+            });
+      },
     }),
   ]);
 }
