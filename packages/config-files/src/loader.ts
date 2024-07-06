@@ -3,14 +3,14 @@ import { forwardRef, inject, Injectable, Injector } from '@angular/core';
 import { Exception } from '@angularity/core';
 import { catchError, map, Observable } from 'rxjs';
 
-import { ConfigFileMetadata } from './metadata';
+import { ConfigFileDefinition } from './definition';
 
 @Injectable({
   providedIn: 'root',
   useExisting: forwardRef(() => HttpClientConfigFileLoader),
 })
 export abstract class ConfigFileLoader {
-  abstract load<T, Schema>(meta: ConfigFileMetadata<T, Schema>): Observable<T>;
+  abstract load<T, Schema>(def: ConfigFileDefinition<T, Schema>): Observable<T>;
 }
 
 export class ConfigFileNotFoundException extends Exception {
@@ -24,18 +24,18 @@ export class HttpClientConfigFileLoader {
   protected httpClient = inject(HttpClient);
   protected injector = inject(Injector);
 
-  load<T, Schema>(meta: ConfigFileMetadata<T, Schema>): Observable<T> {
-    const parser = this.injector.get(meta.parser);
-    const validator = this.injector.get(meta.validator);
+  load<T, Schema>(def: ConfigFileDefinition<T, Schema>): Observable<T> {
+    const parser = this.injector.get(def.parser);
+    const validator = this.injector.get(def.validator);
 
-    return this.fetch(meta.path).pipe(
+    return this.fetch(def.path).pipe(
       map((res) => {
-        if (!res) throw new ConfigFileNotFoundException(meta.path);
+        if (!res) throw new ConfigFileNotFoundException(def.path);
         return res;
       }),
       map((raw) => {
         const parsed = parser.parse(raw);
-        validator.validate(meta.schema, parsed);
+        validator.validate(def.schema, parsed);
         return parsed as T;
       }),
     );

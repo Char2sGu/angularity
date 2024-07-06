@@ -4,14 +4,14 @@ import { TypeContainer } from '@angularity/core';
 import { ConfigFileParser } from './parser';
 import { ConfigFileValidator } from './validator';
 
-export const defineConfigFileMetadata = <T, Schema>(
-  metadata: ConfigFileMetadata<T, Schema>,
-): typeof metadata => metadata;
-
-export interface ConfigFileMetadata<T, Schema> {
+export interface ConfigFileDefinition<T, Schema> {
   path: string;
   type: TypeContainer<T>;
   parser: ProviderToken<ConfigFileParser>;
   validator: ProviderToken<ConfigFileValidator<Schema>>;
   schema: Schema;
 }
+
+export const defineConfigFile = <T, Schema>(
+  def: ConfigFileDefinition<T, Schema>,
+): typeof def => def;
