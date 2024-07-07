@@ -1,3 +1,17 @@
+## 0.5.0 (2024-07-07)
+
+### 🚀 Features
+
+- **config-file:** `defineConfigFileMetadata` => `defineConfigFile` ([a3a53fb](https://github.com/TheNightmareX/angularly/commit/a3a53fb))
+- **elements:** make `provideElements` synchronous ([535dae9](https://github.com/TheNightmareX/angularly/commit/535dae9))
+- **endpoints:** `createEndpointsInjectionToken` => `useEndpointsFactory` ([c5ed61e](https://github.com/TheNightmareX/angularly/commit/c5ed61e))
+- **theming:** rework facade api ([0832c9f](https://github.com/TheNightmareX/angularly/commit/0832c9f))
+- **theming:** support dynamic theme config ([f6f868f](https://github.com/TheNightmareX/angularly/commit/f6f868f))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.4.0 (2024-07-03)
 
 ### 🚀 Features
