@@ -1,3 +1,13 @@
+## 0.6.1 (2024-07-26)
+
+### 🩹 Fixes
+
+- **theming-material:** add missing exports ([bfd51d8](https://github.com/TheNightmareX/angularly/commit/bfd51d8))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.6.0 (2024-07-26)
 
 ### 🚀 Features
