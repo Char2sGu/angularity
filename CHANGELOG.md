@@ -1,3 +1,20 @@
+## 0.6.0 (2024-07-26)
+
+### 🚀 Features
+
+- **cdk:** add animation-aware-portals.ts ([e7dea21](https://github.com/TheNightmareX/angularly/commit/e7dea21))
+- **cdk:** add animation-aware-dialog ([a22122e](https://github.com/TheNightmareX/angularly/commit/a22122e))
+- **core:** add useBrowserOnly ([62b167b](https://github.com/TheNightmareX/angularly/commit/62b167b))
+- **forms:** update interface and add example implementation ([78e5380](https://github.com/TheNightmareX/angularly/commit/78e5380))
+- **router:** add `setupInjectionContextForRouteLoading` ([abc90a6](https://github.com/TheNightmareX/angularly/commit/abc90a6))
+- **theming:** redesign facade api ([b643027](https://github.com/TheNightmareX/angularly/commit/b643027))
+- **theming-material:** add ExtendedSchemeBuilder ([c5cc163](https://github.com/TheNightmareX/angularly/commit/c5cc163))
+- **theming-material:** add StandardTypescaleBuilder ([215e6a4](https://github.com/TheNightmareX/angularly/commit/215e6a4))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.5.1 (2024-07-07)
 
 ### 🩹 Fixes
