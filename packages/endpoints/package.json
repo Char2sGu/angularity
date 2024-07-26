@@ -2,9 +2,9 @@
   "name": "@angularity/endpoints",
   "version": "0.5.1",
   "peerDependencies": {
-    "@angularity/core": "*",
     "@angular/common": ">=17",
     "@angular/core": ">=17",
+    "@angularity/core": "*",
     "rxjs": ">=7"
   },
   "dependencies": {

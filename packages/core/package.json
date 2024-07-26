@@ -4,8 +4,8 @@
   "sideEffects": false,
   "peerDependencies": {
     "@angular/core": ">=17",
-    "type-container": "^1.0.1",
-    "rxjs": ">=7"
+    "rxjs": ">=7",
+    "type-container": "^1.0.1"
   },
   "dependencies": {
     "tslib": "2.x.x"

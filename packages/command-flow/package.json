@@ -4,8 +4,8 @@
   "peerDependencies": {
     "@angular/common": ">=17",
     "@angular/core": ">=17",
-    "@angularity/core": "*",
     "@angularity/command-flow": "*",
+    "@angularity/core": "*",
     "rxjs": ">=7",
     "ts-pattern": "5.x.x"
   },
