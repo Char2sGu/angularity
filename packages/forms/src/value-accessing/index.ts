@@ -1,3 +1,3 @@
 export * from './accessor';
-export * from './host';
+export * from './accessor-host';
 export * from './provide';

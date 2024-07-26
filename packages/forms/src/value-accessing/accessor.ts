@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 
-import { ComponentValueAccessorHost } from './host';
+import { ComponentValueAccessorHost } from './accessor-host';
 
 @Injectable()
 export class ComponentValueAccessor implements ControlValueAccessor {
@@ -16,6 +16,6 @@ export class ComponentValueAccessor implements ControlValueAccessor {
     this.host.touched$.subscribe({ next: fn });
   }
   setDisabledState(disabled: boolean): void {
-    this.host.disabled$?.next(disabled);
+    this.host.disabled$.next(disabled);
   }
 }

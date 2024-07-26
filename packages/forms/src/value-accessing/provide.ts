@@ -3,7 +3,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { provide, provideMulti } from '@angularity/core';
 
 import { ComponentValueAccessor } from './accessor';
-import { ComponentValueAccessorHost } from './host';
+import { ComponentValueAccessorHost } from './accessor-host';
 
 export function provideComponentValueAccessor(
   host: ProviderToken<ComponentValueAccessorHost>,
