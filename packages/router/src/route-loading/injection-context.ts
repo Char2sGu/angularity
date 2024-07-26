@@ -5,15 +5,15 @@ import {
   Provider,
   runInInjectionContext,
 } from '@angular/core';
-import { Route, Routes } from '@angular/router';
+import { Route } from '@angular/router';
 
 /**
- * Workaround to emulate an injection context in route loaders.
- * @param routes
+ * Workaround to emulate an injection context in the route's loadChildren resolver.
+ * @param route
  * @returns
  * @see https://github.com/angular/angular/issues/51532#issuecomment-1956138610
  */
-export function setupInjectionContextForRouteLoading(routes: Routes): Routes {
+export function setupInjectionContextForLoadChildren(route: Route): Route {
   let injector: Injector | undefined = undefined;
   const injectorInitializerProvider: Provider = {
     provide: ENVIRONMENT_INITIALIZER,
@@ -25,8 +25,7 @@ export function setupInjectionContextForRouteLoading(routes: Routes): Routes {
       },
   };
 
-  const transformRouteAndChildren = (child: Route) => {
-    if (child.children) child.children.forEach(transformRouteAndChildren);
+  const transformRoute = (child: Route) => {
     if (!child.loadChildren) return child;
     const loadChildren = child.loadChildren;
     child.loadChildren = (...args) => {
@@ -36,11 +35,9 @@ export function setupInjectionContextForRouteLoading(routes: Routes): Routes {
     return child;
   };
 
-  return [
-    {
-      path: '',
-      providers: [injectorInitializerProvider],
-      children: routes.map(transformRouteAndChildren),
-    },
-  ];
+  return {
+    path: '',
+    providers: [injectorInitializerProvider],
+    children: [transformRoute(route)],
+  };
 }
