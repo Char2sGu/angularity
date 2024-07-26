@@ -6,33 +6,26 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { provideMulti } from '@angularity/core';
-import { from, ObservableInput, of } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 
-import { ThemeBuildConfig, ThemeManager } from './manager';
-
-/**
- * Invoked within an injection context.
- */
-export interface ThemeBuildConfigFactory {
-  (): ObservableInput<ThemeBuildConfig>;
-}
+import { ThemeBuilderComposition } from './builder-composition';
+import { ThemeManager } from './manager';
 
 export function provideTheme(
-  configInput: ThemeBuildConfig | ThemeBuildConfigFactory,
+  ...compositions: Observable<ThemeBuilderComposition>[]
 ): EnvironmentProviders {
   return makeEnvironmentProviders([
     provideMulti({
       token: ENVIRONMENT_INITIALIZER,
-      useFactory: (themeManager = inject(ThemeManager)) => {
-        const configSource =
-          typeof configInput === 'function' ? configInput() : of(configInput);
-        return () =>
-          from(configSource)
+      useFactory:
+        (manager = inject(ThemeManager)) =>
+        () =>
+          combineLatest(compositions)
             .pipe(takeUntilDestroyed())
-            .subscribe((config) => {
-              themeManager.buildAndApply(config);
-            });
-      },
+            .subscribe((compositions) => {
+              const tokens = manager.build(compositions);
+              manager.apply(tokens);
+            }),
     }),
   ]);
 }

@@ -8,11 +8,11 @@ export class ThemeManager {
   protected injector = inject(Injector);
   protected tokens = inject(ThemeTokenRegistry);
 
-  build(config: ThemeBuildConfig): ThemeTokens {
+  build(compositions: ThemeBuilderComposition[]): ThemeTokens {
     const tokens: ThemeTokens = {};
-    for (const [name, composition] of Object.entries(config)) {
-      const { builder: token, config } = composition;
-      const builder = this.injector.get(token);
+    for (const composition of compositions) {
+      const { name, builder: builderToken, config } = composition;
+      const builder = this.injector.get(builderToken);
       const result = builder.build({ name, config });
       Object.assign(tokens, result);
     }
@@ -22,13 +22,4 @@ export class ThemeManager {
   apply(tokens: ThemeTokens): void {
     for (const name in tokens) this.tokens.set(name, tokens[name]);
   }
-
-  buildAndApply(config: ThemeBuildConfig): void {
-    const tokens = this.build(config);
-    this.apply(tokens);
-  }
-}
-
-export interface ThemeBuildConfig {
-  [name: string]: ThemeBuilderComposition;
 }
