@@ -1,3 +1,17 @@
+## 0.6.2 (2024-07-31)
+
+### 🚀 Features
+
+- **router:** `setupInjectionContextForRouteLoading` -> `setupInjectionContextForLoadChildren` ([3bc9934](https://github.com/TheNightmareX/angularly/commit/3bc9934))
+
+### 🩹 Fixes
+
+- **dialog:** supply more context in `useDialog` ([feed914](https://github.com/TheNightmareX/angularly/commit/feed914))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.6.1 (2024-07-26)
 
 ### 🩹 Fixes
