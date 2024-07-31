@@ -44,15 +44,15 @@ export const useDialog = <T extends DialogIoTypes<any, any>>(
   [
     service,
     injector,
-    viewContainerRef,
-    componentFactoryResolver,
     destroyRef,
+    componentFactoryResolver,
+    viewContainerRef,
   ] = [
     inject(Dialog),
     inject(Injector),
-    inject(ViewContainerRef),
-    inject(ComponentFactoryResolver),
     inject(DestroyRef),
+    inject(ComponentFactoryResolver),
+    inject(ViewContainerRef, { optional: true }) ?? undefined, // available only in components
   ],
 ): DialogFacade<T> => {
   const launched$ = new Subject<DialogRefOf<T>>();
