@@ -1,3 +1,13 @@
+## 0.6.3 (2024-07-31)
+
+### 🩹 Fixes
+
+- **cdk:** inject viewContainerRef optionally ([b1c4c34](https://github.com/TheNightmareX/angularly/commit/b1c4c34))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.6.2 (2024-07-31)
 
 ### 🚀 Features

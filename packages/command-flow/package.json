@@ -1,6 +1,6 @@
 {
   "name": "@angularity/command-flow",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "peerDependencies": {
     "@angular/common": ">=17",
     "@angular/core": ">=17",
