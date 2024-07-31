@@ -1,5 +1,13 @@
 import { Dialog, DialogConfig, DialogRef } from '@angular/cdk/dialog';
-import { DestroyRef, inject, Injector, Signal, Type } from '@angular/core';
+import {
+  ComponentFactoryResolver,
+  DestroyRef,
+  inject,
+  Injector,
+  Signal,
+  Type,
+  ViewContainerRef,
+} from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map, merge, of, Subject, switchMap } from 'rxjs';
 
@@ -33,9 +41,17 @@ export interface DialogFacade<T extends DialogIoTypes<any, any>> {
 export const useDialog = <T extends DialogIoTypes<any, any>>(
   component: Type<T>,
   configDefaults: Partial<DialogConfigOf<T>> = {},
-  [service, injector, destroyRef] = [
+  [
+    service,
+    injector,
+    viewContainerRef,
+    componentFactoryResolver,
+    destroyRef,
+  ] = [
     inject(Dialog),
     inject(Injector),
+    inject(ViewContainerRef),
+    inject(ComponentFactoryResolver),
     inject(DestroyRef),
   ],
 ): DialogFacade<T> => {
@@ -44,7 +60,13 @@ export const useDialog = <T extends DialogIoTypes<any, any>>(
   return {
     launch: (config: DialogConfigOf<T> = {}): DialogRefOf<T> => {
       const open = service.open.bind(service);
-      const ref = open(component, { injector, ...configDefaults, ...config });
+      const ref = open(component, {
+        injector, // supplies parent component providers and view providers
+        viewContainerRef, // logical location of the created component
+        componentFactoryResolver, // supplies the correct environment injector with environmental providers
+        ...configDefaults,
+        ...config,
+      });
       launched$.next(ref);
       return ref;
     },
