@@ -32,6 +32,13 @@ export function useRouteData<T>(
   );
 }
 
+export function readRouteData<T>(
+  data: Data,
+  token: RouteDataToken<T>,
+): T | undefined {
+  return data[token.key];
+}
+
 function aggregateRouteTreeData(root: ActivatedRoute): Observable<Data> {
   const observables: Observable<Data>[] = [root.data];
   for (const child of root.children)
