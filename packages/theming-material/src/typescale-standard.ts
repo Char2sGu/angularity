@@ -1,4 +1,4 @@
-import { inject } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import {
   ThemeBuilder,
   ThemeBuilderContext,
@@ -11,6 +11,7 @@ export interface StandardTypescaleBuilderConfig {
   font: string;
 }
 
+@Injectable({ providedIn: 'root' })
 export class StandardTypescaleBuilder
   implements ThemeBuilder<StandardTypescaleBuilderConfig>
 {
