@@ -1,6 +1,6 @@
 {
   "name": "@angularity/cdk",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "peerDependencies": {
     "@angular/animations": ">=17",
     "@angular/cdk": ">=17",

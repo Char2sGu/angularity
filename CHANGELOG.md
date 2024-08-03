@@ -1,3 +1,18 @@
+## 0.6.4 (2024-08-03)
+
+### 🚀 Features
+
+- **router:** add `readRouteData` ([dd612fc](https://github.com/TheNightmareX/angularly/commit/dd612fc))
+
+### 🩹 Fixes
+
+- **theming-material:** provide `StandardTypescaleBuilder` in root ([7213f2c](https://github.com/TheNightmareX/angularly/commit/7213f2c))
+- **theming-material:** use pixels in typescale configs ([3f3fb34](https://github.com/TheNightmareX/angularly/commit/3f3fb34))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.6.3 (2024-07-31)
 
 ### 🩹 Fixes
