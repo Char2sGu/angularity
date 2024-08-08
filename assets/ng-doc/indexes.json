@@ -305,6 +305,18 @@
     "breadcrumbs": [
       "API References",
       "core",
+      "useBrowserOnly"
+    ],
+    "pageType": "api",
+    "title": "useBrowserOnly",
+    "section": "useBrowserOnly",
+    "route": "/references/core/variables/useBrowserOnly",
+    "fragment": "usebrowseronly"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
       "provide"
     ],
     "pageType": "api",
@@ -437,18 +449,6 @@
     "breadcrumbs": [
       "API References",
       "core",
-      "TypeContainer"
-    ],
-    "pageType": "api",
-    "title": "TypeContainer",
-    "section": "TypeContainer",
-    "route": "/references/core/interfaces/TypeContainer",
-    "fragment": "typecontainer"
-  },
-  {
-    "breadcrumbs": [
-      "API References",
-      "core",
       "ContainedTypeOf"
     ],
     "pageType": "api",
@@ -456,6 +456,18 @@
     "section": "ContainedTypeOf",
     "route": "/references/core/type-aliases/ContainedTypeOf",
     "fragment": "containedtypeof"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "core",
+      "TypeContainer"
+    ],
+    "pageType": "api",
+    "title": "TypeContainer",
+    "section": "TypeContainer",
+    "route": "/references/core/interfaces/TypeContainer",
+    "fragment": "typecontainer"
   },
   {
     "breadcrumbs": [
@@ -521,13 +533,338 @@
     "breadcrumbs": [
       "API References",
       "cdk / dialog",
-      "createDialogConfig"
+      "AnimationAwareDialog"
     ],
     "pageType": "api",
-    "title": "createDialogConfig",
-    "section": "createDialogConfig",
-    "route": "/references/cdk-dialog/functions/createDialogConfig",
-    "fragment": "createdialogconfig"
+    "title": "AnimationAwareDialog",
+    "section": "AnimationAwareDialog",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialog",
+    "fragment": "animationawaredialog",
+    "content": "Currently, when closing a dialog, the corresponding overlay is immediately disposed, which means that the host element of the overlay is immediately removed from the DOM using the native API. The current behavior completely eliminated the possibility to implement a :leave animation for dialogs, since the ancestor element of the dialog, the overlay, is removed via the native DOM API, and the Angular animation engine cannot hook into this process to perform the :leave animation. This class works around the issue by waiting :leave animations to complete before disposing the overlay."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialog"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialog",
+    "section": "Properties",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialog",
+    "fragment": "properties",
+    "content": "Stream that emits when all open dialog have finished closing. Will emit on subscribe if there are no open dialogs to begin with."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialog"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialog",
+    "section": "Accessors",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialog",
+    "fragment": "accessors",
+    "content": "Stream that emits when a dialog has been opened."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialog"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialog",
+    "section": "Accessors",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialog",
+    "fragment": "accessors",
+    "content": "Keeps track of the currently-open dialogs."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialog"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialog",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialog",
+    "fragment": "methods",
+    "content": "Closes all of the currently-open dialogs."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialog"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialog",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialog",
+    "fragment": "methods",
+    "content": "Finds an open dialog by its id."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialog"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialog",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialog",
+    "fragment": "methods",
+    "content": "ID to use when looking up the dialog."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialog"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialog",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialog",
+    "fragment": "methods",
+    "content": "Opens a modal dialog containing the given component."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialog"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialog",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialog",
+    "fragment": "methods",
+    "content": "Extra configuration options."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "AnimationAwareDialogContainer",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "animationawaredialogcontainer"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Properties",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "properties",
+    "content": "Queue of the IDs of the dialog's label element, based on their definition order. The first ID will be used as the aria-labelledby value. We use a queue here to handle the case where there are two or more titles in the DOM at a time and the first one is destroyed while the rest are present."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Properties",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "properties",
+    "content": "The portal currently attached to the host."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Properties",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "properties",
+    "content": "Type of interaction that led to the dialog being closed. This is used to determine whether the focus style will be applied when returning focus to its original location after the dialog is closed."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Properties",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "properties",
+    "content": "The portal outlet inside of this container into which the dialog content will be loaded."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Properties",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "properties",
+    "content": "Attaches a DOM portal to the dialog container."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "methods",
+    "content": "Can be used by child classes to customize the initial focus capturing behavior (e.g. if it's tied to an animation)."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "methods",
+    "content": "Captures focus if it isn't already inside the dialog."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "methods",
+    "content": "Moves the focus inside the focus trap. When autoFocus is not set to 'dialog', if focus cannot be moved then focus will go to the dialog container."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "methods",
+    "content": "Attach a ComponentPortal as content to this dialog container."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "methods",
+    "content": "Portal to be attached as the dialog content."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "methods",
+    "content": "Attach a TemplatePortal as content to this dialog container."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "methods",
+    "content": "Portal to be attached as the dialog content."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "methods",
+    "content": "Detaches a previously attached portal."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "methods",
+    "content": "Permanently dispose of this portal host."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "methods",
+    "content": "Whether this host has an attached portal."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "AnimationAwareDialogContainer"
+    ],
+    "pageType": "api",
+    "title": "AnimationAwareDialogContainer",
+    "section": "Methods",
+    "route": "/references/cdk-dialog/classes/AnimationAwareDialogContainer",
+    "fragment": "methods",
+    "content": "@docs-private"
   },
   {
     "breadcrumbs": [
@@ -592,6 +929,30 @@
   {
     "breadcrumbs": [
       "API References",
+      "cdk / dialog",
+      "DialogFacade"
+    ],
+    "pageType": "api",
+    "title": "DialogFacade",
+    "section": "DialogFacade",
+    "route": "/references/cdk-dialog/interfaces/DialogFacade",
+    "fragment": "dialogfacade"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "cdk / dialog",
+      "useDialog"
+    ],
+    "pageType": "api",
+    "title": "useDialog",
+    "section": "useDialog",
+    "route": "/references/cdk-dialog/variables/useDialog",
+    "fragment": "usedialog"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
       "forms",
       "ComponentValueAccessor"
     ],
@@ -612,6 +973,18 @@
     "section": "ComponentValueAccessorHost",
     "route": "/references/forms/classes/ComponentValueAccessorHost",
     "fragment": "componentvalueaccessorhost"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "forms",
+      "SimpleComponentValueAccessorHost"
+    ],
+    "pageType": "api",
+    "title": "SimpleComponentValueAccessorHost",
+    "section": "SimpleComponentValueAccessorHost",
+    "route": "/references/forms/classes/SimpleComponentValueAccessorHost",
+    "fragment": "simplecomponentvalueaccessorhost"
   },
   {
     "breadcrumbs": [
@@ -688,6 +1061,31 @@
   {
     "breadcrumbs": [
       "API References",
+      "router",
+      "readRouteData"
+    ],
+    "pageType": "api",
+    "title": "readRouteData",
+    "section": "readRouteData",
+    "route": "/references/router/functions/readRouteData",
+    "fragment": "readroutedata"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "router",
+      "setupInjectionContextForLoadChildren"
+    ],
+    "pageType": "api",
+    "title": "setupInjectionContextForLoadChildren",
+    "section": "setupInjectionContextForLoadChildren",
+    "route": "/references/router/functions/setupInjectionContextForLoadChildren",
+    "fragment": "setupinjectioncontextforloadchildren",
+    "content": "Workaround to emulate an injection context in the route's loadChildren resolver."
+  },
+  {
+    "breadcrumbs": [
+      "API References",
       "elements",
       "Elements"
     ],
@@ -708,18 +1106,6 @@
     "section": "ELEMENT_REGISTRY",
     "route": "/references/elements/variables/ELEMENT_REGISTRY",
     "fragment": "element_registry"
-  },
-  {
-    "breadcrumbs": [
-      "API References",
-      "elements",
-      "ELEMENTS_READY"
-    ],
-    "pageType": "api",
-    "title": "ELEMENTS_READY",
-    "section": "ELEMENTS_READY",
-    "route": "/references/elements/variables/ELEMENTS_READY",
-    "fragment": "elements_ready"
   },
   {
     "breadcrumbs": [
@@ -749,6 +1135,30 @@
     "breadcrumbs": [
       "API References",
       "theming",
+      "ThemeBuilderComposition"
+    ],
+    "pageType": "api",
+    "title": "ThemeBuilderComposition",
+    "section": "ThemeBuilderComposition",
+    "route": "/references/theming/interfaces/ThemeBuilderComposition",
+    "fragment": "themebuildercomposition"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
+      "withThemeBuilder"
+    ],
+    "pageType": "api",
+    "title": "withThemeBuilder",
+    "section": "withThemeBuilder",
+    "route": "/references/theming/variables/withThemeBuilder",
+    "fragment": "withthemebuilder"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
       "ThemeBuilder"
     ],
     "pageType": "api",
@@ -773,6 +1183,18 @@
     "breadcrumbs": [
       "API References",
       "theming",
+      "ThemeBuilderConfigOf"
+    ],
+    "pageType": "api",
+    "title": "ThemeBuilderConfigOf",
+    "section": "ThemeBuilderConfigOf",
+    "route": "/references/theming/type-aliases/ThemeBuilderConfigOf",
+    "fragment": "themebuilderconfigof"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming",
       "ThemeManager"
     ],
     "pageType": "api",
@@ -780,42 +1202,6 @@
     "section": "ThemeManager",
     "route": "/references/theming/classes/ThemeManager",
     "fragment": "thememanager"
-  },
-  {
-    "breadcrumbs": [
-      "API References",
-      "theming",
-      "ThemeBuilderMap"
-    ],
-    "pageType": "api",
-    "title": "ThemeBuilderMap",
-    "section": "ThemeBuilderMap",
-    "route": "/references/theming/interfaces/ThemeBuilderMap",
-    "fragment": "themebuildermap"
-  },
-  {
-    "breadcrumbs": [
-      "API References",
-      "theming",
-      "ThemeBuilderConfigMapOf"
-    ],
-    "pageType": "api",
-    "title": "ThemeBuilderConfigMapOf",
-    "section": "ThemeBuilderConfigMapOf",
-    "route": "/references/theming/type-aliases/ThemeBuilderConfigMapOf",
-    "fragment": "themebuilderconfigmapof"
-  },
-  {
-    "breadcrumbs": [
-      "API References",
-      "theming",
-      "SimpleThemeManager"
-    ],
-    "pageType": "api",
-    "title": "SimpleThemeManager",
-    "section": "SimpleThemeManager",
-    "route": "/references/theming/classes/SimpleThemeManager",
-    "fragment": "simplethememanager"
   },
   {
     "breadcrumbs": [
@@ -966,6 +1352,42 @@
     "breadcrumbs": [
       "API References",
       "theming-material",
+      "ExtendedSchemeBuilderConfig"
+    ],
+    "pageType": "api",
+    "title": "ExtendedSchemeBuilderConfig",
+    "section": "ExtendedSchemeBuilderConfig",
+    "route": "/references/theming-material/interfaces/ExtendedSchemeBuilderConfig",
+    "fragment": "extendedschemebuilderconfig"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming-material",
+      "ExtendedSchemeBuilderExtensionContext"
+    ],
+    "pageType": "api",
+    "title": "ExtendedSchemeBuilderExtensionContext",
+    "section": "ExtendedSchemeBuilderExtensionContext",
+    "route": "/references/theming-material/interfaces/ExtendedSchemeBuilderExtensionContext",
+    "fragment": "extendedschemebuilderextensioncontext"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming-material",
+      "ExtendedSchemeBuilder"
+    ],
+    "pageType": "api",
+    "title": "ExtendedSchemeBuilder",
+    "section": "ExtendedSchemeBuilder",
+    "route": "/references/theming-material/classes/ExtendedSchemeBuilder",
+    "fragment": "extendedschemebuilder"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming-material",
       "TypescaleConfig"
     ],
     "pageType": "api",
@@ -997,6 +1419,42 @@
     "section": "TypescaleBuilder",
     "route": "/references/theming-material/classes/TypescaleBuilder",
     "fragment": "typescalebuilder"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming-material",
+      "StandardTypescaleBuilderConfig"
+    ],
+    "pageType": "api",
+    "title": "StandardTypescaleBuilderConfig",
+    "section": "StandardTypescaleBuilderConfig",
+    "route": "/references/theming-material/interfaces/StandardTypescaleBuilderConfig",
+    "fragment": "standardtypescalebuilderconfig"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming-material",
+      "StandardTypescaleBuilder"
+    ],
+    "pageType": "api",
+    "title": "StandardTypescaleBuilder",
+    "section": "StandardTypescaleBuilder",
+    "route": "/references/theming-material/classes/StandardTypescaleBuilder",
+    "fragment": "standardtypescalebuilder"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "theming-material",
+      "STANDARD_TYPESCALES"
+    ],
+    "pageType": "api",
+    "title": "STANDARD_TYPESCALES",
+    "section": "STANDARD_TYPESCALES",
+    "route": "/references/theming-material/variables/STANDARD_TYPESCALES",
+    "fragment": "standard_typescales"
   },
   {
     "breadcrumbs": [
@@ -1860,6 +2318,18 @@
     "breadcrumbs": [
       "API References",
       "endpoints",
+      "useEndpointsFactory"
+    ],
+    "pageType": "api",
+    "title": "useEndpointsFactory",
+    "section": "useEndpointsFactory",
+    "route": "/references/endpoints/variables/useEndpointsFactory",
+    "fragment": "useendpointsfactory"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "endpoints",
       "generateEndpoint"
     ],
     "pageType": "api",
@@ -1968,6 +2438,30 @@
     "breadcrumbs": [
       "API References",
       "config-files",
+      "ConfigFileDefinition"
+    ],
+    "pageType": "api",
+    "title": "ConfigFileDefinition",
+    "section": "ConfigFileDefinition",
+    "route": "/references/config-files/interfaces/ConfigFileDefinition",
+    "fragment": "configfiledefinition"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "config-files",
+      "defineConfigFile"
+    ],
+    "pageType": "api",
+    "title": "defineConfigFile",
+    "section": "defineConfigFile",
+    "route": "/references/config-files/variables/defineConfigFile",
+    "fragment": "defineconfigfile"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "config-files",
       "ConfigFileLoader"
     ],
     "pageType": "api",
@@ -2004,30 +2498,6 @@
     "breadcrumbs": [
       "API References",
       "config-files",
-      "defineConfigFileMetadata"
-    ],
-    "pageType": "api",
-    "title": "defineConfigFileMetadata",
-    "section": "defineConfigFileMetadata",
-    "route": "/references/config-files/variables/defineConfigFileMetadata",
-    "fragment": "defineconfigfilemetadata"
-  },
-  {
-    "breadcrumbs": [
-      "API References",
-      "config-files",
-      "ConfigFileMetadata"
-    ],
-    "pageType": "api",
-    "title": "ConfigFileMetadata",
-    "section": "ConfigFileMetadata",
-    "route": "/references/config-files/interfaces/ConfigFileMetadata",
-    "fragment": "configfilemetadata"
-  },
-  {
-    "breadcrumbs": [
-      "API References",
-      "config-files",
       "ConfigFileParser"
     ],
     "pageType": "api",
@@ -2047,6 +2517,18 @@
     "section": "ConfigFileParsingException",
     "route": "/references/config-files/classes/ConfigFileParsingException",
     "fragment": "configfileparsingexception"
+  },
+  {
+    "breadcrumbs": [
+      "API References",
+      "config-files",
+      "defineConfigFileMetadata"
+    ],
+    "pageType": "api",
+    "title": "defineConfigFileMetadata",
+    "section": "defineConfigFileMetadata",
+    "route": "/references/config-files/variables/defineConfigFileMetadata",
+    "fragment": "defineconfigfilemetadata"
   },
   {
     "breadcrumbs": [

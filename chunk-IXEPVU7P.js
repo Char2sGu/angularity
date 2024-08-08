@@ -1,1 +1,0 @@
-import"./chunk-P2VZOJAX.js";var t=[{path:"",redirectTo:"functions/provideEffects",pathMatch:"full"},{path:"",title:"command-flow / effects",children:[{path:"functions/provideEffects",loadChildren:()=>import("./chunk-ZRFDOFOB.js")},{path:"interfaces/Effects",loadChildren:()=>import("./chunk-FB6PBDCV.js")}]}],e=t;export{e as default};
