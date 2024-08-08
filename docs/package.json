@@ -3,26 +3,26 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@angular/animations": ">=17",
-    "@angular/cdk": ">=17",
-    "@angular/common": ">=17",
-    "@angular/core": ">=17",
-    "@angular/forms": ">=17",
-    "@angular/platform-browser": ">=17",
-    "@angular/platform-server": ">=17",
-    "@angular/router": ">=17",
-    "@angular/ssr": ">=17",
-    "@ng-doc/app": "^17.5.7",
-    "@ng-doc/core": "^17.5.7",
-    "@ng-doc/ui-kit": "^17.5.7",
-    "express": "^4.19.2",
-    "rxjs": ">=7",
-    "tslib": "2.x.x"
+    "@angular/animations": "*",
+    "@angular/cdk": "*",
+    "@angular/common": "*",
+    "@angular/core": "*",
+    "@angular/forms": "*",
+    "@angular/platform-browser": "*",
+    "@angular/platform-server": "*",
+    "@angular/router": "*",
+    "@angular/ssr": "*",
+    "@ng-doc/app": "*",
+    "@ng-doc/core": "*",
+    "@ng-doc/ui-kit": "*",
+    "express": "*",
+    "rxjs": "*",
+    "tslib": "*"
   },
   "peerDependencies": {
     "@angularity/core": "*"
   },
   "devDependencies": {
-    "@types/express": "4.17.14"
+    "@types/express": "*"
   }
 }
