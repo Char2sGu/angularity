@@ -34,16 +34,16 @@
       "@angularity/router": ["./dist/router"],
       "@angularity/theming": ["./dist/theming"],
       "@angularity/theming-material": ["./dist/theming-material"],
-      "@ng-doc/generated/*": ["./ng-doc/*"],
+      "@ng-doc/generated/*": ["./ng-doc/*"]
     },
     "useDefineForClassFields": false,
-    "typeRoots": ["node_modules/@types", "node_modules/@angular/core"],
+    "typeRoots": ["node_modules/@types", "node_modules/@angular/core"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true,
+    "strictTemplates": true
   },
-  "include": ["packages", "docs"],
+  "include": ["packages", "docs"]
 }
