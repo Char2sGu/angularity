@@ -4,13 +4,10 @@
   "peerDependencies": {
     "@angular/core": ">=17",
     "@angularity/theming": "*",
-    "@material/material-color-utilities": "^0.2.7"
+    "@material/material-color-utilities": ">=0.3"
   },
   "dependencies": {
     "tslib": "2.x.x"
-  },
-  "devDependencies": {
-    "@material/material-color-utilities": "0.2.7"
   },
   "sideEffects": false
 }

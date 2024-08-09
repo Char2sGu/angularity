@@ -5,12 +5,9 @@
   "peerDependencies": {
     "@angular/core": ">=17",
     "rxjs": ">=7",
-    "type-container": "^1.0.1"
+    "type-container": "*"
   },
   "dependencies": {
     "tslib": "2.x.x"
-  },
-  "devDependencies": {
-    "type-container": "^1.0.1"
   }
 }
