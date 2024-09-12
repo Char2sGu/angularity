@@ -3,6 +3,7 @@
   "version": "0.6.5",
   "peerDependencies": {
     "@angular/core": ">=17",
+    "@angular/common": ">=17",
     "@angularity/theming": "*",
     "@material/material-color-utilities": ">=0.3"
   },
