@@ -10,17 +10,26 @@ import { ConfigFileDefinition } from './definition';
   useExisting: forwardRef(() => HttpClientConfigFileLoader),
 })
 export abstract class ConfigFileLoader {
+  /**
+   * @returns an observable that:
+   * - starts loading the configuration file according to the given definition
+   * - emits the parsed configuration object
+   * - completes after its first emission
+   * - cancels the loading on unsubscribe before value emission
+   * @throws {ConfigFileNotFoundException} if the target file is not found
+   */
   abstract load<T, Schema>(def: ConfigFileDefinition<T, Schema>): Observable<T>;
 }
 
-export class ConfigFileNotFoundException extends Exception {
-  override name = this.constructor.name;
-}
+export class ConfigFileNotFoundException extends Exception {}
 
+/**
+ * Implementation of {@link ConfigFileLoader} based on Angular's built-in {@link HttpClient}.
+ */
 @Injectable({
   providedIn: 'root',
 })
-export class HttpClientConfigFileLoader {
+export class HttpClientConfigFileLoader implements ConfigFileLoader {
   protected httpClient = inject(HttpClient);
   protected injector = inject(Injector);
 

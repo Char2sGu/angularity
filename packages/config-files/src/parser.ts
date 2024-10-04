@@ -4,6 +4,4 @@ export interface ConfigFileParser {
   parse(raw: string): object;
 }
 
-export class ConfigFileParsingException extends Exception {
-  override name = this.constructor.name;
-}
+export class ConfigFileParsingException extends Exception {}
