@@ -1,8 +1,8 @@
 import { inject, Injector, ProviderToken } from '@angular/core';
 
 /**
- * Defer the injection of the provider until a property is accessed to allow
- * for circular dependencies.
+ * Inject a proxy of the target dependency, which defers the actual injection
+ * until any of its properties is accessed.
  */
 export function injectRef<T>(
   token: ProviderToken<T>,

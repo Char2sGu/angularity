@@ -4,6 +4,7 @@
   "sideEffects": false,
   "peerDependencies": {
     "@angular/core": ">=17",
+    "@angular/common": ">=17",
     "rxjs": ">=7",
     "type-container": "*"
   },
