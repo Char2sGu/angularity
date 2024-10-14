@@ -22,8 +22,9 @@ import {
   provideSearchEngine,
 } from '@ng-doc/app';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { NG_DOC_ROUTING, provideNgDocContext } from '@ng-doc/generated/docs';
+import { provideNgDocContext } from '@ng-doc/generated/docs';
 
+import { APP_ROUTES } from './app.routes';
 import { AppTitleStrategy } from './app.title-strategy';
 
 export const appConfig: ApplicationConfig = {
@@ -31,7 +32,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideAnimations(),
     provideRouter(
-      NG_DOC_ROUTING,
+      APP_ROUTES,
       withInMemoryScrolling({
         scrollPositionRestoration: 'enabled',
         anchorScrolling: 'enabled',
