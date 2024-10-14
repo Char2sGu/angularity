@@ -1,8 +1,9 @@
 import { NgDocApi } from '@ng-doc/core';
 
-export default {
+const declarations: NgDocApi = {
   title: 'API References',
-  route: 'references',
+  // Specifying route causes bug. https://github.com/ng-doc/ng-doc/issues/236
+  // route: 'references',
   scopes: [
     'core',
     'core/rxjs',
@@ -27,4 +28,6 @@ export default {
     route: path.replace('/', '-'),
     include: `packages/${path}/src/**/*.ts`,
   })),
-} satisfies NgDocApi;
+};
+
+export default declarations;

@@ -1,5 +1,3 @@
-# {{ NgDocPage.title }}
-
 Type Containers are widely used in Angularity for advanced type gymnastics.
 
 A Type Container is an empty object but carries specific TypeScript type information, enabling infinite possibilities of advanced type inferences and manipulations.

@@ -2,6 +2,7 @@ node_modules
 /dist
 /.angular/cache
 /.nx/cache
+/.nx/workspace-data
 /.eslintcache
 
 /ng-doc

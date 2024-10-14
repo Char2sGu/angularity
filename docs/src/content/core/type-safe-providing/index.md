@@ -1,5 +1,3 @@
-# {{ NgDocPage.title }}
-
 In Angular, object literals are used to declare injectables of an injection context:
 
 ```ts

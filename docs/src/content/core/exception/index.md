@@ -1,5 +1,3 @@
-# {{ NgDocPage.title }}
-
 In Angularity, JavaScript runtime errors are divided into two categories: Errors and Exceptions.
 
 - Exceptions are instances of the `Exception` class. They are expected to be caught and appropriately handled.
