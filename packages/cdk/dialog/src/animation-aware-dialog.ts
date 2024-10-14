@@ -14,6 +14,16 @@ import { Component, Injectable, TemplateRef } from '@angular/core';
 import { firstValueFrom, Subject } from 'rxjs';
 
 /**
+ * Tweaked version of the `Dialog` service from Angular CDK that supports leaving
+ * animations by waiting for animations to complete before disposing the overlay.
+ *
+ * @example
+ *  ```ts
+ *  provide({ token: Dialog, useClass: AnimationAwareDialog })
+ *  ```
+ *
+ * @usageNotes
+ *
  * Currently, when closing a dialog, the corresponding overlay is immediately
  * disposed, which means that the host element of the overlay is immediately
  * removed from the DOM using the native API.
@@ -52,6 +62,10 @@ export class AnimationAwareDialog extends Dialog {
   }
 }
 
+/**
+ * Works together with `AnimationAwareDialog`.
+ * @internal
+ */
 @Component({
   selector: 'agl-animation-aware-dialog-container',
   standalone: true,
