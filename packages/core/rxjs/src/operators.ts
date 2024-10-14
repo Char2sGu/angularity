@@ -1,6 +1,11 @@
 import { AbstractType } from '@angular/core';
 import { filter, map, OperatorFunction } from 'rxjs';
 
+/**
+ * RxJS operator that filters out values that are not instances of the provided types.
+ * Returns an `Observable` that emits only values that are instances of the
+ * provided types.
+ */
 export const pickType =
   <Types extends AbstractType<any>[]>(
     ...types: Types
@@ -12,5 +17,9 @@ export const pickType =
       ),
     );
 
+/**
+ * RxJS operator that maps values to `undefined`. Useful when an
+ * `Observable<void>` type is expected.
+ */
 export const mapToVoid = (): OperatorFunction<unknown, void> =>
   map(() => undefined);
