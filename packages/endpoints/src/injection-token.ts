@@ -4,7 +4,11 @@ import { EndpointSchemas } from './core';
 import { GenerateEndpoints, generateEndpoints } from './generators';
 import { EndpointInvoker } from './invoker';
 
-/**@deprecated */
+/**
+ * Creates a typed Injection Token whose default value is a collection of endpoints
+ * generated from the given schemas, via `generateEndpoints`.
+ * @deprecated Prefer `useEndpointsFactory`.
+ */
 export function createEndpointsInjectionToken<Schemas extends EndpointSchemas>(
   name: string,
   schemas: Schemas,
