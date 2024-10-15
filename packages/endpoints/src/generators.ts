@@ -149,10 +149,11 @@ export type GenerateEndpoints<Schemas extends EndpointSchemas> = {
  *      method: 'POST',
  *      params: { name: $type<string>(), 'gender?': $type<string>() },
  *      response: $type<User>(),
- *    }
+ *    },
  *  });
  *  userEndpoints.list().subscribe(users => console.log(users));
  *  userEndpoints.create({ name: 'Char2s' }).subscribe(user => console.log(user));
+ *  userEndpoints.create({ name: 'Char2s', gender: "Male" }).subscribe(user => console.log(user));
  *  ```
  */
 export function generateEndpoints<Schemas extends EndpointSchemas>(
