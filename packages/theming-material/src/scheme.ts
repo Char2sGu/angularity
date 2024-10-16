@@ -6,43 +6,89 @@ import {
 } from '@angularity/theming';
 import {
   argbFromHex,
-  CorePalette,
   DynamicColor,
   DynamicScheme,
+  Hct,
   hexFromArgb,
   MaterialDynamicColors,
 } from '@material/material-color-utilities';
 
 /**
- * Copy of the internal enum `Variant` from `@material/material-color-utilities`.
+ * Mode for Material color schemes.
+ * @see `SchemeBuilder`
  */
-export enum SchemeVariant {
-  /* eslint-disable @typescript-eslint/naming-convention */
-  MONOCHROME = 0,
-  NEUTRAL = 1,
-  TONAL_SPOT = 2,
-  VIBRANT = 3,
-  EXPRESSIVE = 4,
-  FIDELITY = 5,
-  CONTENT = 6,
-  RAINBOW = 7,
-  FRUIT_SALAD = 8,
-  /* eslint-enable @typescript-eslint/naming-convention */
-}
-
 export enum SchemeMode {
   Light = 'Light',
   Dark = 'Dark',
 }
 
-export interface SchemeBuilderConfig {
-  primary: string;
-  secondary?: string;
-  tertiary?: string;
-  variant: SchemeVariant;
-  mode: SchemeMode;
+/**
+ * Common contrast level values for Material color schemes.
+ * @see `SchemeBuilder`
+ */
+export enum SchemeContrastLevel {
+  Reduced = -1.0,
+  Standard = 0.0,
+  Medium = 0.5,
+  High = 1.0,
 }
 
+/**
+ * Constructor of `DynamicScheme` from `material-color-utilities`.
+ *
+ * Available values include:
+ * - `SchemeTonalSpot`: classic Material Design 3 colors
+ * - `SchemeVibrant`: more vibrant colors
+ * - `SchemeMonochrome`: grayscale colors
+ * - `SchemeNeutral`: colors that are nearly grayscale
+ * - `SchemeFidelity`: match the source color as closely as possible
+ * - etc.
+ *
+ * @see https://github.com/material-foundation/material-color-utilities/tree/main/typescript/scheme for all available scheme types
+ *
+ * @example
+ *  ```ts
+ *  import { SchemeTonalSpot } from '@material/material-color-utilities';
+ *  const type: SchemeType = SchemeTonalSpot;
+ *  ```
+ */
+export interface SchemeType {
+  new (source: Hct, isDark: boolean, contrast: number): DynamicScheme;
+}
+
+/**
+ * Configuration for `SchemeBuilder`.
+ */
+export interface SchemeBuilderConfig {
+  /**
+   * The type of color scheme to generate. See `SchemeType` for details.
+   */
+  type: SchemeType;
+
+  /**
+   * The source/seed color to use for creating the color scheme. The generated
+   * color scheme may deviate from this color at some extent, depending on the
+   * chrome of the source color and the algorithm used by the `SchemeType`.
+   */
+  source: string;
+
+  /**
+   * The mode of the color scheme. Light or Dark.
+   */
+  mode: SchemeMode;
+
+  /**
+   * The contrast level of the color scheme. See `SchemeContrastLevel` for
+   * common values, or use a number between -1 to 1 for custom values, where
+   * -1 is the lowest contrast and 1 is the highest.
+   */
+  contrast: SchemeContrastLevel | number;
+}
+
+/**
+ * Implementation of `ThemeBuilder` that generates hex color tokens for all
+ * color roles under Material Design 3 color schemes.
+ */
 @Injectable({ providedIn: 'root' })
 export class SchemeBuilder implements ThemeBuilder<SchemeBuilderConfig> {
   build(context: ThemeBuilderContext<SchemeBuilderConfig>): ThemeTokens {
@@ -57,29 +103,11 @@ export class SchemeBuilder implements ThemeBuilder<SchemeBuilderConfig> {
     return tokens;
   }
 
-  getScheme(config: SchemeBuilderConfig): DynamicScheme {
-    const palette = this.getCorePalette(config);
-    const scheme = new DynamicScheme({
-      sourceColorArgb: argbFromHex(config.primary),
-      variant: config.variant as any,
-      isDark: config.mode === SchemeMode.Dark,
-      contrastLevel: 0.0,
-      primaryPalette: palette.a1,
-      secondaryPalette: palette.a2,
-      tertiaryPalette: palette.a3,
-      neutralPalette: palette.n1,
-      neutralVariantPalette: palette.n2,
-    });
-    return scheme;
-  }
-
-  getCorePalette(config: SchemeBuilderConfig): CorePalette {
-    const read = (v: string) => argbFromHex(v);
-    const readOpt = (v: string | undefined) => (v ? read(v) : undefined);
-    return CorePalette.fromColors({
-      primary: read(config.primary),
-      secondary: readOpt(config.secondary),
-      tertiary: readOpt(config.tertiary),
-    });
+  protected getScheme(config: SchemeBuilderConfig): DynamicScheme {
+    return new config.type(
+      Hct.fromInt(argbFromHex(config.source)),
+      config.mode === SchemeMode.Dark,
+      config.contrast,
+    );
   }
 }

@@ -2,24 +2,24 @@
 
 import { TestBed } from '@angular/core/testing';
 import { provideTheme, ThemeTokenRegistry } from '@angularity/theming';
+import { SchemeVibrant } from '@material/material-color-utilities';
+import { withThemeBuilder } from 'packages/theming/src/builder-composition';
 
 import { provide } from '../../core/src/provide';
 import { TestingThemeTokenRegistry } from '../../theming/src/token';
-import { SchemeBuilder, SchemeMode, SchemeVariant } from './scheme';
+import { SchemeBuilder, SchemeContrastLevel, SchemeMode } from './scheme';
 
 describe('SchemeBuilder', () => {
   it('should work', () => {
     TestBed.configureTestingModule({
       providers: [
         provideTheme(
-          { schemes: SchemeBuilder },
-          {
-            schemes: {
-              primary: '#33bdff',
-              mode: SchemeMode.Light,
-              variant: SchemeVariant.CONTENT,
-            },
-          },
+          withThemeBuilder('scheme', SchemeBuilder, {
+            type: SchemeVibrant,
+            source: '#33bdff',
+            mode: SchemeMode.Light,
+            contrast: SchemeContrastLevel.Standard,
+          }),
         ),
         TestingThemeTokenRegistry,
         provide({
@@ -29,7 +29,7 @@ describe('SchemeBuilder', () => {
       ],
     });
     const tokens = TestBed.inject(TestingThemeTokenRegistry).tokens;
-    expect(tokens['schemes-primary']).toBeDefined();
-    expect(tokens['schemes-on-primary']).toBe('#ffffff');
+    expect(tokens['scheme-primary']).toBeDefined();
+    expect(tokens['scheme-on-primary']).toBe('#ffffff');
   });
 });
