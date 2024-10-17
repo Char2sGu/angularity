@@ -5,9 +5,13 @@ import { provideTheme, ThemeTokenRegistry } from '@angularity/theming';
 import { Hct, SchemeVibrant } from '@material/material-color-utilities';
 import { withThemeBuilder } from 'packages/theming/src/builder-composition';
 
-import { provide } from '../../core/src/provide';
-import { TestingThemeTokenRegistry } from '../../theming/src/token';
-import { SchemeBuilder, SchemeContrastLevel, SchemeMode } from './scheme';
+import { provide } from '../../../core/src/provide';
+import { TestingThemeTokenRegistry } from '../../../theming/src/token';
+import {
+  SchemeBuilder,
+  SchemeContrastLevel,
+  SchemeMode,
+} from './scheme.builder';
 
 describe('SchemeBuilder', () => {
   it('should work', () => {

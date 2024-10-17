@@ -27,6 +27,7 @@ export enum SchemeMode {
  * fit for most use cases.
  * @see `SchemeBuilder`
  */
+
 export enum SchemeContrastLevel {
   Reduced = -1.0,
   Standard = 0.0,

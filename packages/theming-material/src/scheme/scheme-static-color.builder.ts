@@ -7,7 +7,7 @@ import {
 import { Hct, TonalPalette } from '@material/material-color-utilities';
 
 import { HctFormatter } from './hct-formatter.service';
-import { SchemeMode } from './scheme';
+import { SchemeMode } from './scheme.builder';
 
 export interface SchemeStaticColorBuilderConfig {
   name: string;

@@ -1,32 +1,4 @@
-import { inject, Injectable } from '@angular/core';
-import {
-  ThemeBuilder,
-  ThemeBuilderContext,
-  ThemeTokens,
-} from '@angularity/theming';
-
-import { TypescaleBuilder, TypescaleConfig } from './typescale';
-
-export interface StandardTypescaleBuilderConfig {
-  font: string;
-}
-
-@Injectable({ providedIn: 'root' })
-export class StandardTypescaleBuilder
-  implements ThemeBuilder<StandardTypescaleBuilderConfig>
-{
-  protected core = inject(TypescaleBuilder);
-  build(
-    context: ThemeBuilderContext<StandardTypescaleBuilderConfig>,
-  ): ThemeTokens {
-    const { name, config } = context;
-    const typescales = STANDARD_TYPESCALES.map((typescale) => ({
-      ...typescale,
-      font: config.font,
-    }));
-    return this.core.build({ name, config: typescales });
-  }
-}
+import { TypescaleConfig } from './typescale.builder';
 
 export const STANDARD_TYPESCALES: Omit<TypescaleConfig, 'font'>[] = [
   {
