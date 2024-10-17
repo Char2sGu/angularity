@@ -39,7 +39,7 @@ export enum SchemeContrastLevel {
  * Constructor of `DynamicScheme` from `material-color-utilities`.
  *
  * Available values include:
- * - `SchemeTonalSpot`: classic Material Design 3 colors
+ * - `SchemeTonalSpot`: classic Material Design colors
  * - `SchemeVibrant`: more vibrant colors
  * - `SchemeMonochrome`: grayscale colors
  * - `SchemeNeutral`: colors that are nearly grayscale
@@ -99,7 +99,32 @@ export interface SchemeBuilderConfig {
 
 /**
  * Implementation of `ThemeBuilder` that generates hex color tokens for all
- * color roles under Material Design 3 color schemes.
+ * Material Design color roles.
+ *
+ * @remarks
+ * Examples of generated tokens include "surface", "on-surface",
+ * "surface-container", "on-surface-container", "primary", "on-primary", etc.
+ *
+ * @remarks
+ * A non-empty name must be assigned to this builder.
+ * The name assigned to this builder will be used as the prefix
+ * to the generated tokens. When the name is "scheme", the generated tokens will
+ * be "scheme-primary", "scheme-on-primary", etc.
+ *
+ * @see https://m3.material.io/styles/color/roles for all color roles
+ * @see `SchemeStaticColorBuilder`
+ *
+ * @example
+ *  ```ts
+ *  provideTheme(
+ *    withThemeBuilder("scheme", SchemeBuilder, {
+ *      type: SchemeTonalSpot,
+ *      source: Hct.fromInt(0x33bdff),
+ *      mode: SchemeMode.Light,
+ *      contrast: SchemeContrastLevel.Standard,
+ *    }),
+ *  ),
+ *  ```
  */
 @Injectable({ providedIn: 'root' })
 export class SchemeBuilder implements ThemeBuilder<SchemeBuilderConfig> {
