@@ -5,11 +5,11 @@ import { Hct, hexFromArgb } from '@material/material-color-utilities';
  * Service responsible for formatting HCT color values into strings, which will
  * be used as theme token values.
  * @remarks This is an abstract service, with a default implementation
- * `HexStringTextHctFormatter`.
+ * `HexStringHctFormatter`.
  */
 @Injectable({
   providedIn: 'root',
-  useExisting: forwardRef(() => HexStringTextHctFormatter),
+  useExisting: forwardRef(() => HexStringHctFormatter),
 })
 export abstract class HctFormatter {
   abstract format(value: Hct): string;
@@ -22,7 +22,7 @@ export abstract class HctFormatter {
 @Injectable({
   providedIn: 'root',
 })
-export class HexStringTextHctFormatter implements HctFormatter {
+export class HexStringHctFormatter implements HctFormatter {
   format(value: Hct): string {
     return hexFromArgb(value.toInt());
   }
