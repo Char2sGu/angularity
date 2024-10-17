@@ -1,0 +1,817 @@
+[
+  {
+    "title": "core",
+    "items": [
+      {
+        "route": "/api/classes/core/Exception",
+        "type": "Class",
+        "name": "Exception"
+      },
+      {
+        "route": "/api/functions/core/injectRef",
+        "type": "Function",
+        "name": "injectRef"
+      },
+      {
+        "route": "/api/variables/core/useBrowserOnly",
+        "type": "Variable",
+        "name": "useBrowserOnly"
+      },
+      {
+        "route": "/api/functions/core/provide",
+        "type": "Function",
+        "name": "provide"
+      },
+      {
+        "route": "/api/functions/core/provideMulti",
+        "type": "Function",
+        "name": "provideMulti"
+      },
+      {
+        "route": "/api/type-aliases/core/ProvideConfig",
+        "type": "TypeAlias",
+        "name": "ProvideConfig"
+      },
+      {
+        "route": "/api/type-aliases/core/ProvideMultiConfig",
+        "type": "TypeAlias",
+        "name": "ProvideMultiConfig"
+      },
+      {
+        "route": "/api/interfaces/core/ProvideConfigToken",
+        "type": "Interface",
+        "name": "ProvideConfigToken"
+      },
+      {
+        "route": "/api/type-aliases/core/ProvideConfigUse",
+        "type": "TypeAlias",
+        "name": "ProvideConfigUse"
+      },
+      {
+        "route": "/api/interfaces/core/ProvideConfigUseValue",
+        "type": "Interface",
+        "name": "ProvideConfigUseValue"
+      },
+      {
+        "route": "/api/interfaces/core/ProvideConfigUseFactory",
+        "type": "Interface",
+        "name": "ProvideConfigUseFactory"
+      },
+      {
+        "route": "/api/interfaces/core/ProvideConfigUseClass",
+        "type": "Interface",
+        "name": "ProvideConfigUseClass"
+      },
+      {
+        "route": "/api/interfaces/core/ProvideConfigUseExisting",
+        "type": "Interface",
+        "name": "ProvideConfigUseExisting"
+      },
+      {
+        "route": "/api/variables/core/$type",
+        "type": "Variable",
+        "name": "$type"
+      },
+      {
+        "route": "/api/type-aliases/core/TypeContainer",
+        "type": "TypeAlias",
+        "name": "TypeContainer"
+      },
+      {
+        "route": "/api/type-aliases/core/ContainedTypeOf",
+        "type": "TypeAlias",
+        "name": "ContainedTypeOf"
+      }
+    ]
+  },
+  {
+    "title": "core / rxjs",
+    "items": [
+      {
+        "route": "/api/variables/core-rxjs/pickType",
+        "type": "Variable",
+        "name": "pickType"
+      },
+      {
+        "route": "/api/variables/core-rxjs/mapToVoid",
+        "type": "Variable",
+        "name": "mapToVoid"
+      }
+    ]
+  },
+  {
+    "title": "cdk / layout",
+    "items": [
+      {
+        "route": "/api/classes/cdk-layout/NamedBreakpointObserver",
+        "type": "Injectable",
+        "name": "NamedBreakpointObserver"
+      },
+      {
+        "route": "/api/type-aliases/cdk-layout/BreakpointConfig",
+        "type": "TypeAlias",
+        "name": "BreakpointConfig"
+      },
+      {
+        "route": "/api/type-aliases/cdk-layout/BreakpointMap",
+        "type": "TypeAlias",
+        "name": "BreakpointMap"
+      }
+    ]
+  },
+  {
+    "title": "cdk / dialog",
+    "items": [
+      {
+        "route": "/api/classes/cdk-dialog/AnimationAwareDialog",
+        "type": "Injectable",
+        "name": "AnimationAwareDialog"
+      },
+      {
+        "route": "/api/functions/cdk-dialog/useDialog",
+        "type": "Function",
+        "name": "useDialog"
+      },
+      {
+        "route": "/api/classes/cdk-dialog/DialogIoTypes",
+        "type": "Class",
+        "name": "DialogIoTypes"
+      },
+      {
+        "route": "/api/type-aliases/cdk-dialog/DialogInputOf",
+        "type": "TypeAlias",
+        "name": "DialogInputOf"
+      },
+      {
+        "route": "/api/type-aliases/cdk-dialog/DialogOutputOf",
+        "type": "TypeAlias",
+        "name": "DialogOutputOf"
+      },
+      {
+        "route": "/api/type-aliases/cdk-dialog/DialogRefOf",
+        "type": "TypeAlias",
+        "name": "DialogRefOf"
+      },
+      {
+        "route": "/api/type-aliases/cdk-dialog/DialogConfigOf",
+        "type": "TypeAlias",
+        "name": "DialogConfigOf"
+      },
+      {
+        "route": "/api/interfaces/cdk-dialog/DialogFacade",
+        "type": "Interface",
+        "name": "DialogFacade"
+      }
+    ]
+  },
+  {
+    "title": "forms",
+    "items": [
+      {
+        "route": "/api/classes/forms/ComponentValueAccessor",
+        "type": "Injectable",
+        "name": "ComponentValueAccessor"
+      },
+      {
+        "route": "/api/classes/forms/ComponentValueAccessorHost",
+        "type": "Injectable",
+        "name": "ComponentValueAccessorHost"
+      },
+      {
+        "route": "/api/classes/forms/SimpleComponentValueAccessorHost",
+        "type": "Directive",
+        "name": "SimpleComponentValueAccessorHost"
+      },
+      {
+        "route": "/api/functions/forms/provideComponentValueAccessor",
+        "type": "Function",
+        "name": "provideComponentValueAccessor"
+      }
+    ]
+  },
+  {
+    "title": "router",
+    "items": [
+      {
+        "route": "/api/functions/router/defineRouteData",
+        "type": "Function",
+        "name": "defineRouteData"
+      },
+      {
+        "route": "/api/functions/router/compileRouteData",
+        "type": "Function",
+        "name": "compileRouteData"
+      },
+      {
+        "route": "/api/interfaces/router/RouteDataDefinition",
+        "type": "Interface",
+        "name": "RouteDataDefinition"
+      },
+      {
+        "route": "/api/classes/router/RouteDataToken",
+        "type": "Class",
+        "name": "RouteDataToken"
+      },
+      {
+        "route": "/api/functions/router/useRouteData",
+        "type": "Function",
+        "name": "useRouteData"
+      },
+      {
+        "route": "/api/functions/router/readRouteData",
+        "type": "Function",
+        "name": "readRouteData"
+      },
+      {
+        "route": "/api/functions/router/setupInjectionContextForLoadChildren",
+        "type": "Function",
+        "name": "setupInjectionContextForLoadChildren"
+      }
+    ]
+  },
+  {
+    "title": "elements",
+    "items": [
+      {
+        "route": "/api/interfaces/elements/Elements",
+        "type": "Interface",
+        "name": "Elements"
+      },
+      {
+        "route": "/api/variables/elements/ELEMENT_REGISTRY",
+        "type": "Variable",
+        "name": "ELEMENT_REGISTRY"
+      },
+      {
+        "route": "/api/functions/elements/provideElements",
+        "type": "Function",
+        "name": "provideElements"
+      },
+      {
+        "route": "/api/interfaces/elements/ProvideElementsConfig",
+        "type": "Interface",
+        "name": "ProvideElementsConfig"
+      }
+    ]
+  },
+  {
+    "title": "theming",
+    "items": [
+      {
+        "route": "/api/functions/theming/withThemeBuilder",
+        "type": "Function",
+        "name": "withThemeBuilder"
+      },
+      {
+        "route": "/api/interfaces/theming/ThemeBuilderComposition",
+        "type": "Interface",
+        "name": "ThemeBuilderComposition"
+      },
+      {
+        "route": "/api/interfaces/theming/ThemeBuilder",
+        "type": "Interface",
+        "name": "ThemeBuilder"
+      },
+      {
+        "route": "/api/interfaces/theming/ThemeBuilderContext",
+        "type": "Interface",
+        "name": "ThemeBuilderContext"
+      },
+      {
+        "route": "/api/type-aliases/theming/ThemeBuilderConfigOf",
+        "type": "TypeAlias",
+        "name": "ThemeBuilderConfigOf"
+      },
+      {
+        "route": "/api/classes/theming/ThemeManager",
+        "type": "Injectable",
+        "name": "ThemeManager"
+      },
+      {
+        "route": "/api/functions/theming/provideTheme",
+        "type": "Function",
+        "name": "provideTheme"
+      },
+      {
+        "route": "/api/interfaces/theming/TokensBuilderConfig",
+        "type": "Interface",
+        "name": "TokensBuilderConfig"
+      },
+      {
+        "route": "/api/classes/theming/TokensBuilder",
+        "type": "Injectable",
+        "name": "TokensBuilder"
+      },
+      {
+        "route": "/api/interfaces/theming/ThemeTokens",
+        "type": "Interface",
+        "name": "ThemeTokens"
+      },
+      {
+        "route": "/api/classes/theming/ThemeTokenRegistry",
+        "type": "Injectable",
+        "name": "ThemeTokenRegistry"
+      },
+      {
+        "route": "/api/classes/theming/ThemeTokenNotFoundException",
+        "type": "Class",
+        "name": "ThemeTokenNotFoundException"
+      },
+      {
+        "route": "/api/classes/theming/RootElementStylePropertiesThemeTokenRegistry",
+        "type": "Injectable",
+        "name": "RootElementStylePropertiesThemeTokenRegistry"
+      },
+      {
+        "route": "/api/classes/theming/TestingThemeTokenRegistry",
+        "type": "Injectable",
+        "name": "TestingThemeTokenRegistry"
+      }
+    ]
+  },
+  {
+    "title": "theming-material",
+    "items": [
+      {
+        "route": "/api/classes/theming-material/HctFormatter",
+        "type": "Injectable",
+        "name": "HctFormatter"
+      },
+      {
+        "route": "/api/classes/theming-material/HexStringHctFormatter",
+        "type": "Injectable",
+        "name": "HexStringHctFormatter"
+      },
+      {
+        "route": "/api/classes/theming-material/ImageSeedColorExtractor",
+        "type": "Injectable",
+        "name": "ImageSeedColorExtractor"
+      },
+      {
+        "route": "/api/classes/theming-material/ImagePixelExtractor",
+        "type": "Injectable",
+        "name": "ImagePixelExtractor"
+      },
+      {
+        "route": "/api/enums/theming-material/SchemeMode",
+        "type": "Enum",
+        "name": "SchemeMode"
+      },
+      {
+        "route": "/api/enums/theming-material/SchemeContrastLevel",
+        "type": "Enum",
+        "name": "SchemeContrastLevel"
+      },
+      {
+        "route": "/api/interfaces/theming-material/SchemeType",
+        "type": "Interface",
+        "name": "SchemeType"
+      },
+      {
+        "route": "/api/interfaces/theming-material/SchemeBuilderConfig",
+        "type": "Interface",
+        "name": "SchemeBuilderConfig"
+      },
+      {
+        "route": "/api/classes/theming-material/SchemeBuilder",
+        "type": "Injectable",
+        "name": "SchemeBuilder"
+      },
+      {
+        "route": "/api/interfaces/theming-material/SchemeStaticColorBuilderConfig",
+        "type": "Interface",
+        "name": "SchemeStaticColorBuilderConfig"
+      },
+      {
+        "route": "/api/classes/theming-material/SchemeStaticColorBuilder",
+        "type": "Class",
+        "name": "SchemeStaticColorBuilder"
+      },
+      {
+        "route": "/api/interfaces/theming-material/StandardTypescaleBuilderConfig",
+        "type": "Interface",
+        "name": "StandardTypescaleBuilderConfig"
+      },
+      {
+        "route": "/api/classes/theming-material/StandardTypescaleBuilder",
+        "type": "Injectable",
+        "name": "StandardTypescaleBuilder"
+      },
+      {
+        "route": "/api/variables/theming-material/STANDARD_TYPESCALES",
+        "type": "Variable",
+        "name": "STANDARD_TYPESCALES"
+      },
+      {
+        "route": "/api/interfaces/theming-material/TypescaleConfig",
+        "type": "Interface",
+        "name": "TypescaleConfig"
+      },
+      {
+        "route": "/api/interfaces/theming-material/TypescaleBuilderConfig",
+        "type": "Interface",
+        "name": "TypescaleBuilderConfig"
+      },
+      {
+        "route": "/api/classes/theming-material/TypescaleBuilder",
+        "type": "Injectable",
+        "name": "TypescaleBuilder"
+      }
+    ]
+  },
+  {
+    "title": "command-flow",
+    "items": [
+      {
+        "route": "/api/classes/command-flow/CommandBus",
+        "type": "Injectable",
+        "name": "CommandBus"
+      },
+      {
+        "route": "/api/classes/command-flow/CommandEventBus",
+        "type": "Injectable",
+        "name": "CommandEventBus"
+      },
+      {
+        "route": "/api/classes/command-flow/SubjectBasedCommandBus",
+        "type": "Injectable",
+        "name": "SubjectBasedCommandBus"
+      },
+      {
+        "route": "/api/classes/command-flow/SubjectBasedCommandEventBus",
+        "type": "Injectable",
+        "name": "SubjectBasedCommandEventBus"
+      },
+      {
+        "route": "/api/variables/command-flow/COMMAND_META",
+        "type": "Variable",
+        "name": "COMMAND_META"
+      },
+      {
+        "route": "/api/interfaces/command-flow/CommandMetadata",
+        "type": "Interface",
+        "name": "CommandMetadata"
+      },
+      {
+        "route": "/api/classes/command-flow/Command",
+        "type": "Class",
+        "name": "Command"
+      },
+      {
+        "route": "/api/variables/command-flow/COMMAND_EVENT_META",
+        "type": "Variable",
+        "name": "COMMAND_EVENT_META"
+      },
+      {
+        "route": "/api/interfaces/command-flow/CommandEventMetadata",
+        "type": "Interface",
+        "name": "CommandEventMetadata"
+      },
+      {
+        "route": "/api/classes/command-flow/CommandEvent",
+        "type": "Class",
+        "name": "CommandEvent"
+      },
+      {
+        "route": "/api/variables/command-flow/useCommand",
+        "type": "Variable",
+        "name": "useCommand"
+      },
+      {
+        "route": "/api/functions/command-flow/registerCommandHandler",
+        "type": "Function",
+        "name": "registerCommandHandler"
+      },
+      {
+        "route": "/api/functions/command-flow/registerCommandEventHandler",
+        "type": "Function",
+        "name": "registerCommandEventHandler"
+      },
+      {
+        "route": "/api/interfaces/command-flow/CommandHandler",
+        "type": "Interface",
+        "name": "CommandHandler"
+      },
+      {
+        "route": "/api/interfaces/command-flow/CommandEventHandler",
+        "type": "Interface",
+        "name": "CommandEventHandler"
+      },
+      {
+        "route": "/api/classes/command-flow/CommandFlowScheduler",
+        "type": "Injectable",
+        "name": "CommandFlowScheduler"
+      },
+      {
+        "route": "/api/classes/command-flow/AnimationFrameBasedCommandFlowScheduler",
+        "type": "Injectable",
+        "name": "AnimationFrameBasedCommandFlowScheduler"
+      }
+    ]
+  },
+  {
+    "title": "command-flow / process-flow",
+    "items": [
+      {
+        "route": "/api/interfaces/command-flow-process-flow/ProcessMetadata",
+        "type": "Interface",
+        "name": "ProcessMetadata"
+      },
+      {
+        "route": "/api/classes/command-flow-process-flow/Process",
+        "type": "Class",
+        "name": "Process"
+      },
+      {
+        "route": "/api/classes/command-flow-process-flow/ProcessEvent",
+        "type": "Class",
+        "name": "ProcessEvent"
+      },
+      {
+        "route": "/api/classes/command-flow-process-flow/ProcessStarted",
+        "type": "Class",
+        "name": "ProcessStarted"
+      },
+      {
+        "route": "/api/classes/command-flow-process-flow/ProcessCompleted",
+        "type": "Class",
+        "name": "ProcessCompleted"
+      },
+      {
+        "route": "/api/classes/command-flow-process-flow/ProcessFailed",
+        "type": "Class",
+        "name": "ProcessFailed"
+      },
+      {
+        "route": "/api/variables/command-flow-process-flow/useProcess",
+        "type": "Variable",
+        "name": "useProcess"
+      },
+      {
+        "route": "/api/variables/command-flow-process-flow/useProcessPending",
+        "type": "Variable",
+        "name": "useProcessPending"
+      },
+      {
+        "route": "/api/variables/command-flow-process-flow/useProcessError",
+        "type": "Variable",
+        "name": "useProcessError"
+      },
+      {
+        "route": "/api/functions/command-flow-process-flow/registerProcessHandler",
+        "type": "Function",
+        "name": "registerProcessHandler"
+      },
+      {
+        "route": "/api/interfaces/command-flow-process-flow/ProcessHandler",
+        "type": "Interface",
+        "name": "ProcessHandler"
+      },
+      {
+        "route": "/api/enums/command-flow-process-flow/ProcessSchedulingStrategy",
+        "type": "Enum",
+        "name": "ProcessSchedulingStrategy"
+      },
+      {
+        "route": "/api/type-aliases/command-flow-process-flow/ProcessResultOf",
+        "type": "TypeAlias",
+        "name": "ProcessResultOf"
+      }
+    ]
+  },
+  {
+    "title": "command-flow / query-flow",
+    "items": [
+      {
+        "route": "/api/classes/command-flow-query-flow/DisposeQuery",
+        "type": "Class",
+        "name": "DisposeQuery"
+      },
+      {
+        "route": "/api/interfaces/command-flow-query-flow/QueryMetadata",
+        "type": "Interface",
+        "name": "QueryMetadata"
+      },
+      {
+        "route": "/api/classes/command-flow-query-flow/Query",
+        "type": "Class",
+        "name": "Query"
+      },
+      {
+        "route": "/api/classes/command-flow-query-flow/QueryEvent",
+        "type": "Class",
+        "name": "QueryEvent"
+      },
+      {
+        "route": "/api/classes/command-flow-query-flow/QueryActivated",
+        "type": "Class",
+        "name": "QueryActivated"
+      },
+      {
+        "route": "/api/classes/command-flow-query-flow/QueryResolved",
+        "type": "Class",
+        "name": "QueryResolved"
+      },
+      {
+        "route": "/api/classes/command-flow-query-flow/QueryErrored",
+        "type": "Class",
+        "name": "QueryErrored"
+      },
+      {
+        "route": "/api/classes/command-flow-query-flow/QueryInactivated",
+        "type": "Class",
+        "name": "QueryInactivated"
+      },
+      {
+        "route": "/api/variables/command-flow-query-flow/useQuery",
+        "type": "Variable",
+        "name": "useQuery"
+      },
+      {
+        "route": "/api/functions/command-flow-query-flow/registerQueryHandler",
+        "type": "Function",
+        "name": "registerQueryHandler"
+      },
+      {
+        "route": "/api/interfaces/command-flow-query-flow/QueryHandler",
+        "type": "Interface",
+        "name": "QueryHandler"
+      },
+      {
+        "route": "/api/type-aliases/command-flow-query-flow/QueryResultOf",
+        "type": "TypeAlias",
+        "name": "QueryResultOf"
+      }
+    ]
+  },
+  {
+    "title": "command-flow / effects",
+    "items": [
+      {
+        "route": "/api/functions/command-flow-effects/provideEffects",
+        "type": "Function",
+        "name": "provideEffects"
+      },
+      {
+        "route": "/api/interfaces/command-flow-effects/Effects",
+        "type": "Interface",
+        "name": "Effects"
+      }
+    ]
+  },
+  {
+    "title": "command-flow / debugger",
+    "items": [
+      {
+        "route": "/api/functions/command-flow-debugger/provideCommandFlowDebugger",
+        "type": "Function",
+        "name": "provideCommandFlowDebugger"
+      },
+      {
+        "route": "/api/classes/command-flow-debugger/CommandIdWeakMap",
+        "type": "Injectable",
+        "name": "CommandIdWeakMap"
+      },
+      {
+        "route": "/api/variables/command-flow-debugger/COMMAND_ID_GENERATOR",
+        "type": "Variable",
+        "name": "COMMAND_ID_GENERATOR"
+      },
+      {
+        "route": "/api/variables/command-flow-debugger/COMMAND_FLOW_DEBUGGER_FILTER",
+        "type": "Variable",
+        "name": "COMMAND_FLOW_DEBUGGER_FILTER"
+      }
+    ]
+  },
+  {
+    "title": "endpoints",
+    "items": [
+      {
+        "route": "/api/functions/endpoints/createEndpointsInjectionToken",
+        "type": "Function",
+        "name": "createEndpointsInjectionToken"
+      },
+      {
+        "route": "/api/functions/endpoints/createEndpointsFactory",
+        "type": "Function",
+        "name": "createEndpointsFactory"
+      },
+      {
+        "route": "/api/interfaces/endpoints/Endpoint",
+        "type": "Interface",
+        "name": "Endpoint"
+      },
+      {
+        "route": "/api/interfaces/endpoints/EndpointSchema",
+        "type": "Interface",
+        "name": "EndpointSchema"
+      },
+      {
+        "route": "/api/interfaces/endpoints/EndpointParamsSchema",
+        "type": "Interface",
+        "name": "EndpointParamsSchema"
+      },
+      {
+        "route": "/api/interfaces/endpoints/EndpointSchemas",
+        "type": "Interface",
+        "name": "EndpointSchemas"
+      },
+      {
+        "route": "/api/functions/endpoints/generateEndpoint",
+        "type": "Function",
+        "name": "generateEndpoint"
+      },
+      {
+        "route": "/api/functions/endpoints/generateEndpoints",
+        "type": "Function",
+        "name": "generateEndpoints"
+      },
+      {
+        "route": "/api/type-aliases/endpoints/ResolveEndpointParamsSchema",
+        "type": "TypeAlias",
+        "name": "ResolveEndpointParamsSchema"
+      },
+      {
+        "route": "/api/type-aliases/endpoints/GenerateEndpoint",
+        "type": "TypeAlias",
+        "name": "GenerateEndpoint"
+      },
+      {
+        "route": "/api/type-aliases/endpoints/GenerateEndpoints",
+        "type": "TypeAlias",
+        "name": "GenerateEndpoints"
+      },
+      {
+        "route": "/api/classes/endpoints/EndpointInvoker",
+        "type": "Injectable",
+        "name": "EndpointInvoker"
+      },
+      {
+        "route": "/api/interfaces/endpoints/EndpointInvokeConfig",
+        "type": "Interface",
+        "name": "EndpointInvokeConfig"
+      },
+      {
+        "route": "/api/classes/endpoints/HttpClientEndpointInvoker",
+        "type": "Injectable",
+        "name": "HttpClientEndpointInvoker"
+      }
+    ]
+  },
+  {
+    "title": "config-files",
+    "items": [
+      {
+        "route": "/api/interfaces/config-files/ConfigFileDefinition",
+        "type": "Interface",
+        "name": "ConfigFileDefinition"
+      },
+      {
+        "route": "/api/variables/config-files/defineConfigFile",
+        "type": "Variable",
+        "name": "defineConfigFile"
+      },
+      {
+        "route": "/api/classes/config-files/ConfigFileLoader",
+        "type": "Injectable",
+        "name": "ConfigFileLoader"
+      },
+      {
+        "route": "/api/classes/config-files/ConfigFileNotFoundException",
+        "type": "Class",
+        "name": "ConfigFileNotFoundException"
+      },
+      {
+        "route": "/api/classes/config-files/HttpClientConfigFileLoader",
+        "type": "Injectable",
+        "name": "HttpClientConfigFileLoader"
+      },
+      {
+        "route": "/api/interfaces/config-files/ConfigFileParser",
+        "type": "Interface",
+        "name": "ConfigFileParser"
+      },
+      {
+        "route": "/api/classes/config-files/ConfigFileParsingException",
+        "type": "Class",
+        "name": "ConfigFileParsingException"
+      },
+      {
+        "route": "/api/variables/config-files/defineConfigFileMetadata",
+        "type": "Variable",
+        "name": "defineConfigFileMetadata"
+      },
+      {
+        "route": "/api/interfaces/config-files/ConfigFileValidator",
+        "type": "Interface",
+        "name": "ConfigFileValidator"
+      },
+      {
+        "route": "/api/classes/config-files/ConfigFileValidationException",
+        "type": "Class",
+        "name": "ConfigFileValidationException"
+      }
+    ]
+  }
+]
