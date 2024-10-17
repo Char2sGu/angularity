@@ -14,6 +14,7 @@
     "@angular/ssr": "*",
     "@ng-doc/app": "*",
     "@ng-doc/core": "*",
+    "@ng-doc/keywords-loaders": "*",
     "@ng-doc/ui-kit": "*",
     "express": "*",
     "rxjs": "*",
@@ -23,6 +24,7 @@
     "@angularity/core": "*"
   },
   "devDependencies": {
+    "@ng-doc/builder": "*",
     "@types/express": "*"
   }
 }

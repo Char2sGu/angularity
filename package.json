@@ -29,6 +29,7 @@
     "@ng-doc/app": "18.3.0",
     "@ng-doc/builder": "18.3.0",
     "@ng-doc/core": "18.3.0",
+    "@ng-doc/keywords-loaders": "^18.3.0",
     "@ng-doc/ui-kit": "18.3.0",
     "@nx/angular": "20.0.0",
     "@nx/js": "20.0.0",
