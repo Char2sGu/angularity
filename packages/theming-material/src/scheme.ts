@@ -1,17 +1,17 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import {
   ThemeBuilder,
   ThemeBuilderContext,
   ThemeTokens,
 } from '@angularity/theming';
 import {
-  argbFromHex,
   DynamicColor,
   DynamicScheme,
   Hct,
-  hexFromArgb,
   MaterialDynamicColors,
 } from '@material/material-color-utilities';
+
+import { HctFormatter } from './hct-formatter.service';
 
 /**
  * Mode for Material color schemes.
@@ -23,7 +23,8 @@ export enum SchemeMode {
 }
 
 /**
- * Common contrast level values for Material color schemes.
+ * Common contrast level values for Material color schemes. `Standard` should
+ * fit for most use cases.
  * @see `SchemeBuilder`
  */
 export enum SchemeContrastLevel {
@@ -69,8 +70,18 @@ export interface SchemeBuilderConfig {
    * The source/seed color to use for creating the color scheme. The generated
    * color scheme may deviate from this color at some extent, depending on the
    * chrome of the source color and the algorithm used by the `SchemeType`.
+   *
+   * @remarks `Hct` is the color representation from `material-color-utilities`,
+   * which consists of hue, chroma, and tone.
+   *
+   * @example
+   *  ```ts
+   *  import { Hct, argbFromHex } from '@material/material-color-utilities';
+   *  Hct.fromInt(0xc2e7ff)
+   *  Hct.fromInt(argbFromHex("#c2e7ff"))
+   *  ```
    */
-  source: string;
+  source: Hct;
 
   /**
    * The mode of the color scheme. Light or Dark.
@@ -91,21 +102,25 @@ export interface SchemeBuilderConfig {
  */
 @Injectable({ providedIn: 'root' })
 export class SchemeBuilder implements ThemeBuilder<SchemeBuilderConfig> {
+  protected hctFormatter = inject(HctFormatter);
+
   build(context: ThemeBuilderContext<SchemeBuilderConfig>): ThemeTokens {
     const scheme = this.getScheme(context.config);
     const tokens: ThemeTokens = {};
     for (const [k, v] of Object.entries(MaterialDynamicColors)) {
       if (!(v instanceof DynamicColor)) continue;
       const name = k.replace(/([a-z])([A-Z])/gu, '$1-$2').toLowerCase();
+      const color = v.getHct(scheme);
       const token = `${context.name}-${name}`;
-      tokens[token] = hexFromArgb(v.getArgb(scheme));
+      const value = this.hctFormatter.format(color);
+      tokens[token] = value;
     }
     return tokens;
   }
 
   protected getScheme(config: SchemeBuilderConfig): DynamicScheme {
     return new config.type(
-      Hct.fromInt(argbFromHex(config.source)),
+      config.source,
       config.mode === SchemeMode.Dark,
       config.contrast,
     );

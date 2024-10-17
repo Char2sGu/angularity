@@ -2,7 +2,7 @@
 
 import { TestBed } from '@angular/core/testing';
 import { provideTheme, ThemeTokenRegistry } from '@angularity/theming';
-import { SchemeVibrant } from '@material/material-color-utilities';
+import { Hct, SchemeVibrant } from '@material/material-color-utilities';
 import { withThemeBuilder } from 'packages/theming/src/builder-composition';
 
 import { provide } from '../../core/src/provide';
@@ -16,7 +16,7 @@ describe('SchemeBuilder', () => {
         provideTheme(
           withThemeBuilder('scheme', SchemeBuilder, {
             type: SchemeVibrant,
-            source: '#33bdff',
+            source: Hct.fromInt(0x33bdff),
             mode: SchemeMode.Light,
             contrast: SchemeContrastLevel.Standard,
           }),

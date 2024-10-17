@@ -1,38 +1,40 @@
+import { inject } from '@angular/core';
 import {
   ThemeBuilder,
   ThemeBuilderContext,
   ThemeTokens,
 } from '@angularity/theming';
-import {
-  argbFromHex,
-  hexFromArgb,
-  TonalPalette,
-} from '@material/material-color-utilities';
+import { Hct, TonalPalette } from '@material/material-color-utilities';
 
+import { HctFormatter } from './hct-formatter.service';
 import { SchemeMode } from './scheme';
 
 export interface SchemeStaticColorBuilderConfig {
   name: string;
-  source: string;
+  source: Hct;
   mode: SchemeMode;
 }
 
 export class SchemeStaticColorBuilder
   implements ThemeBuilder<SchemeStaticColorBuilderConfig>
 {
+  protected hctFormatter = inject(HctFormatter);
+
   build(
     context: ThemeBuilderContext<SchemeStaticColorBuilderConfig>,
   ): ThemeTokens {
     const { name, config } = context;
-    const palette = TonalPalette.fromInt(argbFromHex(config.source));
+    const palette = TonalPalette.fromHct(config.source);
     const tones = this.getStaticColorTones(config.mode);
+    const format = (argb: number) =>
+      this.hctFormatter.format(Hct.fromInt(argb));
     return {
-      [`${name}-${config.name}`]: hexFromArgb(palette.tone(tones.color)),
-      [`${name}-on-${config.name}`]: hexFromArgb(palette.tone(tones.onColor)),
-      [`${name}-${config.name}-container`]: hexFromArgb(
+      [`${name}-${config.name}`]: format(palette.tone(tones.color)),
+      [`${name}-on-${config.name}`]: format(palette.tone(tones.onColor)),
+      [`${name}-${config.name}-container`]: format(
         palette.tone(tones.colorContainer),
       ),
-      [`${name}-on-${config.name}-container`]: hexFromArgb(
+      [`${name}-on-${config.name}-container`]: format(
         palette.tone(tones.onColorContainer),
       ),
     };
