@@ -15,19 +15,27 @@ const declarations: NgDocApi = {
     'elements',
     'theming',
     'theming-material',
-    'command-flow',
-    'command-flow/process-flow',
-    'command-flow/query-flow',
-    'command-flow/effects',
-    'command-flow/debugger',
+    '!command-flow',
+    '!command-flow/process-flow',
+    '!command-flow/query-flow',
+    '!command-flow/effects',
+    '!command-flow/debugger',
     'endpoints',
-    'config-files',
-    'fire',
-  ].map((path) => ({
-    name: path.replace('/', ' / '),
-    route: path.replace('/', '-'),
-    include: `packages/${path}/src/**/*.ts`,
-  })),
+    '!config-files',
+    '!fire',
+  ].map((path) =>
+    path.startsWith('!')
+      ? {
+          name: path.replace('!', 'WIP ').replace('/', ' / '),
+          route: path.replace('!', '').replace('/', '-'),
+          include: `packages/${path.replace('!', '')}/src/**/*.ts`,
+        }
+      : {
+          name: path.replace('/', ' / '),
+          route: path.replace('/', '-'),
+          include: `packages/${path}/src/**/*.ts`,
+        },
+  ),
 };
 
 export default declarations;
