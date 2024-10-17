@@ -10,7 +10,7 @@ const declarations: NgDocApi = {
     'cdk',
     'cdk/layout',
     'cdk/dialog',
-    'forms',
+    '!forms',
     'router',
     'elements',
     'theming',
