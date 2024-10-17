@@ -420,7 +420,7 @@
     ]
   },
   {
-    "title": "command-flow",
+    "title": "WIP command-flow",
     "items": [
       {
         "route": "/api/classes/command-flow/CommandBus",
@@ -510,7 +510,7 @@
     ]
   },
   {
-    "title": "command-flow / process-flow",
+    "title": "WIP command-flow / process-flow",
     "items": [
       {
         "route": "/api/interfaces/command-flow-process-flow/ProcessMetadata",
@@ -580,7 +580,7 @@
     ]
   },
   {
-    "title": "command-flow / query-flow",
+    "title": "WIP command-flow / query-flow",
     "items": [
       {
         "route": "/api/classes/command-flow-query-flow/DisposeQuery",
@@ -645,7 +645,7 @@
     ]
   },
   {
-    "title": "command-flow / effects",
+    "title": "WIP command-flow / effects",
     "items": [
       {
         "route": "/api/functions/command-flow-effects/provideEffects",
@@ -660,7 +660,7 @@
     ]
   },
   {
-    "title": "command-flow / debugger",
+    "title": "WIP command-flow / debugger",
     "items": [
       {
         "route": "/api/functions/command-flow-debugger/provideCommandFlowDebugger",
@@ -760,7 +760,7 @@
     ]
   },
   {
-    "title": "config-files",
+    "title": "WIP config-files",
     "items": [
       {
         "route": "/api/interfaces/config-files/ConfigFileDefinition",
