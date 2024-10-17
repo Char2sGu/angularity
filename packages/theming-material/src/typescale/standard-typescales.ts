@@ -1,5 +1,9 @@
 import { TypescaleConfig } from './typescale.builder';
 
+/**
+ * Standard typescale configuration strictly following Material specifications.
+ * @see `StandardTypescaleBuilder`
+ */
 export const STANDARD_TYPESCALES: Omit<TypescaleConfig, 'font'>[] = [
   {
     name: 'display-large',
