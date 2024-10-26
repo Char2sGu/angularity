@@ -1,3 +1,19 @@
+## 0.7.0 (2024-10-26)
+
+### 🚀 Features
+
+- **endpoints:** `useEndpointsFactory` -> `createEndpointsFactory` ([94f4e6a](https://github.com/TheNightmareX/angularly/commit/94f4e6a))
+- **theming-material:** add ImageSeedColorExtractor ([e6d4dfc](https://github.com/TheNightmareX/angularly/commit/e6d4dfc))
+- **theming-material:** redesign api to correct usage of material-color-utilities ([88f1c00](https://github.com/TheNightmareX/angularly/commit/88f1c00))
+- **theming-material:** remove scheme-extended builder ([2527b56](https://github.com/TheNightmareX/angularly/commit/2527b56))
+- **theming-material:** add SchemeStaticColorBuilder ([c5dda15](https://github.com/TheNightmareX/angularly/commit/c5dda15))
+- **theming-material:** use `Hct` as type of colors ([45e4e8a](https://github.com/TheNightmareX/angularly/commit/45e4e8a))
+- **theming-material:** use `Hct` as type of colors ([5a2e923](https://github.com/TheNightmareX/angularly/commit/5a2e923))
+
+### ❤️ Thank You
+
+- Char2s
+
 ## 0.6.5 (2024-08-09)
 
 This was a version bump only, there were no code changes.
