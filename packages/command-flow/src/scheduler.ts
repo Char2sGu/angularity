@@ -2,7 +2,7 @@ import { forwardRef, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
-  useExisting: forwardRef(() => SetImmediateCommandFlowScheduler),
+  useExisting: forwardRef(() => SetTimeoutCommandFlowScheduler),
 })
 export abstract class CommandFlowScheduler {
   abstract next(fn: () => void): void;
@@ -13,9 +13,9 @@ export abstract class CommandFlowScheduler {
  * `setImmediate` to schedule the next execution.
  */
 @Injectable({ providedIn: 'root' })
-export class SetImmediateCommandFlowScheduler implements CommandFlowScheduler {
+export class SetTimeoutCommandFlowScheduler implements CommandFlowScheduler {
   next(fn: () => void): void {
-    setImmediate(fn);
+    setTimeout(fn);
   }
 }
 
