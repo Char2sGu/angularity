@@ -6,17 +6,19 @@ import {
   makeEnvironmentProviders,
 } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
-import { provideMulti } from '@angularity/core';
+import { provideMulti, useBrowserOnly } from '@angularity/core';
 
 import { ELEMENT_REGISTRY, Elements } from './core';
 
 /**
- * Offers a declarative approach to register Angular Elements.
+ * Offers a declarative approach to register Angular Elements in the browser platform.
  *
  * @remarks The returned providers are for `EnvironmentInjector` only, e.g. `app.config.ts`,
  * route declarations, and NgModules. The registered Angular Elements will not be unregistered
  * when the `EnvironmentInjector` is destroyed, so make sure the `EnvironmentInjector` will not
  * be destroyed anytime in the application's lifecycle.
+ *
+ * @remarks If the current platform is not browser, this is a noop.
  *
  * @example
  *  ```ts
@@ -41,10 +43,12 @@ export function provideElements(
       useFactory:
         (registry = inject(ELEMENT_REGISTRY), injector = inject(Injector)) =>
         () => {
-          for (const [name, type] of Object.entries(config.elements)) {
-            const element = createCustomElement(type, { injector });
-            registry.define(name, element);
-          }
+          useBrowserOnly(() => {
+            for (const [name, type] of Object.entries(config.elements)) {
+              const element = createCustomElement(type, { injector });
+              registry.define(name, element);
+            }
+          });
         },
     }),
   ]);
