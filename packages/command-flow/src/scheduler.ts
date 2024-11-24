@@ -25,7 +25,7 @@ export class SetImmediateCommandFlowScheduler implements CommandFlowScheduler {
  * Available only in the browser platform.
  */
 @Injectable({ providedIn: 'root' })
-export class AnimationFrameBasedCommandFlowScheduler
+export class AnimationFrameCommandFlowScheduler
   implements CommandFlowScheduler
 {
   next(fn: () => void): void {
