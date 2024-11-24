@@ -6,7 +6,7 @@ import { Hct, SchemeVibrant } from '@material/material-color-utilities';
 import { withThemeBuilder } from 'packages/theming/src/builder-composition';
 
 import { provide } from '../../../core/src/provide';
-import { TestingThemeTokenRegistry } from '../../../theming/src/token';
+import { InMemoryThemeTokenRegistry } from '../../../theming/src/token';
 import {
   SchemeBuilder,
   SchemeContrastLevel,
@@ -25,14 +25,14 @@ describe('SchemeBuilder', () => {
             contrast: SchemeContrastLevel.Standard,
           }),
         ),
-        TestingThemeTokenRegistry,
+        InMemoryThemeTokenRegistry,
         provide({
           token: ThemeTokenRegistry,
-          useExisting: TestingThemeTokenRegistry,
+          useExisting: InMemoryThemeTokenRegistry,
         }),
       ],
     });
-    const tokens = TestBed.inject(TestingThemeTokenRegistry).tokens;
+    const tokens = TestBed.inject(InMemoryThemeTokenRegistry).tokens;
     expect(tokens['scheme-primary']).toBeDefined();
     expect(tokens['scheme-on-primary']).toBe('#ffffff');
   });

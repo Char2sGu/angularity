@@ -20,7 +20,7 @@ export interface ThemeTokens {
  */
 @Injectable({
   providedIn: 'root',
-  useClass: forwardRef(() => RootElementStylePropertiesThemeTokenRegistry),
+  useClass: forwardRef(() => RootCssVariableThemeTokenRegistry),
 })
 export abstract class ThemeTokenRegistry {
   /**
@@ -54,9 +54,7 @@ export class ThemeTokenNotFoundException extends Exception {
  * @remarks Token names can be optionally prefixed with `--`, e.g. `--primary`.
  */
 @Injectable()
-export class RootElementStylePropertiesThemeTokenRegistry
-  implements ThemeTokenRegistry
-{
+export class RootCssVariableThemeTokenRegistry implements ThemeTokenRegistry {
   protected document = inject(DOCUMENT);
   protected element = this.document.documentElement;
   protected styles?: CSSStyleDeclaration;
@@ -91,10 +89,10 @@ export class RootElementStylePropertiesThemeTokenRegistry
 }
 
 /**
- * Implementation of `ThemeTokenRegistry` that is intended for testing purposes.
+ * Implementation of `ThemeTokenRegistry` that stores theme tokens in memory.
  */
 @Injectable()
-export class TestingThemeTokenRegistry implements ThemeTokenRegistry {
+export class InMemoryThemeTokenRegistry implements ThemeTokenRegistry {
   /**
    * In-memory storage of theme tokens.
    */
