@@ -1,3 +1,16 @@
+## 0.8.0 (2024-11-24)
+
+### 🚀 Features
+
+- **command-flow:** use setImmediate as default scheduler ([5252a44](https://github.com/TheNightmareX/angularly/commit/5252a44))
+- **command-flow:** `AnimationFrameBasedCommandFlowScheduler` -> `AnimationFrameCommandFlowScheduler` ([692c7c7](https://github.com/TheNightmareX/angularly/commit/692c7c7))
+- **elements:** noop in non-browser platform ([eb48c5d](https://github.com/TheNightmareX/angularly/commit/eb48c5d))
+- **theming:** rename token registry implementations ([572089f](https://github.com/TheNightmareX/angularly/commit/572089f))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.7.0 (2024-10-26)
 
 ### 🚀 Features
