@@ -1,3 +1,13 @@
+## 0.8.1 (2024-11-24)
+
+### 🩹 Fixes
+
+- **command-flow:** use set timeout scheduler by default ([4953867](https://github.com/TheNightmareX/angularly/commit/4953867))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.8.0 (2024-11-24)
 
 ### 🚀 Features
