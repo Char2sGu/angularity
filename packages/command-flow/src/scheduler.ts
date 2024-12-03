@@ -1,4 +1,9 @@
-import { forwardRef, Injectable } from '@angular/core';
+import {
+  ExperimentalPendingTasks,
+  forwardRef,
+  inject,
+  Injectable,
+} from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -11,11 +16,18 @@ export abstract class CommandFlowScheduler {
 /**
  * Implementation of {@link CommandFlowScheduler} that uses
  * `setImmediate` to schedule the next execution.
+ * The scheduled function is added to {@link PendingTask} for SSR support.
  */
 @Injectable({ providedIn: 'root' })
 export class SetTimeoutCommandFlowScheduler implements CommandFlowScheduler {
+  #tasks = inject(ExperimentalPendingTasks);
+
   next(fn: () => void): void {
-    setTimeout(fn);
+    const done = this.#tasks.add();
+    setTimeout(() => {
+      fn();
+      done();
+    });
   }
 }
 
@@ -23,6 +35,7 @@ export class SetTimeoutCommandFlowScheduler implements CommandFlowScheduler {
  * Implementation of {@link CommandFlowScheduler} that uses
  * `requestAnimationFrame` to schedule the next execution.
  * Available only in the browser platform.
+ * @deprecated prefer {@link SetTimeoutCommandFlowScheduler} for better compatibility.
  */
 @Injectable({ providedIn: 'root' })
 export class AnimationFrameCommandFlowScheduler
