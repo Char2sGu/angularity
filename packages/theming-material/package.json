@@ -1,6 +1,6 @@
 {
   "name": "@angularity/theming-material",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "peerDependencies": {
     "@angular/core": ">=17",
     "@angular/common": ">=17",

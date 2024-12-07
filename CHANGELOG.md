@@ -1,3 +1,20 @@
+## 0.9.0 (2024-12-07)
+
+### 🚀 Features
+
+- **core/rxjs:** add observation-signal.ts ([9c0cc8b](https://github.com/TheNightmareX/angularly/commit/9c0cc8b))
+- **endpoints:** add common behaviors ([3bdc591](https://github.com/TheNightmareX/angularly/commit/3bdc591))
+- **fire:** replace angularfire with firebase and rxfire ([b265dc3](https://github.com/TheNightmareX/angularly/commit/b265dc3))
+- **router:** add utility `useChildActivatedRoute` ([94f296e](https://github.com/TheNightmareX/angularly/commit/94f296e))
+
+### 🩹 Fixes
+
+- **command-flow:** support scheduler SSR ([8b0004a](https://github.com/TheNightmareX/angularly/commit/8b0004a))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.8.1 (2024-11-24)
 
 ### 🩹 Fixes
