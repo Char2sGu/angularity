@@ -17,6 +17,9 @@ import { firstValueFrom, Subject } from 'rxjs';
  * Tweaked version of the `Dialog` service from Angular CDK that supports leaving
  * animations by waiting for animations to complete before disposing the overlay.
  *
+ * @remarks
+ * Only `TemplateRef` is currently supported as the content of the dialog.
+ *
  * @example
  *  ```ts
  *  provide({ token: Dialog, useClass: AnimationAwareDialog })
