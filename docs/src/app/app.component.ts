@@ -8,7 +8,6 @@ import {
 
 @Component({
   selector: 'adoc-root',
-  standalone: true,
   imports: [
     RouterOutlet,
     NgDocRootComponent,

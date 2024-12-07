@@ -72,7 +72,6 @@ export const ANIMATION_AWARE_COMPONENT_PORTAL_CONFIG =
 
 @Component({
   selector: 'agl-animation-aware-portal-container',
-  standalone: true,
   template: `
     @if (templateConfig; as c) {
       <ng-container

@@ -1,7 +1,7 @@
 import {
-  ENVIRONMENT_INITIALIZER,
   inject,
   Injector,
+  provideEnvironmentInitializer,
   Provider,
   runInInjectionContext,
 } from '@angular/core';
@@ -48,15 +48,17 @@ import { Route } from '@angular/router';
  */
 export function setupInjectionContextForLoadChildren(route: Route): Route {
   let injector: Injector | undefined = undefined;
-  const injectorInitializerProvider: Provider = {
-    provide: ENVIRONMENT_INITIALIZER,
-    multi: true,
-    useFactory:
-      (instance = inject(Injector)) =>
-      () => {
-        injector = instance;
-      },
-  };
+  const injectorInitializerProvider: Provider = provideEnvironmentInitializer(
+    () => {
+      const initializerFn = (
+        (instance = inject(Injector)) =>
+        () => {
+          injector = instance;
+        }
+      )();
+      return initializerFn();
+    },
+  );
 
   const transformRoute = (child: Route) => {
     if (!child.loadChildren) return child;

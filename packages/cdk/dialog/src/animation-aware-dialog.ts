@@ -68,7 +68,6 @@ export class AnimationAwareDialog extends Dialog {
  */
 @Component({
   selector: 'agl-animation-aware-dialog-container',
-  standalone: true,
   imports: [CdkPortalOutlet],
   template: `<ng-template cdkPortalOutlet />`,
   styles: `

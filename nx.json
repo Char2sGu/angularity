@@ -63,5 +63,6 @@
     "git": {
       "commitMessage": "build: release v{version}"
     }
-  }
+  },
+  "useLegacyCache": true
 }

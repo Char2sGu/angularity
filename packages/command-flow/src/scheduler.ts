@@ -1,9 +1,4 @@
-import {
-  ExperimentalPendingTasks,
-  forwardRef,
-  inject,
-  Injectable,
-} from '@angular/core';
+import { forwardRef, inject, Injectable, PendingTasks } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +15,7 @@ export abstract class CommandFlowScheduler {
  */
 @Injectable({ providedIn: 'root' })
 export class SetTimeoutCommandFlowScheduler implements CommandFlowScheduler {
-  #tasks = inject(ExperimentalPendingTasks);
+  #tasks = inject(PendingTasks);
 
   next(fn: () => void): void {
     const done = this.#tasks.add();
