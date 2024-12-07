@@ -24,7 +24,6 @@ async function main() {
       : {
           specifier,
         }),
-    projects: ['packages/*'],
     /**@satisfies {import('nx/src/command-line/release/version').ReleaseVersionGeneratorSchema } */
     generatorOptionsOverrides: {
       // The built-in lock file update is problematic and brings tons of
