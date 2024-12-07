@@ -58,11 +58,5 @@
       "!{projectRoot}/**/*.spec.[jt]s"
     ]
   },
-  "release": {
-    "projects": ["packages/*"],
-    "git": {
-      "commitMessage": "build: release v{version}"
-    }
-  },
   "useLegacyCache": true
 }

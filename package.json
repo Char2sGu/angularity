@@ -4,7 +4,7 @@
   "scripts": {
     "prepare": "husky install",
     "build": "nx run-many -t build --projects=* --exclude docs",
-    "release": "nx release",
+    "release": "node scripts/release.mjs",
     "format": "prettier --write \"{*,packages/**/*}.{html,css,less,scss,sass,ts,js,json,md}\" && eslint \"packages/**/*.ts\" --cache --fix"
   },
   "private": true,
@@ -59,6 +59,7 @@
     "prettier": "^3.2.4",
     "rxfire": "^6.0.5",
     "rxjs": "~7.8.0",
+    "simple-git": "^3.27.0",
     "ts-pattern": "^5.2.0",
     "tslib": "^2.3.0",
     "type-container": "^1.0.1",
