@@ -11,11 +11,19 @@ export interface TokensBuilderConfig extends ThemeTokens {}
  * requested to generate tokens.
  *
  * @remarks
- * The `name` assigned to this builder has no effects.
+ * The `name` assigned to this builder will be used as the prefix for the
+ * tokens. An empty string can be used to avoid prefixing the tokens.
  *
  * @example
  *  ```ts
- *  withThemeBuilder("name-does-not-matter", TokensBuilder, {
+ *  withThemeBuilder("tokens-", TokensBuilder, {
+ *    "primary-color": "#ff0000",
+ *  }),
+ *  ```
+ *
+ * @example
+ *  ```ts
+ *  withThemeBuilder("", TokensBuilder, {
  *    "primary-color": "#ff0000",
  *  }),
  *  ```
@@ -23,6 +31,9 @@ export interface TokensBuilderConfig extends ThemeTokens {}
 @Injectable({ providedIn: 'root' })
 export class TokensBuilder implements ThemeBuilder<TokensBuilderConfig> {
   build(context: ThemeBuilderContext<TokensBuilderConfig>): ThemeTokens {
-    return context.config;
+    const tokens: ThemeTokens = {};
+    for (const [key, value] of Object.entries(context.config))
+      tokens[`${context.name}${key}`] = value;
+    return tokens;
   }
 }
