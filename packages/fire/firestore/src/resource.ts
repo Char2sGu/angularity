@@ -1,15 +1,14 @@
 import {
   collection,
-  collectionData,
   CollectionReference,
   doc,
-  docData,
   DocumentData,
   DocumentReference,
   Firestore,
   FirestoreDataConverter,
   Query,
-} from '@angular/fire/firestore';
+} from 'firebase/firestore';
+import { collectionData, docData } from 'rxfire/firestore';
 import { Observable } from 'rxjs';
 
 export interface FirestoreResourceConfig<

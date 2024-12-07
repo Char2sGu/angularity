@@ -2,7 +2,7 @@ import {
   DocumentData,
   FirestoreDataConverter,
   PartialWithFieldValue,
-} from '@angular/fire/firestore';
+} from 'firebase/firestore';
 
 export interface SimpleFirestoreDataConverterConfig<
   Model extends DocumentData,

@@ -3,13 +3,12 @@
   "version": "0.8.1",
   "peerDependencies": {
     "@angular/core": ">=17",
-    "rxjs": ">=7"
+    "firebase": ">=10",
+    "rxjs": ">=7",
+    "rxfire": ">=6"
   },
   "dependencies": {
     "tslib": "2.x.x"
   },
-  "sideEffects": false,
-  "devDependencies": {
-    "@angular/fire": ">=17"
-  }
+  "sideEffects": false
 }
