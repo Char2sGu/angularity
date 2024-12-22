@@ -39,6 +39,7 @@ export class SetTimeoutCommandFlowScheduler implements CommandFlowScheduler {
  * `queueMicrotask` to schedule the next execution.
  * The scheduled function is added to {@link PendingTask} for SSR support.
  */
+@Injectable({ providedIn: 'root' })
 export class MicrotaskCommandFlowScheduler implements CommandFlowScheduler {
   #tasks = inject(PendingTasks);
   next(fn: () => void): void {
