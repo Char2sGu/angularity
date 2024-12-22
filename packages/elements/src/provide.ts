@@ -1,3 +1,4 @@
+import { isPlatformBrowser } from '@angular/common';
 import {
   EnvironmentProviders,
   inject,
@@ -5,7 +6,7 @@ import {
   provideEnvironmentInitializer,
 } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
-import { useBrowserOnly } from '@angularity/core';
+import { usePlatformOnly } from '@angularity/core';
 
 import { ELEMENT_REGISTRY, Elements } from './core';
 
@@ -37,9 +38,9 @@ export function provideElements(
   config: ProvideElementsConfig,
 ): EnvironmentProviders {
   return provideEnvironmentInitializer(() => {
-    const registry = inject(ELEMENT_REGISTRY);
-    const injector = inject(Injector);
-    useBrowserOnly(() => {
+    usePlatformOnly(isPlatformBrowser, () => {
+      const registry = inject(ELEMENT_REGISTRY);
+      const injector = inject(Injector);
       for (const [name, type] of Object.entries(config.elements)) {
         const element = createCustomElement(type, { injector });
         registry.define(name, element);
