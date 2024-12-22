@@ -1,5 +1,11 @@
-import { DOCUMENT } from '@angular/common';
-import { forwardRef, inject, Injectable } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser, isPlatformServer } from '@angular/common';
+import {
+  inject,
+  Injectable,
+  makeStateKey,
+  PLATFORM_ID,
+  TransferState,
+} from '@angular/core';
 import { Exception } from '@angularity/core';
 
 /**
@@ -16,11 +22,17 @@ export interface ThemeTokens {
  * Registry for active theme tokens in the current application.
  *
  * @remarks
- * This is an abstract service with a default implementation `RootElementStylePropertiesThemeTokenRegistry`.
+ * By default, uses `InMemoryThemeTokenRegistry`
+ * decorated with `WriteTokensToRootCssVariables`.
  */
 @Injectable({
   providedIn: 'root',
-  useClass: forwardRef(() => RootCssVariableThemeTokenRegistry),
+  useFactory: () => {
+    let instance: ThemeTokenRegistry;
+    instance = new InMemoryThemeTokenRegistry();
+    instance = new WriteTokensToRootCssVariables(instance);
+    return instance;
+  },
 })
 export abstract class ThemeTokenRegistry {
   /**
@@ -31,12 +43,24 @@ export abstract class ThemeTokenRegistry {
   abstract get(name: string): string | null;
 
   /**
+   * Retrieve all theme tokens.
+   * @returns copy of all theme tokens
+   */
+  abstract getAll(): ThemeTokens;
+
+  /**
    * Define a new value for a theme token. Duplicate defines overwrite the
    * previous value.
    * @param name the name of the theme token
    * @param value new value for the theme token
    */
   abstract set(name: string, value: string | null): void;
+
+  /**
+   * Define all theme tokens, replacing all existing tokens.
+   * @param tokens new theme tokens
+   */
+  abstract setAll(tokens: ThemeTokens): void;
 }
 
 /**
@@ -49,59 +73,113 @@ export class ThemeTokenNotFoundException extends Exception {
 }
 
 /**
- * Implementation of `ThemeTokenRegistry` that defines theme token and values
- * as CSS variables on the root DOM element, usually the `<html>` element.
- * @remarks Token names can be optionally prefixed with `--`, e.g. `--primary`.
- */
-@Injectable()
-export class RootCssVariableThemeTokenRegistry implements ThemeTokenRegistry {
-  protected document = inject(DOCUMENT);
-  protected element = this.document.documentElement;
-  protected styles?: CSSStyleDeclaration;
-
-  get(name: string): string | null {
-    name = this.normalizeName(name);
-    this.styles ??= window.getComputedStyle(this.element);
-    const value = this.styles.getPropertyValue(name);
-    if (!value) return null;
-    return value.trim();
-  }
-
-  /**
-   * @throws `ThemeTokenNotFoundException` if the token is not found
-   * @deprecated prefer `get`
-   */
-  getOrThrow(name: string): string {
-    const value = this.get(name);
-    if (value === null) throw new ThemeTokenNotFoundException(name);
-    return value;
-  }
-
-  set(name: string, value: string | null): void {
-    this.styles &&= undefined;
-    name = this.normalizeName(name);
-    this.element.style.setProperty(name, value);
-  }
-
-  protected normalizeName(name: string): string {
-    return name.startsWith('--') ? name : `--${name}`;
-  }
-}
-
-/**
- * Implementation of `ThemeTokenRegistry` that stores theme tokens in memory.
+ * Implementation of `ThemeTokenRegistry` that
+ * stores theme tokens in memory.
  */
 @Injectable()
 export class InMemoryThemeTokenRegistry implements ThemeTokenRegistry {
   /**
    * In-memory storage of theme tokens.
    */
-  tokens: Record<string, string | null> = {};
+  #tokens: ThemeTokens = {};
 
   get(name: string): string | null {
-    return this.tokens[name] ?? null;
+    return this.#tokens[name] ?? null;
+  }
+  getAll(): ThemeTokens {
+    return { ...this.#tokens };
   }
   set(name: string, value: string | null): void {
-    this.tokens[name] = value;
+    if (value === null) delete this.#tokens[name];
+    else this.#tokens[name] = value;
+  }
+  setAll(tokens: ThemeTokens): void {
+    this.#tokens = { ...tokens };
+  }
+}
+
+const SERVER_TOKENS = makeStateKey<ThemeTokens>('THEME_TOKENS');
+
+/**
+ * Decorator of `ThemeTokenRegistry` that
+ * writes theme tokens to the root element as CSS variables.
+ *
+ * - On server, the tokens will be written to
+ * the root element's style properties as CSS variables.
+ * - On browser, the tokens will be written to
+ * a `CSSStyleSheet` object adopted by the document.
+ */
+class WriteTokensToRootCssVariables implements ThemeTokenRegistry {
+  #document = inject(DOCUMENT);
+  #platform = inject(PLATFORM_ID);
+  #transferState = inject(TransferState, { optional: true });
+
+  #delegate: ThemeTokenRegistry;
+  #stylesheet?: CSSStyleSheet;
+
+  constructor(delegate: ThemeTokenRegistry) {
+    this.#delegate = delegate;
+    this.#transferState?.onSerialize(SERVER_TOKENS, () => this.getAll());
+
+    if (isPlatformBrowser(this.#platform)) {
+      this.#stylesheet = new window.CSSStyleSheet();
+      this.#document.adoptedStyleSheets = [
+        ...(this.#document.adoptedStyleSheets ?? []),
+        this.#stylesheet,
+      ];
+      this.#transferServerTokensIfAvailable();
+    }
+  }
+
+  get(name: string): string | null {
+    return this.#delegate.get(name);
+  }
+  getAll(): ThemeTokens {
+    return this.#delegate.getAll();
+  }
+  set(name: string, value: string | null): void {
+    this.#delegate.set(name, value);
+    if (isPlatformBrowser(this.#platform)) this.#writeAllToStylesheet();
+    else if (isPlatformServer(this.#platform))
+      this.#writeToInlineStyles(name, value);
+  }
+  setAll(tokens: ThemeTokens): void {
+    this.#delegate.setAll(tokens);
+    if (isPlatformBrowser(this.#platform)) this.#writeAllToStylesheet();
+    else if (isPlatformServer(this.#platform))
+      for (const [name, value] of Object.entries(tokens))
+        this.#document.documentElement.style.setProperty(
+          this.#toVarName(name),
+          value,
+        );
+  }
+
+  #transferServerTokensIfAvailable() {
+    if (!this.#transferState) return;
+    const serverTokens = this.#transferState.get(SERVER_TOKENS, {});
+    this.setAll(serverTokens);
+    for (const tokenName in serverTokens)
+      this.#writeToInlineStyles(tokenName, null);
+  }
+
+  #writeAllToStylesheet() {
+    this.#stylesheet?.replaceSync(this.#buildCssText());
+  }
+  #writeToInlineStyles(name: string, value: string | null) {
+    this.#document.documentElement.style.setProperty(
+      this.#toVarName(name),
+      value ?? '',
+    );
+  }
+
+  #buildCssText() {
+    const tokens = Object.entries(this.#delegate.getAll())
+      .map(([name, value]) => `${this.#toVarName(name)}: ${value};`)
+      .join('\n');
+    return `:root {\n${tokens}\n}`;
+  }
+
+  #toVarName(name: string): string {
+    return `--${name}`;
   }
 }
