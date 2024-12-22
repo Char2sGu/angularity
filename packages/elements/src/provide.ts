@@ -1,12 +1,11 @@
 import {
-  ENVIRONMENT_INITIALIZER,
   EnvironmentProviders,
   inject,
   Injector,
-  makeEnvironmentProviders,
+  provideEnvironmentInitializer,
 } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
-import { provideMulti, useBrowserOnly } from '@angularity/core';
+import { useBrowserOnly } from '@angularity/core';
 
 import { ELEMENT_REGISTRY, Elements } from './core';
 
@@ -37,21 +36,16 @@ import { ELEMENT_REGISTRY, Elements } from './core';
 export function provideElements(
   config: ProvideElementsConfig,
 ): EnvironmentProviders {
-  return makeEnvironmentProviders([
-    provideMulti({
-      token: ENVIRONMENT_INITIALIZER,
-      useFactory:
-        (registry = inject(ELEMENT_REGISTRY), injector = inject(Injector)) =>
-        () => {
-          useBrowserOnly(() => {
-            for (const [name, type] of Object.entries(config.elements)) {
-              const element = createCustomElement(type, { injector });
-              registry.define(name, element);
-            }
-          });
-        },
-    }),
-  ]);
+  return provideEnvironmentInitializer(() => {
+    const registry = inject(ELEMENT_REGISTRY);
+    const injector = inject(Injector);
+    useBrowserOnly(() => {
+      for (const [name, type] of Object.entries(config.elements)) {
+        const element = createCustomElement(type, { injector });
+        registry.define(name, element);
+      }
+    });
+  });
 }
 
 /**
