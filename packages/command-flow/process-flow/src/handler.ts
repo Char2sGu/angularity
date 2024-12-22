@@ -24,13 +24,67 @@ export interface ProcessHandler<P extends Process<any>> {
 }
 
 export enum ProcessSchedulingStrategy {
+  /**
+   * Processes are handled one after the other.
+   */
   Sequential,
+  /**
+   * Processes are handled all at the same time.
+   */
   Concurrent,
+  /**
+   * Processes are handled one at a time,
+   * but can be preempted by a new dispatch,
+   * i.e. the previous handling will be cancelled.
+   */
   Preemptive,
+  /**
+   * Processes are handled one at a time,
+   * ignoring any new dispatches until the current handling is completed.
+   */
   Blocking,
 }
 
-export function registerProcessHandler<Types extends Type<Process<any>>[]>(
+/**
+ * Register a `ProcessHandler` for some types of processes.
+ * 
+ * The value returned from the handler will be translated
+ * into a series of `ProcessEvent`s:
+ * - `ProcessStarted` when a matching process is dispatched
+ * - `ProcessCompleted` when the returned promise resolves
+ *    or the returned observable emits a value
+ * - `ProcessFailed` when the returned promise rejects
+ *    or the returned observable emits an error
+ * 
+ * @param types array of process types to listen for
+ * @param scheduling strategy for handling multiple dispatches
+ * @remarks Requires an injection context.
+ *
+ * @example
+ *  ```typescript
+ *  onProcess(
+ *    [SomeProcess, AnotherProcess],
+ *    ProcessSchedulingStrategy.Sequential,
+ *    async (process) => {
+ *      const result = await someLogic(process);
+ *      return result;
+ *    }
+ *  );
+ *  ```
+ * 
+ * @example
+ *  ```typescript
+ *  onProcess(
+ *    [SomeProcess, AnotherProcess],
+ *    ProcessSchedulingStrategy.Sequential,
+ *    (process) => {
+ *      const observable = someLogic(process);
+ *      return observable;
+ *    }
+ *  );
+ *  ```
+F */
+export function onProcess<Types extends Type<Process<any>>[]>(
   types: Types,
   scheduling: ProcessSchedulingStrategy,
   handler: ProcessHandler<InstanceType<Types[number]>>,
@@ -68,3 +122,8 @@ export function registerProcessHandler<Types extends Type<Process<any>>[]>(
     ),
   );
 }
+
+/**
+ * @deprecated Use `onProcess` instead.
+ */
+export const registerProcessHandler = onProcess;

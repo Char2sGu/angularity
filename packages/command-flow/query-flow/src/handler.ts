@@ -14,11 +14,37 @@ import {
 } from './events';
 import { QueryResultOf as ResultOf } from './shared';
 
+/**
+ * Handler for `Query`s that
+ * produces an observable of results for the accepted queries.
+ */
 export interface QueryHandler<Q extends Query<any>> {
   (query: Q): Observable<ResultOf<Q>>;
 }
 
-export function registerQueryHandler<Types extends Type<Query<any>>[]>(
+/**
+ * Register a `QueryHandler` for some types of queries.
+ *
+ * The observable returned from the handler will be translated
+ * into a series of `QueryEvent`s:
+ * - `QueryActivated` when a matching query is dispatched
+ * - `QueryResolved` when the returned observable emits a value
+ * - `QueryErrored` when the returned observable emits an error
+ * - `QueryInactivated` when the returned observable completes
+ *
+ * The observable returned from the handler will be unsubscribed
+ * when a `DisposeQuery` command is dispatched for the query.
+ *
+ * @remarks Requires an injection context.
+ *
+ * @example
+ *  ```typescript
+ *  onQuery([SomeQuery], (query) => {
+ *    return httpClient.get(...);
+ *  });
+ *  ```
+ */
+export function onQuery<Types extends Type<Query<any>>[]>(
   types: Types,
   handler: QueryHandler<InstanceType<Types[number]>>,
 ): void {
@@ -53,3 +79,8 @@ export function registerQueryHandler<Types extends Type<Query<any>>[]>(
     ),
   );
 }
+
+/**
+ * @deprecated Use `onQuery` instead.
+ */
+export const registerQueryHandler = onQuery;
