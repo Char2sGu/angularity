@@ -1,3 +1,13 @@
+## 0.10.1 (2024-12-22)
+
+### 🩹 Fixes
+
+- **command-flow:** provide MicrotaskCommandFlowScheduler ([7f05074](https://github.com/TheNightmareX/angularly/commit/7f05074))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.10.0 (2024-12-22)
 
 ### 🚀 Features
