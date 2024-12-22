@@ -1,3 +1,17 @@
+## 0.10.0 (2024-12-22)
+
+### 🚀 Features
+
+- **command-flow:** use microtask for scheduling ([a56486b](https://github.com/TheNightmareX/angularly/commit/a56486b))
+- **command-flow:** shorten handler register function names ([08119c7](https://github.com/TheNightmareX/angularly/commit/08119c7))
+- **core:** useBrowserOnly -> usePlatformOnly ([a13f805](https://github.com/TheNightmareX/angularly/commit/a13f805))
+- **theming:** use name to prefix TokensBuilder tokens ([7e3c259](https://github.com/TheNightmareX/angularly/commit/7e3c259))
+- **theming:** use CSSStylesheet in browser for tokens ([7b849d1](https://github.com/TheNightmareX/angularly/commit/7b849d1))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.9.0 (2024-12-07)
 
 ### 🚀 Features
