@@ -1,3 +1,13 @@
+## 0.10.2 (2024-12-22)
+
+### 🩹 Fixes
+
+- **elements:** fix server error ([d637218](https://github.com/TheNightmareX/angularly/commit/d637218))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.10.1 (2024-12-22)
 
 ### 🩹 Fixes

@@ -1,6 +1,6 @@
 {
   "name": "@angularity/fire",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "peerDependencies": {
     "@angular/core": ">=17",
     "firebase": ">=10",
