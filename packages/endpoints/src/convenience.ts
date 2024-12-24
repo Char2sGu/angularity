@@ -5,6 +5,27 @@ import { GenerateEndpoints, generateEndpoints } from './generators';
 import { EndpointInvoker } from './invoker';
 
 /**
+ * Convenience function that generates invocable endpoint functions
+ * from the given endpoint schemas.
+ *
+ * @see `generateEndpoints` - for manually generating endpoints
+ *
+ * @example
+ * ```ts
+ *  export const USER_ENDPOINTS = {
+ *    // ...
+ *  } as const satisfies EndpointSchemas;
+ * ```
+ * ```ts
+ *  private userEndpoints = useEndpoints(USER_ENDPOINTS);
+ * ```
+ */
+export const useEndpoints = <Schemas extends EndpointSchemas>(
+  schemas: Schemas,
+  invoker = inject(EndpointInvoker),
+): GenerateEndpoints<Schemas> => generateEndpoints(invoker, schemas);
+
+/**
  * Convenience function that creates a typed `InjectionToken` with a default
  * value of a collection of endpoints generated from the given schemas,
  * through `generateEndpoints`.
