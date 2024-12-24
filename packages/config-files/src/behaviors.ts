@@ -7,7 +7,7 @@ import { ConfigFileLoader } from './loader';
  * Decorator for {@link ConfigFileLoader}
  * that caches the loaded configuration objects of each definition.
  */
-export class CacheConfigFileContent implements ConfigFileLoader {
+export class CacheConfigFiles implements ConfigFileLoader {
   #cache = new Map<
     ConfigFileDefinition<unknown, unknown>,
     Observable<unknown>

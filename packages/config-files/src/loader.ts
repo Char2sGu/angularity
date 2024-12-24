@@ -1,13 +1,21 @@
 import { HttpClient } from '@angular/common/http';
-import { forwardRef, inject, Injectable, Injector } from '@angular/core';
+import { inject, Injectable, Injector } from '@angular/core';
 import { Exception } from '@angularity/core';
 import { catchError, map, Observable, switchMap } from 'rxjs';
 
+import { CacheConfigFiles } from './behaviors';
 import { ConfigFileDefinition } from './definition';
 
+/**
+ * Service for loading configuration files.
+ *
+ * @remarks
+ * By default, uses {@link HttpClientConfigFileLoader}
+ * decorated with {@link CacheConfigFiles}.
+ */
 @Injectable({
   providedIn: 'root',
-  useExisting: forwardRef(() => HttpClientConfigFileLoader),
+  useFactory: () => new CacheConfigFiles(inject(HttpClientConfigFileLoader)),
 })
 export abstract class ConfigFileLoader {
   /**
