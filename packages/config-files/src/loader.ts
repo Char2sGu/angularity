@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { forwardRef, inject, Injectable, Injector } from '@angular/core';
 import { Exception } from '@angularity/core';
-import { catchError, map, Observable } from 'rxjs';
+import { catchError, map, Observable, switchMap } from 'rxjs';
 
 import { ConfigFileDefinition } from './definition';
 
@@ -24,7 +24,8 @@ export abstract class ConfigFileLoader {
 export class ConfigFileNotFoundException extends Exception {}
 
 /**
- * Implementation of {@link ConfigFileLoader} based on Angular's built-in {@link HttpClient}.
+ * Implementation of {@link ConfigFileLoader}
+ * based on Angular's built-in {@link HttpClient}.
  */
 @Injectable({
   providedIn: 'root',
@@ -42,9 +43,9 @@ export class HttpClientConfigFileLoader implements ConfigFileLoader {
         if (!res) throw new ConfigFileNotFoundException(def.path);
         return res;
       }),
-      map((raw) => {
-        const parsed = parser.parse(raw);
-        validator.validate(def.schema, parsed);
+      switchMap(async (raw) => {
+        const parsed = await parser.parse(raw);
+        await validator.validate(def.schema, parsed);
         return parsed as T;
       }),
     );
