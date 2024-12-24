@@ -1,6 +1,6 @@
 {
   "name": "@angularity/endpoints",
-  "version": "0.10.2",
+  "version": "0.11.0",
   "peerDependencies": {
     "@angular/common": ">=17",
     "@angular/core": ">=17",

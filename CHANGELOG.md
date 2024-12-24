@@ -1,3 +1,18 @@
+## 0.11.0 (2024-12-24)
+
+### 🚀 Features
+
+- **cdk/layout:** add SystemColorSchemeObserver ([6fd5498](https://github.com/TheNightmareX/angularly/commit/6fd5498))
+- **config-files:** switch to async data flow ([22619a1](https://github.com/TheNightmareX/angularly/commit/22619a1))
+- **config-files:** add CacheConfigFileContent decorator ([dde8c83](https://github.com/TheNightmareX/angularly/commit/dde8c83))
+- **config-files:** rename CacheConfigFileContent to CacheConfigFiles and enable by default ([eef27fb](https://github.com/TheNightmareX/angularly/commit/eef27fb))
+- **core:** add useInjectionContext function ([7344f8e](https://github.com/TheNightmareX/angularly/commit/7344f8e))
+- **endpoints:** add useEndpoints convenience function ([e89f3d2](https://github.com/TheNightmareX/angularly/commit/e89f3d2))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.10.2 (2024-12-22)
 
 ### 🩹 Fixes
