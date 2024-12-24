@@ -1,4 +1,9 @@
-import { inject, Injector, ProviderToken } from '@angular/core';
+import {
+  inject,
+  Injector,
+  ProviderToken,
+  runInInjectionContext,
+} from '@angular/core';
 
 /**
  * Inject a proxy of the target dependency, which defers the actual injection
@@ -36,3 +41,21 @@ export function injectRef<T>(
     },
   ) as T;
 }
+
+/**
+ * Return a function that accepts another function.
+ * The accepted function will be executed synchronously in the
+ * current injection context, and its return value will be forwarded.
+ *
+ * @example
+ * ```ts
+ *  private inContext = useInjectionContext();
+ * ```
+ * ```ts
+ * const result = inContext(() => inject(MyService).doSomething());
+ * ```
+ */
+export const useInjectionContext =
+  (injector = inject(Injector)) =>
+  <T>(fn: () => T): T =>
+    runInInjectionContext(injector, fn);
