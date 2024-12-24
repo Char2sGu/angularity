@@ -1,3 +1,14 @@
+## 0.11.1 (2024-12-24)
+
+### 🚀 Features
+
+- **config-files:** support sync data flow for backward compat ([fb8575f](https://github.com/TheNightmareX/angularly/commit/fb8575f))
+- **config-files:** add useConfigFile function ([9d79557](https://github.com/TheNightmareX/angularly/commit/9d79557))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.11.0 (2024-12-24)
 
 ### 🚀 Features
