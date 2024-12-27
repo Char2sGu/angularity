@@ -43,6 +43,31 @@ export function injectRef<T>(
 }
 
 /**
+ * Inject a dependency lazily loaded as a promise.
+ *
+ * @param token promise of the token to inject
+ * @param injector injector to use to instantiate the dependency
+ * @returns promise of the dependency instance
+ *
+ * @example
+ * ```ts
+ *  private myService = injectLazy(import('./my-service').then(m => m.MyService));
+ * ```
+ * ```ts
+ *  async someMethod() {
+ *    const service = await this.myService;
+ *    service.doSomething();
+ *  }
+ * ```
+ */
+export async function injectLazy<T>(
+  token: Promise<ProviderToken<T>>,
+  injector = inject(Injector),
+): Promise<T> {
+  return token.then((t) => injector.get(t));
+}
+
+/**
  * Return a function that accepts another function.
  * The accepted function will be executed synchronously in the
  * current injection context, and its return value will be forwarded.
