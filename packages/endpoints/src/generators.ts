@@ -99,7 +99,7 @@ export function generateEndpoint<Schema extends EndpointSchema>(
         method: schema.method,
       });
     const requestPayload: Record<string, unknown> = {};
-    const requestQuery: Record<string, unknown> = {};
+    const requestQuery: Record<string, any> = {};
     for (const param in params) {
       const paramType = paramMeta[param];
       if (paramType === 'body') requestPayload[param] = params[param];
@@ -108,8 +108,8 @@ export function generateEndpoint<Schema extends EndpointSchema>(
     return invoker.invoke({
       path: schema.path,
       method: schema.method,
-      payload: requestPayload,
-      query: requestQuery as Record<string, any>,
+      payload: Object.keys(requestPayload).length ? requestPayload : undefined,
+      query: Object.keys(requestQuery).length ? requestQuery : undefined,
     });
   };
 
