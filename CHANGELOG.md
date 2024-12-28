@@ -1,3 +1,18 @@
+## 0.12.0 (2024-12-28)
+
+### 🚀 Features
+
+- **command-flow:** register processes as pending tasks ([d7f2fa1](https://github.com/TheNightmareX/angularly/commit/d7f2fa1))
+- **core:** add injectLazy to injection.ts ([cfb558c](https://github.com/TheNightmareX/angularly/commit/cfb558c))
+
+### 🩹 Fixes
+
+- **endpoints:** avoid passing payload/query if empty ([54a90e8](https://github.com/TheNightmareX/angularly/commit/54a90e8))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.11.1 (2024-12-24)
 
 ### 🚀 Features
