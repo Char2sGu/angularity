@@ -1,11 +1,13 @@
-import { Type } from '@angular/core';
-import { registerCommandHandler } from '@angularity/command-flow';
+import { inject, Injector, Type } from '@angular/core';
+import { pendingUntilEvent } from '@angular/core/rxjs-interop';
+import { onCommand } from '@angularity/command-flow';
 import {
   concatMap,
   exhaustMap,
   from,
   mergeMap,
   Observable,
+  pipe,
   switchMap,
 } from 'rxjs';
 import { match } from 'ts-pattern';
@@ -89,6 +91,8 @@ export function onProcess<Types extends Type<Process<any>>[]>(
   scheduling: ProcessSchedulingStrategy,
   handler: ProcessHandler<InstanceType<Types[number]>>,
 ): void {
+  const injector = inject(Injector);
+
   const scheduler = match(scheduling)
     .with(ProcessSchedulingStrategy.Sequential, () => concatMap)
     .with(ProcessSchedulingStrategy.Concurrent, () => mergeMap)
@@ -96,26 +100,29 @@ export function onProcess<Types extends Type<Process<any>>[]>(
     .with(ProcessSchedulingStrategy.Blocking, () => exhaustMap)
     .run();
 
-  registerCommandHandler(types, ($) =>
-    $.pipe(
+  onCommand(
+    types,
+    pipe(
       scheduler(
         (process) =>
           new Observable<ProcessEvent<InstanceType<Types[number]>>>(
             (observer) => {
               observer.next(new ProcessStarted(process));
-              return from(handler(process)).subscribe({
-                next: (result) => {
-                  observer.next(new ProcessCompleted(process, result));
-                  observer.complete();
-                },
-                error: (error) => {
-                  observer.next(new ProcessFailed(process, error));
-                  observer.complete();
-                },
-                complete: () => {
-                  observer.complete();
-                },
-              });
+              return from(handler(process))
+                .pipe(pendingUntilEvent(injector))
+                .subscribe({
+                  next: (result) => {
+                    observer.next(new ProcessCompleted(process, result));
+                    observer.complete();
+                  },
+                  error: (error) => {
+                    observer.next(new ProcessFailed(process, error));
+                    observer.complete();
+                  },
+                  complete: () => {
+                    observer.complete();
+                  },
+                });
             },
           ),
       ),
