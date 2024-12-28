@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, Injector } from '@angular/core';
+import { pendingUntilEvent } from '@angular/core/rxjs-interop';
 import { Exception } from '@angularity/core';
 import { catchError, map, Observable, switchMap } from 'rxjs';
 
@@ -56,6 +57,7 @@ export class HttpClientConfigFileLoader implements ConfigFileLoader {
         await validator.validate(def.schema, parsed);
         return parsed as T;
       }),
+      pendingUntilEvent(this.injector),
     );
   }
 
