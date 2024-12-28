@@ -1,3 +1,13 @@
+## 0.12.1 (2024-12-28)
+
+### 🩹 Fixes
+
+- **config-files:** add awareness of pending tasks ([13e510d](https://github.com/TheNightmareX/angularly/commit/13e510d))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.12.0 (2024-12-28)
 
 ### 🚀 Features
