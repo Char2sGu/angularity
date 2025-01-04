@@ -1,3 +1,14 @@
+## 0.13.0-alpha.1 (2025-01-04)
+
+### 🩹 Fixes
+
+- **theming:** fix async theme injection context ([d78248c](https://github.com/TheNightmareX/angularly/commit/d78248c))
+- **theming:** add missing token transfer stylesheet update ([91aaf28](https://github.com/TheNightmareX/angularly/commit/91aaf28))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.13.0-alpha.0 (2025-01-04)
 
 ### 🚀 Features
