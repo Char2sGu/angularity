@@ -14,7 +14,7 @@ export class ConfigFilesPersistentCache extends Map<
   string,
   Observable<unknown>
 > {
-  static readonly key = Symbol('ConfigFilesPersistentCache');
+  static readonly key = 'ConfigFilesPersistentCache';
 
   static useFromRequestContext(): ConfigFilesPersistentCache | null {
     const context = inject(REQUEST_CONTEXT);
