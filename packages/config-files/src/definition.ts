@@ -5,10 +5,11 @@ import { ConfigFileParser } from './parser';
 import { ConfigFileValidator } from './validator';
 
 export interface ConfigFileDefinition<T, Schema> {
+  id?: string;
   path: string;
   type: TypeContainer<T>;
   parser: ProviderToken<ConfigFileParser>;
-  validator: ProviderToken<ConfigFileValidator<Schema>>;
+  validator: ProviderToken<ConfigFileValidator<NoInfer<Schema>>>;
   schema: Schema;
 }
 
