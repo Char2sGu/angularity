@@ -171,10 +171,11 @@ class WriteTokensToRootCssVariables implements ThemeTokenRegistry {
   transfer(): boolean {
     const transferred = this.#delegate.transfer();
     if (!transferred) return false;
+    const tokens = this.getAll();
     // On server, the tokens are written to the root element's style properties,
     // which should be removed after transfer.
-    for (const tokenName in this.getAll())
-      this.#writeToInlineStyles(tokenName, null);
+    for (const tokenName in tokens) this.#writeToInlineStyles(tokenName, null);
+    this.setAll(tokens); // write to stylesheet
     return true;
   }
 
