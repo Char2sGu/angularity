@@ -1,4 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpContext,
+  HttpContextToken,
+} from '@angular/common/http';
 import { forwardRef, inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -56,6 +60,12 @@ export interface EndpointInvokeConfig {
 }
 
 /**
+ * `HttpContextToken` that will be set to `true` in an endpoint request
+ * sent by `HttpClientEndpointInvoker`.
+ */
+export const IS_ENDPOINT_REQUEST = new HttpContextToken<boolean>(() => false);
+
+/**
  * Minimal implementation of `EndpointInvoker` based on Angular's built-in
  * `HttpClient` service.
  *
@@ -71,6 +81,7 @@ export class HttpClientEndpointInvoker implements EndpointInvoker {
     return this.httpClient.request<T>(config.method, config.path, {
       body: config.payload,
       params: config.query,
+      context: new HttpContext().set(IS_ENDPOINT_REQUEST, true),
     });
   }
 }
