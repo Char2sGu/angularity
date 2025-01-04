@@ -1,3 +1,18 @@
+## 0.13.0-alpha.0 (2025-01-04)
+
+### 🚀 Features
+
+- **config-files:** add HttpContextToken for config request tracking ([e7edebe](https://github.com/TheNightmareX/angularly/commit/e7edebe))
+- **config-files:** add simple parsers and validators ([e340e8c](https://github.com/TheNightmareX/angularly/commit/e340e8c))
+- **config-files:** add optional id field to ConfigFileDefinition ([e66ff0e](https://github.com/TheNightmareX/angularly/commit/e66ff0e))
+- **config-files:** implement persistent caching for config files ([c617a51](https://github.com/TheNightmareX/angularly/commit/c617a51))
+- **endpoints:** add HttpContextToken for endpoint request tracking ([5119332](https://github.com/TheNightmareX/angularly/commit/5119332))
+- **theming:** redesign with async theme support ([9ce0939](https://github.com/TheNightmareX/angularly/commit/9ce0939))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.12.1 (2024-12-28)
 
 ### 🩹 Fixes
