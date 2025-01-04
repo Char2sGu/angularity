@@ -1,8 +1,10 @@
 import {
+  DestroyRef,
   EnvironmentProviders,
   inject,
   Injector,
   provideAppInitializer,
+  runInInjectionContext,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter, firstValueFrom, map, shareReplay, startWith } from 'rxjs';
@@ -55,10 +57,11 @@ export function provideTheme(
 ): EnvironmentProviders {
   return provideAppInitializer(async () => {
     const injector = inject(Injector);
+    const destroyRef = inject(DestroyRef);
     const registry = inject(ThemeTokenRegistry);
     const transferred = registry.transfer();
     const build$ = buildTheme(injector, await theme).pipe(
-      takeUntilDestroyed(),
+      takeUntilDestroyed(destroyRef),
       map((tokens) => {
         registry.setAll(tokens);
         return true;
@@ -67,7 +70,9 @@ export function provideTheme(
       filter(Boolean),
       shareReplay(1),
     );
-    build$.subscribe();
+    runInInjectionContext(injector, () => {
+      build$.subscribe();
+    });
     return firstValueFrom(build$);
   });
 }
