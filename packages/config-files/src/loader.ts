@@ -1,4 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpContext,
+  HttpContextToken,
+} from '@angular/common/http';
 import { inject, Injectable, Injector } from '@angular/core';
 import { pendingUntilEvent } from '@angular/core/rxjs-interop';
 import { Exception } from '@angularity/core';
@@ -33,6 +37,14 @@ export abstract class ConfigFileLoader {
 export class ConfigFileNotFoundException extends Exception {}
 
 /**
+ * `HttpContextToken` that will be set to `true` in an endpoint request
+ * sent by `HttpClientConfigFileLoader`.
+ */
+export const IS_CONFIG_FILE_REQUEST = new HttpContextToken<boolean>(
+  () => false,
+);
+
+/**
  * Implementation of {@link ConfigFileLoader}
  * based on Angular's built-in {@link HttpClient}.
  */
@@ -62,8 +74,9 @@ export class HttpClientConfigFileLoader implements ConfigFileLoader {
   }
 
   protected fetch(path: string): Observable<string | null> {
+    const context = new HttpContext().set(IS_CONFIG_FILE_REQUEST, true);
     return this.httpClient
-      .get(path, { responseType: 'text' })
+      .get(path, { responseType: 'text', context })
       .pipe(catchError(() => [null]));
   }
 }
