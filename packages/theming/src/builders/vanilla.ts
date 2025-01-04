@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { ThemeBuilder, ThemeBuilderContext } from '../builder';
 import { ThemeTokens } from '../token';
+import { TokenBuilder, TokenBuilderContext } from '../token-builder';
 
-export interface TokensBuilderConfig extends ThemeTokens {}
+export interface VanillaBuilderConfig extends ThemeTokens {}
 
 /**
- * An implementation of `ThemeBuilder` that simply accepts an object of
+ * An implementation of `TokenBuilder` that simply accepts an object of
  * pre-defined theme tokens as configuration and returns them as is when
  * requested to generate tokens.
  *
@@ -16,21 +16,21 @@ export interface TokensBuilderConfig extends ThemeTokens {}
  *
  * @example
  *  ```ts
- *  withThemeBuilder("tokens-", TokensBuilder, {
+ *  scheduleTokenBuild("tokens-", VanillaBuilder, {
  *    "primary-color": "#ff0000",
  *  }),
  *  ```
  *
  * @example
  *  ```ts
- *  withThemeBuilder("", TokensBuilder, {
+ *  scheduleTokenBuild("", VanillaBuilder, {
  *    "primary-color": "#ff0000",
  *  }),
  *  ```
  */
 @Injectable({ providedIn: 'root' })
-export class TokensBuilder implements ThemeBuilder<TokensBuilderConfig> {
-  build(context: ThemeBuilderContext<TokensBuilderConfig>): ThemeTokens {
+export class VanillaBuilder implements TokenBuilder<VanillaBuilderConfig> {
+  build(context: TokenBuilderContext<VanillaBuilderConfig>): ThemeTokens {
     const tokens: ThemeTokens = {};
     for (const [key, value] of Object.entries(context.config))
       tokens[`${context.name}${key}`] = value;

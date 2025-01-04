@@ -1,14 +1,14 @@
 import { ProviderToken } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
 
-import { ThemeBuilder, ThemeBuilderConfigOf } from './builder';
+import { TokenBuilder, TokenBuilderConfigOf } from './token-builder';
 
 /**
- * Represents a token generation specification, which specifies the target `ThemeBuilder`
+ * Represents a token generation specification, which specifies the target `TokenBuilder`
  * and relevant configurations to be passed to the builder.
- * @see `withThemeBuilder`
+ * @see `scheduleTokenBuild`
  */
-export interface ThemeBuilderComposition {
+export interface TokenBuild {
   /**
    * The name that will be passed to the theme builder.
    */
@@ -18,7 +18,7 @@ export interface ThemeBuilderComposition {
    * The token that can be used to retrieve the theme builder instance from
    * the injector.
    */
-  builder: ProviderToken<ThemeBuilder<any>>;
+  builder: ProviderToken<TokenBuilder<any>>;
 
   /**
    * The configuration object that will be passed to the theme builder.
@@ -27,7 +27,7 @@ export interface ThemeBuilderComposition {
 }
 
 /**
- * Creates a token generation specification, which specifies the target `ThemeBuilder`
+ * Creates a token generation specification, which specifies the target `TokenBuilder`
  * and relevant configurations to be passed to the builder.
  * @param name The name that will be passed to the theme builder.
  * @param builder The token that can be used to retrieve the theme builder
@@ -47,14 +47,14 @@ export interface ThemeBuilderComposition {
  *  provide({ token: ColorBuilder, useClass: MyColorBuilder }),
  *  ```
  *  ```ts
- *  withThemeBuilder('color', ColorBuilder, { primaryColor: PRIMARY_COLOR }),
+ *  scheduleTokenBuild('color', ColorBuilder, { primaryColor: PRIMARY_COLOR }),
  *  ```
  *
  * An observable can be passed as the `config` parameter, in which case the
  * theme is expected to be updated on every value emission.
  *
  *  ```ts
- *  withThemeBuilder(
+ *  scheduleTokenBuild(
  *    'color',
  *    ColorBuilder,
  *    observePreferredColorScheme().pipe(
@@ -69,7 +69,7 @@ export interface ThemeBuilderComposition {
  * an injection context is available.
  *
  * ```ts
- * withThemeBuilder(
+ * scheduleTokenBuild(
  *   'color',
  *   ColorBuilder,
  *   defer((schemeObserver = inject(PreferredColorSchemeObserver)) =>
@@ -80,13 +80,13 @@ export interface ThemeBuilderComposition {
  * );
  * ```
  */
-export function withThemeBuilder<Builder extends ThemeBuilder<any>>(
+export function scheduleTokenBuild<Builder extends TokenBuilder<any>>(
   name: string,
   builder: ProviderToken<Builder>,
   config:
-    | ThemeBuilderConfigOf<Builder>
-    | Observable<ThemeBuilderConfigOf<Builder>>,
-): Observable<ThemeBuilderComposition> {
+    | TokenBuilderConfigOf<Builder>
+    | Observable<TokenBuilderConfigOf<Builder>>,
+): Observable<TokenBuild> {
   const config$ = config instanceof Observable ? config : of(config);
   return config$.pipe(map((config) => ({ name, builder, config })));
 }

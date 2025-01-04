@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {
-  ThemeBuilder,
-  ThemeBuilderContext,
   ThemeTokens,
+  TokenBuilder,
+  TokenBuilderContext,
 } from '@angularity/theming';
 
 /**
@@ -57,7 +57,7 @@ export interface TypescaleConfig {
 export interface TypescaleBuilderConfig extends Array<TypescaleConfig> {}
 
 /**
- * Implementation of `ThemeBuilder` for generating theme tokens relevant to
+ * Implementation of `TokenBuilder` for generating theme tokens relevant to
  * Material typescale levels.
  *
  * @remarks
@@ -77,7 +77,7 @@ export interface TypescaleBuilderConfig extends Array<TypescaleConfig> {}
  * @example
  *  ```ts
  *  const font = 'Roboto, sans-serif';
- *  export const APP_TYPESCALES: TypescaleConfig[] = [
+ *  export const appTypescales: TypescaleConfig[] = [
  *    {
  *      font,
  *      name: 'display-large',
@@ -98,15 +98,15 @@ export interface TypescaleBuilderConfig extends Array<TypescaleConfig> {}
  *  ];
  *  ```
  *  ```ts
- *  provideTheme(
- *    withThemeBuilder("typescale", TypescaleBuilder, APP_TYPESCALES),
+ *  createTheme(
+ *    scheduleTokenBuild("typescale", TypescaleBuilder, appTypescales),
  *  ),
  *  ```
  *
  */
 @Injectable({ providedIn: 'root' })
-export class TypescaleBuilder implements ThemeBuilder<TypescaleBuilderConfig> {
-  build(context: ThemeBuilderContext<TypescaleBuilderConfig>): ThemeTokens {
+export class TypescaleBuilder implements TokenBuilder<TypescaleBuilderConfig> {
+  build(context: TokenBuilderContext<TypescaleBuilderConfig>): ThemeTokens {
     const tokens: ThemeTokens = {};
     for (const typescale of context.config) {
       const result = this.buildTypescale(typescale);

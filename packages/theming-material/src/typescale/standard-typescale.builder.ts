@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import {
-  ThemeBuilder,
-  ThemeBuilderContext,
   ThemeTokens,
+  TokenBuilder,
+  TokenBuilderContext,
 } from '@angularity/theming';
 
 import { STANDARD_TYPESCALES } from './standard-typescales';
@@ -16,7 +16,7 @@ export interface StandardTypescaleBuilderConfig {
 }
 
 /**
- * Implementation of `ThemeBuilder` that generates theme tokens of typescale
+ * Implementation of `TokenBuilder` that generates theme tokens of typescale
  * levels strictly following the Material specifications.
  *
  * @remarks
@@ -34,8 +34,8 @@ export interface StandardTypescaleBuilderConfig {
  *
  * @example
  *  ```ts
- *  provideTheme(
- *    withThemeBuilder("typescale", StandardTypescaleBuilder, {
+ *  createTheme(
+ *    scheduleTokenBuild("typescale", StandardTypescaleBuilder, {
  *      font: 'Roboto, sans-serif',
  *    }),
  *  ),
@@ -43,11 +43,11 @@ export interface StandardTypescaleBuilderConfig {
  */
 @Injectable({ providedIn: 'root' })
 export class StandardTypescaleBuilder
-  implements ThemeBuilder<StandardTypescaleBuilderConfig>
+  implements TokenBuilder<StandardTypescaleBuilderConfig>
 {
   protected core = inject(TypescaleBuilder);
   build(
-    context: ThemeBuilderContext<StandardTypescaleBuilderConfig>,
+    context: TokenBuilderContext<StandardTypescaleBuilderConfig>,
   ): ThemeTokens {
     const { name, config } = context;
     const typescales = STANDARD_TYPESCALES.map((typescale) => ({

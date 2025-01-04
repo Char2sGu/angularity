@@ -1,8 +1,8 @@
 import { inject } from '@angular/core';
 import {
-  ThemeBuilder,
-  ThemeBuilderContext,
   ThemeTokens,
+  TokenBuilder,
+  TokenBuilderContext,
 } from '@angularity/theming';
 import { Hct, TonalPalette } from '@material/material-color-utilities';
 
@@ -41,7 +41,7 @@ export interface SchemeStaticColorBuilderConfig {
 }
 
 /**
- * Implementation of `ThemeBuilder` that generates hex color tokens for Material
+ * Implementation of `TokenBuilder` that generates hex color tokens for Material
  * Design static colors (aka. custom colors).
  *
  * @remarks
@@ -63,19 +63,19 @@ export interface SchemeStaticColorBuilderConfig {
  *
  * @example
  *  ```ts
- *  provideTheme(
- *    withThemeBuilder("scheme", SchemeBuilder, {
+ *  createTheme(
+ *    scheduleTokenBuild("scheme", SchemeBuilder, {
  *      type: SchemeTonalSpot,
  *      source: Hct.fromInt(0x33bdff),
  *      mode: SchemeMode.Light,
  *      contrast: SchemeContrastLevel.Standard,
  *    }),
- *    withThemeBuilder("scheme", SchemeStaticColorBuilder, {
+ *    scheduleTokenBuild("scheme", SchemeStaticColorBuilder, {
  *      name: "success",
  *      source: Hct.fromInt(0x8cb84a),
  *      mode: SchemeMode.Light,
  *    }),
- *    withThemeBuilder("scheme", SchemeStaticColorBuilder, {
+ *    scheduleTokenBuild("scheme", SchemeStaticColorBuilder, {
  *      name: "warning",
  *      source: Hct.fromInt(0xd6913e),
  *      mode: SchemeMode.Light,
@@ -84,12 +84,12 @@ export interface SchemeStaticColorBuilderConfig {
  *  ```
  */
 export class SchemeStaticColorBuilder
-  implements ThemeBuilder<SchemeStaticColorBuilderConfig>
+  implements TokenBuilder<SchemeStaticColorBuilderConfig>
 {
   protected hctFormatter = inject(HctFormatter);
 
   build(
-    context: ThemeBuilderContext<SchemeStaticColorBuilderConfig>,
+    context: TokenBuilderContext<SchemeStaticColorBuilderConfig>,
   ): ThemeTokens {
     const { name, config } = context;
     const palette = TonalPalette.fromHct(config.source);

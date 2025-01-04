@@ -7,15 +7,15 @@ import { ThemeTokens } from './token';
  * The generic type parameter declares the acceptable configuration type.
  *
  * @remarks
- * This package contains a built-in implementation: `TokensBuilder`.
+ * This package contains a built-in implementation: `VanillaBuilder`.
  *
  * @example
  *  ```ts
  *  export interface MyThemeConfig {
  *    primaryColor: string;
  *  }
- *  export class MyThemeBuilder implements ThemeBuilder<MyThemeConfig> {
- *    build(context: ThemeBuilderContext<MyThemeConfig>): ThemeTokens {
+ *  export class MyTokenBuilder implements TokenBuilder<MyThemeConfig> {
+ *    build(context: TokenBuilderContext<MyThemeConfig>): ThemeTokens {
  *      return {
  *        [`${context.name}-primary-color`]: context.config.primaryColor,
  *      };
@@ -23,18 +23,18 @@ import { ThemeTokens } from './token';
  *  }
  *  ```
  */
-export interface ThemeBuilder<Config> {
+export interface TokenBuilder<Config> {
   /**
    * Generate a group of theme tokens based on a configuration.
    */
-  build(context: ThemeBuilderContext<Config>): ThemeTokens;
+  build(context: TokenBuilderContext<Config>): ThemeTokens;
 }
 
 /**
  * Contextual information required for generating theme tokens.
- * @see `ThemeBuilder`
+ * @see `TokenBuilder`
  */
-export interface ThemeBuilderContext<Config> {
+export interface TokenBuilderContext<Config> {
   /**
    * Name assigned to this theme builder. May or may not be included in
    * generated token names, depending on the implementation.
@@ -48,7 +48,7 @@ export interface ThemeBuilderContext<Config> {
 
 /**
  * Utility type that extracts the accepted configuration type from a
- * `ThemeBuilder` type.
+ * `TokenBuilder` type.
  */
-export type ThemeBuilderConfigOf<Builder extends ThemeBuilder<any>> =
-  Builder extends ThemeBuilder<infer Config> ? Config : never;
+export type TokenBuilderConfigOf<Builder extends TokenBuilder<any>> =
+  Builder extends TokenBuilder<infer Config> ? Config : never;

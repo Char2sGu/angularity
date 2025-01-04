@@ -1,12 +1,15 @@
 /// <reference types="jasmine" />
 
 import { TestBed } from '@angular/core/testing';
-import { provideTheme, ThemeTokenRegistry } from '@angularity/theming';
+import {
+  createTheme,
+  InMemoryThemeTokenRegistry,
+  provideTheme,
+  scheduleTokenBuild,
+  ThemeTokenRegistry,
+} from '@angularity/theming';
 import { Hct, SchemeVibrant } from '@material/material-color-utilities';
-import { withThemeBuilder } from 'packages/theming/src/builder-composition';
 
-import { provide } from '../../../core/src/provide';
-import { InMemoryThemeTokenRegistry } from '../../../theming/src/token';
 import {
   SchemeBuilder,
   SchemeContrastLevel,
@@ -18,21 +21,23 @@ describe('SchemeBuilder', () => {
     TestBed.configureTestingModule({
       providers: [
         provideTheme(
-          withThemeBuilder('scheme', SchemeBuilder, {
-            type: SchemeVibrant,
-            source: Hct.fromInt(0x33bdff),
-            mode: SchemeMode.Light,
-            contrast: SchemeContrastLevel.Standard,
-          }),
+          createTheme(
+            scheduleTokenBuild('scheme', SchemeBuilder, {
+              type: SchemeVibrant,
+              source: Hct.fromInt(0x33bdff),
+              mode: SchemeMode.Light,
+              contrast: SchemeContrastLevel.Standard,
+            }),
+          ),
         ),
         InMemoryThemeTokenRegistry,
-        provide({
-          token: ThemeTokenRegistry,
+        {
+          provide: ThemeTokenRegistry,
           useExisting: InMemoryThemeTokenRegistry,
-        }),
+        },
       ],
     });
-    const tokens = TestBed.inject(InMemoryThemeTokenRegistry).tokens;
+    const tokens = TestBed.inject(InMemoryThemeTokenRegistry).getAll();
     expect(tokens['scheme-primary']).toBeDefined();
     expect(tokens['scheme-on-primary']).toBe('#ffffff');
   });

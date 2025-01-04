@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import {
-  ThemeBuilder,
-  ThemeBuilderContext,
   ThemeTokens,
+  TokenBuilder,
+  TokenBuilderContext,
 } from '@angularity/theming';
 import {
   DynamicColor,
@@ -98,7 +98,7 @@ export interface SchemeBuilderConfig {
 }
 
 /**
- * Implementation of `ThemeBuilder` that generates hex color tokens for all
+ * Implementation of `TokenBuilder` that generates hex color tokens for all
  * Material Design color roles.
  *
  * @remarks
@@ -116,8 +116,8 @@ export interface SchemeBuilderConfig {
  *
  * @example
  *  ```ts
- *  provideTheme(
- *    withThemeBuilder("scheme", SchemeBuilder, {
+ *  createTheme(
+ *    scheduleTokenBuild("scheme", SchemeBuilder, {
  *      type: SchemeTonalSpot,
  *      source: Hct.fromInt(0x33bdff),
  *      mode: SchemeMode.Light,
@@ -127,10 +127,10 @@ export interface SchemeBuilderConfig {
  *  ```
  */
 @Injectable({ providedIn: 'root' })
-export class SchemeBuilder implements ThemeBuilder<SchemeBuilderConfig> {
+export class SchemeBuilder implements TokenBuilder<SchemeBuilderConfig> {
   protected hctFormatter = inject(HctFormatter);
 
-  build(context: ThemeBuilderContext<SchemeBuilderConfig>): ThemeTokens {
+  build(context: TokenBuilderContext<SchemeBuilderConfig>): ThemeTokens {
     const scheme = this.getScheme(context.config);
     const tokens: ThemeTokens = {};
     for (const [k, v] of Object.entries(MaterialDynamicColors)) {

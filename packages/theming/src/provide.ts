@@ -1,61 +1,73 @@
 import {
-  ENVIRONMENT_INITIALIZER,
   EnvironmentProviders,
   inject,
-  makeEnvironmentProviders,
+  Injector,
+  provideAppInitializer,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { provideMulti } from '@angularity/core';
-import { combineLatest, Observable } from 'rxjs';
+import { filter, firstValueFrom, map, shareReplay, startWith } from 'rxjs';
 
-import { ThemeBuilderComposition } from './builder-composition';
-import { ThemeManager } from './manager';
+import { buildTheme, Theme } from './theme';
+import { ThemeTokenRegistry } from './token';
 
 /**
- * Make providers that consume the given list of theme token generation
- * specifications by generating and applying the latest theme tokens as
- * specified.
- * @param compositions list of theme token generation specifications
- * @returns
+ * Make providers that consume the given theme.
+ *
+ * The application initialization process will be blocked until the
+ * the initial theme tokens are available. The initial theme tokens
+ * might be the pre-built tokens from the server (SSR environment),
+ * or be built from scratch if no server tokens exist.
+ *
+ * For CSR applications, async theme is discouraged, since it slows
+ * down application bootstrap. For SSR applications, using async theme
+ * can help reduce the size of the initial bundle as well as accelerate
+ * bootstrap, because the theme is pre-built on server and immediately
+ * available on browser.
  *
  * @example
+ * Theme File:
  *  ```ts
- *  providers: [
- *    provideTheme(
- *      withThemeBuilder("typography", TypographyBuilder, {
- *        font: "OpenSans"
- *      }),
- *      withThemeBuilder(
- *        'color',
- *        ColorBuilder,
- *        defer((schemeObserver = inject(PreferredColorSchemeObserver)) =>
- *          schemeObserver
- *            .observe()
- *            .pipe(map((isDark) => ({ primaryColor: PRIMARY_COLOR, dark: isDark }))),
- *        ),
+ *  export const appTheme = createTheme(
+ *    scheduleTokenBuild("typography", TypographyBuilder, {
+ *      font: "OpenSans"
+ *    }),
+ *    scheduleTokenBuild(
+ *      'color',
+ *      ColorBuilder,
+ *      defer((schemeObserver = inject(PreferredColorSchemeObserver)) =>
+ *        schemeObserver
+ *          .observe()
+ *          .pipe(map((isDark) => ({ primaryColor: PRIMARY_COLOR, dark: isDark }))),
  *      ),
  *    ),
- *  ],
+ *  )
+ *  ```
+ *  ```ts
+ *  provideTheme(appTheme) // sync
+ *  provideTheme(import('./app.theme.ts').then(m => m.appTheme)) // async
  *  ```
  *
- * @see `ThemeBuilder`
- * @see `withThemeBuilder`
+ * @see `TokenBuilder`
+ * @see `scheduleTokenBuild`
  */
 export function provideTheme(
-  ...compositions: Observable<ThemeBuilderComposition>[]
+  theme: Theme | Promise<Theme>,
 ): EnvironmentProviders {
-  return makeEnvironmentProviders([
-    provideMulti({
-      token: ENVIRONMENT_INITIALIZER,
-      useFactory:
-        (manager = inject(ThemeManager)) =>
-        () =>
-          combineLatest(compositions)
-            .pipe(takeUntilDestroyed())
-            .subscribe((compositions) => {
-              const tokens = manager.build(compositions);
-              manager.apply(tokens);
-            }),
-    }),
-  ]);
+  return provideAppInitializer(async () => {
+    const injector = inject(Injector);
+    const registry = inject(ThemeTokenRegistry);
+    const transferred = registry.transfer();
+    const build$ = buildTheme(injector, await theme).pipe(
+      takeUntilDestroyed(),
+      map((tokens) => {
+        registry.setAll(tokens);
+        return true;
+      }),
+      startWith(transferred),
+      filter(Boolean),
+      shareReplay(1),
+    );
+    build$.subscribe();
+    return firstValueFrom(build$);
+  });
 }

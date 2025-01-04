@@ -12,7 +12,7 @@ import { Exception } from '@angularity/core';
  * Name-value pairs that represent the small, repeated design decisions that make
  * up a design system's visual style.
  * @see https://m3.material.io/foundations/design-tokens/overview
- * @see `ThemeBuilder`
+ * @see `TokenBuilder`
  */
 export interface ThemeTokens {
   [name: string]: string;
@@ -20,6 +20,9 @@ export interface ThemeTokens {
 
 /**
  * Registry for active theme tokens in the current application.
+ *
+ * On server, the tokens will be written to `TransferState`, and
+ * can be later reused on browser via the `transfer` method.
  *
  * @remarks
  * By default, uses `InMemoryThemeTokenRegistry`
@@ -61,6 +64,14 @@ export abstract class ThemeTokenRegistry {
    * @param tokens new theme tokens
    */
   abstract setAll(tokens: ThemeTokens): void;
+
+  /**
+   * Transfer theme tokens from `TransferState` to this registry,
+   * if `TransferState` is available and contains theme tokens.
+   * This will clear all existing tokens in this registry.
+   * @returns `true` if tokens are transferred, `false` otherwise
+   */
+  abstract transfer(): boolean;
 }
 
 /**
@@ -72,16 +83,21 @@ export class ThemeTokenNotFoundException extends Exception {
   }
 }
 
+const SERVER_TOKENS = makeStateKey<ThemeTokens>('THEME_TOKENS');
+
 /**
  * Implementation of `ThemeTokenRegistry` that
  * stores theme tokens in memory.
  */
 @Injectable()
 export class InMemoryThemeTokenRegistry implements ThemeTokenRegistry {
-  /**
-   * In-memory storage of theme tokens.
-   */
+  #transferState = inject(TransferState, { optional: true });
+
   #tokens: ThemeTokens = {};
+
+  constructor() {
+    this.#transferState?.onSerialize(SERVER_TOKENS, () => this.getAll());
+  }
 
   get(name: string): string | null {
     return this.#tokens[name] ?? null;
@@ -96,9 +112,14 @@ export class InMemoryThemeTokenRegistry implements ThemeTokenRegistry {
   setAll(tokens: ThemeTokens): void {
     this.#tokens = { ...tokens };
   }
+  transfer(): boolean {
+    if (!this.#transferState) return false;
+    const serverTokens = this.#transferState.get(SERVER_TOKENS, null);
+    if (!serverTokens) return false;
+    this.setAll(serverTokens);
+    return true;
+  }
 }
-
-const SERVER_TOKENS = makeStateKey<ThemeTokens>('THEME_TOKENS');
 
 /**
  * Decorator of `ThemeTokenRegistry` that
@@ -112,22 +133,18 @@ const SERVER_TOKENS = makeStateKey<ThemeTokens>('THEME_TOKENS');
 class WriteTokensToRootCssVariables implements ThemeTokenRegistry {
   #document = inject(DOCUMENT);
   #platform = inject(PLATFORM_ID);
-  #transferState = inject(TransferState, { optional: true });
 
   #delegate: ThemeTokenRegistry;
   #stylesheet?: CSSStyleSheet;
 
   constructor(delegate: ThemeTokenRegistry) {
     this.#delegate = delegate;
-    this.#transferState?.onSerialize(SERVER_TOKENS, () => this.getAll());
-
     if (isPlatformBrowser(this.#platform)) {
       this.#stylesheet = new window.CSSStyleSheet();
       this.#document.adoptedStyleSheets = [
         ...(this.#document.adoptedStyleSheets ?? []),
         this.#stylesheet,
       ];
-      this.#transferServerTokensIfAvailable();
     }
   }
 
@@ -148,18 +165,17 @@ class WriteTokensToRootCssVariables implements ThemeTokenRegistry {
     if (isPlatformBrowser(this.#platform)) this.#writeAllToStylesheet();
     else if (isPlatformServer(this.#platform))
       for (const [name, value] of Object.entries(tokens))
-        this.#document.documentElement.style.setProperty(
-          this.#toVarName(name),
-          value,
-        );
+        this.#writeToInlineStyles(name, value);
   }
 
-  #transferServerTokensIfAvailable() {
-    if (!this.#transferState) return;
-    const serverTokens = this.#transferState.get(SERVER_TOKENS, {});
-    this.setAll(serverTokens);
-    for (const tokenName in serverTokens)
+  transfer(): boolean {
+    const transferred = this.#delegate.transfer();
+    if (!transferred) return false;
+    // On server, the tokens are written to the root element's style properties,
+    // which should be removed after transfer.
+    for (const tokenName in this.getAll())
       this.#writeToInlineStyles(tokenName, null);
+    return true;
   }
 
   #writeAllToStylesheet() {
