@@ -1,11 +1,20 @@
 import { Type } from '@angular/core';
 
 /**
- * Declaration of Angular Element tag names and their corresponding
- * constructors.
+ * Declaration of Angular Element tag names and
+ * their corresponding implementations.
+ *
  * @see `provideElements`
  * @see `ProvideElementsConfig`
+ *
+ * @example
+ * ```ts
+ *  export const appElements: Elements = {
+ *    'my-button': ButtonComponent,
+ *    'my-icon': IconComponent,
+ *  }
+ * ```
  */
 export interface Elements {
-  [name: string]: Type<any>;
+  readonly [name: string]: Type<any>;
 }
