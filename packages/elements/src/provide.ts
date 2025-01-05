@@ -1,4 +1,3 @@
-import { isPlatformBrowser } from '@angular/common';
 import {
   EnvironmentProviders,
   inject,
@@ -6,24 +5,21 @@ import {
   provideEnvironmentInitializer,
 } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
-import { usePlatformOnly } from '@angularity/core';
 
 import { ELEMENT_REGISTRY } from './element-registry';
 import { Elements } from './elements';
 
 /**
- * Offers a declarative approach to register Angular Elements in the browser platform.
+ * Offers a declarative approach to register Angular Elements.
  *
- * @remarks The returned providers are for `EnvironmentInjector` only, e.g. `app.config.ts`,
- * route declarations, and NgModules. The registered Angular Elements will not be unregistered
- * when the `EnvironmentInjector` is destroyed, so make sure the `EnvironmentInjector` will not
- * be destroyed anytime in the application's lifecycle.
+ * The elements can be either provided synchronously or asynchronously
+ * via a promise.
  *
- * @remarks If the current platform is not browser, this is a noop.
+ * @remarks Noop if the current platform is not browser.
  *
  * @example
  *  ```ts
- *  export const APP_ELEMENTS: Elements = {
+ *  export const appElements: Elements = {
  *    'my-button': ButtonComponent,
  *    'my-icon': IconComponent,
  *    'my-icon-button': IconButtonComponent,
@@ -31,28 +27,25 @@ import { Elements } from './elements';
  *  ```
  *  ```ts
  *  providers: [
- *    provideElements({ elements: APP_ELEMENTS }),
+ *    provideElements(appElements),
+ *  ]
+ *  ```
+ *  ```ts
+ *  providers: [
+ *    provideElements(import('./app-elements').then(m => m.appElements)),
  *  ]
  *  ```
  */
 export function provideElements(
-  config: ProvideElementsConfig,
+  elements: Elements | Promise<Elements>,
 ): EnvironmentProviders {
-  return provideEnvironmentInitializer(() => {
-    usePlatformOnly(isPlatformBrowser, () => {
-      const registry = inject(ELEMENT_REGISTRY);
-      const injector = inject(Injector);
-      for (const [name, type] of Object.entries(config.elements)) {
-        const element = createCustomElement(type, { injector });
-        registry.define(name, element);
-      }
-    });
+  return provideEnvironmentInitializer(async () => {
+    const registry = inject(ELEMENT_REGISTRY);
+    if (!registry) return;
+    const injector = inject(Injector);
+    for (const [name, type] of Object.entries(await elements)) {
+      const element = createCustomElement(type, { injector });
+      registry.define(name, element);
+    }
   });
-}
-
-/**
- * @see `provideElements`
- */
-export interface ProvideElementsConfig {
-  elements: Elements;
 }
