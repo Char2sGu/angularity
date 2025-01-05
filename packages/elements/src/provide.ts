@@ -8,7 +8,8 @@ import {
 import { createCustomElement } from '@angular/elements';
 import { usePlatformOnly } from '@angularity/core';
 
-import { ELEMENT_REGISTRY, Elements } from './core';
+import { ELEMENT_REGISTRY } from './element-registry';
+import { Elements } from './elements';
 
 /**
  * Offers a declarative approach to register Angular Elements in the browser platform.
