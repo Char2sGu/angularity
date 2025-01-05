@@ -1,3 +1,19 @@
+## 0.13.0-alpha.2 (2025-01-05)
+
+### 🚀 Features
+
+- **config-files:** restore to local caching ([f4b71eb](https://github.com/TheNightmareX/angularly/commit/f4b71eb))
+- **config-files:** add config files server cache interceptor ([b519667](https://github.com/TheNightmareX/angularly/commit/b519667))
+- **core/http:** add server-cache module ([f680695](https://github.com/TheNightmareX/angularly/commit/f680695))
+
+### 🩹 Fixes
+
+- **config-files:** change static key to string for ConfigFilesPersistentCache ([d9fd986](https://github.com/TheNightmareX/angularly/commit/d9fd986))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.13.0-alpha.1 (2025-01-04)
 
 ### 🩹 Fixes
