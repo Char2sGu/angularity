@@ -3,6 +3,14 @@ import { HTTP_SERVER_CACHE_KEY } from '@angularity/core/http';
 
 import { CONFIG_FILE_REQUEST_CONTEXT } from './loader.http';
 
+/**
+ * HTTP interceptor that set a value to `HTTP_SERVER_CACHE_KEY`
+ * if the `CONFIG_FILE_REQUEST_CONTEXT` is present and the config
+ * definition has an ID.
+ *
+ * The value of the cache key is determined solely by the ID from
+ * the config definition.
+ */
 export const httpServerCacheConfigFilesInterceptor: HttpInterceptorFn = (
   req,
   next,
