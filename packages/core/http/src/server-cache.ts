@@ -94,7 +94,7 @@ export const httpServerCacheInterceptor: HttpInterceptorFn = (req, next) => {
   const key = req.context.get(HTTP_SERVER_CACHE_KEY);
   if (!key) return next(req);
   if (cache.has(key)) return cache.get(key)!;
-  const result$ = next(req).pipe(shareReplay(1));
+  const result$ = next(req).pipe(shareReplay());
   cache.set(key, result$);
   return result$;
 };
