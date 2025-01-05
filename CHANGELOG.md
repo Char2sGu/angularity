@@ -1,3 +1,19 @@
+## 0.14.0 (2025-01-05)
+
+### 🚀 Features
+
+- **core/http:** add `intercept` type helper ([4331650](https://github.com/TheNightmareX/angularly/commit/4331650))
+- **elements:** redesign api with async elements support ([c333db0](https://github.com/TheNightmareX/angularly/commit/c333db0))
+
+### 🩹 Fixes
+
+- **config-files:** add missing exports ([70ac6c9](https://github.com/TheNightmareX/angularly/commit/70ac6c9))
+- **core/http:** server cache all observable emissions ([1900fc0](https://github.com/TheNightmareX/angularly/commit/1900fc0))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.13.0 (2025-01-05)
 
 ### 🩹 Fixes
