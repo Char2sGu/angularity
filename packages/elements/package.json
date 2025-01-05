@@ -1,6 +1,6 @@
 {
   "name": "@angularity/elements",
-  "version": "0.13.0-beta.0",
+  "version": "0.13.0",
   "peerDependencies": {
     "@angular/common": ">=17",
     "@angular/core": ">=17",

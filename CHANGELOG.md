@@ -1,3 +1,14 @@
+## 0.13.0 (2025-01-05)
+
+### 🩹 Fixes
+
+- **config-files:** add missing exports ([70ac6c9](https://github.com/TheNightmareX/angularly/commit/70ac6c9))
+- **core/http:** server cache all observable emissions ([1900fc0](https://github.com/TheNightmareX/angularly/commit/1900fc0))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.13.0-beta.0 (2025-01-05)
 
 ### 🚀 Features
