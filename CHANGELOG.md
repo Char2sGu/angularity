@@ -1,3 +1,13 @@
+## 0.13.0-beta.0 (2025-01-05)
+
+### 🚀 Features
+
+- **core/http:** add provide function to add server cache interceptor as a root interceptor ([17f9194](https://github.com/TheNightmareX/angularly/commit/17f9194))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.13.0-alpha.2 (2025-01-05)
 
 ### 🚀 Features
