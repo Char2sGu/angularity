@@ -5,6 +5,13 @@ import { filter, map, OperatorFunction } from 'rxjs';
  * RxJS operator that filters out values that are not instances of the provided types.
  * Returns an `Observable` that emits only values that are instances of the
  * provided types.
+ *
+ * @example
+ *  ```ts
+ *  router.events.pipe(
+ *    pickType(NavigationStart, NavigationEnd)
+ *  ).subscribe(console.log);
+ *  ```
  */
 export const pickType =
   <Types extends AbstractType<any>[]>(
@@ -18,8 +25,17 @@ export const pickType =
     );
 
 /**
- * RxJS operator that maps values to `undefined`. Useful when an
- * `Observable<void>` type is expected.
+ * RxJS operator that maps values to `undefined`.
+ * Useful when an `Observable<void>` type is expected.
+ *
+ * Shorthand for `map(() => undefined)`.
+ *
+ * ```ts
+ * const void$: Observable<void> = router.events.pipe(
+ *   tap((v) => console.log(v)),
+ *   mapToVoid(),
+ * );
+ * ```
  */
 export const mapToVoid = (): OperatorFunction<unknown, void> =>
   map(() => undefined);

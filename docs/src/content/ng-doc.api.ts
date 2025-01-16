@@ -6,10 +6,12 @@ const declarations: NgDocApi = {
   // route: 'references',
   scopes: [
     'core',
+    'core/http',
     'core/rxjs',
     'cdk',
     'cdk/layout',
     'cdk/dialog',
+    'cdk/portal',
     '!forms',
     'router',
     'elements',

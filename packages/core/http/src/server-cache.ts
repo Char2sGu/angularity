@@ -26,7 +26,7 @@ export class HttpServerCache extends Map<string, Observable<any>> {}
  *
  * Usually, the instance exists only if the application is running
  * on the server and the `REQUEST_CONTEXT` is configured to be object
- * satisfying: `{ [HttpServerCache.name]: httpServerCache }`.
+ * satisfying: `{ ['HttpServerCache']: httpServerCache }`.
  *
  * @example
  * To provide an instance of `HttpServerCache` in server.mjs:
@@ -37,7 +37,7 @@ export class HttpServerCache extends Map<string, Observable<any>> {}
  * ```
  * ```ts
  *  angularApp
- *    .handle(req, { [HttpServerCache.name]: httpServerCache })
+ *    .handle(req, { ['HttpServerCache']: httpServerCache })
  *    .then((response) =>
  *      response ? writeResponseToNodeResponse(response, res) : next(),
  *    )
@@ -51,7 +51,7 @@ export const HTTP_SERVER_CACHE = new InjectionToken<HttpServerCache | null>(
       const context = inject(REQUEST_CONTEXT);
       if (!context) return null;
       if (typeof context !== 'object') return null;
-      const cache = Reflect.get(context, HttpServerCache.name);
+      const cache = Reflect.get(context, 'HttpServerCache');
       if (!cache) return null;
       return cache;
     },
@@ -118,7 +118,7 @@ export const httpServerCacheInterceptor: HttpInterceptorFn = (req, next) => {
  * ```
  * ```ts
  *  angularApp
- *    .handle(req, { [HttpServerCache.name]: httpServerCache })
+ *    .handle(req, { ['HttpServerCache']: httpServerCache })
  *    .then((response) =>
  *      response ? writeResponseToNodeResponse(response, res) : next(),
  *    )
