@@ -5,7 +5,6 @@ import { Type } from '@angular/core';
  * their corresponding implementations.
  *
  * @see `provideElements`
- * @see `ProvideElementsConfig`
  *
  * @example
  * ```ts

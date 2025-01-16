@@ -17,19 +17,26 @@ Click on the symbol to see the detailed documentation.
 Dialog Enhancements:
 
 - `useDialog`
+  {{ JSDoc.description("packages/cdk/dialog/src/public-api.ts#useDialog") }}
 - `DialogIoTypes`
+  {{ JSDoc.description("packages/cdk/dialog/src/public-api.ts#DialogIoTypes") }}
 - `AnimationAwareDialog`
+  {{ JSDoc.description("packages/cdk/dialog/src/public-api.ts#AnimationAwareDialog") }}
 
 ### Exported from `@angularity/cdk/portal`
 
 Portal Enhancements:
 
 - `createAnimationAwareTemplatePortal`
+  {{ JSDoc.description("packages/cdk/portal/src/public-api.ts#createAnimationAwareTemplatePortal") }}
 - `createAnimationAwareComponentPortal`
+  {{ JSDoc.description("packages/cdk/portal/src/public-api.ts#createAnimationAwareComponentPortal") }}
 
 ### Exported from `@angularity/cdk/layout`
 
 Layout Enhancements:
 
 - `NamedBreakpointObserver`
+  {{ JSDoc.description("packages/cdk/layout/src/public-api.ts#NamedBreakpointObserver") }}
 - `SystemColorSchemeObserver`
+  {{ JSDoc.description("packages/cdk/layout/src/public-api.ts#SystemColorSchemeObserver") }}

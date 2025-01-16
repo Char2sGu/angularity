@@ -43,11 +43,11 @@ export function injectRef<T>(
 }
 
 /**
- * Inject a dependency lazily loaded as a promise.
+ * Inject a service, lazily loaded as a promise.
  *
  * @param token promise of the token to inject
  * @param injector injector to use to instantiate the dependency
- * @returns promise of the dependency instance
+ * @returns promise of the service instance
  *
  * @example
  * ```ts

@@ -2,6 +2,9 @@ import { DOCUMENT } from '@angular/common';
 import { inject, Injectable } from '@angular/core';
 import { QuantizerCelebi, Score } from '@material/material-color-utilities';
 
+/**
+ * Service responsible for extracting seed colors from images.
+ */
 @Injectable({ providedIn: 'root' })
 export class ImageSeedColorExtractor {
   protected pixels = inject(ImagePixelExtractor);

@@ -4,14 +4,23 @@ import { combineLatest, map, Observable } from 'rxjs';
 import { ThemeTokens } from './token';
 import { TokenBuild } from './token-build';
 
+/**
+ * Specifications about how a visual theme can be generated.
+ */
 export interface Theme {
   readonly spec: Observable<TokenBuild[]>;
 }
 
+/**
+ * Create a `Theme` object from a list of `TokenBuild` specifications.
+ */
 export function createTheme(...builds: Observable<TokenBuild>[]): Theme {
   return { spec: combineLatest(builds) };
 }
 
+/**
+ * Consume a `Theme` object to generate a set of theme tokens.
+ */
 export function buildTheme(
   injector: Injector,
   theme: Theme,

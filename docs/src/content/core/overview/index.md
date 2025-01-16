@@ -17,12 +17,18 @@ Click on the symbol to see the detailed documentation.
 Dependency Injection Utilities:
 
 - `provide`
+  {{ JSDoc.description("packages/core/src/public-api.ts#provide") }}
 - `provideMulti`
+  {{ JSDoc.description("packages/core/src/public-api.ts#provideMulti") }}
 - `injectRef`
+  {{ JSDoc.description("packages/core/src/public-api.ts#injectRef") }}
+- `injectLazy`
+  {{ JSDoc.description("packages/core/src/public-api.ts#injectLazy") }}
 
 Error Handling:
 
 - `Exception`
+  {{ JSDoc.description("packages/core/src/public-api.ts#Exception") }}
 
 Type Gymnastics:
 
@@ -34,11 +40,15 @@ Type Gymnastics:
 HTTP Utilities:
 
 - `intercept`
+  {{ JSDoc.description("packages/core/http/src/public-api.ts#intercept") }}
 - `provideHttpServerCache`
+  {{ JSDoc.description("packages/core/http/src/public-api.ts#provideHttpServerCache") }}
 
 ### Exported from `@angularity/core/rxjs`
 
 RxJS Operators:
 
 - `mapToVoid`
+  {{ JSDoc.description("packages/core/rxjs/src/public-api.ts#mapToVoid") }}
 - `pickType`
+  {{ JSDoc.description("packages/core/rxjs/src/public-api.ts#pickType") }}

@@ -10,7 +10,7 @@ import { ELEMENT_REGISTRY } from './element-registry';
 import { Elements } from './elements';
 
 /**
- * Offers a declarative approach to register Angular Elements.
+ * A declarative approach to register Angular Elements.
  *
  * The elements can be either provided synchronously or asynchronously
  * via a promise.
