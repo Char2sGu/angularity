@@ -130,7 +130,7 @@ export class InMemoryThemeTokenRegistry implements ThemeTokenRegistry {
  * - On browser, the tokens will be written to
  * a `CSSStyleSheet` object adopted by the document.
  */
-class WriteTokensToRootCssVariables implements ThemeTokenRegistry {
+export class WriteTokensToRootCssVariables implements ThemeTokenRegistry {
   #document = inject(DOCUMENT);
   #platform = inject(PLATFORM_ID);
 
