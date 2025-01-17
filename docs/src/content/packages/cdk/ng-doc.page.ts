@@ -1,12 +1,13 @@
 import { NgDocPage } from '@ng-doc/core';
 
+import { packageIndexOf } from '../../package-index';
 import CdkCategory from '../ng-doc.category';
 
 const page: NgDocPage = {
   category: CdkCategory,
-  title: `Overview`,
+  title: `CDK`,
   mdFile: './index.md',
-  order: 1,
+  order: packageIndexOf('cdk'),
 };
 
 export default page;
