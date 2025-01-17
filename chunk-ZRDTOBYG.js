@@ -1,1 +1,0 @@
-var o=["core","core/http","core/rxjs","cdk","cdk/layout","cdk/dialog","cdk/portal","!forms","router","elements","theming","theming-material","!command-flow","!command-flow/process-flow","!command-flow/query-flow","!command-flow/effects","!command-flow/debugger","endpoints","!config-files","!fire"];function f(e){return o.indexOf(e)}export{f as a};
