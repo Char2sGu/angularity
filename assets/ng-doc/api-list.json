@@ -8,6 +8,11 @@
         "name": "Exception"
       },
       {
+        "route": "/api/interfaces/core/Executor",
+        "type": "Interface",
+        "name": "Executor"
+      },
+      {
         "route": "/api/functions/core/injectRef",
         "type": "Function",
         "name": "injectRef"
@@ -21,6 +26,11 @@
         "route": "/api/variables/core/useInjectionContext",
         "type": "Variable",
         "name": "useInjectionContext"
+      },
+      {
+        "route": "/api/functions/core/usePlatformExec",
+        "type": "Function",
+        "name": "usePlatformExec"
       },
       {
         "route": "/api/interfaces/core/PlatformSelector",
@@ -101,6 +111,41 @@
         "route": "/api/type-aliases/core/ContainedTypeOf",
         "type": "TypeAlias",
         "name": "ContainedTypeOf"
+      }
+    ]
+  },
+  {
+    "title": "core / http",
+    "items": [
+      {
+        "route": "/api/variables/core-http/intercept",
+        "type": "Variable",
+        "name": "intercept"
+      },
+      {
+        "route": "/api/functions/core-http/provideHttpServerCache",
+        "type": "Function",
+        "name": "provideHttpServerCache"
+      },
+      {
+        "route": "/api/classes/core-http/HttpServerCache",
+        "type": "Class",
+        "name": "HttpServerCache"
+      },
+      {
+        "route": "/api/variables/core-http/HTTP_SERVER_CACHE",
+        "type": "Variable",
+        "name": "HTTP_SERVER_CACHE"
+      },
+      {
+        "route": "/api/variables/core-http/HTTP_SERVER_CACHE_KEY",
+        "type": "Variable",
+        "name": "HTTP_SERVER_CACHE_KEY"
+      },
+      {
+        "route": "/api/variables/core-http/httpServerCacheInterceptor",
+        "type": "Variable",
+        "name": "httpServerCacheInterceptor"
       }
     ]
   },
@@ -201,6 +246,46 @@
         "route": "/api/interfaces/cdk-dialog/DialogFacade",
         "type": "Interface",
         "name": "DialogFacade"
+      }
+    ]
+  },
+  {
+    "title": "cdk / portal",
+    "items": [
+      {
+        "route": "/api/functions/cdk-portal/createAnimationAwareTemplatePortal",
+        "type": "Function",
+        "name": "createAnimationAwareTemplatePortal"
+      },
+      {
+        "route": "/api/functions/cdk-portal/createAnimationAwareComponentPortal",
+        "type": "Function",
+        "name": "createAnimationAwareComponentPortal"
+      },
+      {
+        "route": "/api/interfaces/cdk-portal/AnimationAwareTemplatePortalConfig",
+        "type": "Interface",
+        "name": "AnimationAwareTemplatePortalConfig"
+      },
+      {
+        "route": "/api/variables/cdk-portal/ANIMATION_AWARE_TEMPLATE_PORTAL_CONFIG",
+        "type": "Variable",
+        "name": "ANIMATION_AWARE_TEMPLATE_PORTAL_CONFIG"
+      },
+      {
+        "route": "/api/interfaces/cdk-portal/AnimationAwareComponentPortalConfig",
+        "type": "Interface",
+        "name": "AnimationAwareComponentPortalConfig"
+      },
+      {
+        "route": "/api/variables/cdk-portal/ANIMATION_AWARE_COMPONENT_PORTAL_CONFIG",
+        "type": "Variable",
+        "name": "ANIMATION_AWARE_COMPONENT_PORTAL_CONFIG"
+      },
+      {
+        "route": "/api/classes/cdk-portal/AnimationAwarePortalContainer",
+        "type": "Component",
+        "name": "AnimationAwarePortalContainer"
       }
     ]
   },
@@ -346,6 +431,11 @@
         "route": "/api/classes/theming/InMemoryThemeTokenRegistry",
         "type": "Injectable",
         "name": "InMemoryThemeTokenRegistry"
+      },
+      {
+        "route": "/api/classes/theming/WriteTokensToRootCssVariables",
+        "type": "Class",
+        "name": "WriteTokensToRootCssVariables"
       },
       {
         "route": "/api/functions/theming/scheduleTokenBuild",
