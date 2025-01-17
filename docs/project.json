@@ -102,9 +102,11 @@
     },
     "deploy": {
       "executor": "angular-cli-ghpages:deploy",
+      "dependsOn": ["build"],
       "options": {
         "buildTarget": "docs:build:production",
-        "baseHref": "/angularity/"
+        "baseHref": "/angularity/",
+        "noBuild": true
       }
     }
   }
