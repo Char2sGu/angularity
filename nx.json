@@ -60,6 +60,5 @@
   },
   "release": {
     "projects": ["packages/*"]
-  },
-  "useLegacyCache": true
+  }
 }
