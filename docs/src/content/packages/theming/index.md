@@ -34,3 +34,7 @@ Implementations:
 
 - `VanillaBuilder`
   {{ JSDoc.description("packages/theming/src/public-api.ts#VanillaBuilder") }}
+- `InMemoryThemeTokenRegistry`
+  {{ JSDoc.description("packages/theming/src/public-api.ts#InMemoryThemeTokenRegistry") }}
+- `WriteTokensToRootCssVariables`
+  {{ JSDoc.description("packages/theming/src/public-api.ts#WriteTokensToRootCssVariables") }}
