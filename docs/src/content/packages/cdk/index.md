@@ -12,6 +12,13 @@ Click on the symbol to see the detailed documentation.
 > **note**
 > All Angularity symbols are well-documented with JSDoc.
 
+### Exported from `@angularity/cdk`
+
+View Transition:
+
+- `HostTransition`
+  {{ JSDoc.description("packages/cdk/src/public-api.ts#HostTransition") }}
+
 ### Exported from `@angularity/cdk/dialog`
 
 Dialog Enhancements:

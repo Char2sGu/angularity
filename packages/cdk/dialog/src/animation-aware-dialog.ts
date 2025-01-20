@@ -20,6 +20,9 @@ import { firstValueFrom, Subject } from 'rxjs';
  * @remarks
  * Only `TemplateRef` is currently supported as the content of the dialog.
  *
+ * @remarks
+ * This inevitably brings 60KB of additional bundle size to your application.
+ *
  * @example
  *  ```ts
  *  provide({ token: Dialog, useClass: AnimationAwareDialog })
