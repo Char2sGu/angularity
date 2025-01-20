@@ -1,1 +1,11 @@
 @import '@ng-doc/app/styles/themes/dark.css';
+
+ng-doc-page-header h1 {
+  margin-bottom: 1rem !important;
+}
+
+// hide README.md title and slogan
+h1#angularity,
+h1#angularity + p {
+  display: none;
+}

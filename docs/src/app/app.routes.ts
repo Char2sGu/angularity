@@ -6,7 +6,7 @@ export const APP_ROUTES: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'api',
+    redirectTo: 'overview',
   },
   {
     path: '',
@@ -14,6 +14,6 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'api',
+    redirectTo: 'overview',
   },
 ];

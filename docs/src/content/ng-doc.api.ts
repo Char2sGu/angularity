@@ -19,6 +19,7 @@ const declarations: NgDocApi = {
           include: `packages/${path}/src/**/*.ts`,
         },
   ),
+  order: Infinity,
 };
 
 export default declarations;
