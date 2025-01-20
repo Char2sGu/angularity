@@ -25,8 +25,10 @@ export const CONFIG_FILE_REQUEST_CONTEXT =
   new HttpContextToken<ConfigFileRequestContext | null>(() => null);
 
 /**
- * Implementation of {@link ConfigFileLoader}
- * based on Angular's built-in {@link HttpClient}.
+ * Implementation of `ConfigFileLoader`
+ * based on Angular's built-in `HttpClient`.
+ *
+ * `CONFIG_FILE_REQUEST_CONTEXT` will be supplied in the request context.
  */
 @Injectable({
   providedIn: 'root',

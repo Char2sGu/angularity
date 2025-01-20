@@ -17,7 +17,7 @@ export const PACKAGES = [
   '!command-flow/effects',
   '!command-flow/debugger',
   'endpoints',
-  '!config-files',
+  'config-files',
   '!fire',
 ] as const;
 

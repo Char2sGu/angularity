@@ -4,8 +4,10 @@ import { ConfigFileDefinition } from './definition';
 import { ConfigFileLoader } from './loader';
 
 /**
- * Decorator for {@link ConfigFileLoader}
+ * Decorator for `ConfigFileLoader`
  * that caches the loaded configuration objects of each definition.
+ *
+ * One `ConfigFileDefinition` object would cause only one load operation.
  */
 export class CacheConfigFiles implements ConfigFileLoader {
   #cache = new Map<

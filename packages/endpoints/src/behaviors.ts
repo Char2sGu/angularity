@@ -3,7 +3,7 @@ import { Observable, shareReplay } from 'rxjs';
 import { EndpointInvokeConfig, EndpointInvoker } from './invoker';
 
 /**
- * Decorator of an {@link EndpointInvoker} instance that
+ * Decorator of an `EndpointInvoker` instance that
  * prepends a prefix to the path of each invocation.
  *
  * @usageNotes
@@ -36,7 +36,7 @@ export class PrefixEndpointPath implements EndpointInvoker {
 }
 
 /**
- * Decorator of an {@link EndpointInvoker} instance that
+ * Decorator of an `EndpointInvoker` instance that
  * caches the responses of endpoint invocations when a given criteria is met.
  *
  * @usageNotes

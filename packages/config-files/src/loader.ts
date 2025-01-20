@@ -10,8 +10,8 @@ import { HttpClientConfigFileLoader } from './loader.http';
  * Service for loading configuration files.
  *
  * @remarks
- * By default, uses {@link HttpClientConfigFileLoader}
- * decorated with {@link CacheConfigFiles}.
+ * By default, uses `HttpClientConfigFileLoader`
+ * decorated with `CacheConfigFiles`.
  */
 @Injectable({
   providedIn: 'root',

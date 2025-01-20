@@ -32,5 +32,5 @@ npm i \
   @angularity/command-flow \
   @angularity/endpoints \
   @angularity/config-files \
-  @angularity/fire \
+  @angularity/fire
 ```

@@ -17,9 +17,9 @@ export abstract class CommandFlowScheduler {
 }
 
 /**
- * Implementation of {@link CommandFlowScheduler} that uses
+ * Implementation of `CommandFlowScheduler` that uses
  * `setImmediate` to schedule the next execution.
- * The scheduled function is added to {@link PendingTask} for SSR support.
+ * The scheduled function is added to `PendingTask` for SSR support.
  */
 @Injectable({ providedIn: 'root' })
 export class SetTimeoutCommandFlowScheduler implements CommandFlowScheduler {
@@ -35,9 +35,9 @@ export class SetTimeoutCommandFlowScheduler implements CommandFlowScheduler {
 }
 
 /**
- * Implementation of {@link CommandFlowScheduler} that uses
+ * Implementation of `CommandFlowScheduler` that uses
  * `queueMicrotask` to schedule the next execution.
- * The scheduled function is added to {@link PendingTask} for SSR support.
+ * The scheduled function is added to `PendingTask` for SSR support.
  */
 @Injectable({ providedIn: 'root' })
 export class MicrotaskCommandFlowScheduler implements CommandFlowScheduler {
@@ -52,10 +52,10 @@ export class MicrotaskCommandFlowScheduler implements CommandFlowScheduler {
 }
 
 /**
- * Implementation of {@link CommandFlowScheduler} that uses
+ * Implementation of `CommandFlowScheduler` that uses
  * `requestAnimationFrame` to schedule the next execution.
  * Available only in the browser platform.
- * @deprecated prefer {@link SetTimeoutCommandFlowScheduler} for better compatibility.
+ * @deprecated prefer `SetTimeoutCommandFlowScheduler` for better compatibility.
  */
 @Injectable({ providedIn: 'root' })
 export class AnimationFrameCommandFlowScheduler

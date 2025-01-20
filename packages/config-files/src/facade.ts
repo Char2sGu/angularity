@@ -7,9 +7,11 @@ import { ConfigFileLoader } from './loader';
 /**
  * Load the target config file and return a promise
  * of its parsed content.
- * @param def the def of the target config file
+ * The promise may be rejected if the loading fails.
  */
-export const useConfigFile = <T>(
+export function useConfigFile<T>(
   def: ConfigFileDefinition<T, any>,
   loader = inject(ConfigFileLoader),
-): Promise<T> => firstValueFrom(loader.load(def));
+): Promise<T> {
+  return firstValueFrom(loader.load(def));
+}
