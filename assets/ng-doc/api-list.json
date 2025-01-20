@@ -945,7 +945,7 @@
     ]
   },
   {
-    "title": "WIP config-files",
+    "title": "config-files",
     "items": [
       {
         "route": "/api/classes/config-files/CacheConfigFiles",
@@ -963,8 +963,8 @@
         "name": "defineConfigFile"
       },
       {
-        "route": "/api/variables/config-files/useConfigFile",
-        "type": "Variable",
+        "route": "/api/functions/config-files/useConfigFile",
+        "type": "Function",
         "name": "useConfigFile"
       },
       {
