@@ -1,3 +1,18 @@
+## 0.15.0 (2025-01-20)
+
+### 🚀 Features
+
+- **cdk:** add HostTransition directive ([f8f0643](https://github.com/TheNightmareX/angularly/commit/f8f0643))
+- **core:** replace usePlatformOnly with usePlatformExec ([c617ae3](https://github.com/TheNightmareX/angularly/commit/c617ae3))
+
+### 🩹 Fixes
+
+- **theming:** add missing export of WriteTokensToRootCssVariables ([3846b6e](https://github.com/TheNightmareX/angularly/commit/3846b6e))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.14.0 (2025-01-05)
 
 ### 🚀 Features
