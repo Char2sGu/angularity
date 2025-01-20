@@ -175,6 +175,21 @@
     ]
   },
   {
+    "title": "cdk",
+    "items": [
+      {
+        "route": "/api/type-aliases/cdk/TransitionInput",
+        "type": "TypeAlias",
+        "name": "TransitionInput"
+      },
+      {
+        "route": "/api/classes/cdk/HostTransition",
+        "type": "Directive",
+        "name": "HostTransition"
+      }
+    ]
+  },
+  {
     "title": "cdk / layout",
     "items": [
       {
