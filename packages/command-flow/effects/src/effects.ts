@@ -1,34 +1,29 @@
 import {
-  ENVIRONMENT_INITIALIZER,
   EnvironmentProviders,
-  inject,
-  Injector,
-  makeEnvironmentProviders,
-  runInInjectionContext,
+  provideEnvironmentInitializer,
 } from '@angular/core';
-import { provideMulti } from '@angularity/core';
 
+/**
+ * A function that registers side-effects (of commands/events).
+ */
 export interface Effects {
   (): void;
 }
 
+/**
+ * Registers the provided effects in an environment initializer.
+ */
 export function provideEffects(
   ...effectsInput: (Effects | Effects[])[]
 ): EnvironmentProviders {
-  return makeEnvironmentProviders([
-    provideMulti({
-      token: ENVIRONMENT_INITIALIZER,
-      useFactory:
-        (injector = inject(Injector)) =>
-        () => {
-          runInInjectionContext(injector, () => {
-            effectsInput.forEach((effects) => {
-              if (Array.isArray(effects))
-                effects.forEach((effects) => effects());
-              else effects();
-            });
-          });
-        },
-    }),
-  ]);
+  return provideEnvironmentInitializer(() => {
+    const effects = effectsInput.flat();
+    const visited = new Set<Effects>();
+    effects.forEach((effects) => {
+      if (visited.has(effects))
+        throw new Error(`duplicate effect ${effects.name}`);
+      visited.add(effects);
+      effects();
+    });
+  });
 }
