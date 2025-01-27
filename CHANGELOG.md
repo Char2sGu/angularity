@@ -1,3 +1,18 @@
+# 19.0.0 (2025-01-27)
+
+### 🚀 Features
+
+- **command-flow/effects:** add duplicate effect check ([d668eec](https://github.com/TheNightmareX/angularly/commit/d668eec))
+
+### 🩹 Fixes
+
+- **core/rxjs:** fix observable input duplicate subscription ([1c56991](https://github.com/TheNightmareX/angularly/commit/1c56991))
+- **router:** allow specifying default injector for `setupInjectionContextForLoadChildren` ([5f70c24](https://github.com/TheNightmareX/angularly/commit/5f70c24))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 0.15.0 (2025-01-20)
 
 ### 🚀 Features
