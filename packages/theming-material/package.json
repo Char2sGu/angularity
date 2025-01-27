@@ -2,8 +2,8 @@
   "name": "@angularity/theming-material",
   "version": "0.15.0",
   "peerDependencies": {
-    "@angular/core": ">=17",
-    "@angular/common": ">=17",
+    "@angular/core": ">=19",
+    "@angular/common": ">=19",
     "@angularity/theming": "*",
     "@material/material-color-utilities": ">=0.3"
   },

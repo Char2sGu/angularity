@@ -2,7 +2,7 @@
   "name": "@angularity/fire",
   "version": "0.15.0",
   "peerDependencies": {
-    "@angular/core": ">=17",
+    "@angular/core": ">=19",
     "firebase": ">=10",
     "rxjs": ">=7",
     "rxfire": ">=6"

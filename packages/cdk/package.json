@@ -2,10 +2,10 @@
   "name": "@angularity/cdk",
   "version": "0.15.0",
   "peerDependencies": {
-    "@angular/animations": ">=17",
-    "@angular/cdk": ">=17",
-    "@angular/common": ">=17",
-    "@angular/core": ">=17",
+    "@angular/animations": ">=19",
+    "@angular/cdk": ">=19",
+    "@angular/common": ">=19",
+    "@angular/core": ">=19",
     "@angularity/core": "*",
     "rxjs": ">=7"
   },

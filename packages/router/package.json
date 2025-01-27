@@ -2,9 +2,9 @@
   "name": "@angularity/router",
   "version": "0.15.0",
   "peerDependencies": {
-    "@angular/common": ">=17",
-    "@angular/core": ">=17",
-    "@angular/router": ">=17",
+    "@angular/common": ">=19",
+    "@angular/core": ">=19",
+    "@angular/router": ">=19",
     "rxjs": ">=7"
   },
   "dependencies": {

@@ -2,9 +2,9 @@
   "name": "@angularity/forms",
   "version": "0.15.0",
   "peerDependencies": {
-    "@angular/common": ">=17",
-    "@angular/core": ">=17",
-    "@angular/forms": ">=17",
+    "@angular/common": ">=19",
+    "@angular/core": ">=19",
+    "@angular/forms": ">=19",
     "@angularity/core": "*",
     "rxjs": ">=7"
   },
