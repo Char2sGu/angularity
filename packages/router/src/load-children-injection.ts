@@ -47,17 +47,18 @@ import { Route } from '@angular/router';
  */
 export function setupInjectionContextForLoadChildren(
   route: Route,
-  injectorDefault?: Injector,
+  injectorDefault?: () => Injector,
 ): Route {
-  let injector: Injector | undefined = injectorDefault;
+  let injectorRoute: Injector | undefined;
   const injectorInitializer = () => {
-    injector = inject(Injector);
+    injectorRoute = inject(Injector);
   };
 
   const transformRoute = (child: Route) => {
     if (!child.loadChildren) return child;
     const loadChildren = child.loadChildren;
     child.loadChildren = (...args) => {
+      const injector = injectorRoute ?? injectorDefault?.();
       if (!injector) throw new Error('missing injector for loadChildren');
       return runInInjectionContext(injector, () => loadChildren(...args));
     };
