@@ -48,6 +48,12 @@ export function toObservableSignal<Value, InitialValue>(
 export function toObservableSignal<Value>(
   signal: Signal<Value>,
 ): ObservableSignal<Value>;
+/**
+ * Create an `ObservableSignal` from:
+ * - a synchronously `Observable`, or
+ * - an asynchronous `Observable` with an initial value for the signal, or
+ * - a `Signal`.
+ */
 export function toObservableSignal<Value, InitialValue>(
   ...args:
     | [Observable<unknown>]

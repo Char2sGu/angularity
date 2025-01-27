@@ -46,6 +46,13 @@ HTTP Utilities:
 
 ### Exported from `@angularity/core/rxjs`
 
+RxJS Interoperability:
+
+- `ObservableSignal`
+  {{ JSDoc.description("packages/core/rxjs/src/public-api.ts#ObservableSignal") }}
+- `toObservableSignal`
+  {{ JSDoc.description("packages/core/rxjs/src/public-api.ts#toObservableSignal") }}
+
 RxJS Operators:
 
 - `mapToVoid`
