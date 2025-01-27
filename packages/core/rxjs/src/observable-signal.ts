@@ -68,18 +68,16 @@ export function toObservableSignal<Value, InitialValue>(
   let observableFactory: () => Observable<Value>;
 
   if (args.length === 1 && args[0] instanceof Observable) {
-    const observable = args[0] as Observable<Value>;
+    let observable = args[0] as Observable<Value>;
+    observable = processSourceObservable(observable);
     signal = toSignal(observable, { requireSync: true });
-    observableFactory = () => processSourceObservable(observable);
+    observableFactory = () => observable;
   } else if (args.length === 2 && args[1] instanceof Observable) {
     const initialValue = args[0] as Value;
-    const observable = args[1] as Observable<Value>;
+    let observable = args[1] as Observable<Value>;
+    observable = processSourceObservable(observable);
     signal = toSignal(observable, { initialValue });
-    observableFactory = () =>
-      processSourceObservable(observable).pipe(
-        share({ resetOnRefCountZero: false }),
-        takeUntilDestroyed(destroyRef),
-      );
+    observableFactory = () => observable;
   } else if (args.length === 1 && isSignal(args[0])) {
     signal = args[0];
     observableFactory = () => toObservable(signal, { injector });
