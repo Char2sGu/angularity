@@ -7,18 +7,18 @@ import {
 import { Route } from '@angular/router';
 
 /**
- * Workaround to emulate an injection context in the route's loadChildren resolver.
+ * Workaround to emulate an injection context in the route's loadChildren resolver,
+ * by retrieving the injector from the nearest `EnvironmentInjector` via a
+ * route-level environment initializer.
  *
  * @param route the route config where a injection context is needed for `loadChildren`
+ * @param injectorDefault the default injector to use if the environment initializer failed
+ * to run, which is possible if no router navigation happens, such as during SSR route discovery.
  * @returns a new route config that can be used in replace of the given route config.
  *
  * @remarks
  * This enables asynchronous providers for routes, allowing dynamically provide
  * injectables based on external factors.
- *
- * @remarks
- * The `Injector` used for the injection context is usually the nearest
- * `EnvironmentInjector`.
  *
  * @remarks
  * This function does not transform child routes. Invoke on each route that
@@ -45,23 +45,20 @@ import { Route } from '@angular/router';
  * @see https://github.com/angular/angular/issues/51532#issuecomment-1956138610
  * for the original inspiration for this workaround
  */
-export function setupInjectionContextForLoadChildren(route: Route): Route {
-  let injector: Injector | undefined = undefined;
-  const injectorInitializerProvider = provideEnvironmentInitializer(() => {
-    const initializerFn = (
-      (instance = inject(Injector)) =>
-      () => {
-        injector = instance;
-      }
-    )();
-    return initializerFn();
-  });
+export function setupInjectionContextForLoadChildren(
+  route: Route,
+  injectorDefault?: Injector,
+): Route {
+  let injector: Injector | undefined = injectorDefault;
+  const injectorInitializer = () => {
+    injector = inject(Injector);
+  };
 
   const transformRoute = (child: Route) => {
     if (!child.loadChildren) return child;
     const loadChildren = child.loadChildren;
     child.loadChildren = (...args) => {
-      if (!injector) throw new Error('Missing injector');
+      if (!injector) throw new Error('missing injector for loadChildren');
       return runInInjectionContext(injector, () => loadChildren(...args));
     };
     return child;
@@ -69,7 +66,7 @@ export function setupInjectionContextForLoadChildren(route: Route): Route {
 
   return {
     path: '',
-    providers: [injectorInitializerProvider],
+    providers: [provideEnvironmentInitializer(injectorInitializer)],
     children: [transformRoute(route)],
   };
 }
