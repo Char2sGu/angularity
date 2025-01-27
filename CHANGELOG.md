@@ -1,3 +1,13 @@
+## 19.0.1 (2025-01-27)
+
+### 🩹 Fixes
+
+- **router:** use lazy default injector for `setupInjectionContextForLoadChildren` ([92d8696](https://github.com/TheNightmareX/angularly/commit/92d8696))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 # 19.0.0 (2025-01-27)
 
 ### 🚀 Features
