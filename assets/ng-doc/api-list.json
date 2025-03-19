@@ -184,7 +184,7 @@
       },
       {
         "route": "/api/classes/cdk/HostTransition",
-        "type": "Directive",
+        "type": "Class",
         "name": "HostTransition"
       }
     ]
@@ -1051,6 +1051,21 @@
         "route": "/api/classes/config-files/NoopValidator",
         "type": "Injectable",
         "name": "NoopValidator"
+      }
+    ]
+  },
+  {
+    "title": "ngx-view-transition",
+    "items": [
+      {
+        "route": "/api/type-aliases/ngx-view-transition/TransitionInput",
+        "type": "TypeAlias",
+        "name": "TransitionInput"
+      },
+      {
+        "route": "/api/classes/ngx-view-transition/HostTransition",
+        "type": "Directive",
+        "name": "HostTransition"
       }
     ]
   }
