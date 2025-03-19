@@ -34,6 +34,7 @@
       "@angularity/router": ["./dist/router"],
       "@angularity/theming": ["./dist/theming"],
       "@angularity/theming-material": ["./dist/theming-material"],
+      "ngx-view-transition": ["./dist/ngx-view-transition"],
       "@ng-doc/generated/*": ["./ng-doc/*"]
     },
     "useDefineForClassFields": false,

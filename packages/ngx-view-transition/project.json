@@ -1,0 +1,34 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "ngx-view-transition",
+  "projectType": "library",
+  "sourceRoot": "packages/ngx-view-transition/src",
+  "prefix": "ngx",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "packages/ngx-view-transition/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/ngx-view-transition/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/ngx-view-transition/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "packages/ngx-view-transition/tsconfig.spec.json",
+        "polyfills": ["zone.js", "zone.js/testing"]
+      }
+    },
+    "nx-release-publish": {
+      "dependsOn": ["build", "^nx-release-publish"]
+    }
+  }
+}

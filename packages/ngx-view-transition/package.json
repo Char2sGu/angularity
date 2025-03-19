@@ -1,0 +1,12 @@
+{
+  "name": "ngx-view-transition",
+  "version": "19.0.1",
+  "peerDependencies": {
+    "@angular/core": ">=19",
+    "@angular/common": ">=19"
+  },
+  "dependencies": {
+    "tslib": "2.x.x"
+  },
+  "sideEffects": false
+}

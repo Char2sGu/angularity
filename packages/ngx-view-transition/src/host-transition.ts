@@ -16,7 +16,7 @@ import { computed, Directive, ElementRef, inject, input } from '@angular/core';
 export type TransitionInput = string | boolean;
 
 /**
- * Directive for specifying (potentially anonymous)
+ * Directive for assigning (potentially anonymous)
  * View Transition names for elements.
  *
  * - When a non-empty string is provided as input, it will be used

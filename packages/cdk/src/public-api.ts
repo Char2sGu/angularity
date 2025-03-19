@@ -1,1 +1,1 @@
-export * from './host-transition';
+export * from 'ngx-view-transition';
