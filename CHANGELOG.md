@@ -1,3 +1,13 @@
+## 19.0.2 (2025-03-19)
+
+### 🚀 Features
+
+- extract package ngx-view-transition from @angularity/cdk ([3f3dd00](https://github.com/TheNightmareX/angularly/commit/3f3dd00))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 19.0.1 (2025-01-27)
 
 ### 🩹 Fixes

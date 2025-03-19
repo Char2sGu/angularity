@@ -1,6 +1,6 @@
 {
   "name": "ngx-view-transition",
-  "version": "19.0.1",
+  "version": "19.0.2",
   "peerDependencies": {
     "@angular/core": ">=19",
     "@angular/common": ">=19"

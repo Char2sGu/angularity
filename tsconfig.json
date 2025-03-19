@@ -34,8 +34,8 @@
       "@angularity/router": ["./dist/router"],
       "@angularity/theming": ["./dist/theming"],
       "@angularity/theming-material": ["./dist/theming-material"],
-      "ngx-view-transition": ["./dist/ngx-view-transition"],
-      "@ng-doc/generated/*": ["./ng-doc/*"]
+      "@ng-doc/generated/*": ["./ng-doc/*"],
+      "ngx-view-transition": ["./dist/ngx-view-transition"]
     },
     "useDefineForClassFields": false,
     "typeRoots": ["node_modules/@types", "node_modules/@angular/core"]
