@@ -19,6 +19,7 @@ export const PACKAGES = [
   'endpoints',
   'config-files',
   '!fire',
+  'ngx-view-transition',
 ] as const;
 
 export type Package = (typeof PACKAGES)[number];

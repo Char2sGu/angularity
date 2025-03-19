@@ -1,4 +1,4 @@
-The `@angularity/cdk` package offers higher-level abstractions and convenience utilities built on top of `@angular/cdk`, enabling a more satisfying development experience working with the Angular CDK.
+The `@angularity/cdk` package offers component development primitives based on `@angular/cdk`.
 
 ```sh
 npm i @angular/cdk @angularity/{core,cdk}
