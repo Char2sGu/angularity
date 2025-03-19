@@ -1,6 +1,7 @@
 {
   "name": "@angularity/fire",
   "version": "19.0.2",
+  "sideEffects": false,
   "peerDependencies": {
     "@angular/core": ">=19",
     "firebase": ">=10",
@@ -10,5 +11,14 @@
   "dependencies": {
     "tslib": "2.x.x"
   },
-  "sideEffects": false
+  "author": "Char2s <char2s@outlook.com>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Char2sGu/angularity.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Char2sGu/angularity/issues"
+  },
+  "homepage": "https://github.com/Char2sGu/angularity#readme"
 }
