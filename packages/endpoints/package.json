@@ -2,6 +2,7 @@
   "name": "@angularity/endpoints",
   "version": "19.0.2",
   "sideEffects": false,
+  "description": "invoke HTTP endpoints via functions generated from declarations",
   "peerDependencies": {
     "@angular/common": ">=19",
     "@angular/core": ">=19",

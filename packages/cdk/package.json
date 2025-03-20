@@ -2,6 +2,7 @@
   "name": "@angularity/cdk",
   "version": "19.0.2",
   "sideEffects": false,
+  "description": "enhanced component development kit based on @angular/cdk",
   "peerDependencies": {
     "@angular/animations": ">=19",
     "@angular/cdk": ">=19",

@@ -2,6 +2,7 @@
   "name": "@angularity/theming",
   "version": "19.0.2",
   "sideEffects": false,
+  "description": "dynamic runtime theming infrastructure for Angular",
   "peerDependencies": {
     "@angular/common": ">=19",
     "@angular/core": ">=19",

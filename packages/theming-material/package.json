@@ -2,6 +2,7 @@
   "name": "@angularity/theming-material",
   "version": "19.0.2",
   "sideEffects": false,
+  "description": "dynamic Material Design theming for Angular",
   "peerDependencies": {
     "@angular/core": ">=19",
     "@angular/common": ">=19",

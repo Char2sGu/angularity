@@ -2,6 +2,7 @@
   "name": "@angularity/fire",
   "version": "19.0.2",
   "sideEffects": false,
+  "description": "convenience abstractions over Firebase SDK for Angular",
   "peerDependencies": {
     "@angular/core": ">=19",
     "firebase": ">=10",

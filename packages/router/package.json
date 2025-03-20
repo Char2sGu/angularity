@@ -2,6 +2,7 @@
   "name": "@angularity/router",
   "version": "19.0.2",
   "sideEffects": false,
+  "description": "utilities and abstractions over Angular Router",
   "peerDependencies": {
     "@angular/common": ">=19",
     "@angular/core": ">=19",

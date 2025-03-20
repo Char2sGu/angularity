@@ -2,6 +2,7 @@
   "name": "@angularity/forms",
   "version": "19.0.2",
   "sideEffects": false,
+  "description": "utilities and enhancements for Angular Forms",
   "peerDependencies": {
     "@angular/common": ">=19",
     "@angular/core": ">=19",

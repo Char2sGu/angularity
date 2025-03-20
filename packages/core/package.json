@@ -2,6 +2,7 @@
   "name": "@angularity/core",
   "version": "19.0.2",
   "sideEffects": false,
+  "description": "utilities and concepts enhancing Angular development",
   "peerDependencies": {
     "@angular/core": ">=19",
     "@angular/common": ">=19",
