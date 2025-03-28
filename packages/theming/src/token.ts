@@ -127,25 +127,34 @@ export class InMemoryThemeTokenRegistry implements ThemeTokenRegistry {
  *
  * - On server, the tokens will be written to
  * the root element's style properties as CSS variables.
- * - On browser, the tokens will be written to
- * a `CSSStyleSheet` object adopted by the document.
+ * - On modern browser, the tokens will be written to
+ * a constructed `CSSStyleSheet` object adopted by the document.
+ * - On legacy browser, the tokens will be written to
+ * a `<style>` element appended to the document head.
  */
 export class WriteTokensToRootCssVariables implements ThemeTokenRegistry {
   #document = inject(DOCUMENT);
   #platform = inject(PLATFORM_ID);
 
   #delegate: ThemeTokenRegistry;
-  #stylesheet?: CSSStyleSheet;
+  #stylesheet?: CSSStyleSheet | HTMLStyleElement;
 
   constructor(delegate: ThemeTokenRegistry) {
     this.#delegate = delegate;
-    if (isPlatformBrowser(this.#platform)) {
-      this.#stylesheet = new window.CSSStyleSheet();
-      this.#document.adoptedStyleSheets = [
-        ...(this.#document.adoptedStyleSheets ?? []),
-        this.#stylesheet,
-      ];
-    }
+    if (isPlatformBrowser(this.#platform))
+      try {
+        this.#stylesheet = new window.CSSStyleSheet();
+        this.#document.adoptedStyleSheets = [
+          ...(this.#document.adoptedStyleSheets ?? []),
+          this.#stylesheet,
+        ];
+      } catch (error) {
+        if (!(error instanceof TypeError)) throw error;
+        // constructable CSSStyleSheet not supported
+        // fallback to legacy style element
+        this.#stylesheet = this.#document.createElement('style');
+        this.#document.head.append(this.#stylesheet);
+      }
   }
 
   get(name: string): string | null {
@@ -180,7 +189,9 @@ export class WriteTokensToRootCssVariables implements ThemeTokenRegistry {
   }
 
   #writeAllToStylesheet() {
-    this.#stylesheet?.replaceSync(this.#buildCssText());
+    if (this.#stylesheet instanceof HTMLElement)
+      this.#stylesheet.innerText = this.#buildCssText();
+    else this.#stylesheet?.replaceSync(this.#buildCssText());
   }
   #writeToInlineStyles(name: string, value: string | null) {
     this.#document.documentElement.style.setProperty(
