@@ -1,6 +1,6 @@
 {
   "name": "@angularity/theming",
-  "version": "19.0.2",
+  "version": "19.0.3",
   "sideEffects": false,
   "description": "dynamic runtime theming infrastructure for Angular",
   "peerDependencies": {

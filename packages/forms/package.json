@@ -1,6 +1,6 @@
 {
   "name": "@angularity/forms",
-  "version": "19.0.2",
+  "version": "19.0.3",
   "sideEffects": false,
   "description": "utilities and enhancements for Angular Forms",
   "peerDependencies": {

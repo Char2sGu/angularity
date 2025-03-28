@@ -1,6 +1,6 @@
 {
   "name": "@angularity/command-flow",
-  "version": "19.0.2",
+  "version": "19.0.3",
   "sideEffects": false,
   "description": "centralized command/event system for efficient modeling of complex business logic",
   "peerDependencies": {

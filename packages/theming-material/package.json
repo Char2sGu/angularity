@@ -1,6 +1,6 @@
 {
   "name": "@angularity/theming-material",
-  "version": "19.0.2",
+  "version": "19.0.3",
   "sideEffects": false,
   "description": "dynamic Material Design theming for Angular",
   "peerDependencies": {

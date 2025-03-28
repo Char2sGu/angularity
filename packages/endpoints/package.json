@@ -1,6 +1,6 @@
 {
   "name": "@angularity/endpoints",
-  "version": "19.0.2",
+  "version": "19.0.3",
   "sideEffects": false,
   "description": "invoke HTTP endpoints via functions generated from declarations",
   "peerDependencies": {

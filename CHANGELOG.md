@@ -1,3 +1,13 @@
+## 19.0.3 (2025-03-28)
+
+### 🩹 Fixes
+
+- **theming:** add compat for older browsers ([dda8f69](https://github.com/TheNightmareX/angularly/commit/dda8f69))
+
+### ❤️ Thank You
+
+- Char2s @Char2sGu
+
 ## 19.0.2 (2025-03-19)
 
 ### 🚀 Features
