@@ -1,12 +1,13 @@
-import { DestroyRef, inject, Type } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { DestroyRef, inject, Signal, Type } from '@angular/core';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import {
   COMMAND_EVENT_META as META,
   CommandBus,
   CommandEventBus,
   CommandFlowScheduler,
 } from '@angularity/command-flow';
-import { filter, finalize, Observable, shareReplay } from 'rxjs';
+import { pickType } from '@angularity/core/rxjs';
+import { filter, finalize, map, merge, Observable, shareReplay } from 'rxjs';
 
 import { DisposeQuery } from './commands';
 import { Query } from './core';
@@ -42,3 +43,26 @@ export const useQuery =
       shareReplay({ refCount: true, bufferSize: 1 }),
     );
   };
+
+export const useQueryLoading = <T extends Type<Query<any>>>(
+  type: T,
+  selector: (instance: InstanceType<T>) => boolean = () => true,
+  [commands$, events$] = [inject(CommandBus), inject(CommandEventBus)],
+): Signal<boolean> => {
+  const start$ = commands$.pipe(
+    pickType(type),
+    filter((c) => selector(c)),
+  );
+  const resolve$ = events$.pipe(
+    pickType(QueryResolved, QueryErrored),
+    filter(
+      ({ [META]: { source } }) =>
+        source instanceof type && selector(source as InstanceType<T>),
+    ),
+  );
+  const loading$ = merge(
+    start$.pipe(map(() => true)),
+    resolve$.pipe(map(() => false)),
+  );
+  return toSignal(loading$, { initialValue: true });
+};
