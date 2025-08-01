@@ -1,5 +1,6 @@
-import { DOCUMENT, isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import {
+  DOCUMENT,
   inject,
   Injectable,
   makeStateKey,
