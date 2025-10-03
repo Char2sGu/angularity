@@ -6,7 +6,7 @@
   "peerDependencies": {
     "@angular/common": ">=19",
     "@angular/core": ">=19",
-    "@angular/platform-browser": "20.1.4",
+    "@angular/platform-browser": ">=19",
     "@angularity/core": "20.0.0",
     "node-html-parser": "^7.0.1",
     "rxjs": ">=7"
