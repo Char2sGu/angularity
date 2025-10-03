@@ -178,14 +178,14 @@
     "title": "cdk",
     "items": [
       {
-        "route": "/api/type-aliases/cdk/TransitionInput",
-        "type": "TypeAlias",
-        "name": "TransitionInput"
-      },
-      {
         "route": "/api/classes/cdk/HostTransition",
         "type": "Class",
         "name": "HostTransition"
+      },
+      {
+        "route": "/api/type-aliases/cdk/TransitionInput",
+        "type": "TypeAlias",
+        "name": "TransitionInput"
       }
     ]
   },
@@ -216,6 +216,11 @@
         "route": "/api/type-aliases/cdk-layout/BreakpointMap",
         "type": "TypeAlias",
         "name": "BreakpointMap"
+      },
+      {
+        "route": "/api/classes/cdk-layout/ResizeObserver",
+        "type": "Injectable",
+        "name": "ResizeObserver"
       }
     ]
   },
@@ -338,6 +343,16 @@
         "name": "useChildActivatedRoute"
       },
       {
+        "route": "/api/functions/router/linkedQueryParam",
+        "type": "Function",
+        "name": "linkedQueryParam"
+      },
+      {
+        "route": "/api/interfaces/router/LinkedQueryParamOptions",
+        "type": "Interface",
+        "name": "LinkedQueryParamOptions"
+      },
+      {
         "route": "/api/functions/router/setupInjectionContextForLoadChildren",
         "type": "Function",
         "name": "setupInjectionContextForLoadChildren"
@@ -371,6 +386,36 @@
         "route": "/api/functions/router/readRouteData",
         "type": "Function",
         "name": "readRouteData"
+      }
+    ]
+  },
+  {
+    "title": "icons",
+    "items": [
+      {
+        "route": "/api/functions/icons/processIconSvg",
+        "type": "Function",
+        "name": "processIconSvg"
+      },
+      {
+        "route": "/api/variables/icons/ICON_SIZE",
+        "type": "Variable",
+        "name": "ICON_SIZE"
+      },
+      {
+        "route": "/api/classes/icons/AglIcon",
+        "type": "Component",
+        "name": "AglIcon"
+      },
+      {
+        "route": "/api/functions/icons/provideIcons",
+        "type": "Function",
+        "name": "provideIcons"
+      },
+      {
+        "route": "/api/interfaces/icons/Icons",
+        "type": "Interface",
+        "name": "Icons"
       }
     ]
   },
@@ -801,6 +846,11 @@
         "route": "/api/variables/command-flow-query-flow/useQuery",
         "type": "Variable",
         "name": "useQuery"
+      },
+      {
+        "route": "/api/variables/command-flow-query-flow/useQueryLoading",
+        "type": "Variable",
+        "name": "useQueryLoading"
       },
       {
         "route": "/api/functions/command-flow-query-flow/onQuery",
