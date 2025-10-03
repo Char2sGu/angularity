@@ -1,13 +1,13 @@
 {
   "name": "@angularity/icons",
-  "version": "19.0.3",
+  "version": "20.0.0",
   "sideEffects": false,
   "description": "custom SVG icons for Angular",
   "peerDependencies": {
     "@angular/common": ">=19",
     "@angular/core": ">=19",
     "@angular/platform-browser": "20.1.4",
-    "@angularity/core": "*",
+    "@angularity/core": "20.0.0",
     "node-html-parser": "^7.0.1",
     "rxjs": ">=7"
   },

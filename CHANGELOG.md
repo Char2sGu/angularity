@@ -1,3 +1,20 @@
+# 20.0.0 (2025-10-03)
+
+### 🚀 Features
+
+- **cdk/layout:** add ResizeObserver ([f6770f9](https://github.com/TheNightmareX/angularly/commit/f6770f9))
+- **command-flow/query-flow:** add `useQueryLoading` ([9576079](https://github.com/TheNightmareX/angularly/commit/9576079))
+- **icons:** add the icons package ([d8fb6b3](https://github.com/TheNightmareX/angularly/commit/d8fb6b3))
+- **router:** add linkedQueryParam ([352e447](https://github.com/TheNightmareX/angularly/commit/352e447))
+
+### 🩹 Fixes
+
+- **cdk/dialog:** remove remaining reference to `ComponentFactoryResolver` ([7b102dc](https://github.com/TheNightmareX/angularly/commit/7b102dc))
+
+### ❤️ Thank You
+
+- Char2s
+
 ## 19.0.3 (2025-03-28)
 
 ### 🩹 Fixes

@@ -1,6 +1,6 @@
 {
   "name": "@angularity/core",
-  "version": "19.0.3",
+  "version": "20.0.0",
   "sideEffects": false,
   "description": "utilities and concepts enhancing Angular development",
   "peerDependencies": {
