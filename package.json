@@ -55,6 +55,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "lint-staged": "^15.2.0",
     "ng-packagr": "20.1.0",
+    "node-html-parser": "^7.0.1",
     "nx": "21.3.10",
     "prettier": "^3.2.4",
     "rxfire": "^6.0.5",

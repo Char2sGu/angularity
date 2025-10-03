@@ -8,6 +8,7 @@ export const PACKAGES = [
   'cdk/portal',
   '!forms',
   'router',
+  'icons',
   'elements',
   'theming',
   'theming-material',

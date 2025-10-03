@@ -1,0 +1,27 @@
+{
+  "name": "@angularity/icons",
+  "version": "19.0.3",
+  "sideEffects": false,
+  "description": "custom SVG icons for Angular",
+  "peerDependencies": {
+    "@angular/common": ">=19",
+    "@angular/core": ">=19",
+    "@angular/platform-browser": "20.1.4",
+    "@angularity/core": "*",
+    "node-html-parser": "^7.0.1",
+    "rxjs": ">=7"
+  },
+  "dependencies": {
+    "tslib": "2.x.x"
+  },
+  "author": "Char2s <char2s@outlook.com>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Char2sGu/angularity.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Char2sGu/angularity/issues"
+  },
+  "homepage": "https://github.com/Char2sGu/angularity#readme"
+}

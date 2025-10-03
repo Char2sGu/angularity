@@ -1,0 +1,34 @@
+{
+  "name": "icons",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/icons/src",
+  "prefix": "agl",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "packages/icons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/icons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/icons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "packages/icons/tsconfig.spec.json",
+        "polyfills": ["zone.js", "zone.js/testing"]
+      }
+    },
+    "nx-release-publish": {
+      "dependsOn": ["build", "^nx-release-publish"]
+    }
+  }
+}

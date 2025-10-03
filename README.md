@@ -10,6 +10,7 @@ Angularity is a collection of packages that provide high-level abstractions and 
 | `cdk`              | Angular CDK extensions                                           | [docs](https://char2sgu.github.io/angularity/packages/cdk) , [source](https://github.com/Char2sGu/angularity/tree/develop/packages/cdk)                           |
 | `forms`            | Angular Forms utilities                                          | [docs](https://char2sgu.github.io/angularity/packages/forms) , [source](https://github.com/Char2sGu/angularity/tree/develop/packages/forms)                       |
 | `router`           | Angular Router utilities                                         | [docs](https://char2sgu.github.io/angularity/packages/router) , [source](https://github.com/Char2sGu/angularity/tree/develop/packages/router)                     |
+| `icons`            | flexible SVG icons solution                                      | [docs](https://char2sgu.github.io/angularity/packages/icons) , [source](https://github.com/Char2sGu/angularity/tree/develop/packages/icons)                       |
 | `elements`         | Angular Elements utilities                                       | [docs](https://char2sgu.github.io/angularity/packages/elements) , [source](https://github.com/Char2sGu/angularity/tree/develop/packages/elements)                 |
 | `theming`          | programmatic runtime theming system leveraging CSS variables     | [docs](https://char2sgu.github.io/angularity/packages/theming) , [source](https://github.com/Char2sGu/angularity/tree/develop/packages/theming)                   |
 | `theming-material` | Material Design theme builders for the `theming` package         | [docs](https://char2sgu.github.io/angularity/packages/theming-material) , [source](https://github.com/Char2sGu/angularity/tree/develop/packages/theming-material) |
@@ -26,6 +27,7 @@ npm i \
   @angularity/cdk \
   @angularity/forms \
   @angularity/router \
+  @angularity/icons \
   @angularity/elements \
   @angularity/theming \
   @angularity/theming-material \
@@ -33,4 +35,10 @@ npm i \
   @angularity/endpoints \
   @angularity/config-files \
   @angularity/fire
+```
+
+To update all Angularity packages, execute:
+
+```sh
+npx update-by-scope @angularity
 ```

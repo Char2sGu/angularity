@@ -1,0 +1,18 @@
+:host {
+  display: inline-flex;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  justify-content: center;
+  align-items: center;
+  font-family: var(--icon-font);
+  font-weight: normal;
+  font-style: normal;
+  font-size: var(--icon-size);
+  line-height: 100%;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  user-select: none;
+}
