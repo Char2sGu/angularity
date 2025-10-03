@@ -14,6 +14,11 @@ Click on the symbol to see the detailed documentation.
 
 ### Exported from `@angularity/router`
 
+Component Utilities:
+
+- `linkedQueryParam`
+  {{ JSDoc.description("packages/router/src/public-api.ts#linkedQueryParam") }}
+
 General Utilities:
 
 - `useChildActivatedRoute`
