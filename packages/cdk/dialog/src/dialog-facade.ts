@@ -1,6 +1,5 @@
 import { Dialog, DialogConfig, DialogRef } from '@angular/cdk/dialog';
 import {
-  ComponentFactoryResolver,
   DestroyRef,
   inject,
   Injector,
@@ -167,17 +166,10 @@ export interface DialogFacade<T extends DialogIoTypes<any, any>> {
 export function useDialog<T extends DialogIoTypes<any, any>>(
   component: Type<T>,
   configDefaults: Partial<DialogConfigOf<T>> = {},
-  [
-    service,
-    injector,
-    destroyRef,
-    componentFactoryResolver,
-    viewContainerRef,
-  ] = [
+  [service, injector, destroyRef, viewContainerRef] = [
     inject(Dialog),
     inject(Injector),
     inject(DestroyRef),
-    inject(ComponentFactoryResolver),
     inject(ViewContainerRef, { optional: true }) ?? undefined, // available only in components
   ],
 ): DialogFacade<T> {
@@ -186,10 +178,13 @@ export function useDialog<T extends DialogIoTypes<any, any>>(
   return {
     launch: (config: DialogConfigOf<T> = {}): DialogRefOf<T> => {
       const open = service.open.bind(service);
+      open(component, {
+        injector,
+        viewContainerRef,
+      });
       const ref = open(component, {
         injector, // supplies parent component providers and view providers
         viewContainerRef, // logical location of the created component
-        componentFactoryResolver, // supplies the correct environment injector with environmental providers
         ...configDefaults,
         ...config,
       });
