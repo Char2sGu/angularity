@@ -4,14 +4,6 @@ The `@angularity/router` package exports utilities about the Angular routing sys
 npm i @angular/router @angularity/{core,router}
 ```
 
-## Signature Symbols
-
-The following symbols are the signature symbols of the `@angularity/router` package.
-Click on the symbol to see the detailed documentation.
-
-> **note**
-> All Angularity symbols are well-documented with JSDoc.
-
 ### Exported from `@angularity/router`
 
 Component Utilities:

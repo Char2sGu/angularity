@@ -15,16 +15,15 @@ import { Icons } from './icons';
  *
  * @example
  * ```ts
- * import { processIconSvg as i } from '@angularity/icons';
- * const iArrow = i`<svg width="24" height="24" fill="none" stroke="black"><path d="M12 5v14m7-7H5"/></svg>`;
- *
- *  \@Component({
- *    selector: 'some-component',
- *    providers: [provideIcons({ iArrow })],
- *    template: `<agl-icon icon="iArrow" />`,
- *  })
+ * const iArrow = `<svg width="24" height="24" fill="none" stroke="black"><path d="M12 5v14m7-7H5"/></svg>`;
+ * \@Component({
+ *   selector: 'some-component',
+ *   providers: [provideIcons({ iArrow })],
+ *   template: `
+ * <agl-icon icon="iArrow" />
+ * <agl-icon icon="<svg>...</svg>" />`,
+ * })
  * ```
- *
  */
 export function provideIcons(icons: Icons): Provider[] {
   return [

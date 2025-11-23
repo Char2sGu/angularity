@@ -4,14 +4,6 @@ The `@angularity/cdk` package offers component development primitives based on `
 npm i @angular/cdk @angularity/{core,cdk}
 ```
 
-## Signature Symbols
-
-The following symbols are the signature symbols of the `@angularity/cdk` package.
-Click on the symbol to see the detailed documentation.
-
-> **note**
-> All Angularity symbols are well-documented with JSDoc.
-
 ### Exported from `@angularity/cdk`
 
 View Transition:

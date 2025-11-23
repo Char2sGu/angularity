@@ -4,14 +4,6 @@ The `@angularity/theming` package offers a programmatic runtime theming system t
 npm i @angularity/{core,theming}
 ```
 
-## Signature Symbols
-
-The following symbols are the signature symbols of the `@angularity/theming` package.
-Click on the symbol to see the detailed documentation.
-
-> **note**
-> All Angularity symbols are well-documented with JSDoc.
-
 ### Exported from `@angularity/theming`
 
 Top-level:

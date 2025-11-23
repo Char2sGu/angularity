@@ -4,14 +4,6 @@ The `@angularity/endpoints` package offers a declarative access to HTTP endpoint
 npm i @angularity/{core,endpoints}
 ```
 
-## Signature Symbols
-
-The following symbols are the signature symbols of the `@angularity/endpoints` package.
-Click on the symbol to see the detailed documentation.
-
-> **note**
-> All Angularity symbols are well-documented with JSDoc.
-
 ### Exported from `@angularity/endpoints`
 
 Top-level:

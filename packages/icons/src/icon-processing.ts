@@ -4,12 +4,6 @@
  * so that they can adapt to the component settings.
  * @param input the raw svg string
  * @returns the processed svg string
- *
- * @example
- * ```ts
- * import { processIconSvg as i } from '@angularity/icons';
- * export const iArrow = i`<svg width="24" height="24" fill="none" stroke="black"><path d="M12 5v14m7-7H5"/></svg>`;
- * ```
  */
 export async function processIconSvg(
   input: string | TemplateStringsArray,

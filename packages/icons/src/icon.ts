@@ -32,9 +32,15 @@ export const ICON_SIZE = new InjectionToken<number>('ICON_SIZE', {
  * Display a SVG icon with a configurable size and color following `currentColor`.
  *
  * @example
- * ```html
- * <agl-icon icon="iArrow" size="32" />
- * <agl-icon icon="<svg>...</svg>" />
+ * ```ts
+ * const iArrow = `<svg width="24" height="24" fill="none" stroke="black"><path d="M12 5v14m7-7H5"/></svg>`;
+ * \@Component({
+ *   selector: 'some-component',
+ *   providers: [provideIcons({ iArrow })],
+ *   template: `
+ * <agl-icon icon="iArrow" />
+ * <agl-icon icon="<svg>...</svg>" />`,
+ * })
  * ```
  */
 @Component({
@@ -55,7 +61,8 @@ export class AglIcon {
 
   /**
    * The name of the icon in the icon registry `Icons` of the current injector,
-   * or unprocessed arbitrary raw SVG content.
+   * or arbitrary raw SVG content.
+   * @see `provideIcons` for configuring the icon registry.
    */
   readonly icon = input.required<string>();
 
