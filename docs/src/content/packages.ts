@@ -6,7 +6,7 @@ export const PACKAGES = [
   'cdk/layout',
   'cdk/dialog',
   'cdk/portal',
-  '!forms',
+  'forms',
   'router',
   'icons',
   'elements',

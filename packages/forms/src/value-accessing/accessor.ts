@@ -3,9 +3,14 @@ import { ControlValueAccessor } from '@angular/forms';
 
 import { ComponentValueAccessorHost } from './accessor-host';
 
+/**
+ * An adapter that adapts a `ComponentValueAccessorHost` into a `ControlValueAccessor`.
+ * It uses the `ComponentValueAccessorHost` provided at the `self` level to implement
+ * the `ControlValueAccessor` interface.
+ */
 @Injectable()
 export class ComponentValueAccessor implements ControlValueAccessor {
-  protected host = inject(ComponentValueAccessorHost, { self: true });
+  protected readonly host = inject(ComponentValueAccessorHost, { self: true });
   writeValue(value: unknown): void {
     this.host.valueInput$.next(value);
   }
