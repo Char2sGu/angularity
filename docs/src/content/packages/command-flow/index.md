@@ -42,6 +42,17 @@ Facade:
 - `useCommand`
   {{ JSDoc.description("packages/command-flow/src/index.ts#useCommand") }}
 
+Flow:
+
+- `Flow`
+  {{ JSDoc.description("packages/command-flow/src/flow.ts#Flow") }}
+- `FlowEffect`
+  {{ JSDoc.description("packages/command-flow/src/flow.ts#FlowEffect") }}
+- `createFlow`
+  {{ JSDoc.description("packages/command-flow/src/flow.ts#createFlow") }}
+- `provideFlows`
+  {{ JSDoc.description("packages/command-flow/src/flow.ts#provideFlows") }}
+
 ### Exported from `@angularity/command-flow/process-flow`
 
 Foundation:
