@@ -21,6 +21,8 @@ export interface CommandMetadata {}
  * - can be used as a provider token
  * - supports the `instanceof` operator and returns `true` for any object
  *   that has a `COMMAND_META` property
+ *
+ * @see `createCommandType` for a factory function that creates `Command` types.
  */
 export abstract class Command {
   abstract [COMMAND_META]: CommandMetadata;
@@ -57,6 +59,8 @@ export interface CommandEventMetadata<C extends Command = Command> {
  * - can be used as a provider token
  * - supports the `instanceof` operator and returns `true` for any object
  *   that has a `COMMAND_EVENT_META` property
+ *
+ * @see `createCommandEventType` for a factory function that creates `CommandEvent` types.
  */
 export abstract class CommandEvent<C extends Command = Command> {
   abstract [COMMAND_EVENT_META]: CommandEventMetadata<C>;

@@ -18,19 +18,16 @@ import { CommandFlowScheduler } from './scheduler';
  *
  * @example
  * ```ts
- * class DoSomething implements Command {
- *   [COMMAND_META]: CommandMetadata = {};
- *
- *   constructor(
- *     readonly foo: string,
- *     readonly bar: boolean,
- *   ) {}
- * }
- *
+ * const DoSomething = createCommandType(
+ *   "DoSomething",
+ *   $type<{ foo: string; bar: boolean }>()
+ * );
+ * ```
+ * ```ts
  * class MyComponent {
  *   #doSomething = useCommand(DoSomething);
  *   dispatchAndObserve() {
- *     this.#doSomething('foo', true).subscribe((event) => {
+ *     this.#doSomething({ foo: 'foo', bar: true }).subscribe((event) => {
  *       console.log(event);
  *     });
  *   }

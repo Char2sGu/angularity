@@ -21,10 +21,32 @@ import {
 } from './events';
 import { ProcessResultOf as ResultOf } from './shared';
 
+/**
+ * Handler function for specific `Process` types that accepts a `Process` instance
+ * of those types and returns an `Observable` or `Promise` of the result.
+ *
+ * @example
+ * ```typescript
+ * const handler: ProcessHandler<Login> = async (process) => {
+ *   const result = await sdk.login(process.username, process.password);
+ *   return result;
+ * };
+ * ```
+ * ```typescript
+ * const handler: ProcessHandler<Login> = (process) => {
+ *   const result$ = sdk.login(process.username, process.password);
+ *   return result$;
+ * };
+ * ```
+ */
 export interface ProcessHandler<P extends Process<any>> {
   (process: P): Observable<ResultOf<P>> | Promise<ResultOf<P>>;
 }
 
+/**
+ * Enumerates the different strategies for handling multiple dispatches
+ * of processes of the same type.
+ */
 export enum ProcessSchedulingStrategy {
   /**
    * Processes are handled one after the other.
@@ -48,8 +70,11 @@ export enum ProcessSchedulingStrategy {
 }
 
 /**
- * Register a `ProcessHandler` for some types of processes.
- * 
+ * Register a `ProcessHandler` for some types of processes
+ * within the current injection context.
+ *
+ * The handler will be disposed once the current injection context is destroyed.
+ *
  * The value returned from the handler will be translated
  * into a series of `ProcessEvent`s:
  * - `ProcessStarted` when a matching process is dispatched
@@ -57,10 +82,12 @@ export enum ProcessSchedulingStrategy {
  *    or the returned observable emits a value
  * - `ProcessFailed` when the returned promise rejects
  *    or the returned observable emits an error
- * 
+ *
+ * @remarks
+ * There must not be multiple handlers for the same process type.
+ *
  * @param types array of process types to listen for
  * @param scheduling strategy for handling multiple dispatches
- * @remarks Requires an injection context.
  *
  * @example
  *  ```typescript
@@ -73,7 +100,7 @@ export enum ProcessSchedulingStrategy {
  *    }
  *  );
  *  ```
- * 
+ *
  * @example
  *  ```typescript
  *  onProcess(
@@ -85,7 +112,7 @@ export enum ProcessSchedulingStrategy {
  *    }
  *  );
  *  ```
-F */
+ */
 export function onProcess<Types extends Type<Process<any>>[]>(
   types: Types,
   scheduling: ProcessSchedulingStrategy,
@@ -131,6 +158,7 @@ export function onProcess<Types extends Type<Process<any>>[]>(
 }
 
 /**
+ * Alias for `onProcess`.
  * @deprecated Use `onProcess` instead.
  */
 export const registerProcessHandler = onProcess;
