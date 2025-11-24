@@ -5,6 +5,7 @@ This package consists of multiple sub-packages:
 - `@angularity/command-flow` - foundation artifacts
 - `@angularity/command-flow/process-flow` - abstraction for modeling async processes
 - `@angularity/command-flow/query-flow` - abstraction for modeling reactive data queries
+- `@angularity/command-flow/debugger` - debugger for tracing commands and events
 
 ```sh
 npm i @angularity/{core,command-flow}
@@ -118,3 +119,12 @@ Facade:
   {{ JSDoc.description("packages/command-flow/query-flow/src/index.ts#useQuery") }}
 - `useQueryLoading`
   {{ JSDoc.description("packages/command-flow/query-flow/src/index.ts#useQueryLoading") }}
+
+### Exported from `@angularity/command-flow/debugger`
+
+- `provideCommandFlowDebugger`
+  {{ JSDoc.description("packages/command-flow/debugger/src/index.ts#provideCommandFlowDebugger") }}
+- `COMMAND_ID_GENERATOR`
+  {{ JSDoc.description("packages/command-flow/debugger/src/index.ts#COMMAND_ID_GENERATOR") }}
+- `COMMAND_FLOW_DEBUGGER_FILTER`
+  {{ JSDoc.description("packages/command-flow/debugger/src/index.ts#COMMAND_FLOW_DEBUGGER_FILTER") }}

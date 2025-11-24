@@ -37,7 +37,7 @@ npm i \
   @angularity/fire
 ```
 
-To update all Angularity packages, execute:
+To update all Angularity packages, run:
 
 ```sh
 npx update-by-scope @angularity
