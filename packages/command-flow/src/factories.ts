@@ -119,6 +119,9 @@ export interface DualUseCommandEventType<
 /**
  * Create a dual use factory of `CommandEvent`.
  *
+ * A dual use factory supports both function and constructor calls to create objects.
+ * It can be regarded as a class constructor that also supports regular function calls for convenience.
+ *
  * @param name The name of the factory (useful for debugging).
  * @param $source The type container of the source command.
  * @param $payload The type container of the payload.
