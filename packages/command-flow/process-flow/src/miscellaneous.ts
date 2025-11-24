@@ -7,6 +7,35 @@ import {
 import { Process } from './core';
 import { ProcessCompleted, ProcessFailed, ProcessStarted } from './events';
 
+/**
+ * Creates a set of pseudo event types for a specific `Process` type.
+ *
+ * A pseudo type is an object that supports the `instanceof` operator,
+ * so that it can be used for type guarding and filtering.
+ *
+ * The following pseudo event types are returned:
+ * - `Started`: Filters `ProcessStarted` events whose source is
+ *    an instance of the given `Process` type.
+ * - `Completed`: Filters `ProcessCompleted` events whose source is
+ *    an instance of the given `Process` type.
+ * - `Failed`: Filters `ProcessFailed` events whose source is
+ *    an instance of the given `Process` type.
+ *
+ * @param type The `Process` type.
+ * @returns An object containing the pseudo event types.
+ *
+ * @example
+ * ```ts
+ * const { Started, Completed, Failed } = createPseudoProcessEventTypes(Login);
+ * events$.pipe(
+ *   pickType(Completed),
+ * ).subscribe(event => {
+ *   console.log(event instanceof ProcessCompleted); // true
+ *   console.log(event instanceof Completed); // true
+ *   console.log(event[COMMAND_EVENT_META].source instanceof Login); // true
+ * })
+ * ```
+ */
 export function createPseudoProcessEventTypes<P extends Process<any>>(
   type: Type<P>,
 ): {

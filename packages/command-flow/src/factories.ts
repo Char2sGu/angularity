@@ -36,7 +36,6 @@ export interface DualUseFactory<F extends (...args: any[]) => object> {
  *
  * @param name The name of the factory (useful for debugging).
  * @param fn The factory function.
- * @returns The dual use factory.
  *
  * @example
  * ```ts
