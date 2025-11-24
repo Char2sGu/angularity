@@ -14,6 +14,42 @@ import { Query } from './core';
 import { QueryErrored, QueryResolved } from './events';
 import { QueryResultOf as ResultOf } from './shared';
 
+/**
+ * Creates a function in the current injection context for a specific `Query` type.
+ *
+ * On each call, the function dispatches a `Query` with the given payload and returns
+ * an observable that emits the query values and emits the query error if any.
+ * The observable is shared and will replay the last value.
+ *
+ * A query initiated by the function will be disposed when the current
+ * injection context is destroyed, by dispatching a `DisposeQuery` command
+ * targetting the query instance.
+ *
+ * @example
+ * ```ts
+ * const QueryUser = createQueryType(
+ *   'QueryUser',
+ *   $type<{ id: string }>(),
+ *   $type<{ user: User }>(),
+ * );
+ * ```
+ * ```ts
+ * class MyComponent {
+ *   #queryUser = useQuery(QueryUser);
+ *
+ *   #user$ = this.#queryUser({ id: '1' });
+ *   readonly user = toSignal(this.#user$);
+ *
+ *   ngOnInit() {
+ *     this.#user$.subscribe({
+ *       next: ({ user }) => console.log(user),
+ *       error: (error) => console.error(error),
+ *       complete: () => console.log('done'),
+ *     });
+ *   }
+ * }
+ * ```
+ */
 export const useQuery =
   <T extends Type<Query<any>>>(
     type: T,
@@ -44,6 +80,48 @@ export const useQuery =
     );
   };
 
+/**
+ * Creates a signal in the current injection context whose value is `true`
+ * only if some queries of the given type are pending, which means they have
+ * been started but have not yet resolved or errored. The signal is initialized
+ * to `true`.
+ *
+ * Only the queries started after the signal is created are monitored.
+ *
+ * A selector function can be optionally provided to further narrow down which
+ * specific queries of the given type are monitored.
+ *
+ * @param type The type of the query to monitor.
+ * @param selector A predicate function that takes a query instance of the
+ * given type and returns `true` only if the given query should be monitored.
+ *
+ * @example
+ * ```ts
+ * const QueryUser = createQueryType(
+ *   'QueryUser',
+ *   $type<{ id: string }>(),
+ *   $type<{ user: User }>(),
+ * );
+ * ```
+ * ```ts
+ * class MyComponent {
+ *   #queryUser = useQuery(QueryUser);
+ *   #queryUserLoading = useQueryLoading(QueryUser);
+ *
+ *   #user$ = this.#queryUser({ id: '1' });
+ *   readonly user = toSignal(this.#user$);
+ *
+ *   readonly loading = this.#queryUserLoading();
+ * }
+ * ```
+ * ```html
+ * \@if (loading()) {
+ *   <div>Loading...</div>
+ * } \@else {
+ *   <user-profile [user]="user()" />
+ * }
+ * ```
+ */
 export const useQueryLoading = <T extends Type<Query<any>>>(
   type: T,
   selector: (instance: InstanceType<T>) => boolean = () => true,

@@ -18,6 +18,7 @@ export interface CommandMetadata {}
  * @remarks
  * This class:
  * - cannot be extended
+ * - cannot be instantiated
  * - can be used as an interface
  * - can be used as a provider token
  * - supports the `instanceof` operator and returns `true` for any object

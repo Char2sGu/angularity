@@ -24,7 +24,7 @@ import { ProcessResultOf as ResultOf } from './shared';
 /**
  * Creates a function in the current injection context for a specific `Process` type.
  *
- * On each call, the function dispatches the process with the given payload and returns
+ * On each call, the function dispatches a `Process` with the given payload and returns
  * a promise that either resolves to the process result or rejects with the process error.
  *
  * @example

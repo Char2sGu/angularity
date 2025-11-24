@@ -13,8 +13,8 @@ export interface ProcessMetadata<Result> extends CommandMetadata {
 
 /**
  * Interface and provider token for
- * a special kind of `Command` that is associated with an async process and
- * leads to emission of the events below:
+ * a special kind of `Command` that initiates an async process and
+ * leads to emission of the following events:
  * - `ProcessStarted`
  * - `ProcessCompleted`
  * - `ProcessFailed`
@@ -22,6 +22,7 @@ export interface ProcessMetadata<Result> extends CommandMetadata {
  * @remarks
  * This class:
  * - cannot be extended
+ * - cannot be instantiated
  * - can be used as an interface
  * - can be used as a provider token
  * - supports the `instanceof` operator and returns `true` for any object
