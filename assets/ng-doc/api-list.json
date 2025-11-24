@@ -310,7 +310,7 @@
     ]
   },
   {
-    "title": "WIP forms",
+    "title": "forms",
     "items": [
       {
         "route": "/api/classes/forms/ComponentValueAccessor",
@@ -443,11 +443,6 @@
     "title": "theming",
     "items": [
       {
-        "route": "/api/functions/theming/provideTheme",
-        "type": "Function",
-        "name": "provideTheme"
-      },
-      {
         "route": "/api/interfaces/theming/VanillaBuilderConfig",
         "type": "Interface",
         "name": "VanillaBuilderConfig"
@@ -456,6 +451,11 @@
         "route": "/api/classes/theming/VanillaBuilder",
         "type": "Injectable",
         "name": "VanillaBuilder"
+      },
+      {
+        "route": "/api/functions/theming/provideTheme",
+        "type": "Function",
+        "name": "provideTheme"
       },
       {
         "route": "/api/functions/theming/createTheme",
@@ -615,7 +615,7 @@
     ]
   },
   {
-    "title": "WIP command-flow",
+    "title": "command-flow",
     "items": [
       {
         "route": "/api/classes/command-flow/CommandBus",
@@ -673,6 +673,61 @@
         "name": "useCommand"
       },
       {
+        "route": "/api/functions/command-flow/createDualUseFactory",
+        "type": "Function",
+        "name": "createDualUseFactory"
+      },
+      {
+        "route": "/api/functions/command-flow/createCommandType",
+        "type": "Function",
+        "name": "createCommandType"
+      },
+      {
+        "route": "/api/functions/command-flow/createCommandEventType",
+        "type": "Function",
+        "name": "createCommandEventType"
+      },
+      {
+        "route": "/api/type-aliases/command-flow/Extend",
+        "type": "TypeAlias",
+        "name": "Extend"
+      },
+      {
+        "route": "/api/interfaces/command-flow/DualUseFactory",
+        "type": "Interface",
+        "name": "DualUseFactory"
+      },
+      {
+        "route": "/api/interfaces/command-flow/DualUseCommandType",
+        "type": "Interface",
+        "name": "DualUseCommandType"
+      },
+      {
+        "route": "/api/interfaces/command-flow/DualUseCommandEventType",
+        "type": "Interface",
+        "name": "DualUseCommandEventType"
+      },
+      {
+        "route": "/api/functions/command-flow/createFlow",
+        "type": "Function",
+        "name": "createFlow"
+      },
+      {
+        "route": "/api/functions/command-flow/provideFlows",
+        "type": "Function",
+        "name": "provideFlows"
+      },
+      {
+        "route": "/api/interfaces/command-flow/Flow",
+        "type": "Interface",
+        "name": "Flow"
+      },
+      {
+        "route": "/api/interfaces/command-flow/FlowEffect",
+        "type": "Interface",
+        "name": "FlowEffect"
+      },
+      {
         "route": "/api/functions/command-flow/onCommand",
         "type": "Function",
         "name": "onCommand"
@@ -703,6 +758,21 @@
         "name": "registerCommandEventHandler"
       },
       {
+        "route": "/api/functions/command-flow/createPseudoType",
+        "type": "Function",
+        "name": "createPseudoType"
+      },
+      {
+        "route": "/api/functions/command-flow/extendType",
+        "type": "Function",
+        "name": "extendType"
+      },
+      {
+        "route": "/api/interfaces/command-flow/ExtendTypeContext",
+        "type": "Interface",
+        "name": "ExtendTypeContext"
+      },
+      {
         "route": "/api/classes/command-flow/CommandFlowScheduler",
         "type": "Injectable",
         "name": "CommandFlowScheduler"
@@ -725,7 +795,7 @@
     ]
   },
   {
-    "title": "WIP command-flow / process-flow",
+    "title": "command-flow / process-flow",
     "items": [
       {
         "route": "/api/interfaces/command-flow-process-flow/ProcessMetadata",
@@ -736,6 +806,11 @@
         "route": "/api/classes/command-flow-process-flow/Process",
         "type": "Class",
         "name": "Process"
+      },
+      {
+        "route": "/api/functions/command-flow-process-flow/createPseudoProcessEventTypes",
+        "type": "Function",
+        "name": "createPseudoProcessEventTypes"
       },
       {
         "route": "/api/classes/command-flow-process-flow/ProcessEvent",
@@ -773,6 +848,26 @@
         "name": "useProcessError"
       },
       {
+        "route": "/api/functions/command-flow-process-flow/createProcessType",
+        "type": "Function",
+        "name": "createProcessType"
+      },
+      {
+        "route": "/api/functions/command-flow-process-flow/createProcessEventType",
+        "type": "Function",
+        "name": "createProcessEventType"
+      },
+      {
+        "route": "/api/interfaces/command-flow-process-flow/DualUseProcessType",
+        "type": "Interface",
+        "name": "DualUseProcessType"
+      },
+      {
+        "route": "/api/interfaces/command-flow-process-flow/DualUseProcessEventType",
+        "type": "Interface",
+        "name": "DualUseProcessEventType"
+      },
+      {
         "route": "/api/functions/command-flow-process-flow/onProcess",
         "type": "Function",
         "name": "onProcess"
@@ -800,7 +895,7 @@
     ]
   },
   {
-    "title": "WIP command-flow / query-flow",
+    "title": "command-flow / query-flow",
     "items": [
       {
         "route": "/api/classes/command-flow-query-flow/DisposeQuery",
@@ -816,6 +911,11 @@
         "route": "/api/classes/command-flow-query-flow/Query",
         "type": "Class",
         "name": "Query"
+      },
+      {
+        "route": "/api/functions/command-flow-query-flow/createPseudoQueryEventTypes",
+        "type": "Function",
+        "name": "createPseudoQueryEventTypes"
       },
       {
         "route": "/api/classes/command-flow-query-flow/QueryEvent",
@@ -853,6 +953,26 @@
         "name": "useQueryLoading"
       },
       {
+        "route": "/api/functions/command-flow-query-flow/createQueryType",
+        "type": "Function",
+        "name": "createQueryType"
+      },
+      {
+        "route": "/api/functions/command-flow-query-flow/createQueryEventType",
+        "type": "Function",
+        "name": "createQueryEventType"
+      },
+      {
+        "route": "/api/interfaces/command-flow-query-flow/DualUseQueryType",
+        "type": "Interface",
+        "name": "DualUseQueryType"
+      },
+      {
+        "route": "/api/interfaces/command-flow-query-flow/DualUseQueryEventType",
+        "type": "Interface",
+        "name": "DualUseQueryEventType"
+      },
+      {
         "route": "/api/functions/command-flow-query-flow/onQuery",
         "type": "Function",
         "name": "onQuery"
@@ -875,7 +995,7 @@
     ]
   },
   {
-    "title": "WIP command-flow / effects",
+    "title": "command-flow / effects",
     "items": [
       {
         "route": "/api/functions/command-flow-effects/provideEffects",
@@ -890,7 +1010,7 @@
     ]
   },
   {
-    "title": "WIP command-flow / debugger",
+    "title": "command-flow / debugger",
     "items": [
       {
         "route": "/api/functions/command-flow-debugger/provideCommandFlowDebugger",
@@ -1033,9 +1153,19 @@
         "name": "useConfigFile"
       },
       {
-        "route": "/api/variables/config-files/httpServerCacheConfigFilesInterceptor",
+        "route": "/api/variables/config-files/defineConfigFileMetadata",
         "type": "Variable",
-        "name": "httpServerCacheConfigFilesInterceptor"
+        "name": "defineConfigFileMetadata"
+      },
+      {
+        "route": "/api/classes/config-files/ConfigFileLoader",
+        "type": "Injectable",
+        "name": "ConfigFileLoader"
+      },
+      {
+        "route": "/api/classes/config-files/ConfigFileNotFoundException",
+        "type": "Class",
+        "name": "ConfigFileNotFoundException"
       },
       {
         "route": "/api/interfaces/config-files/ConfigFileRequestContext",
@@ -1053,14 +1183,9 @@
         "name": "HttpClientConfigFileLoader"
       },
       {
-        "route": "/api/classes/config-files/ConfigFileLoader",
-        "type": "Injectable",
-        "name": "ConfigFileLoader"
-      },
-      {
-        "route": "/api/classes/config-files/ConfigFileNotFoundException",
-        "type": "Class",
-        "name": "ConfigFileNotFoundException"
+        "route": "/api/variables/config-files/httpServerCacheConfigFilesInterceptor",
+        "type": "Variable",
+        "name": "httpServerCacheConfigFilesInterceptor"
       },
       {
         "route": "/api/interfaces/config-files/ConfigFileParser",
@@ -1081,11 +1206,6 @@
         "route": "/api/classes/config-files/JsonParser",
         "type": "Injectable",
         "name": "JsonParser"
-      },
-      {
-        "route": "/api/variables/config-files/defineConfigFileMetadata",
-        "type": "Variable",
-        "name": "defineConfigFileMetadata"
       },
       {
         "route": "/api/interfaces/config-files/ConfigFileValidator",
