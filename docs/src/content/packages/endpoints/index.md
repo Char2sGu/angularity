@@ -9,22 +9,22 @@ npm i @angularity/{core,endpoints}
 Top-level:
 
 - `generateEndpoint`
-  {{ JSDoc.description("packages/endpoints/src/public-api.ts#generateEndpoint") }}
+  {{ JSDoc.description("packages/endpoints/src/index.ts#generateEndpoint") }}
 - `generateEndpoints`
-  {{ JSDoc.description("packages/endpoints/src/public-api.ts#generateEndpoints") }}
+  {{ JSDoc.description("packages/endpoints/src/index.ts#generateEndpoints") }}
 - `useEndpoints`
-  {{ JSDoc.description("packages/endpoints/src/public-api.ts#useEndpoints") }}
+  {{ JSDoc.description("packages/endpoints/src/index.ts#useEndpoints") }}
 
 Services:
 
 - `EndpointInvoker`
-  {{ JSDoc.description("packages/endpoints/src/public-api.ts#EndpointInvoker") }}
+  {{ JSDoc.description("packages/endpoints/src/index.ts#EndpointInvoker") }}
 - `HttpClientEndpointInvoker`
-  {{ JSDoc.description("packages/endpoints/src/public-api.ts#HttpClientEndpointInvoker") }}
+  {{ JSDoc.description("packages/endpoints/src/index.ts#HttpClientEndpointInvoker") }}
 
 Behaviors:
 
 - `PrefixEndpointPath`
-  {{ JSDoc.description("packages/endpoints/src/public-api.ts#PrefixEndpointPath") }}
+  {{ JSDoc.description("packages/endpoints/src/index.ts#PrefixEndpointPath") }}
 - `CacheEndpointResponse`
-  {{ JSDoc.description("packages/endpoints/src/public-api.ts#CacheEndpointResponse") }}
+  {{ JSDoc.description("packages/endpoints/src/index.ts#CacheEndpointResponse") }}

@@ -24,10 +24,10 @@ export class AglSwitch extends SimpleComponentValueAccessorHost<boolean> {
 Top-level:
 
 - `provideComponentValueAccessor`
-  {{ JSDoc.description("packages/forms/src/public-api.ts#provideComponentValueAccessor") }}
+  {{ JSDoc.description("packages/forms/src/index.ts#provideComponentValueAccessor") }}
 - `ComponentValueAccessorHost`
-  {{ JSDoc.description("packages/forms/src/public-api.ts#ComponentValueAccessorHost") }}
+  {{ JSDoc.description("packages/forms/src/index.ts#ComponentValueAccessorHost") }}
 - `SimpleComponentValueAccessorHost`
-  {{ JSDoc.description("packages/forms/src/public-api.ts#SimpleComponentValueAccessorHost") }}
+  {{ JSDoc.description("packages/forms/src/index.ts#SimpleComponentValueAccessorHost") }}
 - `ComponentValueAccessor`
-  {{ JSDoc.description("packages/forms/src/public-api.ts#ComponentValueAccessor") }}
+  {{ JSDoc.description("packages/forms/src/index.ts#ComponentValueAccessor") }}

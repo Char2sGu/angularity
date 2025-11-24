@@ -7,4 +7,4 @@ npm i @angular/elements @angularity/{core,elements}
 ### Exported from `@angularity/elements`
 
 - `provideElements`
-  {{ JSDoc.description("packages/elements/src/public-api.ts#provideElements") }}
+  {{ JSDoc.description("packages/elements/src/index.ts#provideElements") }}

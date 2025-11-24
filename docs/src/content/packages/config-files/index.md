@@ -12,31 +12,31 @@ npm i @angularity/{core,config-files}
 Top-level:
 
 - `defineConfigFile`
-  {{ JSDoc.description("packages/config-files/src/public-api.ts#defineConfigFile") }}
+  {{ JSDoc.description("packages/config-files/src/index.ts#defineConfigFile") }}
 - `useConfigFile`
-  {{ JSDoc.description("packages/config-files/src/public-api.ts#useConfigFile") }}
+  {{ JSDoc.description("packages/config-files/src/index.ts#useConfigFile") }}
 
 Services:
 
 - `ConfigFileLoader`
-  {{ JSDoc.description("packages/config-files/src/public-api.ts#ConfigFileLoader") }}
+  {{ JSDoc.description("packages/config-files/src/index.ts#ConfigFileLoader") }}
 - `ConfigFileParser`
-  {{ JSDoc.description("packages/config-files/src/public-api.ts#ConfigFileParser") }}
+  {{ JSDoc.description("packages/config-files/src/index.ts#ConfigFileParser") }}
 - `ConfigFileValidator`
-  {{ JSDoc.description("packages/config-files/src/public-api.ts#ConfigFileValidator") }}
+  {{ JSDoc.description("packages/config-files/src/index.ts#ConfigFileValidator") }}
 
 Implementations:
 
 - `TextParser`
-  {{ JSDoc.description("packages/config-files/src/public-api.ts#TextParser") }}
+  {{ JSDoc.description("packages/config-files/src/index.ts#TextParser") }}
 - `JsonParser`
-  {{ JSDoc.description("packages/config-files/src/public-api.ts#JsonParser") }}
+  {{ JSDoc.description("packages/config-files/src/index.ts#JsonParser") }}
 - `NoopValidator`
-  {{ JSDoc.description("packages/config-files/src/public-api.ts#NoopValidator") }}
+  {{ JSDoc.description("packages/config-files/src/index.ts#NoopValidator") }}
 
 Caching:
 
 - `CacheConfigFiles`
-  {{ JSDoc.description("packages/config-files/src/public-api.ts#CacheConfigFiles") }}
+  {{ JSDoc.description("packages/config-files/src/index.ts#CacheConfigFiles") }}
 - `httpServerCacheConfigFilesInterceptor`
-  {{ JSDoc.description("packages/config-files/src/public-api.ts#httpServerCacheConfigFilesInterceptor") }}
+  {{ JSDoc.description("packages/config-files/src/index.ts#httpServerCacheConfigFilesInterceptor") }}

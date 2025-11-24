@@ -1,50 +1,23 @@
 {
+  "extends": "./tsconfig.build.json",
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "ES2022",
-    "moduleResolution": "bundler",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "baseUrl": "./",
-    "strict": true,
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-    "esModuleInterop": true,
-    "importHelpers": true,
-    "skipLibCheck": true,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "noImplicitReturns": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@angularity/cdk": ["./dist/cdk"],
-      "@angularity/cdk/*": ["./dist/cdk/*"],
-      "@angularity/command-flow": ["./dist/command-flow"],
-      "@angularity/command-flow/*": ["./dist/command-flow/*"],
-      "@angularity/config-files": ["./dist/config-files"],
-      "@angularity/core": ["./dist/core"],
-      "@angularity/core/*": ["./dist/core/*"],
-      "@angularity/elements": ["./dist/elements"],
-      "@angularity/endpoints": ["./dist/endpoints"],
-      "@angularity/fire": ["./dist/fire"],
-      "@angularity/forms": ["./dist/forms"],
-      "@angularity/router": ["./dist/router"],
-      "@angularity/theming": ["./dist/theming"],
-      "@angularity/theming-material": ["./dist/theming-material"],
+      "@angularity/cdk": ["./packages/cdk/src"],
+      "@angularity/cdk/*": ["./packages/cdk/*/src"],
+      "@angularity/command-flow": ["./packages/command-flow/src"],
+      "@angularity/command-flow/*": ["./packages/command-flow/*/src"],
+      "@angularity/config-files": ["./packages/config-files/src"],
+      "@angularity/core": ["./packages/core/src"],
+      "@angularity/core/*": ["./packages/core/*/src"],
+      "@angularity/elements": ["./packages/elements/src"],
+      "@angularity/endpoints": ["./packages/endpoints/src"],
+      "@angularity/fire": ["./packages/fire/src"],
+      "@angularity/forms": ["./packages/forms/src"],
+      "@angularity/router": ["./packages/router/src"],
+      "@angularity/theming": ["./packages/theming/src"],
+      "@angularity/theming-material": ["./packages/theming-material/src"],
       "@ng-doc/generated/*": ["./ng-doc/*"],
-      "ngx-view-transition": ["./dist/ngx-view-transition"]
-    },
-    "useDefineForClassFields": false,
-    "typeRoots": ["node_modules/@types", "node_modules/@angular/core"]
-  },
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
-  },
-  "include": ["packages", "docs"]
+      "ngx-view-transition": ["./packages/ngx-view-transition/src"]
+    }
+  }
 }

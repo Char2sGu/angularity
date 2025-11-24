@@ -9,20 +9,20 @@ npm i @angular/router @angularity/{core,router}
 Component Utilities:
 
 - `linkedQueryParam`
-  {{ JSDoc.description("packages/router/src/public-api.ts#linkedQueryParam") }}
+  {{ JSDoc.description("packages/router/src/index.ts#linkedQueryParam") }}
 
 General Utilities:
 
 - `useChildActivatedRoute`
-  {{ JSDoc.description("packages/router/src/public-api.ts#useChildActivatedRoute") }}
+  {{ JSDoc.description("packages/router/src/index.ts#useChildActivatedRoute") }}
 - `setupInjectionContextForLoadChildren`
-  {{ JSDoc.description("packages/router/src/public-api.ts#setupInjectionContextForLoadChildren") }}
+  {{ JSDoc.description("packages/router/src/index.ts#setupInjectionContextForLoadChildren") }}
 
 Route Data:
 
 - `RouteDataToken`
-  {{ JSDoc.description("packages/router/src/public-api.ts#RouteDataToken") }}
+  {{ JSDoc.description("packages/router/src/index.ts#RouteDataToken") }}
 - `defineRouteData`
-  {{ JSDoc.description("packages/router/src/public-api.ts#defineRouteData") }}
+  {{ JSDoc.description("packages/router/src/index.ts#defineRouteData") }}
 - `useRouteData`
-  {{ JSDoc.description("packages/router/src/public-api.ts#useRouteData") }}
+  {{ JSDoc.description("packages/router/src/index.ts#useRouteData") }}

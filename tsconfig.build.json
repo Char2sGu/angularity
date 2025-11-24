@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "baseUrl": "./",
+    "strict": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "noImplicitReturns": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": false,
+    "typeRoots": ["node_modules/@types", "node_modules/@angular/core"],
+    "paths": {
+      "@angularity/cdk": ["./dist/cdk"],
+      "@angularity/cdk/*": ["./dist/cdk/*"],
+      "@angularity/command-flow": ["./dist/command-flow"],
+      "@angularity/command-flow/*": ["./dist/command-flow/*"],
+      "@angularity/config-files": ["./dist/config-files"],
+      "@angularity/core": ["./dist/core"],
+      "@angularity/core/*": ["./dist/core/*"],
+      "@angularity/elements": ["./dist/elements"],
+      "@angularity/endpoints": ["./dist/endpoints"],
+      "@angularity/fire": ["./dist/fire"],
+      "@angularity/forms": ["./dist/forms"],
+      "@angularity/router": ["./dist/router"],
+      "@angularity/theming": ["./dist/theming"],
+      "@angularity/theming-material": ["./dist/theming-material"],
+      "@ng-doc/generated/*": ["./ng-doc/*"],
+      "ngx-view-transition": ["./dist/ngx-view-transition"]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
+  "include": ["packages", "docs"]
+}

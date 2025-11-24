@@ -9,18 +9,18 @@ npm i @angularity/core
 Dependency Injection Utilities:
 
 - `provide`
-  {{ JSDoc.description("packages/core/src/public-api.ts#provide") }}
+  {{ JSDoc.description("packages/core/src/index.ts#provide") }}
 - `provideMulti`
-  {{ JSDoc.description("packages/core/src/public-api.ts#provideMulti") }}
+  {{ JSDoc.description("packages/core/src/index.ts#provideMulti") }}
 - `injectRef`
-  {{ JSDoc.description("packages/core/src/public-api.ts#injectRef") }}
+  {{ JSDoc.description("packages/core/src/index.ts#injectRef") }}
 - `injectLazy`
-  {{ JSDoc.description("packages/core/src/public-api.ts#injectLazy") }}
+  {{ JSDoc.description("packages/core/src/index.ts#injectLazy") }}
 
 Error Handling:
 
 - `Exception`
-  {{ JSDoc.description("packages/core/src/public-api.ts#Exception") }}
+  {{ JSDoc.description("packages/core/src/index.ts#Exception") }}
 
 Type Gymnastics:
 
@@ -32,22 +32,22 @@ Type Gymnastics:
 HTTP Utilities:
 
 - `intercept`
-  {{ JSDoc.description("packages/core/http/src/public-api.ts#intercept") }}
+  {{ JSDoc.description("packages/core/http/src/index.ts#intercept") }}
 - `provideHttpServerCache`
-  {{ JSDoc.description("packages/core/http/src/public-api.ts#provideHttpServerCache") }}
+  {{ JSDoc.description("packages/core/http/src/index.ts#provideHttpServerCache") }}
 
 ### Exported from `@angularity/core/rxjs`
 
 RxJS Interoperability:
 
 - `ObservableSignal`
-  {{ JSDoc.description("packages/core/rxjs/src/public-api.ts#ObservableSignal") }}
+  {{ JSDoc.description("packages/core/rxjs/src/index.ts#ObservableSignal") }}
 - `toObservableSignal`
-  {{ JSDoc.description("packages/core/rxjs/src/public-api.ts#toObservableSignal") }}
+  {{ JSDoc.description("packages/core/rxjs/src/index.ts#toObservableSignal") }}
 
 RxJS Operators:
 
 - `mapToVoid`
-  {{ JSDoc.description("packages/core/rxjs/src/public-api.ts#mapToVoid") }}
+  {{ JSDoc.description("packages/core/rxjs/src/index.ts#mapToVoid") }}
 - `pickType`
-  {{ JSDoc.description("packages/core/rxjs/src/public-api.ts#pickType") }}
+  {{ JSDoc.description("packages/core/rxjs/src/index.ts#pickType") }}

@@ -9,24 +9,24 @@ npm i @angularity/{core,theming}
 Top-level:
 
 - `provideTheme`
-  {{ JSDoc.description("packages/theming/src/public-api.ts#provideTheme") }}
+  {{ JSDoc.description("packages/theming/src/index.ts#provideTheme") }}
 - `createTheme`
-  {{ JSDoc.description("packages/theming/src/public-api.ts#createTheme") }}
+  {{ JSDoc.description("packages/theming/src/index.ts#createTheme") }}
 - `scheduleTokenBuild`
-  {{ JSDoc.description("packages/theming/src/public-api.ts#scheduleTokenBuild") }}
+  {{ JSDoc.description("packages/theming/src/index.ts#scheduleTokenBuild") }}
 
 Fundamentals:
 
 - `TokenBuilder`
-  {{ JSDoc.description("packages/theming/src/public-api.ts#TokenBuilder") }}
+  {{ JSDoc.description("packages/theming/src/index.ts#TokenBuilder") }}
 - `ThemeTokenRegistry`
-  {{ JSDoc.description("packages/theming/src/public-api.ts#ThemeTokenRegistry") }}
+  {{ JSDoc.description("packages/theming/src/index.ts#ThemeTokenRegistry") }}
 
 Implementations:
 
 - `VanillaBuilder`
-  {{ JSDoc.description("packages/theming/src/public-api.ts#VanillaBuilder") }}
+  {{ JSDoc.description("packages/theming/src/index.ts#VanillaBuilder") }}
 - `InMemoryThemeTokenRegistry`
-  {{ JSDoc.description("packages/theming/src/public-api.ts#InMemoryThemeTokenRegistry") }}
+  {{ JSDoc.description("packages/theming/src/index.ts#InMemoryThemeTokenRegistry") }}
 - `WriteTokensToRootCssVariables`
-  {{ JSDoc.description("packages/theming/src/public-api.ts#WriteTokensToRootCssVariables") }}
+  {{ JSDoc.description("packages/theming/src/index.ts#WriteTokensToRootCssVariables") }}

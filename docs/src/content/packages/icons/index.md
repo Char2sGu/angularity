@@ -9,6 +9,6 @@ npm i @angularity/{core,icons}
 Top-level:
 
 - `provideIcons`
-  {{ JSDoc.description("packages/icons/src/public-api.ts#provideIcons") }}
+  {{ JSDoc.description("packages/icons/src/index.ts#provideIcons") }}
 - `AglIcon`
-  {{ JSDoc.description("packages/icons/src/public-api.ts#AglIcon") }}
+  {{ JSDoc.description("packages/icons/src/index.ts#AglIcon") }}

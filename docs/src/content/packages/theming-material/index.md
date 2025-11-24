@@ -12,17 +12,17 @@ npm i @angularity/{core,theming,theming-material}
 Builders:
 
 - `SchemeBuilder`
-  {{ JSDoc.description("packages/theming-material/src/public-api.ts#SchemeBuilder") }}
+  {{ JSDoc.description("packages/theming-material/src/index.ts#SchemeBuilder") }}
 - `SchemeStaticColorBuilder`
-  {{ JSDoc.description("packages/theming-material/src/public-api.ts#SchemeStaticColorBuilder") }}
+  {{ JSDoc.description("packages/theming-material/src/index.ts#SchemeStaticColorBuilder") }}
 - `TypescaleBuilder`
-  {{ JSDoc.description("packages/theming-material/src/public-api.ts#TypescaleBuilder") }}
+  {{ JSDoc.description("packages/theming-material/src/index.ts#TypescaleBuilder") }}
 - `StandardTypescaleBuilder`
-  {{ JSDoc.description("packages/theming-material/src/public-api.ts#StandardTypescaleBuilder") }}
+  {{ JSDoc.description("packages/theming-material/src/index.ts#StandardTypescaleBuilder") }}
 
 Utilities:
 
 - `HctFormatter`
-  {{ JSDoc.description("packages/theming-material/src/public-api.ts#HctFormatter") }}
+  {{ JSDoc.description("packages/theming-material/src/index.ts#HctFormatter") }}
 - `ImageSeedColorExtractor`
-  {{ JSDoc.description("packages/theming-material/src/public-api.ts#ImageSeedColorExtractor") }}
+  {{ JSDoc.description("packages/theming-material/src/index.ts#ImageSeedColorExtractor") }}
