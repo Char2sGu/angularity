@@ -1,6 +1,6 @@
 {
   "name": "@angularity/router",
-  "version": "20.0.0",
+  "version": "20.1.0",
   "sideEffects": false,
   "description": "utilities and abstractions over Angular Router",
   "peerDependencies": {

@@ -1,13 +1,13 @@
 {
   "name": "@angularity/elements",
-  "version": "20.0.0",
+  "version": "20.1.0",
   "sideEffects": false,
   "description": "convenience abstractions for Angular Elements",
   "peerDependencies": {
     "@angular/common": ">=19",
     "@angular/core": ">=19",
     "@angular/elements": ">=19",
-    "@angularity/core": "20.0.0"
+    "@angularity/core": "20.1.0"
   },
   "dependencies": {
     "tslib": "2.x.x"

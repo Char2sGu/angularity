@@ -1,3 +1,22 @@
+## 20.1.0 (2025-11-24)
+
+### 🚀 Features
+
+- **command-flow:** merge /utilities entries into the main entries ([a37714d](https://github.com/TheNightmareX/angularly/commit/a37714d))
+- **command-flow:** introduce Flow API to replace Effects ([0cc8e35](https://github.com/TheNightmareX/angularly/commit/0cc8e35))
+
+### 🩹 Fixes
+
+- **icons:** fix too strict peer deps ([08647ec](https://github.com/TheNightmareX/angularly/commit/08647ec))
+
+### 🔥 Performance
+
+- **command-flow:** remove dependency on ts-pattern ([cbb45ae](https://github.com/TheNightmareX/angularly/commit/cbb45ae))
+
+### ❤️ Thank You
+
+- Char2s
+
 # 20.0.0 (2025-10-03)
 
 ### 🚀 Features

@@ -1,6 +1,6 @@
 {
   "name": "ngx-view-transition",
-  "version": "20.0.0",
+  "version": "20.1.0",
   "sideEffects": false,
   "description": "Angular directives for declaring view transition anchors",
   "peerDependencies": {
