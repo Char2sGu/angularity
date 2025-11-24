@@ -10,7 +10,7 @@ import {
   makeEnvironmentProviders,
   REQUEST_CONTEXT,
 } from '@angular/core';
-// eslint-disable-next-line import/no-extraneous-dependencies -- false warning: this is a subpackage of @angular/core
+// eslint-disable-next-line import-x/no-extraneous-dependencies -- false warning: this is a subpackage of @angular/core
 import { provideMulti } from '@angularity/core';
 import { Observable, shareReplay } from 'rxjs';
 

@@ -1,4 +1,3 @@
-/* eslint-disable import/namespace */
 import * as upstream from 'type-container';
 
 /**

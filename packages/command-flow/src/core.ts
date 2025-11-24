@@ -6,6 +6,7 @@ export const COMMAND_META = Symbol('COMMAND_META');
 /**
  * Metadata of a `Command`.
  */
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface CommandMetadata {}
 
 /**
