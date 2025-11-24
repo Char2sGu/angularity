@@ -7,9 +7,8 @@
     "@angular/common": ">=19",
     "@angular/core": ">=19",
     "@angularity/command-flow": "*",
-    "@angularity/core": "20.0.0",
-    "rxjs": ">=7",
-    "ts-pattern": ">=5"
+    "@angularity/core": "*",
+    "rxjs": ">=7"
   },
   "dependencies": {
     "tslib": "2.x.x"

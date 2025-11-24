@@ -7,10 +7,12 @@ import {
   from,
   mergeMap,
   Observable,
+  ObservableInput,
+  ObservedValueOf,
+  OperatorFunction,
   pipe,
   switchMap,
 } from 'rxjs';
-import { match } from 'ts-pattern';
 
 import { Process } from './core';
 import {
@@ -69,6 +71,18 @@ export enum ProcessSchedulingStrategy {
   Blocking,
 }
 
+const SCHEDULERS: Record<
+  ProcessSchedulingStrategy,
+  <T, O extends ObservableInput<any>>(
+    project: (value: T) => O,
+  ) => OperatorFunction<T, ObservedValueOf<O>>
+> = {
+  [ProcessSchedulingStrategy.Sequential]: concatMap,
+  [ProcessSchedulingStrategy.Concurrent]: mergeMap,
+  [ProcessSchedulingStrategy.Preemptive]: switchMap,
+  [ProcessSchedulingStrategy.Blocking]: exhaustMap,
+};
+
 /**
  * Register a `ProcessHandler` for some types of processes
  * within the current injection context.
@@ -120,12 +134,8 @@ export function onProcess<Types extends Type<Process<any>>[]>(
 ): void {
   const injector = inject(Injector);
 
-  const scheduler = match(scheduling)
-    .with(ProcessSchedulingStrategy.Sequential, () => concatMap)
-    .with(ProcessSchedulingStrategy.Concurrent, () => mergeMap)
-    .with(ProcessSchedulingStrategy.Preemptive, () => switchMap)
-    .with(ProcessSchedulingStrategy.Blocking, () => exhaustMap)
-    .run();
+  const scheduler = SCHEDULERS[scheduling];
+  if (!scheduler) throw new Error(`Invalid scheduling strategy: ${scheduling}`);
 
   onCommand(
     types,
