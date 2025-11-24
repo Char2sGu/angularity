@@ -1,7 +1,10 @@
-import { COMMAND_EVENT_META, COMMAND_META,
+import {
+  COMMAND_EVENT_META,
+  COMMAND_META,
   createDualUseFactory,
   DualUseFactory,
-  Extend } from '@angularity/command-flow';
+  Extend,
+} from '@angularity/command-flow';
 import { TypeContainer } from '@angularity/core';
 
 import { Query } from './core';

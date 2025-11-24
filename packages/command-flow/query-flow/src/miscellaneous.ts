@@ -1,5 +1,8 @@
 import { Type } from '@angular/core';
-import { COMMAND_EVENT_META as META, createPseudoType  } from '@angularity/command-flow';
+import {
+  COMMAND_EVENT_META as META,
+  createPseudoType,
+} from '@angularity/command-flow';
 
 import { Query } from './core';
 import {
