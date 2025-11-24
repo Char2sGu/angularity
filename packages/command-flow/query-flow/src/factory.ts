@@ -1,11 +1,11 @@
-import { COMMAND_EVENT_META, COMMAND_META } from '@angularity/command-flow';
-import { Query, QueryEvent } from '@angularity/command-flow/query-flow';
-import {
+import { COMMAND_EVENT_META, COMMAND_META,
   createDualUseFactory,
   DualUseFactory,
-  Extend,
-} from '@angularity/command-flow/utilities';
+  Extend } from '@angularity/command-flow';
 import { TypeContainer } from '@angularity/core';
+
+import { Query } from './core';
+import { QueryEvent } from './events';
 
 export interface DualUseQueryType<Payload extends object | void, Result>
   extends DualUseFactory<

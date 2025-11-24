@@ -1,13 +1,13 @@
 import { Type } from '@angular/core';
-import { COMMAND_EVENT_META as META } from '@angularity/command-flow';
+import { COMMAND_EVENT_META as META, createPseudoType  } from '@angularity/command-flow';
+
+import { Query } from './core';
 import {
-  Query,
   QueryActivated,
   QueryErrored,
   QueryInactivated,
   QueryResolved,
-} from '@angularity/command-flow/query-flow';
-import { createPseudoType } from '@angularity/command-flow/utilities';
+} from './events';
 
 export function createPseudoQueryEventTypes<Q extends Query<any>>(
   type: Type<Q>,

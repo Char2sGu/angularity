@@ -1,11 +1,11 @@
-import { COMMAND_EVENT_META, COMMAND_META } from '@angularity/command-flow';
-import { Process, ProcessEvent } from '@angularity/command-flow/process-flow';
-import {
+import { COMMAND_EVENT_META, COMMAND_META,
   createDualUseFactory,
   DualUseFactory,
-  Extend,
-} from '@angularity/command-flow/utilities';
+  Extend } from '@angularity/command-flow';
 import { TypeContainer } from '@angularity/core';
+
+import { Process } from './core';
+import { ProcessEvent } from './events';
 
 export interface DualUseProcessType<Payload extends object | void, Result>
   extends DualUseFactory<

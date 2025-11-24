@@ -1,10 +1,11 @@
+import { TypeContainer } from '@angularity/core';
+
 import {
   Command,
   COMMAND_EVENT_META,
   COMMAND_META,
   CommandEvent,
-} from '@angularity/command-flow';
-import { TypeContainer } from '@angularity/core';
+} from './core';
 
 /**
  * Type function that extends an object with properties from another object or `void`.

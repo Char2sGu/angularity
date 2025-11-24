@@ -1,12 +1,8 @@
 import { Type } from '@angular/core';
-import { COMMAND_EVENT_META as META } from '@angularity/command-flow';
-import {
-  Process,
-  ProcessCompleted,
-  ProcessFailed,
-  ProcessStarted,
-} from '@angularity/command-flow/process-flow';
-import { createPseudoType } from '@angularity/command-flow/utilities';
+import { COMMAND_EVENT_META as META, createPseudoType  } from '@angularity/command-flow';
+
+import { Process } from './core';
+import { ProcessCompleted, ProcessFailed,ProcessStarted } from './events';
 
 export function createPseudoProcessEventTypes<P extends Process<any>>(
   type: Type<P>,
