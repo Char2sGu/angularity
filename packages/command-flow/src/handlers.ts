@@ -8,35 +8,39 @@ import { Command, CommandEvent } from './core';
 import { CommandFlowScheduler } from './scheduler';
 
 /**
- * Handler for `Command`s that
- * consume commands and optionally produce events.
+ * Handler function for specific `Command` types that accepts a stream of
+ * `Command`s of those types and returns a stream of void or `CommandEvent`s.
  *
- * It can be regarded as a RxJS operator that
- * transforms a command into a `CommandEvent` or `void`.
- * - when a `CommandEvent` is emitted, the event will be published
- * - when a `void` is emitted, nothing will happen
+ * It satisfies the signature of RxJS operators and can be regarded as a mapping operator
+ * that maps a `Command` into one or many `CommandEvent`s or `void`.
+ * - When a `CommandEvent` is emitted, the event will be published on the `CommandEventBus`.
+ *   It means that some events occurred as a result of the command.
+ * - When a `void` is emitted, nothing will happen.
+ *   It means that the command was processed, but no events occurred.
  *
  * @example
- * The built-in RxJS operator `map` is the simplest form of a command handler.
- *  ```typescript
- *  const handler: CommandHandler<SomeCommand> = map((command) => {
- *    const event = new SomeCommandEvent(command);
+ * The RxJS `map` operator is a powerful command handler.
+ *  ```ts
+ *  const handler: CommandHandler<DoSomething> = map((command) => {
+ *    doSomething(command.foo, command.bar);
+ *    const event = new DoSomethingCompleted(command);
  *    return event;
  *  });
  *  ```
- * `map` can also be used to return `void`:
- *  ```typescript
- *  const handler: CommandHandler<SomeCommand> = map((command) => {
- *    console.log(command);
+ * `map` can map to `void` by not returning:
+ *  ```ts
+ *  const handler: CommandHandler<DoSomething> = map((command) => {
+ *    doSomething(command.foo, command.bar);
  *  });
  *  ```
  *
  * @example
- * A more complex handler can be created using the `pipe` operator:
- *  ```typescript
- *  const handler: CommandHandler<SomeCommand> = pipe(
+ * The RxJS `pipe` function allows composing multiple RxJS operators:
+ *  ```ts
+ *  const handler: CommandHandler<DoSomething> = pipe(
  *   filter((command) => someCondition(command)),
- *   map((command) => new SomeCommandEvent(command)),
+ *   tap((command) => doSomething(command.foo, command.bar)),
+ *   map((command) => new DoSomethingCompleted(command)),
  *  );
  *  ```
  */
@@ -45,20 +49,24 @@ export interface CommandHandler<C extends Command> {
 }
 
 /**
- * Register a `CommandHandler` for some types of commands.
+ * Register a `CommandHandler` for some types of commands
+ * within the current injection context.
+ *
+ * The handler will be disposed once the current injection context is destroyed.
+ *
  * @param types array of command types to listen for
- * @remarks Requires an injection context.
+ * @param handler the handler function
  *
  * @example
- * ```typescript
+ * ```ts
  *  onCommand([SomeCommand, AnotherCommand], map((command) => {
- *   console.log(command);
+ *    console.log(command);
  *  }));
  * ```
  * @example
- * ```typescript
+ * ```ts
  *  onCommand([SomeCommand, AnotherCommand], map((command) => {
- *   return new SomeEvent(command);
+ *    return new SomeEvent(command);
  *  }));
  * ```
  */
@@ -81,40 +89,45 @@ export function onCommand<Types extends Type<Command>[]>(
 }
 
 /**
+ * Alias for `onCommand`.
  * @deprecated Use `onCommand` instead.
  */
 export const registerCommandHandler = onCommand;
 
 /**
- * Handler for `CommandEvent`s that
- * consume events and optionally produce new commands.
+ * Handler function for specific `CommandEvent` types that accepts a stream of
+ * `CommandEvent`s of those types and returns a stream of `Command`s or `void`.
  *
- * It can be regarded as a RxJS operator that
- * transforms a command event into a `Command` or `void`.
- * - when a `Command` is emitted, the command will be dispatched
- * - when a `void` is emitted, nothing will happen
+ * It satisfies the signature of RxJS operators and can be regarded as a mapping operator
+ * that maps a `CommandEvent` into one or many `Command`s or `void`.
+ * - When a `Command` is emitted, the command will be dispatched on the `CommandBus`.
+ *   It means that some commands occurred as a result of the event.
+ * - When a `void` is emitted, nothing will happen.
+ *   It means that the event was processed, but no new commands should be dispatched.
  *
  * @example
- * The built-in RxJS operator `map` is the simplest form of a command event handler.
- *  ```typescript
- *  const handler: CommandEventHandler<SomeCommandEvent> = map((event) => {
- *    const command = new SomeCommand(event);
+ * The RxJS `map` operator is a powerful command event handler.
+ *  ```ts
+ *  const handler: CommandEventHandler<DoSomethingCompleted> = map((event) => {
+ *    onSomethingCompleted(event);
+ *    const command = new DoSomethingElse(event);
  *    return command;
  *  });
  *  ```
- * `map` can also be used to return `void`:
- *  ```typescript
- *  const handler: CommandEventHandler<SomeCommandEvent> = map((event) => {
- *    console.log(event);
+ * `map` can map to `void` by not returning:
+ *  ```ts
+ *  const handler: CommandEventHandler<DoSomethingCompleted> = map((event) => {
+ *    onSomethingCompleted(event);
  *  });
  *  ```
  *
  * @example
- * A more complex handler can be created using the `pipe` operator:
- *  ```typescript
- *  const handler: CommandEventHandler<SomeCommandEvent> = pipe(
+ * The RxJS `pipe` function allows composing multiple RxJS operators:
+ *  ```ts
+ *  const handler: CommandEventHandler<DoSomethingCompleted> = pipe(
  *    filter((event) => someCondition(event)),
- *    map((event) => new SomeCommand(event)),
+ *    tap((event) => onSomethingCompleted(event)),
+ *    map((event) => new DoSomethingElse(event)),
  *  );
  *  ```
  */
@@ -123,20 +136,23 @@ export interface CommandEventHandler<E extends CommandEvent> {
 }
 
 /**
- * Register a `CommandEventHandler` for some types of command events.
+ * Register a `CommandEventHandler` for some types of command events
+ * within the current injection context.
+ *
+ * The handler will be disposed once the current injection context is destroyed.
+ *
  * @param types array of command event types to listen for
- * @remarks Requires an injection context.
  *
  * @example
- *  ```typescript
- *  onEvent([SomeCommandEvent, AnotherCommandEvent], map((event) => {
+ *  ```ts
+ *  onEvent([DoSomethingCompleted, SomethingElseCompleted], map((event) => {
  *    console.log(event);
  *  }));
  *  ```
  * @example
- *  ```typescript
- *  onEvent([SomeCommandEvent, AnotherCommandEvent], map((event) => {
- *    return new SomeCommand(event);
+ *  ```ts
+ *  onEvent([DoSomethingCompleted], map((event) => {
+ *    return new DoSomethingElse(event);
  *  }));
  *  ```
  */
@@ -159,6 +175,7 @@ export function onEvent<Types extends Type<CommandEvent>[]>(
 }
 
 /**
+ * Alias for `onEvent`.
  * @deprecated Use `onEvent` instead.
  */
 export const registerCommandEventHandler = onEvent;

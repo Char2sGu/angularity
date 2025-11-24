@@ -1,12 +1,13 @@
 import { forwardRef, inject, Injectable, PendingTasks } from '@angular/core';
 
 /**
- * Service that schedules a function to be executed after the current
+ * Interface and provider token for a service that
+ * schedules a function to be executed after the current
  * execution context is completed.
  *
- * Uses `MicrotaskCommandFlowScheduler` by default.
+ * This can be used to schedule the emission of events.
  *
- * This is usually used to schedule the dispatch of command events.
+ * @see `MicrotaskCommandFlowScheduler` for the default implementation.
  */
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,8 @@ export abstract class CommandFlowScheduler {
 
 /**
  * Implementation of `CommandFlowScheduler` that uses
- * `setImmediate` to schedule the next execution.
+ * `setTimeout` to schedule the next execution.
+ *
  * The scheduled function is added to `PendingTask` for SSR support.
  */
 @Injectable({ providedIn: 'root' })
@@ -37,11 +39,13 @@ export class SetTimeoutCommandFlowScheduler implements CommandFlowScheduler {
 /**
  * Implementation of `CommandFlowScheduler` that uses
  * `queueMicrotask` to schedule the next execution.
+ *
  * The scheduled function is added to `PendingTask` for SSR support.
  */
 @Injectable({ providedIn: 'root' })
 export class MicrotaskCommandFlowScheduler implements CommandFlowScheduler {
   #tasks = inject(PendingTasks);
+
   next(fn: () => void): void {
     const done = this.#tasks.add();
     queueMicrotask(() => {
@@ -54,8 +58,10 @@ export class MicrotaskCommandFlowScheduler implements CommandFlowScheduler {
 /**
  * Implementation of `CommandFlowScheduler` that uses
  * `requestAnimationFrame` to schedule the next execution.
+ *
  * Available only in the browser platform.
- * @deprecated prefer `SetTimeoutCommandFlowScheduler` for better compatibility.
+ *
+ * @deprecated prefer other implementations for compatibility on all platforms.
  */
 @Injectable({ providedIn: 'root' })
 export class AnimationFrameCommandFlowScheduler
