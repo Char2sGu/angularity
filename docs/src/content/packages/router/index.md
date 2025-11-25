@@ -1,4 +1,4 @@
-The `@angularity/router` package exports utilities about the Angular routing system, built upon `@angular/router`.
+The `@angularity/router` package exports utilities for the Angular routing system, built upon `@angular/router`.
 
 ```sh
 npm i @angular/router @angularity/{core,router}
