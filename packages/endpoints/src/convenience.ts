@@ -1,12 +1,18 @@
-import { inject, InjectionToken } from '@angular/core';
+import { inject, Injectable, InjectionToken } from '@angular/core';
 
 import { EndpointSchemas } from './core';
 import { GenerateEndpoints, generateEndpoints } from './generators';
 import { EndpointInvoker } from './invoker';
 
+@Injectable({ providedIn: 'root' })
+export class EndpointsWeakMap extends WeakMap<
+  EndpointSchemas,
+  GenerateEndpoints<EndpointSchemas>
+> {}
+
 /**
- * Convenience function that generates invocable endpoint functions
- * from the given endpoint schemas.
+ * Creates a collection of endpoints generated from the given schemas,
+ * through `generateEndpoints`, memoizing the result for future invocations.
  *
  * @see `generateEndpoints` - for manually generating endpoints
  *
@@ -23,12 +29,18 @@ import { EndpointInvoker } from './invoker';
 export const useEndpoints = <Schemas extends EndpointSchemas>(
   schemas: Schemas,
   invoker = inject(EndpointInvoker),
-): GenerateEndpoints<Schemas> => generateEndpoints(invoker, schemas);
+  memoizer = inject(EndpointsWeakMap),
+): GenerateEndpoints<Schemas> => {
+  if (memoizer.has(schemas))
+    return memoizer.get(schemas)! as GenerateEndpoints<Schemas>;
+  const endpoints = generateEndpoints(invoker, schemas);
+  memoizer.set(schemas, endpoints as GenerateEndpoints<EndpointSchemas>);
+  return endpoints;
+};
 
 /**
- * Convenience function that creates a typed `InjectionToken` with a default
- * value of a collection of endpoints generated from the given schemas,
- * through `generateEndpoints`.
+ * Creates a typed `InjectionToken` with a default value of a collection of
+ * endpoints generated from the given schemas, through `generateEndpoints`.
  *
  * @see `generateEndpoints` - for manually generating endpoints
  * @see `createEndpointsFactory` - lower-level convenience function
