@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.build.json",
   "compilerOptions": {
+    "types": ["jasmine"],
     "paths": {
       "@angularity/cdk": ["./packages/cdk/src"],
       "@angularity/cdk/*": ["./packages/cdk/*/src"],
