@@ -44,10 +44,10 @@ export interface EndpointSchema {
  * Declaration schema of an API endpoint's parameters.
  *
  * Syntax:
- * - field: required payload parameter
- * - field?: optional payload parameter
- * - ?field: required query parameter
- * - ?field?: optional query parameter
+ * - `field`: required body parameter
+ * - `field?`: optional body parameter
+ * - `?field`: required query parameter
+ * - `?field?`: optional query parameter
  */
 export interface EndpointParamsSchema {
   [param: string]: TypeContainer<unknown>;

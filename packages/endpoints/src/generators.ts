@@ -8,10 +8,16 @@ import {
   EndpointSchemas,
 } from './core';
 import { EndpointInvoker } from './invoker';
+import {
+  interpolatePathTemplate,
+  parsePathTemplate,
+  PathTemplateParamNamesOf,
+  PathTemplateParamsOf,
+} from './path-template';
 
 /**
- * Computed type that resolves a `EndpointParamsSchema` type into an object type
- * that can be used as a parameter to an endpoint function.
+ * Type function that accepts an `EndpointParamsSchema` type, resolves
+ * its `params` definition into an object literal type.
  * @see `GenerateEndpoint`
  */
 export type ResolveEndpointParamsSchema<Schema extends EndpointParamsSchema> = {
@@ -29,15 +35,27 @@ export type ResolveEndpointParamsSchema<Schema extends EndpointParamsSchema> = {
 };
 
 /**
- * Computed type that resolves an `EndpointSchema` type into a function type
- * which accepts an object of parameters as declared, if any, and returns an
- * observable of the response type as declared.
+ * Type function that accepts an `EndpointSchema` type, resolves
+ * its `path` and `params` definitions into an object literal type.
+ * @see `GenerateEndpoint`
+ */
+export type EndpointParamsOf<Schema extends EndpointSchema> =
+  PathTemplateParamsOf<Schema['path']> extends infer PathParams
+    ? Schema['params'] extends EndpointParamsSchema
+      ? PathParams & ResolveEndpointParamsSchema<Schema['params']>
+      : PathParams
+    : never;
+
+type VoidOrNonEmpty<T> = T extends Record<any, never> ? void : T;
+
+/**
+ * Type function that accepts an `EndpointSchema` type and returns
+ * a function type that accepts an object of parameters as declared,
+ * if any, and returns an observable of the response type as declared.
  * @see `generateEndpoint`
  */
 export type GenerateEndpoint<Schema extends EndpointSchema> = (
-  params: Schema['params'] extends EndpointParamsSchema
-    ? ResolveEndpointParamsSchema<Schema['params']>
-    : void,
+  params: VoidOrNonEmpty<EndpointParamsOf<Schema>>,
 ) => Observable<ContainedTypeOf<Schema['response']>>;
 
 /**
@@ -50,17 +68,16 @@ export type GenerateEndpoint<Schema extends EndpointSchema> = (
  *
  * @example
  *  ```typescript
- *  const invoker = inject(EndpointInvoker);
- *  const endpoint = generateEndpoint(invoker, {
- *    path: '/api/users',
- *    method: 'GET',
- *    params: null,
- *    response: $type<{ id: 'number', name: 'string' }>(),
- *  })
- *  endpoint().subscribe(response => {
- *    console.log(response.id);
- *    console.log(response.name);
- *  })
+ * const invoker = inject(EndpointInvoker);
+ * const endpoint = generateEndpoint(invoker, {
+ *   path: '/api/users/{{id}}',
+ *   method: 'GET',
+ *   params: null,
+ *   response: $type<{ user: User }>(),
+ * } as const);
+ * endpoint({ id: '1' }).subscribe((response) => {
+ *   // response from GET /api/users/1
+ * });
  *  ```
  *
  * @example
@@ -70,11 +87,12 @@ export type GenerateEndpoint<Schema extends EndpointSchema> = (
  *    path: '/api/users',
  *    method: 'POST',
  *    params: { name: $type<string>(), 'gender?': $type<string>() },
- *    response: $type<{ id: 'number', name: 'string' }>(),
+ *    response: $type<{ user: User }>(),
  *  })
  *  endpoint({ name: "Char2s" }).subscribe(response => {
- *    console.log(response.id);
- *    console.log(response.name);
+ *    // response from POST /api/users
+ *    console.log(response.user.id);
+ *    console.log(response.user.name);
  *  })
  *  ```
  */
@@ -82,6 +100,9 @@ export function generateEndpoint<Schema extends EndpointSchema>(
   invoker: EndpointInvoker,
   schema: Schema,
 ): GenerateEndpoint<Schema> {
+  const pathParamNames: Set<PathTemplateParamNamesOf<Schema['path']>> =
+    parsePathTemplate(schema.path);
+
   const paramMeta: Record<string, 'body' | 'query'> = {};
   for (const param in schema.params)
     if (param.startsWith('?')) {
@@ -98,17 +119,26 @@ export function generateEndpoint<Schema extends EndpointSchema>(
         path: schema.path,
         method: schema.method,
       });
-    const requestPayload: Record<string, unknown> = {};
+    const pathParams: Record<string, string> = {};
+    const requestBody: Record<string, unknown> = {};
     const requestQuery: Record<string, any> = {};
     for (const param in params) {
       const paramType = paramMeta[param];
-      if (paramType === 'body') requestPayload[param] = params[param];
+      if (pathParamNames.has(param as PathTemplateParamNamesOf<Schema['path']>))
+        pathParams[param] = params[param] as string;
+      else if (paramType === 'body') requestBody[param] = params[param];
       else if (paramType === 'query') requestQuery[param] = params[param];
+      // else case: ignore extraneous parameters
     }
     return invoker.invoke({
-      path: schema.path,
+      path: interpolatePathTemplate(
+        schema.path as Schema['path'],
+        (Object.keys(pathParams).length
+          ? pathParams
+          : undefined) as PathTemplateParamsOf<Schema['path']>,
+      ),
       method: schema.method,
-      payload: Object.keys(requestPayload).length ? requestPayload : undefined,
+      payload: Object.keys(requestBody).length ? requestBody : undefined,
       query: Object.keys(requestQuery).length ? requestQuery : undefined,
     });
   };
