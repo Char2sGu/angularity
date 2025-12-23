@@ -4,7 +4,7 @@
   "sideEffects": false,
   "description": "convenience abstractions over Firebase SDK for Angular",
   "peerDependencies": {
-    "@angular/core": ">=19",
+    "@angular/core": ">=21",
     "firebase": ">=10",
     "rxjs": ">=7",
     "rxfire": ">=6"

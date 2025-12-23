@@ -4,8 +4,8 @@
   "sideEffects": false,
   "description": "dynamic Material Design theming for Angular",
   "peerDependencies": {
-    "@angular/core": ">=19",
-    "@angular/common": ">=19",
+    "@angular/core": ">=21",
+    "@angular/common": ">=21",
     "@angularity/theming": "20.1.0",
     "@material/material-color-utilities": ">=0.3"
   },

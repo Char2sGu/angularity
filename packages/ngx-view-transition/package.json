@@ -4,8 +4,8 @@
   "sideEffects": false,
   "description": "Angular directives for declaring view transition anchors",
   "peerDependencies": {
-    "@angular/core": ">=19",
-    "@angular/common": ">=19"
+    "@angular/core": ">=21",
+    "@angular/common": ">=21"
   },
   "dependencies": {
     "tslib": "2.x.x"

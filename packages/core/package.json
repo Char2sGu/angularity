@@ -4,8 +4,8 @@
   "sideEffects": false,
   "description": "utilities and concepts enhancing Angular development",
   "peerDependencies": {
-    "@angular/core": ">=19",
-    "@angular/common": ">=19",
+    "@angular/core": ">=21",
+    "@angular/common": ">=21",
     "rxjs": ">=7",
     "type-container": "*"
   },

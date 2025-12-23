@@ -4,10 +4,10 @@
   "sideEffects": false,
   "description": "enhanced component development kit based on @angular/cdk",
   "peerDependencies": {
-    "@angular/animations": ">=19",
-    "@angular/cdk": ">=19",
-    "@angular/common": ">=19",
-    "@angular/core": ">=19",
+    "@angular/animations": ">=21",
+    "@angular/cdk": ">=21",
+    "@angular/common": ">=21",
+    "@angular/core": ">=21",
     "@angularity/core": "20.1.0",
     "ngx-view-transition": "20.1.0",
     "rxjs": ">=7"
