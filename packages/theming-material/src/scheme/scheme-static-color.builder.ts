@@ -1,4 +1,4 @@
-import { inject } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import {
   ThemeTokens,
   TokenBuilder,
@@ -83,9 +83,8 @@ export interface SchemeStaticColorBuilderConfig {
  *  ),
  *  ```
  */
-export class SchemeStaticColorBuilder
-  implements TokenBuilder<SchemeStaticColorBuilderConfig>
-{
+@Injectable({ providedIn: 'root' })
+export class SchemeStaticColorBuilder implements TokenBuilder<SchemeStaticColorBuilderConfig> {
   protected hctFormatter = inject(HctFormatter);
 
   build(
