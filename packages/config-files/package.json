@@ -1,12 +1,12 @@
 {
   "name": "@angularity/config-files",
-  "version": "20.1.0",
+  "version": "21.0.0",
   "sideEffects": false,
   "description": "declaratively define, load, parse, and validate remote configs",
   "peerDependencies": {
     "@angular/common": ">=21",
     "@angular/core": ">=21",
-    "@angularity/core": "20.1.0",
+    "@angularity/core": "21.0.0",
     "rxjs": ">=7"
   },
   "dependencies": {

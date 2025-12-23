@@ -1,3 +1,21 @@
+# 21.0.0 (2025-12-23)
+
+### 🚀 Features
+
+- **endpoints:** support path params ([e05c594](https://github.com/TheNightmareX/angularly/commit/e05c594))
+
+### 🩹 Fixes
+
+- **command-flow:** add missing flow exports ([0d42d9c](https://github.com/TheNightmareX/angularly/commit/0d42d9c))
+
+### 🔥 Performance
+
+- **endpoints:** add memoization to `useEndpoints` ([7c12529](https://github.com/TheNightmareX/angularly/commit/7c12529))
+
+### ❤️ Thank You
+
+- Char2s
+
 ## 20.1.0 (2025-11-24)
 
 ### 🚀 Features

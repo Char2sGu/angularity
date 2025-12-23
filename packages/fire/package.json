@@ -1,6 +1,6 @@
 {
   "name": "@angularity/fire",
-  "version": "20.1.0",
+  "version": "21.0.0",
   "sideEffects": false,
   "description": "convenience abstractions over Firebase SDK for Angular",
   "peerDependencies": {
