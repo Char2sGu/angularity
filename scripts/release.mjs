@@ -24,8 +24,7 @@ async function main() {
       : {
           specifier,
         }),
-    /**@satisfies {import('nx/src/command-line/release/version').ReleaseVersionGeneratorSchema } */
-    generatorOptionsOverrides: {
+    versionActionsOptionsOverrides: {
       // The built-in lock file update is problematic and brings tons of
       // irrelevant changes.
       skipLockFileUpdate: true,
