@@ -71,6 +71,8 @@ Factories:
 
 - `createProcessType`
   {{ JSDoc.description("packages/command-flow/process-flow/src/index.ts#createProcessType") }}
+- `createProcessTypeWithEvents`
+  {{ JSDoc.description("packages/command-flow/process-flow/src/index.ts#createProcessTypeWithEvents") }}
 
 Handlers:
 
@@ -107,6 +109,8 @@ Factories:
 
 - `createQueryType`
   {{ JSDoc.description("packages/command-flow/query-flow/src/index.ts#createQueryType") }}
+- `createQueryTypeWithEvents`
+  {{ JSDoc.description("packages/command-flow/query-flow/src/index.ts#createQueryTypeWithEvents") }}
 
 Handlers:
 
