@@ -579,7 +579,7 @@
       },
       {
         "route": "/api/classes/theming-material/SchemeStaticColorBuilder",
-        "type": "Class",
+        "type": "Injectable",
         "name": "SchemeStaticColorBuilder"
       },
       {
@@ -813,6 +813,11 @@
         "name": "createPseudoProcessEventTypes"
       },
       {
+        "route": "/api/type-aliases/command-flow-process-flow/PseudoProcessEventTypes",
+        "type": "TypeAlias",
+        "name": "PseudoProcessEventTypes"
+      },
+      {
         "route": "/api/classes/command-flow-process-flow/ProcessEvent",
         "type": "Class",
         "name": "ProcessEvent"
@@ -856,6 +861,11 @@
         "route": "/api/functions/command-flow-process-flow/createProcessEventType",
         "type": "Function",
         "name": "createProcessEventType"
+      },
+      {
+        "route": "/api/functions/command-flow-process-flow/createProcessTypeWithEvents",
+        "type": "Function",
+        "name": "createProcessTypeWithEvents"
       },
       {
         "route": "/api/interfaces/command-flow-process-flow/DualUseProcessType",
@@ -918,6 +928,11 @@
         "name": "createPseudoQueryEventTypes"
       },
       {
+        "route": "/api/type-aliases/command-flow-query-flow/PseudoQueryEventTypes",
+        "type": "TypeAlias",
+        "name": "PseudoQueryEventTypes"
+      },
+      {
         "route": "/api/classes/command-flow-query-flow/QueryEvent",
         "type": "Class",
         "name": "QueryEvent"
@@ -961,6 +976,11 @@
         "route": "/api/functions/command-flow-query-flow/createQueryEventType",
         "type": "Function",
         "name": "createQueryEventType"
+      },
+      {
+        "route": "/api/functions/command-flow-query-flow/createQueryTypeWithEvents",
+        "type": "Function",
+        "name": "createQueryTypeWithEvents"
       },
       {
         "route": "/api/interfaces/command-flow-query-flow/DualUseQueryType",
@@ -1058,6 +1078,11 @@
         "name": "createEndpointsFactory"
       },
       {
+        "route": "/api/classes/endpoints/EndpointsWeakMap",
+        "type": "Injectable",
+        "name": "EndpointsWeakMap"
+      },
+      {
         "route": "/api/variables/endpoints/useEndpoints",
         "type": "Variable",
         "name": "useEndpoints"
@@ -1098,6 +1123,11 @@
         "name": "ResolveEndpointParamsSchema"
       },
       {
+        "route": "/api/type-aliases/endpoints/EndpointParamsOf",
+        "type": "TypeAlias",
+        "name": "EndpointParamsOf"
+      },
+      {
         "route": "/api/type-aliases/endpoints/GenerateEndpoint",
         "type": "TypeAlias",
         "name": "GenerateEndpoint"
@@ -1126,6 +1156,26 @@
         "route": "/api/classes/endpoints/HttpClientEndpointInvoker",
         "type": "Injectable",
         "name": "HttpClientEndpointInvoker"
+      },
+      {
+        "route": "/api/functions/endpoints/parsePathTemplate",
+        "type": "Function",
+        "name": "parsePathTemplate"
+      },
+      {
+        "route": "/api/functions/endpoints/interpolatePathTemplate",
+        "type": "Function",
+        "name": "interpolatePathTemplate"
+      },
+      {
+        "route": "/api/type-aliases/endpoints/PathTemplateParamNamesOf",
+        "type": "TypeAlias",
+        "name": "PathTemplateParamNamesOf"
+      },
+      {
+        "route": "/api/type-aliases/endpoints/PathTemplateParamsOf",
+        "type": "TypeAlias",
+        "name": "PathTemplateParamsOf"
       }
     ]
   },
