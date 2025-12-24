@@ -1,12 +1,12 @@
 {
   "name": "@angularity/endpoints",
-  "version": "21.0.0",
+  "version": "21.1.0",
   "sideEffects": false,
   "description": "invoke HTTP endpoints via functions generated from declarations",
   "peerDependencies": {
     "@angular/common": ">=21",
     "@angular/core": ">=21",
-    "@angularity/core": "21.0.0",
+    "@angularity/core": "21.1.0",
     "rxjs": ">=7"
   },
   "dependencies": {

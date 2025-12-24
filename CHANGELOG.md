@@ -1,3 +1,17 @@
+## 21.1.0 (2025-12-24)
+
+### 🚀 Features
+
+- **command-flow:** add convenience functions for creating types with events ([e261289](https://github.com/TheNightmareX/angularly/commit/e261289))
+
+### 🩹 Fixes
+
+- **theming-material:** provide static color builder to root ([dba0ba3](https://github.com/TheNightmareX/angularly/commit/dba0ba3))
+
+### ❤️ Thank You
+
+- Char2s
+
 # 21.0.0 (2025-12-23)
 
 ### 🚀 Features

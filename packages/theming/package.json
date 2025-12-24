@@ -1,12 +1,12 @@
 {
   "name": "@angularity/theming",
-  "version": "21.0.0",
+  "version": "21.1.0",
   "sideEffects": false,
   "description": "dynamic runtime theming infrastructure for Angular",
   "peerDependencies": {
     "@angular/common": ">=21",
     "@angular/core": ">=21",
-    "@angularity/core": "21.0.0",
+    "@angularity/core": "21.1.0",
     "rxjs": ">=7"
   },
   "dependencies": {

@@ -1,12 +1,12 @@
 {
   "name": "@angularity/theming-material",
-  "version": "21.0.0",
+  "version": "21.1.0",
   "sideEffects": false,
   "description": "dynamic Material Design theming for Angular",
   "peerDependencies": {
     "@angular/core": ">=21",
     "@angular/common": ">=21",
-    "@angularity/theming": "21.0.0",
+    "@angularity/theming": "21.1.0",
     "@material/material-color-utilities": ">=0.3"
   },
   "dependencies": {

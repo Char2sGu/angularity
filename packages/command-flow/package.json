@@ -1,13 +1,13 @@
 {
   "name": "@angularity/command-flow",
-  "version": "21.0.0",
+  "version": "21.1.0",
   "sideEffects": false,
   "description": "centralized command/event system for efficient modeling of complex business logic",
   "peerDependencies": {
     "@angular/common": ">=21",
     "@angular/core": ">=21",
     "@angularity/command-flow": "*",
-    "@angularity/core": "21.0.0",
+    "@angularity/core": "21.1.0",
     "rxjs": ">=7"
   },
   "dependencies": {

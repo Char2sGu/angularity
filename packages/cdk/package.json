@@ -1,6 +1,6 @@
 {
   "name": "@angularity/cdk",
-  "version": "21.0.0",
+  "version": "21.1.0",
   "sideEffects": false,
   "description": "enhanced component development kit based on @angular/cdk",
   "peerDependencies": {
@@ -8,8 +8,8 @@
     "@angular/cdk": ">=21",
     "@angular/common": ">=21",
     "@angular/core": ">=21",
-    "@angularity/core": "21.0.0",
-    "ngx-view-transition": "21.0.0",
+    "@angularity/core": "21.1.0",
+    "ngx-view-transition": "21.1.0",
     "rxjs": ">=7"
   },
   "dependencies": {
