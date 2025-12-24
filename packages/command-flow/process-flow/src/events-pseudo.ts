@@ -7,6 +7,13 @@ import {
 import { Process } from './core';
 import { ProcessCompleted, ProcessFailed, ProcessStarted } from './events';
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions -- index signature type issues
+export type PseudoProcessEventTypes<P extends Process<any>> = {
+  ['Started']: Type<ProcessStarted<P>>;
+  ['Completed']: Type<ProcessCompleted<P>>;
+  ['Failed']: Type<ProcessFailed<P>>;
+};
+
 /**
  * Creates a set of pseudo event types for a specific `Process` type.
  *
@@ -38,11 +45,7 @@ import { ProcessCompleted, ProcessFailed, ProcessStarted } from './events';
  */
 export function createPseudoProcessEventTypes<P extends Process<any>>(
   type: Type<P>,
-): {
-  ['Started']: Type<ProcessStarted<P>>;
-  ['Completed']: Type<ProcessCompleted<P>>;
-  ['Failed']: Type<ProcessFailed<P>>;
-} {
+): PseudoProcessEventTypes<P> {
   return {
     ['Started']: createPseudoType<ProcessStarted<P>>(
       (input) =>

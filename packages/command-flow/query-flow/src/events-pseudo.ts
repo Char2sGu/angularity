@@ -12,6 +12,14 @@ import {
   QueryResolved,
 } from './events';
 
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions -- index signature type issues
+export type PseudoQueryEventTypes<Q extends Query<any>> = {
+  ['Activated']: Type<QueryActivated<Q>>;
+  ['Resolved']: Type<QueryResolved<Q>>;
+  ['Errored']: Type<QueryErrored<Q>>;
+  ['Inactivated']: Type<QueryInactivated<Q>>;
+};
+
 /**
  * Creates a set of pseudo event types for a specific `Query` type.
  *
@@ -45,12 +53,7 @@ import {
  */
 export function createPseudoQueryEventTypes<Q extends Query<any>>(
   type: Type<Q>,
-): {
-  ['Activated']: Type<QueryActivated<Q>>;
-  ['Resolved']: Type<QueryResolved<Q>>;
-  ['Errored']: Type<QueryErrored<Q>>;
-  ['Inactivated']: Type<QueryInactivated<Q>>;
-} {
+): PseudoQueryEventTypes<Q> {
   return {
     ['Activated']: createPseudoType<QueryActivated<Q>>(
       (input) =>
