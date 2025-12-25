@@ -27,6 +27,11 @@ Type Gymnastics:
 - `$type`
 - `TypeContainer`
 
+Miscellaneous:
+
+- `todo`
+  {{ JSDoc.description("packages/core/src/index.ts#todo") }}
+
 ### Exported from `@angularity/core/http`
 
 HTTP Utilities:
