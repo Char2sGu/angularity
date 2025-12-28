@@ -31,6 +31,8 @@ Miscellaneous:
 
 - `todo`
   {{ JSDoc.description("packages/core/src/index.ts#todo") }}
+- `noop`
+  {{ JSDoc.description("packages/core/src/index.ts#noop") }}
 
 ### Exported from `@angularity/core/http`
 
