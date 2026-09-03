@@ -1,4 +1,4 @@
-<!-- Generated from the package README by scripts/generate-docs.mjs. Do not edit. -->
+# @angularity/cdk
 
 Component development primitives built on top of `@angular/cdk`.
 
@@ -8,43 +8,37 @@ npm i @angular/cdk @angularity/{core,cdk}
 
 The package is split by concern into several entry points:
 
-- `@angularity/cdk` — uncategorized primitives.
+- `@angularity/cdk` — view-transition primitives.
 - `@angularity/cdk/dialog` — dialog enhancements over the CDK dialog.
 - `@angularity/cdk/portal` — animation-aware portal factories.
 - `@angularity/cdk/layout` — named breakpoint and color-scheme observers.
+
+## API
 
 ### `@angularity/cdk`
 
 View Transition:
 
 - `HostTransition`
-  {{ JSDoc.description("packages/cdk/src/index.ts#HostTransition") }}
 
 ### `@angularity/cdk/dialog`
 
 Dialog Enhancements:
 
 - `useDialog`
-  {{ JSDoc.description("packages/cdk/dialog/src/index.ts#useDialog") }}
 - `DialogIoTypes`
-  {{ JSDoc.description("packages/cdk/dialog/src/index.ts#DialogIoTypes") }}
 - `AnimationAwareDialog`
-  {{ JSDoc.description("packages/cdk/dialog/src/index.ts#AnimationAwareDialog") }}
 
 ### `@angularity/cdk/portal`
 
 Portal Enhancements:
 
 - `createAnimationAwareTemplatePortal`
-  {{ JSDoc.description("packages/cdk/portal/src/index.ts#createAnimationAwareTemplatePortal") }}
 - `createAnimationAwareComponentPortal`
-  {{ JSDoc.description("packages/cdk/portal/src/index.ts#createAnimationAwareComponentPortal") }}
 
 ### `@angularity/cdk/layout`
 
 Layout Enhancements:
 
 - `NamedBreakpointObserver`
-  {{ JSDoc.description("packages/cdk/layout/src/index.ts#NamedBreakpointObserver") }}
 - `SystemColorSchemeObserver`
-  {{ JSDoc.description("packages/cdk/layout/src/index.ts#SystemColorSchemeObserver") }}

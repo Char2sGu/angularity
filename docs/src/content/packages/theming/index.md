@@ -1,10 +1,12 @@
-The `@angularity/theming` package offers a programmatic runtime theming system that allows dynamic theming at the runtime or based on remote configurations.
+<!-- Generated from the package README by scripts/generate-docs.mjs. Do not edit. -->
+
+A programmatic runtime theming system enabling dynamic theming at runtime or from remote configuration.
 
 ```sh
 npm i @angularity/{core,theming}
 ```
 
-### Exported from `@angularity/theming`
+### `@angularity/theming`
 
 Top-level:
 

@@ -1,10 +1,12 @@
-The `@angularity/router` package exports utilities for the Angular routing system, built upon `@angular/router`.
+<!-- Generated from the package README by scripts/generate-docs.mjs. Do not edit. -->
+
+Utilities for the Angular routing system, built on `@angular/router`.
 
 ```sh
 npm i @angular/router @angularity/{core,router}
 ```
 
-### Exported from `@angularity/router`
+### `@angularity/router`
 
 Component Utilities:
 

@@ -24,12 +24,19 @@ const contentDir = join(root, 'docs/src/content/packages');
 const BANNER =
   '<!-- Generated from the package README by scripts/generate-docs.mjs. Do not edit. -->';
 
-const HEADING = /^###\s+`@angularity\/([^`]+)`\s*$/;
+// An API entry-point heading: a backticked H3 naming the import specifier —
+// scoped (`@angularity/core`, `@angularity/core/http`) or unscoped
+// (`ngx-view-transition`).
+const HEADING = /^###\s+`([^`]+)`\s*$/;
 const BARE_BULLET = /^(\s*)-\s+`([^`]+)`\s*$/;
 
 function sourceOf(spec) {
-  // `core` -> packages/core/src/index.ts ; `core/http` -> packages/core/http/src/index.ts
-  return `packages/${spec}/src/index.ts`;
+  // Map an import specifier to its entry-point barrel:
+  //   `@angularity/core`      -> packages/core/src/index.ts
+  //   `@angularity/core/http` -> packages/core/http/src/index.ts
+  //   `ngx-view-transition`   -> packages/ngx-view-transition/src/index.ts
+  const path = spec.replace(/^@angularity\//, '');
+  return `packages/${path}/src/index.ts`;
 }
 
 function generate(readme) {

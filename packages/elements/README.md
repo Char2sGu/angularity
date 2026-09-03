@@ -1,4 +1,4 @@
-<!-- Generated from the package README by scripts/generate-docs.mjs. Do not edit. -->
+# @angularity/elements
 
 High-level API for [Angular Elements](https://angular.dev/guide/elements), built on `@angular/elements`.
 
@@ -6,7 +6,8 @@ High-level API for [Angular Elements](https://angular.dev/guide/elements), built
 npm i @angular/elements @angularity/{core,elements}
 ```
 
+## API
+
 ### `@angularity/elements`
 
 - `provideElements`
-  {{ JSDoc.description("packages/elements/src/index.ts#provideElements") }}

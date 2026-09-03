@@ -1,10 +1,12 @@
-The `@angularity/endpoints` package offers a declarative access to HTTP endpoints with swappable implementations.
+<!-- Generated from the package README by scripts/generate-docs.mjs. Do not edit. -->
+
+Declarative access to HTTP endpoints with swappable implementations.
 
 ```sh
 npm i @angularity/{core,endpoints}
 ```
 
-### Exported from `@angularity/endpoints`
+### `@angularity/endpoints`
 
 Top-level:
 

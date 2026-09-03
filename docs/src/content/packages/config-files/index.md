@@ -1,13 +1,12 @@
-The `@angularity/config-files` package offers a declarative and flexible access to remote config files, such as static JSON/YAML/XML files or config REST APIs.
+<!-- Generated from the package README by scripts/generate-docs.mjs. Do not edit. -->
+
+Declarative and flexible access to remote config files — static JSON/YAML/XML files or config REST APIs.
 
 ```sh
 npm i @angularity/{core,config-files}
 ```
 
-> **warning**
-> It is recommended to use async theming whenever possible, since the dependent `material-design-color-utilities` package would bring 60KB of minified JavaScript to the bundle.
-
-### Exported from `@angularity/config-files`
+### `@angularity/config-files`
 
 Top-level:
 

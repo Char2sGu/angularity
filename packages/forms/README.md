@@ -1,4 +1,4 @@
-<!-- Generated from the package README by scripts/generate-docs.mjs. Do not edit. -->
+# @angularity/forms
 
 Convenience abstractions for implementing custom Angular form control components.
 
@@ -21,15 +21,13 @@ export class AglSwitch extends SimpleComponentValueAccessorHost<boolean> {
 }
 ```
 
+## API
+
 ### `@angularity/forms`
 
 Top-level:
 
 - `provideComponentValueAccessor`
-  {{ JSDoc.description("packages/forms/src/index.ts#provideComponentValueAccessor") }}
 - `ComponentValueAccessorHost`
-  {{ JSDoc.description("packages/forms/src/index.ts#ComponentValueAccessorHost") }}
 - `SimpleComponentValueAccessorHost`
-  {{ JSDoc.description("packages/forms/src/index.ts#SimpleComponentValueAccessorHost") }}
 - `ComponentValueAccessor`
-  {{ JSDoc.description("packages/forms/src/index.ts#ComponentValueAccessor") }}

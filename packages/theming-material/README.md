@@ -1,4 +1,4 @@
-<!-- Generated from the package README by scripts/generate-docs.mjs. Do not edit. -->
+# @angularity/theming-material
 
 A collection of `TokenBuilder` implementations that generate a Material Design theme system, built on the `@angularity/theming` infrastructure and the `material-design-color-utilities` package.
 
@@ -9,22 +9,18 @@ npm i @angularity/{core,theming,theming-material}
 > **warning**
 > Prefer async theming whenever possible: the dependent `material-design-color-utilities` package adds roughly 60KB of minified JavaScript to the bundle.
 
+## API
+
 ### `@angularity/theming-material`
 
 Builders:
 
 - `SchemeBuilder`
-  {{ JSDoc.description("packages/theming-material/src/index.ts#SchemeBuilder") }}
 - `SchemeStaticColorBuilder`
-  {{ JSDoc.description("packages/theming-material/src/index.ts#SchemeStaticColorBuilder") }}
 - `TypescaleBuilder`
-  {{ JSDoc.description("packages/theming-material/src/index.ts#TypescaleBuilder") }}
 - `StandardTypescaleBuilder`
-  {{ JSDoc.description("packages/theming-material/src/index.ts#StandardTypescaleBuilder") }}
 
 Utilities:
 
 - `HctFormatter`
-  {{ JSDoc.description("packages/theming-material/src/index.ts#HctFormatter") }}
 - `ImageSeedColorExtractor`
-  {{ JSDoc.description("packages/theming-material/src/index.ts#ImageSeedColorExtractor") }}
