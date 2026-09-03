@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "build": "nx run-many -t build --projects=* --exclude docs",
+    "docs:generate": "node scripts/generate-docs.mjs",
     "release": "node scripts/release.mjs",
     "format": "prettier --write \"{*,packages/**/*}.{html,css,less,scss,sass,ts,js,json,md}\" && eslint \"packages/**/*.ts\" --cache --fix"
   },

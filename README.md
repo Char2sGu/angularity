@@ -42,3 +42,15 @@ To update all Angularity packages, run:
 ```sh
 npx update-by-scope @angularity
 ```
+
+## Documentation
+
+Documentation is hierarchical, and every fact lives at its nearest source:
+
+- This root `README.md` is a router: it lists every package and points to more; it holds no detail that belongs to a package.
+- Each package's `README.md` is the single source of truth for its consumer docs — what npmjs.com and GitHub render.
+- Each package's `CLAUDE.md` documents the package for maintainers, and `@`-includes its `README.md`.
+- Per-symbol API descriptions live in the exported symbol's JSDoc.
+- The documentation **site** under `/docs` is generated: `npm run docs:generate` projects each package `README.md` (with JSDoc injected) into its ng-doc page. Never edit a generated `docs/src/content/packages/*/index.md` by hand.
+
+Authoring conventions live in [`.claude/rules/documentation-authoring.md`](.claude/rules/documentation-authoring.md).

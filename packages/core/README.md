@@ -1,4 +1,4 @@
-<!-- Generated from the package README by scripts/generate-docs.mjs. Do not edit. -->
+# @angularity/core
 
 Foundation artifacts and utilities shared across every Angularity package. Its exports are either framework-agnostic or depend only on the kernel of Angular (`@angular/core`, `@angular/common`), so every other Angularity package builds on top of it.
 
@@ -12,23 +12,20 @@ The package is split into three entry points by dependency weight:
 - `@angularity/core/http` — utilities depending on `@angular/common/http`.
 - `@angularity/core/rxjs` — RxJS interoperability and operators.
 
+## API
+
 ### `@angularity/core`
 
 Dependency Injection Utilities:
 
 - `provide`
-  {{ JSDoc.description("packages/core/src/index.ts#provide") }}
 - `provideMulti`
-  {{ JSDoc.description("packages/core/src/index.ts#provideMulti") }}
 - `injectRef`
-  {{ JSDoc.description("packages/core/src/index.ts#injectRef") }}
 - `injectLazy`
-  {{ JSDoc.description("packages/core/src/index.ts#injectLazy") }}
 
 Error Handling:
 
 - `Exception`
-  {{ JSDoc.description("packages/core/src/index.ts#Exception") }}
 
 Type Gymnastics:
 
@@ -38,31 +35,23 @@ Type Gymnastics:
 Miscellaneous:
 
 - `todo`
-  {{ JSDoc.description("packages/core/src/index.ts#todo") }}
 - `noop`
-  {{ JSDoc.description("packages/core/src/index.ts#noop") }}
 
 ### `@angularity/core/http`
 
 HTTP Utilities:
 
 - `intercept`
-  {{ JSDoc.description("packages/core/http/src/index.ts#intercept") }}
 - `provideHttpServerCache`
-  {{ JSDoc.description("packages/core/http/src/index.ts#provideHttpServerCache") }}
 
 ### `@angularity/core/rxjs`
 
 RxJS Interoperability:
 
 - `ObservableSignal`
-  {{ JSDoc.description("packages/core/rxjs/src/index.ts#ObservableSignal") }}
 - `toObservableSignal`
-  {{ JSDoc.description("packages/core/rxjs/src/index.ts#toObservableSignal") }}
 
 RxJS Operators:
 
 - `mapToVoid`
-  {{ JSDoc.description("packages/core/rxjs/src/index.ts#mapToVoid") }}
 - `pickType`
-  {{ JSDoc.description("packages/core/rxjs/src/index.ts#pickType") }}

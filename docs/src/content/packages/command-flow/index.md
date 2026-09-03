@@ -1,17 +1,19 @@
-The `@angularity/command-flow` package models everything in your application as globally accessible commands and events, enabling a fully event-driven architecture that is reactive, declarative, decoupled, and type-safe.
+<!-- Generated from the package README by scripts/generate-docs.mjs. Do not edit. -->
 
-This package consists of multiple sub-packages:
+Models everything in your application as globally accessible commands and events, enabling a fully event-driven architecture that is reactive, declarative, decoupled, and type-safe.
 
-- `@angularity/command-flow` - foundation artifacts
-- `@angularity/command-flow/process-flow` - abstraction for modeling async processes
-- `@angularity/command-flow/query-flow` - abstraction for modeling reactive data queries
-- `@angularity/command-flow/debugger` - debugger for tracing commands and events
+This package consists of multiple entry points:
+
+- `@angularity/command-flow` — foundation artifacts.
+- `@angularity/command-flow/process-flow` — abstraction for modeling async processes.
+- `@angularity/command-flow/query-flow` — abstraction for modeling reactive data queries.
+- `@angularity/command-flow/debugger` — debugger for tracing commands and events.
 
 ```sh
 npm i @angularity/{core,command-flow}
 ```
 
-### Exported from `@angularity/command-flow`
+### `@angularity/command-flow`
 
 Foundation:
 
@@ -46,15 +48,15 @@ Facade:
 Flow:
 
 - `Flow`
-  {{ JSDoc.description("packages/command-flow/src/flow.ts#Flow") }}
+  {{ JSDoc.description("packages/command-flow/src/index.ts#Flow") }}
 - `FlowEffect`
-  {{ JSDoc.description("packages/command-flow/src/flow.ts#FlowEffect") }}
+  {{ JSDoc.description("packages/command-flow/src/index.ts#FlowEffect") }}
 - `createFlow`
-  {{ JSDoc.description("packages/command-flow/src/flow.ts#createFlow") }}
+  {{ JSDoc.description("packages/command-flow/src/index.ts#createFlow") }}
 - `provideFlows`
-  {{ JSDoc.description("packages/command-flow/src/flow.ts#provideFlows") }}
+  {{ JSDoc.description("packages/command-flow/src/index.ts#provideFlows") }}
 
-### Exported from `@angularity/command-flow/process-flow`
+### `@angularity/command-flow/process-flow`
 
 Foundation:
 
@@ -88,7 +90,7 @@ Facade:
 - `useProcessError`
   {{ JSDoc.description("packages/command-flow/process-flow/src/index.ts#useProcessError") }}
 
-### Exported from `@angularity/command-flow/query-flow`
+### `@angularity/command-flow/query-flow`
 
 Foundation:
 
@@ -124,7 +126,7 @@ Facade:
 - `useQueryLoading`
   {{ JSDoc.description("packages/command-flow/query-flow/src/index.ts#useQueryLoading") }}
 
-### Exported from `@angularity/command-flow/debugger`
+### `@angularity/command-flow/debugger`
 
 - `provideCommandFlowDebugger`
   {{ JSDoc.description("packages/command-flow/debugger/src/index.ts#provideCommandFlowDebugger") }}
