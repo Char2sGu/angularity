@@ -29,6 +29,7 @@ Error Handling:
 
 - `Exception`
   {{ JSDoc.description("packages/core/src/index.ts#Exception") }}
+- `invariant` — re-export of [tiny-invariant](https://github.com/alexreardon/tiny-invariant); throws when a required condition is false, to guard against invariant violations.
 
 Type Gymnastics:
 

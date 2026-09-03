@@ -4,12 +4,13 @@
   "sideEffects": false,
   "description": "utilities and concepts enhancing Angular development",
   "peerDependencies": {
-    "@angular/core": ">=21",
     "@angular/common": ">=21",
+    "@angular/core": ">=21",
     "rxjs": ">=7",
     "type-container": "*"
   },
   "dependencies": {
+    "tiny-invariant": "^1.3.3",
     "tslib": "2.x.x"
   },
   "author": "Char2s <char2s@outlook.com>",

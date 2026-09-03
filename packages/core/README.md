@@ -26,6 +26,7 @@ Dependency Injection Utilities:
 Error Handling:
 
 - `Exception`
+- `invariant` - throws when a required condition is false, to guard against invariant violations.
 
 Type Gymnastics:
 
